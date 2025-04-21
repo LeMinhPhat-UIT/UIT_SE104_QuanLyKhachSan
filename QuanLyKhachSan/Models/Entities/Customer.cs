@@ -34,7 +34,6 @@ namespace EntityFramework
 
         [ForeignKey("CustomerTierID")]
         public CustomerTier CustomerTier { get; set; }
-        public List<InvoiceDetail> InvoiceDetails { get; set; }
         public List<RentalDetail> RentalDetails { get; set; }
     }
 }

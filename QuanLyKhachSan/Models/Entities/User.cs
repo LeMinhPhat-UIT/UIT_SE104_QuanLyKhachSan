@@ -8,14 +8,18 @@ using System.Threading.Tasks;
 
 namespace EntityFramework
 {
-    public class Staff
+    public class User
     {
         [Key]
-        public int StaffID { get; set; }
+        public int UserID { get; set; }
 
         [StringLength(50)]
         [Column(TypeName="nvarchar")]
-        public string StaffName { get; set; }
+        public string UserName { get; set; }
+
+        [StringLength(200)]
+        [Column(TypeName="varchar")]
+        public string Password { get; set; }
 
         [StringLength(12)]
         [Column(TypeName="char")]
@@ -23,7 +27,7 @@ namespace EntityFramework
 
         [StringLength(50)]
         [Column(TypeName="nvarchar")]
-        public string Authority { get; set; }
+        public string Role { get; set; }
 
         [StringLength(20)]
         [Column(TypeName="char")]
@@ -36,7 +40,6 @@ namespace EntityFramework
         [StringLength(100)]
         [Column(TypeName="ntext")]
         public string Address { get; set; }
-        public Account Account { get; set; }
         public List<Invoice> Invoices { get; set; }
         public List<RentalForm> RentalForms { get; set; }
     }

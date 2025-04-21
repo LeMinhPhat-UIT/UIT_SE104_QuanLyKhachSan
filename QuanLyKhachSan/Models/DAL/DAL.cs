@@ -11,7 +11,6 @@ namespace QuanLyKhachSan.Models.DAL
 {
     public class DALs
     {
-        public static AccountDAL AccountRepo => new AccountDAL();
         public static CustomerDAL CustomerRepo => new CustomerDAL();
         public static CustomerTierDAL CustomerTierRepo => new CustomerTierDAL();
         public static InvoiceDAL InvoiceRepo => new InvoiceDAL();
@@ -19,7 +18,7 @@ namespace QuanLyKhachSan.Models.DAL
         public static RevenueDAL RevenueRepo => new RevenueDAL();
         public static RoomDAL RoomRepo => new RoomDAL();
         public static RoomTierDAL RoomTierRepo => new RoomTierDAL();
-        public static StaffDAL StaffRepo => new StaffDAL();
+        public static UserDAL UserRepo => new UserDAL();
 
         public static InvoiceDetailDAL InvoiceDetailRepo => new InvoiceDetailDAL();
         public static RentalDetailDAL RentalDetailRepo => new RentalDetailDAL();

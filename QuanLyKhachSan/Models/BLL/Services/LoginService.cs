@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Navigation;
 using EntityFramework;
+using Microsoft.Azure.Cosmos;
 using Microsoft.EntityFrameworkCore;
 using QuanLyKhachSan.Models.DAL;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
@@ -16,23 +17,11 @@ namespace QuanLyKhachSan.Models.BLL.Services
     {
         public bool Success { get; set; }
         public string Message { get; set; }
-        public Account? Account { get; set; }
+        public EntityFramework.User? User { get; set; }
     }
 
-    public class AccountService
+    public class LoginService
     {
-        public static void Add(Account account)
-        {
-            account.Password = PasswordService.HashPassword(account.Password);
-            DALs.AccountRepo.Add(account);
-        }
-
-        public static void Delete(int Id)
-            =>DALs.AccountRepo.Delete(Id);
-
-        public static void Update(Account account)
-            =>DALs.AccountRepo.Update(account);
-
         public static LoginResult Login(int id, string password)
         {
             if (id <= 0)
@@ -40,29 +29,29 @@ namespace QuanLyKhachSan.Models.BLL.Services
                 {
                     Success = false,
                     Message = "id invalid",
-                    Account = null
+                    User = null
                 };
-            var account = DALs.AccountRepo.GetById(id);
-            if (account == null)
+            var user = DALs.UserRepo.GetById(id);
+            if (user == null)
                 return new LoginResult
                 {
                     Success = false,
                     Message = "no account",
-                    Account = null
+                    User = null
                 };
-            var verify = PasswordService.VerifyPassword(password, account.Password);
+            var verify = PasswordService.VerifyPassword(password, user.Password);
             return 
                 verify == true ? new LoginResult
                 {
                     Success = true,
                     Message = "",
-                    Account = account
+                    User = user
                 }
                 : new LoginResult 
                 {
                     Success = false,
                     Message = "incorrect password",
-                    Account = null
+                    User = null
                 };
         }
     }

@@ -20,16 +20,20 @@ namespace EntityFramework
         [Column(TypeName="smalldatetime")]
         public DateTime InvoiceDate { get; set; }
 
+        public int TotalDays { get; set; }
+
+        [Column(TypeName="money")]
+        public decimal PricePerDay { get; set; }
+
         [Column(TypeName="money")]
         public decimal TotalAmount { get; set; }
 
         [StringLength(50)]
         [Column(TypeName="nvarchar")]
         public string PaymentMethod { get; set; }
-        public List<InvoiceDetail> InvoiceDetails { get; set; }
 
         [ForeignKey("StaffID")]
-        public Staff Staff { get; set; }
+        public User User { get; set; }
         public RentalForm RentalForm { get; set; }
     }
 }

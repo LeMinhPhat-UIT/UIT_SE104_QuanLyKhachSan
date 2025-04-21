@@ -10,28 +10,28 @@ using QuanLyKhachSan.Models.DAL;
 
 namespace QuanLyKhachSan.Models.BLL.Services
 {
-    public class StaffService : IBusinessService<Staff>
+    public class UserService : IBusinessService<User>
     {
-        public Staff GetById(int id)
-            => DALs.StaffRepo.GetById(id);
+        public User GetById(int id)
+            => DALs.UserRepo.GetById(id);
 
-        public List<Staff> GetAllData()
-            => DALs.StaffRepo.GetAllData();
+        public List<User> GetAllData()
+            => DALs.UserRepo.GetAllData();
 
-        public void Add(Staff staff)
-            => DALs.StaffRepo.Add(staff);
+        public void Add(User staff)
+            => DALs.UserRepo.Add(staff);
 
         public void Delete(int Id)
-            => DALs.StaffRepo.Delete(Id);
+            => DALs.UserRepo.Delete(Id);
 
-        public void Update(Staff staff)
-            => DALs.StaffRepo.Update(staff);
+        public void Update(User staff)
+            => DALs.UserRepo.Update(staff);
 
-        public List<Staff> Filter(Staff template)
+        public List<User> Filter(User template)
         {
             using var dbcontext = new HotelDbContext();
-            var list = dbcontext.Staff.AsQueryable();
-            var props = typeof(Staff).GetProperties();
+            var list = dbcontext.User.AsQueryable();
+            var props = typeof(User).GetProperties();
             props.ToList().ForEach(
                 prop =>
                 {

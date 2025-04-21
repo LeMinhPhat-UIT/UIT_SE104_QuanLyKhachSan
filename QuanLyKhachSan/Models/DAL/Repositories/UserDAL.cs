@@ -8,26 +8,26 @@ using QuanLyKhachSan.Models.DAL.Interfaces;
 
 namespace QuanLyKhachSan.Models.DAL.Repositories
 {
-    public class AccountDAL : IEntityRepository<Account>
+    public class UserDAL : IEntityRepository<User>
     {
-        public Account? GetById(int id)
+        public User? GetById(int id)
         {
             using var dbcontext = new HotelDbContext();
-            return (from a in dbcontext.Account
-                    where a.StaffID == id
-                    select a).FirstOrDefault();
+            return (from c in dbcontext.User
+                    where c.UserID == id
+                    select c).FirstOrDefault();
         }
 
-        public List<Account> GetAllData()
+        public List<User> GetAllData()
         {
             using var dbcontext = new HotelDbContext();
-            return dbcontext.Account.ToList();
+            return dbcontext.User.ToList();
         }
 
-        public void Add(Account newAccount)
+        public void Add(User staff)
         {
             using var dbcontext = new HotelDbContext();
-            dbcontext.Add(newAccount);
+            dbcontext.User.Add(staff);
             dbcontext.SaveChanges();
         }
 
@@ -38,11 +38,11 @@ namespace QuanLyKhachSan.Models.DAL.Repositories
             dbcontext.SaveChanges();
         }
 
-        public void Update(Account accountInfo)
+        public void Update(User staffInfo)
         {
             using var dbcontext = new HotelDbContext();
-            dbcontext.Attach(accountInfo);
-            dbcontext.Entry(accountInfo).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+            dbcontext.Attach(staffInfo);
+            dbcontext.Entry(staffInfo).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
             dbcontext.SaveChanges();
         }
     }

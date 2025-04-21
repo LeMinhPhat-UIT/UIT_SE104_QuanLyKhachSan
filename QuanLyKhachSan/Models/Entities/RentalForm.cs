@@ -25,7 +25,7 @@ namespace EntityFramework
         public RoomTier Room { get; set; }
 
         [ForeignKey("StaffID")]
-        public Staff Staff { get; set; }
+        public User User { get; set; }
         public List<RentalDetail> RentalDetails { get; set; }
         public Invoice Invoice { get; set; }
     }

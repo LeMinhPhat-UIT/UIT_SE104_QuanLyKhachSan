@@ -6,18 +6,16 @@ namespace EntityFramework
 {
     public class HotelDbContext : DbContext
     {
-        public DbSet<Account> Account {  get; set; }
         public DbSet<Customer> Customer { get; set; }
         public DbSet<CustomerTier> CustomerTier { get; set; }
         public DbSet<Invoice> Invoice { get; set; }
-        public DbSet<InvoiceDetail> InvoiceDetail { get; set; }
         public DbSet<MonthlyRevenueDetail> MonthlyRevenueDetail { get; set; }
         public DbSet<MonthlyRevenueReport> MonthlyRevenueReport {  get; set; }
         public DbSet<RentalDetail> RentalDetail { get; set; }
         public DbSet<RentalForm> RentalForm { get; set; }
         public DbSet<Room> Room { get; set; }
         public DbSet<RoomTier> RoomTier { get; set; }
-        public DbSet<Staff> Staff { get; set; }
+        public DbSet<User> User { get; set; }
 
         // chỉnh lại cho phù hợp tên server trên máy cá nhân
         private const string connectionString =
@@ -45,12 +43,10 @@ namespace EntityFramework
             base.OnModelCreating(modelBuilder);
             modelBuilder.Entity<RentalDetail>()
                 .HasKey(rentalDetail => new { rentalDetail.RentalFormID, rentalDetail.CustomerID });
-            modelBuilder.Entity<InvoiceDetail>()
-                .HasKey(invoiceDetail => new {invoiceDetail.InvoiceID, invoiceDetail.CustomerID });
             modelBuilder.Entity<MonthlyRevenueDetail>()
                 .HasKey(revenueDetail => new { revenueDetail.ReportMonth, revenueDetail.RoomTierID });
             modelBuilder.Entity<Customer>().HasIndex(customer => customer.IdentityNumber).IsUnique();
-            modelBuilder.Entity<Staff>().HasIndex(staff => staff.IdentityNumber).IsUnique();
+            modelBuilder.Entity<User>().HasIndex(staff => staff.IdentityNumber).IsUnique();
 
             modelBuilder.Entity<Invoice>(entity => {
                 entity
@@ -64,10 +60,6 @@ namespace EntityFramework
             });
 
             modelBuilder.Entity<Customer>(entity => {
-                entity
-                    .HasMany(customer => customer.InvoiceDetails)
-                    .WithOne(invoiceDetail => invoiceDetail.Customer)
-                    .OnDelete(DeleteBehavior.Restrict);
                 entity
                     .HasMany(customer => customer.RentalDetails)
                     .WithOne(rentalDetail => rentalDetail.Customer)
