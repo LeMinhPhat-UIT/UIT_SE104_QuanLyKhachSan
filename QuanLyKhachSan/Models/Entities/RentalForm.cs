@@ -22,7 +22,7 @@ namespace EntityFramework
         public DateTime ReturnDate { get; set; }
 
         [ForeignKey("RoomID")]
-        public RoomTier Room { get; set; }
+        public Room Room { get; set; }
 
         [ForeignKey("StaffID")]
         public User User { get; set; }

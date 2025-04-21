@@ -27,7 +27,7 @@ namespace QuanLyKhachSan.Models.BLL.Services
         public void Update(User staff)
             => DALs.UserRepo.Update(staff);
 
-        public List<User> Filter(User template)
+        public List<User> Search(User template)
         {
             using var dbcontext = new HotelDbContext();
             var list = dbcontext.User.AsQueryable();

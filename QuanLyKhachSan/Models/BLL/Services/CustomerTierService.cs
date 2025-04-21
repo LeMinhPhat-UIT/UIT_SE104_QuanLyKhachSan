@@ -30,7 +30,7 @@ namespace QuanLyKhachSan.Models.BLL.Services
         public List<Customer> GetCustomers(int Id)
             => DALs.CustomerTierRepo.GetCustomers(Id);
 
-        public List<CustomerTier> Filter(CustomerTier template)
+        public List<CustomerTier> Search(CustomerTier template)
         {
             using var dbcontext = new HotelDbContext();
             var list = dbcontext.CustomerTier.AsQueryable();

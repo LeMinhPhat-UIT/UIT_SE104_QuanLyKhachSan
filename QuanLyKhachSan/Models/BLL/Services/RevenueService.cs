@@ -27,7 +27,7 @@ namespace QuanLyKhachSan.Models.BLL.Services
         public void Update(MonthlyRevenueReport revenue)
             => DALs.RevenueRepo.Update(revenue);
 
-        public List<MonthlyRevenueReport> Filter(MonthlyRevenueReport template)
+        public List<MonthlyRevenueReport> Search(MonthlyRevenueReport template)
         {
             using var dbcontext = new HotelDbContext();
             var list = dbcontext.MonthlyRevenueReport.AsQueryable();

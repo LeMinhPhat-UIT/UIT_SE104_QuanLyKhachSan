@@ -27,7 +27,7 @@ namespace QuanLyKhachSan.Models.BLL.Services
         public void Update(Invoice invoice)
             => DALs.InvoiceRepo.Update(invoice);
 
-        public List<Invoice> Filter(Invoice template)
+        public List<Invoice> Search(Invoice template)
         {
             using var dbcontext = new HotelDbContext();
             var list = dbcontext.Invoice.AsQueryable();

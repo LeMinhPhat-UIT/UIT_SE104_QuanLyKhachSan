@@ -15,7 +15,7 @@ namespace EntityFramework
 
         [ForeignKey("RentalForm")]
         public int RentalFormID { get; set; }
-        public int? StaffID { get; set; }
+        public int? UserID { get; set; }
 
         [Column(TypeName="smalldatetime")]
         public DateTime InvoiceDate { get; set; }
@@ -32,7 +32,7 @@ namespace EntityFramework
         [Column(TypeName="nvarchar")]
         public string PaymentMethod { get; set; }
 
-        [ForeignKey("StaffID")]
+        [ForeignKey("UserID")]
         public User User { get; set; }
         public RentalForm RentalForm { get; set; }
     }

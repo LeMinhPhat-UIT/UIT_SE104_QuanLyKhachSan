@@ -27,7 +27,7 @@ namespace QuanLyKhachSan.Models.BLL.Services
         public void Update(Customer customer)
             => DALs.CustomerRepo.Update(customer);
 
-        public List<Customer> Filter(Customer template)
+        public List<Customer> Search(Customer template)
         {
             using var dbcontext = new HotelDbContext();
             var list = dbcontext.Customer.AsQueryable();

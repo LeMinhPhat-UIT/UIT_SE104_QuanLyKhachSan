@@ -46,5 +46,15 @@ namespace QuanLyKhachSan.Models.DAL.Repositories
             dbcontext.SaveChanges();
         }
 
+        public List<Room> GetCustomers(int Id)
+            => LoadRoom(GetById(Id)).Rooms;
+
+        public RoomTier LoadRoom(RoomTier tier)
+        {
+            using var dbcontext = new HotelDbContext();
+            var e = dbcontext.Entry(tier);
+            e.Collection(c => c.Rooms).Load();
+            return tier;
+        }
     }
 }

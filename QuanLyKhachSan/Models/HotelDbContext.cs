@@ -50,7 +50,7 @@ namespace EntityFramework
 
             modelBuilder.Entity<Invoice>(entity => {
                 entity
-                    .HasOne(invoice => invoice.Staff)
+                    .HasOne(invoice => invoice.User)
                     .WithMany(staff => staff.Invoices)
                     .OnDelete(DeleteBehavior.SetNull);
                 entity

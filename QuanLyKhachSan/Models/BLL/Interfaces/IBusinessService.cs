@@ -13,6 +13,6 @@ namespace QuanLyKhachSan.Models.BLL.Interfaces
         public void Add(T entity);
         public void Delete(int id);
         public void Update(T entity);
-        public List<T> Filter(T template);
+        public List<T> Search(T template);
     }
 }

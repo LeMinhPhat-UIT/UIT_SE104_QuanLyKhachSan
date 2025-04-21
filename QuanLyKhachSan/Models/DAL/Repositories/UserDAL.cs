@@ -45,5 +45,27 @@ namespace QuanLyKhachSan.Models.DAL.Repositories
             dbcontext.Entry(staffInfo).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
             dbcontext.SaveChanges();
         }
+
+        public List<Invoice> GetInvoice(int id) 
+            => LoadInvoice(GetById(id)).Invoices;
+
+        public User LoadInvoice(User user)
+        {
+            using var dbcontext = new HotelDbContext();
+            var e = dbcontext.Entry(user);
+            e.Collection(c => c.Invoices).Load();
+            return user;
+        }
+
+        public List<RentalForm> GetRentalForm(int id)
+            => LoadRentalForm(GetById(id)).RentalForms;
+
+        public User LoadRentalForm(User user)
+        {
+            using var dbcontext = new HotelDbContext();
+            var e = dbcontext.Entry(user);
+            e.Collection(c => c.Invoices).Load();
+            return user;
+        }
     }
 }

@@ -45,5 +45,27 @@ namespace QuanLyKhachSan.Models.DAL.Repositories
             dbcontext.Entry(customerInfo).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
             dbcontext.SaveChanges();
         }
+
+        public CustomerTier GetTier(int Id)
+            => LoadTier(GetById(Id)).CustomerTier;
+
+        public Customer LoadTier(Customer cus)
+        {
+            using var dbcontext = new HotelDbContext();
+            var e = dbcontext.Entry(cus);
+            e.Reference(c => c.CustomerTier).Load();
+            return cus;
+        }
+
+        public List<RentalDetail> GetRentalDetail(int Id)
+            => LoadCustomer(GetById(Id)).RentalDetails;
+
+        public Customer LoadCustomer(Customer cus)
+        {
+            using var dbcontext = new HotelDbContext();
+            var e = dbcontext.Entry(cus);
+            e.Collection(c => c.RentalDetails).Load();
+            return cus;
+        }
     }
 }

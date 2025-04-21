@@ -18,7 +18,7 @@ namespace EntityFramework
 
         [Column(TypeName="money")]
         public decimal RoomTierPrice { get; set; }
-        public List<RoomTier> Rooms { get; set; }
+        public List<Room> Rooms { get; set; }
         public List<MonthlyRevenueDetail> RevenueDetails { get; set; }
     }
 }

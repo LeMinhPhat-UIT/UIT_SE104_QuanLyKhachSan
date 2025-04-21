@@ -27,7 +27,7 @@ namespace QuanLyKhachSan.Models.BLL.Services
         public void Update(Room room)
             => DALs.RoomRepo.Update(room);
 
-        public List<Room> Filter(Room template)
+        public List<Room> Search(Room template)
         {
             using var dbcontext = new HotelDbContext();
             var list = dbcontext.Room.AsQueryable();

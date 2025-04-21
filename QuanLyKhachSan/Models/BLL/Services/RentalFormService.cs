@@ -27,7 +27,7 @@ namespace QuanLyKhachSan.Models.BLL.Services
         public void Update(RentalForm rental)
             => DALs.RentalRepo.Update(rental);
 
-        public List<RentalForm> Filter(RentalForm template)
+        public List<RentalForm> Search(RentalForm template)
         {
             using var dbcontext = new HotelDbContext();
             var list = dbcontext.RentalForm.AsQueryable();
