@@ -210,3 +210,11 @@ D:\LeMinhPhat\UIT\2. sophomore year\semester 2\Software engineering\QuanLyKhachS
 D:\LeMinhPhat\UIT\2. sophomore year\semester 2\Software engineering\QuanLyKhachSan\bin\Debug\net8.0-windows\runtimes\win\lib\net8.0\Microsoft.Data.SqlClient.dll
 D:\LeMinhPhat\UIT\2. sophomore year\semester 2\Software engineering\QuanLyKhachSan\bin\Debug\net8.0-windows\runtimes\win\lib\net8.0\System.Diagnostics.EventLog.dll
 D:\LeMinhPhat\UIT\2. sophomore year\semester 2\Software engineering\QuanLyKhachSan\bin\Debug\net8.0-windows\runtimes\win\lib\net8.0\System.Security.Cryptography.Pkcs.dll
+D:\LeMinhPhat\UIT\2. sophomore year\semester 2\Software engineering\UIT_SE104_QuanLyKhachSan\QuanLyKhachSan\obj\Debug\net8.0-windows\QuanLyKhachSan.csproj.AssemblyReference.cache
+D:\LeMinhPhat\UIT\2. sophomore year\semester 2\Software engineering\UIT_SE104_QuanLyKhachSan\QuanLyKhachSan\obj\Debug\net8.0-windows\MainWindow.g.cs
+D:\LeMinhPhat\UIT\2. sophomore year\semester 2\Software engineering\UIT_SE104_QuanLyKhachSan\QuanLyKhachSan\obj\Debug\net8.0-windows\App.g.cs
+D:\LeMinhPhat\UIT\2. sophomore year\semester 2\Software engineering\UIT_SE104_QuanLyKhachSan\QuanLyKhachSan\obj\Debug\net8.0-windows\QuanLyKhachSan_MarkupCompile.cache
+D:\LeMinhPhat\UIT\2. sophomore year\semester 2\Software engineering\UIT_SE104_QuanLyKhachSan\QuanLyKhachSan\obj\Debug\net8.0-windows\QuanLyKhachSan_MarkupCompile.lref
+D:\LeMinhPhat\UIT\2. sophomore year\semester 2\Software engineering\UIT_SE104_QuanLyKhachSan\QuanLyKhachSan\obj\Debug\net8.0-windows\QuanLyKhachSan.dll
+D:\LeMinhPhat\UIT\2. sophomore year\semester 2\Software engineering\UIT_SE104_QuanLyKhachSan\QuanLyKhachSan\obj\Debug\net8.0-windows\refint\QuanLyKhachSan.dll
+D:\LeMinhPhat\UIT\2. sophomore year\semester 2\Software engineering\UIT_SE104_QuanLyKhachSan\QuanLyKhachSan\obj\Debug\net8.0-windows\QuanLyKhachSan.pdb

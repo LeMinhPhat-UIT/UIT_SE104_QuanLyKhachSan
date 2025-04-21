@@ -1,0 +1,13 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\Models",
+    "\\Models\\BLL",
+    "\\Models\\BLL\\Services",
+    "\\Models\\DAL",
+    "\\Models\\DAL\\Repositories",
+    "\\Models\\Entities"
+  ],
+  "SelectedNode": "\\Models\\BLL\\Services\\CustomerTierService.cs",
+  "PreviewInSolutionExplorer": false
+}

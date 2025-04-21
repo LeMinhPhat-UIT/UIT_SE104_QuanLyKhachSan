@@ -11,18 +11,18 @@ namespace QuanLyKhachSan.Models.DAL
 {
     public class DALs
     {
-        public static IEntityRepository<Account> AccountRepo => new AccountDAL();
-        public static IEntityRepository<Customer> CustomerRepo => new CustomerDAL();
-        public static IEntityRepository<CustomerTier> CustomerTierRepo => new CustomerTierDAL();
-        public static IEntityRepository<Invoice> InvoiceRepo => new InvoiceDAL();
-        public static IEntityRepository<RentalForm> RentalRepo => new RentalFormDAL();
-        public static IEntityRepository<MonthlyRevenueReport> RevenueRepo => new RevenueDAL();
-        public static IEntityRepository<Room> RoomRepo => new RoomDAL();
-        public static IEntityRepository<RoomTier> RoomTierRepo => new RoomTierDAL();
-        public static IEntityRepository<Staff> StaffRepo => new StaffDAL();
+        public static AccountDAL AccountRepo => new AccountDAL();
+        public static CustomerDAL CustomerRepo => new CustomerDAL();
+        public static CustomerTierDAL CustomerTierRepo => new CustomerTierDAL();
+        public static InvoiceDAL InvoiceRepo => new InvoiceDAL();
+        public static RentalFormDAL RentalRepo => new RentalFormDAL();
+        public static RevenueDAL RevenueRepo => new RevenueDAL();
+        public static RoomDAL RoomRepo => new RoomDAL();
+        public static RoomTierDAL RoomTierRepo => new RoomTierDAL();
+        public static StaffDAL StaffRepo => new StaffDAL();
 
-        public static IDetailRepository<InvoiceDetail> InvoiceDetailRepo => new InvoiceDetailDAL();
-        public static IDetailRepository<RentalDetail> RentalDetailRepo => new RentalDetailDAL();
-        public static IDetailRepository<MonthlyRevenueDetail> RevenueDetailRepo => new RevenueDetailDAL();
+        public static InvoiceDetailDAL InvoiceDetailRepo => new InvoiceDetailDAL();
+        public static RentalDetailDAL RentalDetailRepo => new RentalDetailDAL();
+        public static RevenueDetailDAL RevenueDetailRepo => new RevenueDetailDAL();
     }
 }

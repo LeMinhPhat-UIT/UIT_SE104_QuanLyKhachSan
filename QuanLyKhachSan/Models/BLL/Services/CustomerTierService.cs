@@ -27,6 +27,9 @@ namespace QuanLyKhachSan.Models.BLL.Services
         public void Update(CustomerTier tier)
             => DALs.CustomerTierRepo.Update(tier);
 
+        public List<Customer> GetCustomers(int Id)
+            => DALs.CustomerTierRepo.GetCustomers(Id);
+
         public List<CustomerTier> Filter(CustomerTier template)
         {
             using var dbcontext = new HotelDbContext();

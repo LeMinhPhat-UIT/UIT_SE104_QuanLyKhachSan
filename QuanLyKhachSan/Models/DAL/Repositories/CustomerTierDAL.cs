@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Navigation;
 using EntityFramework;
 using QuanLyKhachSan.Models.DAL.Interfaces;
 
@@ -44,6 +45,17 @@ namespace QuanLyKhachSan.Models.DAL.Repositories
             dbcontext.Attach(customerTierInfo);
             dbcontext.Entry(customerTierInfo).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
             dbcontext.SaveChanges();
+        }
+
+        public List<Customer> GetCustomers(int Id)
+            => LoadCustomer(GetById(Id)).Customers;
+
+        public CustomerTier LoadCustomer(CustomerTier tier)
+        {
+            using var dbcontext = new HotelDbContext();
+            var e = dbcontext.Entry(tier);
+            e.Collection(c => c.Customers).Load();
+            return tier;
         }
     }
 }
