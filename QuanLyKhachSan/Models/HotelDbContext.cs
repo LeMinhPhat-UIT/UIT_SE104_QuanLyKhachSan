@@ -9,10 +9,10 @@ namespace EntityFramework
         public DbSet<Customer> Customer { get; set; }
         public DbSet<CustomerTier> CustomerTier { get; set; }
         public DbSet<Invoice> Invoice { get; set; }
-        public DbSet<MonthlyRevenueDetail> MonthlyRevenueDetail { get; set; }
-        public DbSet<MonthlyRevenueReport> MonthlyRevenueReport {  get; set; }
+        public DbSet<RevenueDetail> RevenueDetail { get; set; }
+        public DbSet<RevenueReport> MonthlyRevenueReport {  get; set; }
         public DbSet<RentalDetail> RentalDetail { get; set; }
-        public DbSet<RentalForm> RentalForm { get; set; }
+        public DbSet<Rental> Rental { get; set; }
         public DbSet<Room> Room { get; set; }
         public DbSet<RoomTier> RoomTier { get; set; }
         public DbSet<User> User { get; set; }
@@ -43,8 +43,8 @@ namespace EntityFramework
             base.OnModelCreating(modelBuilder);
             modelBuilder.Entity<RentalDetail>()
                 .HasKey(rentalDetail => new { rentalDetail.RentalFormID, rentalDetail.CustomerID });
-            modelBuilder.Entity<MonthlyRevenueDetail>()
-                .HasKey(revenueDetail => new { revenueDetail.ReportMonth, revenueDetail.RoomTierID });
+            modelBuilder.Entity<RevenueDetail>()
+                .HasKey(revenueDetail => new { revenueDetail.ReportID, revenueDetail.InvoiceID });
             modelBuilder.Entity<Customer>().HasIndex(customer => customer.IdentityNumber).IsUnique();
             modelBuilder.Entity<User>().HasIndex(staff => staff.IdentityNumber).IsUnique();
 
@@ -54,8 +54,8 @@ namespace EntityFramework
                     .WithMany(staff => staff.Invoices)
                     .OnDelete(DeleteBehavior.SetNull);
                 entity
-                    .HasOne(invoice => invoice.RentalForm)
-                    .WithOne(rentalForm => rentalForm.Invoice)
+                    .HasOne(invoice => invoice.Rental)
+                    .WithOne(rental => rental.Invoice)
                     .OnDelete(DeleteBehavior.Restrict);
             });
 

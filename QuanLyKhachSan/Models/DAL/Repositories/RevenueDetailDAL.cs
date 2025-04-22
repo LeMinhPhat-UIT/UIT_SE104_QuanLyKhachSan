@@ -8,24 +8,24 @@ using QuanLyKhachSan.Models.DAL.Interfaces;
 
 namespace QuanLyKhachSan.Models.DAL.Repositories
 {
-    public class RevenueDetailDAL : IDetailRepository<MonthlyRevenueDetail>
+    public class RevenueDetailDAL : IDetailRepository<RevenueDetail>
     {
-        public void Add(params MonthlyRevenueDetail[] details)
+        public void Add(params RevenueDetail[] details)
         {
             using var dbcontext = new HotelDbContext();
             dbcontext.AddRange(details);
             dbcontext.SaveChanges();
         }
-        public void Delete(int month, int tierID)
+        public void Delete(int id, int invoiceID)
         {
             using var dbcontext = new HotelDbContext();
-            var detail = (from d in dbcontext.MonthlyRevenueDetail
-                          where d.ReportMonth.Month == month && d.RoomTierID == tierID
+            var detail = (from d in dbcontext.RevenueDetail
+                          where d.ReportID == id && d.InvoiceID == invoiceID
                           select d).FirstOrDefault();
             dbcontext.Remove(detail);
             dbcontext.SaveChanges();
         }
-        public void Update(MonthlyRevenueDetail revenueDetail)
+        public void Update(RevenueDetail revenueDetail)
         {
             using var dbcontext = new HotelDbContext();
             dbcontext.Attach(revenueDetail);

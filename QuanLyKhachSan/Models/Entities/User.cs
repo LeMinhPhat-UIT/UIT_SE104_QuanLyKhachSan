@@ -41,6 +41,7 @@ namespace EntityFramework
         [Column(TypeName="ntext")]
         public string Address { get; set; }
         public List<Invoice> Invoices { get; set; }
-        public List<RentalForm> RentalForms { get; set; }
+        public List<Rental> RentalForms { get; set; }
+        public List<RevenueReport> RevenueReports { get; set; }
     }
 }

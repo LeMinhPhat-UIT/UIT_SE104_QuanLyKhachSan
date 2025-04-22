@@ -30,7 +30,7 @@ namespace EntityFramework
 
         [StringLength(10)]
         [Column(TypeName="char")]
-        public string CustomerPhoneNumber { get; set; }
+        public string PhoneNumber { get; set; }
 
         [ForeignKey("CustomerTierID")]
         public CustomerTier CustomerTier { get; set; }

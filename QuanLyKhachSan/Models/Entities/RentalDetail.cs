@@ -12,11 +12,12 @@ namespace EntityFramework
     {
         public int RentalFormID { get; set; }
         public int CustomerID { get; set; }
+        public bool IsRepresentative { get; set; }
 
         [ForeignKey("CustomerID")]
         public Customer Customer { get; set; }
 
         [ForeignKey("RentalFormID")]
-        public RentalForm RentalForm { get; set; }
+        public Rental RentalForm { get; set; }
     }
 }

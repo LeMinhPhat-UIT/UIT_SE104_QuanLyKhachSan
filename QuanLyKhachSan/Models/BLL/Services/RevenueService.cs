@@ -10,28 +10,28 @@ using QuanLyKhachSan.Models.DAL;
 
 namespace QuanLyKhachSan.Models.BLL.Services
 {
-    public class RevenueService : IBusinessService<MonthlyRevenueReport>
+    public class RevenueService : IBusinessService<RevenueReport>
     {
-        public MonthlyRevenueReport GetById(int id)
+        public RevenueReport GetById(int id)
             => DALs.RevenueRepo.GetById(id);
 
-        public List<MonthlyRevenueReport> GetAllData()
+        public List<RevenueReport> GetAllData()
             => DALs.RevenueRepo.GetAllData();
 
-        public void Add(MonthlyRevenueReport revenue)
+        public void Add(RevenueReport revenue)
             => DALs.RevenueRepo.Add(revenue);
 
         public void Delete(int Id)
             => DALs.RevenueRepo.Delete(Id);
 
-        public void Update(MonthlyRevenueReport revenue)
+        public void Update(RevenueReport revenue)
             => DALs.RevenueRepo.Update(revenue);
 
-        public List<MonthlyRevenueReport> Search(MonthlyRevenueReport template)
+        public List<RevenueReport> Search(RevenueReport template)
         {
             using var dbcontext = new HotelDbContext();
             var list = dbcontext.MonthlyRevenueReport.AsQueryable();
-            var props = typeof(MonthlyRevenueReport).GetProperties();
+            var props = typeof(RevenueReport).GetProperties();
             props.ToList().ForEach(
                 prop =>
                 {

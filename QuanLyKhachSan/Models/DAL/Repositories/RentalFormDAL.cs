@@ -8,26 +8,26 @@ using QuanLyKhachSan.Models.DAL.Interfaces;
 
 namespace QuanLyKhachSan.Models.DAL.Repositories
 {
-    public class RentalFormDAL : IEntityRepository<RentalForm>
+    public class RentalFormDAL : IEntityRepository<Rental>
     {
-        public RentalForm? GetById(int id)
+        public Rental? GetById(int id)
         {
             using var dbcontext = new HotelDbContext();
-            return (from rf in dbcontext.RentalForm
+            return (from rf in dbcontext.Rental
                     where rf.RentalFormID == id
                     select rf).FirstOrDefault();
         }
 
-        public List<RentalForm> GetAllData()
+        public List<Rental> GetAllData()
         {
             using var dbcontext = new HotelDbContext();
-            return dbcontext.RentalForm.ToList();
+            return dbcontext.Rental.ToList();
         }
 
-        public void Add(RentalForm entitie)
+        public void Add(Rental entitie)
         {
             using var dbcontext = new HotelDbContext();
-            dbcontext.RentalForm.Add(entitie);
+            dbcontext.Rental.Add(entitie);
             dbcontext.SaveChanges();
         }
 
@@ -38,7 +38,7 @@ namespace QuanLyKhachSan.Models.DAL.Repositories
             dbcontext.SaveChanges();
         }
 
-        public void Update(RentalForm rentalFormInfo)
+        public void Update(Rental rentalFormInfo)
         {
             using var dbcontext = new HotelDbContext();
             dbcontext.Attach(rentalFormInfo);
@@ -49,7 +49,7 @@ namespace QuanLyKhachSan.Models.DAL.Repositories
         public Room GetRoom(int Id)
             => LoadRoom(GetById(Id)).Room;
 
-        public RentalForm LoadRoom(RentalForm rent)
+        public Rental LoadRoom(Rental rent)
         {
             using var dbcontext = new HotelDbContext();
             var e = dbcontext.Entry(rent);
@@ -60,7 +60,7 @@ namespace QuanLyKhachSan.Models.DAL.Repositories
         public User GetUser(int Id)
             => LoadUser(GetById(Id)).User;
 
-        public RentalForm LoadUser(RentalForm rent)
+        public Rental LoadUser(Rental rent)
         {
             using var dbcontext = new HotelDbContext();
             var e = dbcontext.Entry(rent);
@@ -71,7 +71,7 @@ namespace QuanLyKhachSan.Models.DAL.Repositories
         public Invoice GetInvoice(int Id)
             => LoadUser(GetById(Id)).Invoice;
 
-        public RentalForm LoadInvoice(RentalForm rent)
+        public Rental LoadInvoice(Rental rent)
         {
             using var dbcontext = new HotelDbContext();
             var e = dbcontext.Entry(rent);
@@ -82,7 +82,7 @@ namespace QuanLyKhachSan.Models.DAL.Repositories
         public List<RentalDetail> GetDetail(int Id)
             => LoadDetail(GetById(Id)).RentalDetails;
 
-        public RentalForm LoadDetail(RentalForm rent)
+        public Rental LoadDetail(Rental rent)
         {
             using var dbcontext = new HotelDbContext();
             var e = dbcontext.Entry(rent);

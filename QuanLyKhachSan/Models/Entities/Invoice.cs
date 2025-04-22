@@ -13,8 +13,8 @@ namespace EntityFramework
         [Key]
         public int InvoiceID { get; set; }
 
-        [ForeignKey("RentalForm")]
-        public int RentalFormID { get; set; }
+        [ForeignKey("Rental")]
+        public int RentalID { get; set; }
         public int? UserID { get; set; }
 
         [Column(TypeName="smalldatetime")]
@@ -34,6 +34,7 @@ namespace EntityFramework
 
         [ForeignKey("UserID")]
         public User User { get; set; }
-        public RentalForm RentalForm { get; set; }
+        public Rental Rental { get; set; }
+        public List<RevenueDetail> RevenueDetails { get; set; }
     }
 }

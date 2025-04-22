@@ -63,7 +63,7 @@ namespace QuanLyKhachSan
                 CustomerName = "lmp1",
                 IdentityNumber = "000000000000",
                 CustomerAddress = "htp",
-                CustomerPhoneNumber = "0123456789",
+                PhoneNumber = "0123456789",
                 CustomerTierID = 1,
             });
             DALs.CustomerRepo.Add(new Customer
@@ -71,7 +71,7 @@ namespace QuanLyKhachSan
                 CustomerName = "lmp2",
                 IdentityNumber = "000000000001",
                 CustomerAddress = "htp",
-                CustomerPhoneNumber = "0123456789",
+                PhoneNumber = "0123456789",
                 CustomerTierID = 1,
             });
             DALs.CustomerRepo.Add(new Customer
@@ -79,12 +79,12 @@ namespace QuanLyKhachSan
                 CustomerName = "lmp3",
                 IdentityNumber = "000000000002",
                 CustomerAddress = "htp",
-                CustomerPhoneNumber = "0123456789",
+                PhoneNumber = "0123456789",
                 CustomerTierID = 2,
             });
 
             var test = new CustomerTierService();
-            var list = test.GetCustomers(2);
+            var list = test.GetCustomers(1);
             MessageBox.Show(list.Count.ToString());
         }
     }

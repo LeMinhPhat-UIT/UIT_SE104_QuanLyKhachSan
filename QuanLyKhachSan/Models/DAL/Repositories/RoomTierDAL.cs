@@ -56,5 +56,15 @@ namespace QuanLyKhachSan.Models.DAL.Repositories
             e.Collection(c => c.Rooms).Load();
             return tier;
         }
+        public List<RevenueReport> GetReport(int Id)
+            => LoadReport(GetById(Id)).RevenueReports;
+
+        public RoomTier LoadReport(RoomTier tier)
+        {
+            using var dbcontext = new HotelDbContext();
+            var e = dbcontext.Entry(tier);
+            e.Collection(c => c.Rooms).Load();
+            return tier;
+        }
     }
 }

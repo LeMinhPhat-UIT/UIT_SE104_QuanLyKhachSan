@@ -25,7 +25,7 @@ namespace EntityFramework
         [StringLength(50)]
         [Column(TypeName="nvarchar")]
         public string RoomState { get; set; }
-        public List<RentalForm> RentalForms { get; set; }
+        public List<Rental> RentalForms { get; set; }
 
         [ForeignKey("RoomTierID")]
         public RoomTier RoomTier { get; set; }

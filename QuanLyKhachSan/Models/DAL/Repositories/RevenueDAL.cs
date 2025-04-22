@@ -8,23 +8,23 @@ using QuanLyKhachSan.Models.DAL.Interfaces;
 
 namespace QuanLyKhachSan.Models.DAL.Repositories
 {
-    public class RevenueDAL : IEntityRepository<MonthlyRevenueReport>
+    public class RevenueDAL : IEntityRepository<RevenueReport>
     {
-        public MonthlyRevenueReport? GetById(int month)
+        public RevenueReport? GetById(int id)
         {
             using var dbcontext = new HotelDbContext();
             return (from c in dbcontext.MonthlyRevenueReport
-                    where c.ReportMonth.Month == month
+                    where c.ReportID == id
                     select c).FirstOrDefault();
         }
 
-        public List<MonthlyRevenueReport> GetAllData()
+        public List<RevenueReport> GetAllData()
         {
             using var dbcontext = new HotelDbContext();
             return dbcontext.MonthlyRevenueReport.ToList();
         }
 
-        public void Add(MonthlyRevenueReport report)
+        public void Add(RevenueReport report)
         {
             using var dbcontext = new HotelDbContext();
             dbcontext.MonthlyRevenueReport.Add(report);
@@ -38,12 +38,45 @@ namespace QuanLyKhachSan.Models.DAL.Repositories
             dbcontext.SaveChanges();
         }
 
-        public void Update(MonthlyRevenueReport reportInfo)
+        public void Update(RevenueReport reportInfo)
         {
             using var dbcontext = new HotelDbContext();
             dbcontext.Attach(reportInfo);
             dbcontext.Entry(reportInfo).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
             dbcontext.SaveChanges();
+        }
+
+        public User GetUser(int Id)
+            => LoadUser(GetById(Id)).User;
+
+        public RevenueReport LoadUser(RevenueReport report)
+        {
+            using var dbcontext = new HotelDbContext();
+            var e = dbcontext.Entry(report);
+            e.Reference(c => c.User).Load();
+            return report;
+        }
+
+        public RoomTier GetRoomTier(int Id)
+            => LoadTier(GetById(Id)).RoomTier;
+
+        public RevenueReport LoadTier(RevenueReport report)
+        {
+            using var dbcontext = new HotelDbContext();
+            var e = dbcontext.Entry(report);
+            e.Reference(c => c.RoomTier).Load();
+            return report;
+        }
+
+        public List<RevenueDetail> GetDetail(int Id)
+            => LoadDetail(GetById(Id)).RevenueDetails;
+
+        public RevenueReport LoadDetail(RevenueReport report)
+        {
+            using var dbcontext = new HotelDbContext();
+            var e = dbcontext.Entry(report);
+            e.Collection(c => c.RevenueDetails).Load();
+            return report;
         }
     }
 }

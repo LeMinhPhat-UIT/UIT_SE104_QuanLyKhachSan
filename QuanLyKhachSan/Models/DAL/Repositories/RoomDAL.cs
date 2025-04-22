@@ -57,7 +57,7 @@ namespace QuanLyKhachSan.Models.DAL.Repositories
             return room;
         }
 
-        public List<RentalForm> GetRentalDetail(int Id)
+        public List<Rental> GetRentalDetail(int Id)
             => LoadRentalForm(GetById(Id)).RentalForms;
 
         public Room LoadRentalForm(Room room)

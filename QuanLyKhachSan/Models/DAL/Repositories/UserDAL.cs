@@ -57,10 +57,21 @@ namespace QuanLyKhachSan.Models.DAL.Repositories
             return user;
         }
 
-        public List<RentalForm> GetRentalForm(int id)
+        public List<Rental> GetRentalForm(int id)
             => LoadRentalForm(GetById(id)).RentalForms;
 
         public User LoadRentalForm(User user)
+        {
+            using var dbcontext = new HotelDbContext();
+            var e = dbcontext.Entry(user);
+            e.Collection(c => c.Invoices).Load();
+            return user;
+        }
+
+        public List<RevenueReport> GetReport(int id)
+            => LoadReport(GetById(id)).RevenueReports;
+
+        public User LoadReport(User user)
         {
             using var dbcontext = new HotelDbContext();
             var e = dbcontext.Entry(user);

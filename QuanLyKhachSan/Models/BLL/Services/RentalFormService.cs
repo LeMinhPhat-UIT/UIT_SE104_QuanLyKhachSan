@@ -10,28 +10,28 @@ using QuanLyKhachSan.Models.DAL;
 
 namespace QuanLyKhachSan.Models.BLL.Services
 {
-    public class RentalFormService : IBusinessService<RentalForm>
+    public class RentalFormService : IBusinessService<Rental>
     {
-        public RentalForm GetById(int id)
+        public Rental GetById(int id)
             => DALs.RentalRepo.GetById(id);
 
-        public List<RentalForm> GetAllData()
+        public List<Rental> GetAllData()
             => DALs.RentalRepo.GetAllData();
 
-        public void Add(RentalForm rental)
+        public void Add(Rental rental)
             => DALs.RentalRepo.Add(rental);
 
         public void Delete(int Id)
             => DALs.RentalRepo.Delete(Id);
 
-        public void Update(RentalForm rental)
+        public void Update(Rental rental)
             => DALs.RentalRepo.Update(rental);
 
-        public List<RentalForm> Search(RentalForm template)
+        public List<Rental> Search(Rental template)
         {
             using var dbcontext = new HotelDbContext();
-            var list = dbcontext.RentalForm.AsQueryable();
-            var props = typeof(RentalForm).GetProperties();
+            var list = dbcontext.Rental.AsQueryable();
+            var props = typeof(Rental).GetProperties();
             props.ToList().ForEach(
                 prop =>
                 {
