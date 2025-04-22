@@ -11,7 +11,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using EntityFramework;
 using Microsoft.EntityFrameworkCore;
-using QuanLyKhachSan.Models.BLL.Services;
+using QuanLyKhachSan.Models.BLL;
 using QuanLyKhachSan.Models.DAL;
 using QuanLyKhachSan.Models.DAL.Repositories;
 
@@ -22,15 +22,14 @@ namespace QuanLyKhachSan
     /// </summary>
     public partial class MainWindow : Window
     {
-        int cnt=0;
         public MainWindow()
         {
             InitializeComponent();
 
-            // testing
+            // testing area
 
-            HotelDbContext.DropDatabase();
-            HotelDbContext.CreateDatabase();
+            HotelDbContext.DropDatabase(); //ok
+            HotelDbContext.CreateDatabase(); //ok
 
             //DALs.StaffRepo.Add(
             //    new Staff()
@@ -55,37 +54,79 @@ namespace QuanLyKhachSan
 
             //AccountService.Login(1, "password");
 
-            DALs.CustomerTierRepo.Add(new CustomerTier { CustomerTierName = "vip" });
-            DALs.CustomerTierRepo.Add(new CustomerTier { CustomerTierName = "vip pro" });
+            List<string> CustomerTierNameList = new List<string> { "silver", "gold", "diamond" };
+            CustomerTierNameList
+                .ForEach(x => Service.CustomerTierService.Add(new CustomerTier { CustomerTierName = x }));
 
-            DALs.CustomerRepo.Add(new Customer
+            List<Customer> CustomerList = new List<Customer>
             {
-                CustomerName = "lmp1",
-                IdentityNumber = "000000000000",
-                CustomerAddress = "htp",
-                PhoneNumber = "0123456789",
-                CustomerTierID = 1,
-            });
-            DALs.CustomerRepo.Add(new Customer
-            {
-                CustomerName = "lmp2",
-                IdentityNumber = "000000000001",
-                CustomerAddress = "htp",
-                PhoneNumber = "0123456789",
-                CustomerTierID = 1,
-            });
-            DALs.CustomerRepo.Add(new Customer
-            {
-                CustomerName = "lmp3",
-                IdentityNumber = "000000000002",
-                CustomerAddress = "htp",
-                PhoneNumber = "0123456789",
-                CustomerTierID = 2,
-            });
+                new Customer
+                {
+                    CustomerName = "A",
+                    IdentityNumber = "000000000000",
+                    CustomerAddress = "abc",
+                    PhoneNumber = "0123456789",
+                    CustomerTierID = 1,
+                },
+                new Customer
+                {
+                    CustomerName = "B",
+                    IdentityNumber = "000000000001",
+                    CustomerAddress = "abc",
+                    PhoneNumber = "0123456789",
+                    CustomerTierID = 1,
+                },
+                new Customer
+                {
+                    CustomerName = "C",
+                    IdentityNumber = "000000000002",
+                    CustomerAddress = "abc",
+                    PhoneNumber = "0123456789",
+                    CustomerTierID = 2,
+                },
+                new Customer
+                {
+                    CustomerName = "D",
+                    IdentityNumber = "000000000003",
+                    CustomerAddress = "abc",
+                    PhoneNumber = "0123456789",
+                    CustomerTierID = 3,
+                }
+            };
+            CustomerList
+                .ForEach(x => Service.CustomerService.Add(x));
 
-            var test = new CustomerService();
-            var list = test.GetCustomerTier(3);
-            MessageBox.Show(list.CustomerTierName.ToString());
+            List<User> UserList = new List<User>
+            {
+                new User
+                {
+                    IdentityNumber = "000000000000",
+                    UserName = "NhanVienA",
+                    Password = "1",
+                    Role = "NhanVien",
+                    EmailAddress = "abc@gmail.com",
+                    PhoneNumber = "0123456789",
+                    Address = "xyz",
+                },
+                new User
+                {
+                    IdentityNumber = "000000000001",
+                    UserName = "NhanVienB",
+                    Password = "2",
+                    Role = "NhanVien",
+                    EmailAddress = "abc@gmail.com",
+                    PhoneNumber = "0123456789",
+                    Address = "xyz",
+                },
+            };
+            UserList
+                .ForEach(x => Service.UserService.Add(x));
+
+
+
+            //var test = new CustomerService();
+            //var list = test.GetCustomerTier(3);
+            //MessageBox.Show(list.CustomerTierName.ToString());
         }
     }
 }

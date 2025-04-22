@@ -10,15 +10,15 @@ namespace QuanLyKhachSan.Models.BLL
 {
     public class Service
     {
-        public static CustomerService CustomerRepo => new CustomerService();
-        public static CustomerTierService CustomerTierRepo => new CustomerTierService();
-        public static InvoiceService InvoiceRepo => new InvoiceService();
-        public static RentalService RentalRepo => new RentalService();
-        public static RevenueService RevenueRepo => new RevenueService();
-        public static RoomService RoomRepo => new RoomService();
-        public static RoomTierService RoomTierRepo => new RoomTierService();
-        public static UserService UserRepo => new UserService();
-        public static RentalDetailService RentalDetailRepo => new RentalDetailService();
-        public static RevenueDetailService RevenueDetailRepo => new RevenueDetailService();
+        public static CustomerService CustomerService => new CustomerService();
+        public static CustomerTierService CustomerTierService => new CustomerTierService();
+        public static InvoiceService InvoiceService => new InvoiceService();
+        public static RentalService RentalService => new RentalService();
+        public static RevenueService RevenueService => new RevenueService();
+        public static RoomService RoomService => new RoomService();
+        public static RoomTierService RoomTierService => new RoomTierService();
+        public static UserService UserService => new UserService();
+        public static RentalDetailService RentalDetailService => new RentalDetailService();
+        public static RevenueDetailService RevenueDetailService => new RevenueDetailService();
     }
 }

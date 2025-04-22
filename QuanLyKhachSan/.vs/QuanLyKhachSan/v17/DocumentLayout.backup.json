@@ -14,21 +14,8 @@
       "DocumentGroups": [
         {
           "DockedWidth": 107,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 6,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "MainWindow.xaml.cs",
-              "DocumentMoniker": "D:\\LeMinhPhat\\UIT\\2. sophomore year\\semester 2\\Software engineering\\UIT_SE104_QuanLyKhachSan\\QuanLyKhachSan\\MainWindow.xaml.cs",
-              "RelativeDocumentMoniker": "MainWindow.xaml.cs",
-              "ToolTip": "D:\\LeMinhPhat\\UIT\\2. sophomore year\\semester 2\\Software engineering\\UIT_SE104_QuanLyKhachSan\\QuanLyKhachSan\\MainWindow.xaml.cs",
-              "RelativeToolTip": "MainWindow.xaml.cs",
-              "ViewState": "AgIAAC4AAAAAAAAAAAAQwFYAAAAtAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-22T08:50:46.34Z",
-              "EditorCaption": ""
-            },
             {
               "$type": "Bookmark",
               "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
@@ -52,6 +39,19 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "MainWindow.xaml.cs",
+              "DocumentMoniker": "D:\\LeMinhPhat\\UIT\\2. sophomore year\\semester 2\\Software engineering\\UIT_SE104_QuanLyKhachSan\\QuanLyKhachSan\\MainWindow.xaml.cs",
+              "RelativeDocumentMoniker": "MainWindow.xaml.cs",
+              "ToolTip": "D:\\LeMinhPhat\\UIT\\2. sophomore year\\semester 2\\Software engineering\\UIT_SE104_QuanLyKhachSan\\QuanLyKhachSan\\MainWindow.xaml.cs",
+              "RelativeToolTip": "MainWindow.xaml.cs",
+              "ViewState": "AgIAAFAAAAAAAAAAAAAUwHAAAAA6AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-22T15:31:02.572Z",
+              "EditorCaption": ""
             }
           ]
         }
