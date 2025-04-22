@@ -10,10 +10,10 @@ namespace QuanLyKhachSan.Models.DAL.Repositories
 {
     public class RevenueDetailDAL : IDetailRepository<RevenueDetail>
     {
-        public void Add(params RevenueDetail[] details)
+        public void Add(RevenueDetail detail)
         {
             using var dbcontext = new HotelDbContext();
-            dbcontext.AddRange(details);
+            dbcontext.Add(detail);
             dbcontext.SaveChanges();
         }
         public void Delete(int id, int invoiceID)

@@ -10,10 +10,10 @@ namespace QuanLyKhachSan.Models.DAL.Repositories
 {
     public class RentalDetailDAL : IDetailRepository<RentalDetail>
     {
-        public void Add(params RentalDetail[] rentalDetails)
+        public void Add(RentalDetail rentalDetail)
         {
             using var dbcontext = new HotelDbContext();
-            dbcontext.Add(rentalDetails);
+            dbcontext.Add(rentalDetail);
             dbcontext.SaveChanges();
         }
 
@@ -24,6 +24,13 @@ namespace QuanLyKhachSan.Models.DAL.Repositories
                                 where rd.RentalFormID == rentalID && rd.CustomerID == customerID
                                 select rd).FirstOrDefault();
             dbcontext.Remove(rentalDetail);
+            dbcontext.SaveChanges();
+        }
+        public void Update(RentalDetail rentalDetail)
+        {
+            using var dbcontext = new HotelDbContext();
+            dbcontext.Attach(rentalDetail);
+            dbcontext.Entry(rentalDetail).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
             dbcontext.SaveChanges();
         }
     }

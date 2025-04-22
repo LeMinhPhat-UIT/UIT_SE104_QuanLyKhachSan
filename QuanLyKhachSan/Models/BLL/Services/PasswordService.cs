@@ -5,7 +5,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace QuanLyKhachSan.Models.DAL
+namespace QuanLyKhachSan.Models.BLL.Services
 {
     public class PasswordService
     {

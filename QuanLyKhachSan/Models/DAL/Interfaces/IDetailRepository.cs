@@ -8,7 +8,7 @@ namespace QuanLyKhachSan.Models.DAL.Interfaces
 {
     public interface IDetailRepository<T>
     {
-        void Add(params T[] entity);
+        void Add(T entity);
         void Delete(int id1, int id2);
     }
 }

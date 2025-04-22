@@ -19,7 +19,6 @@ namespace QuanLyKhachSan.Models.DAL
         public static RoomDAL RoomRepo => new RoomDAL();
         public static RoomTierDAL RoomTierRepo => new RoomTierDAL();
         public static UserDAL UserRepo => new UserDAL();
-
         public static RentalDetailDAL RentalDetailRepo => new RentalDetailDAL();
         public static RevenueDetailDAL RevenueDetailRepo => new RevenueDetailDAL();
     }
