@@ -27,6 +27,12 @@ namespace QuanLyKhachSan.Models.BLL.Services
         public void Update(User staff)
             => DALs.UserRepo.Update(staff);
 
+        public List<Invoice> GetInvoice(int id)
+            => DALs.UserRepo.GetInvoice(id);
+
+        public List<Rental> GetRental(int id)
+            => DALs.UserRepo.GetRental(id);
+
         public List<User> Search(User template)
         {
             using var dbcontext = new HotelDbContext();

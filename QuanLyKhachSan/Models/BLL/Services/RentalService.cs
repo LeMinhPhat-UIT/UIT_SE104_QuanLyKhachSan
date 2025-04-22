@@ -10,7 +10,7 @@ using QuanLyKhachSan.Models.DAL;
 
 namespace QuanLyKhachSan.Models.BLL.Services
 {
-    public class RentalFormService : IBusinessService<Rental>
+    public class RentalService : IBusinessService<Rental>
     {
         public Rental GetById(int id)
             => DALs.RentalRepo.GetById(id);
@@ -26,6 +26,18 @@ namespace QuanLyKhachSan.Models.BLL.Services
 
         public void Update(Rental rental)
             => DALs.RentalRepo.Update(rental);
+
+        public Room GetRoom(int Id)
+            => DALs.RentalRepo.GetRoom(Id);
+
+        public User GetUser(int Id)
+            => DALs.RentalRepo.GetUser(Id);
+
+        public Invoice GetInvoice(int Id)
+            => DALs.RentalRepo.GetInvoice(Id);
+
+        public List<RentalDetail> GetDetail(int Id)
+            => DALs.RentalRepo.GetDetail(Id);
 
         public List<Rental> Search(Rental template)
         {

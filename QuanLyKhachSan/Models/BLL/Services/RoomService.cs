@@ -27,6 +27,12 @@ namespace QuanLyKhachSan.Models.BLL.Services
         public void Update(Room room)
             => DALs.RoomRepo.Update(room);
 
+        public RoomTier GetTier(int Id)
+            => DALs.RoomRepo.GetTier(Id);
+
+        public List<Rental> GetRentalDetail(int Id)
+            => DALs.RoomRepo.GetRentalDetail(Id);
+
         public List<Room> Search(Room template)
         {
             using var dbcontext = new HotelDbContext();

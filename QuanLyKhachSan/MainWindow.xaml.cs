@@ -83,9 +83,9 @@ namespace QuanLyKhachSan
                 CustomerTierID = 2,
             });
 
-            var test = new CustomerTierService();
-            var list = test.GetCustomers(1);
-            MessageBox.Show(list.Count.ToString());
+            var test = new CustomerService();
+            var list = test.GetCustomerTier(3);
+            MessageBox.Show(list.CustomerTierName.ToString());
         }
     }
 }

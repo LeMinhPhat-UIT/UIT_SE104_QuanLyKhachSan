@@ -58,9 +58,9 @@ namespace QuanLyKhachSan.Models.DAL.Repositories
         }
 
         public List<RentalDetail> GetRentalDetail(int Id)
-            => LoadCustomer(GetById(Id)).RentalDetails;
+            => LoadRentalDetail(GetById(Id)).RentalDetails;
 
-        public Customer LoadCustomer(Customer cus)
+        public Customer LoadRentalDetail(Customer cus)
         {
             using var dbcontext = new HotelDbContext();
             var e = dbcontext.Entry(cus);

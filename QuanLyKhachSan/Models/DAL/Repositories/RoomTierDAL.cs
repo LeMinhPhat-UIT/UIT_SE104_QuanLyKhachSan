@@ -46,7 +46,7 @@ namespace QuanLyKhachSan.Models.DAL.Repositories
             dbcontext.SaveChanges();
         }
 
-        public List<Room> GetCustomers(int Id)
+        public List<Room> GetRoom(int Id)
             => LoadRoom(GetById(Id)).Rooms;
 
         public RoomTier LoadRoom(RoomTier tier)

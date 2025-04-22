@@ -8,7 +8,7 @@ using QuanLyKhachSan.Models.DAL.Interfaces;
 
 namespace QuanLyKhachSan.Models.DAL.Repositories
 {
-    public class RentalFormDAL : IEntityRepository<Rental>
+    public class RentalDAL : IEntityRepository<Rental>
     {
         public Rental? GetById(int id)
         {
