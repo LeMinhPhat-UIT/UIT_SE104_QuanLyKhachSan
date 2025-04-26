@@ -11,20 +11,20 @@ namespace EntityFramework
     public class Rental
     {
         [Key]
-        public int RentalFormID { get; set; }
-        public int? StaffID { get; set; }
+        public int RentalID { get; set; }
+        public int? UserID { get; set; }
         public int RoomID { get; set; }
 
         [Column(TypeName="smalldatetime")]
-        public DateTime RentalDate { get; set; }
+        public DateTime CheckInDate { get; set; }
 
         [Column(TypeName="smalldatetime")]
-        public DateTime ReturnDate { get; set; }
+        public DateTime CheckOutDate { get; set; }
 
         [ForeignKey("RoomID")]
         public Room Room { get; set; }
 
-        [ForeignKey("StaffID")]
+        [ForeignKey("UserID")]
         public User User { get; set; }
         public List<RentalDetail> RentalDetails { get; set; }
         public Invoice Invoice { get; set; }

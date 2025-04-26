@@ -10,7 +10,7 @@ namespace EntityFramework
         public DbSet<CustomerTier> CustomerTier { get; set; }
         public DbSet<Invoice> Invoice { get; set; }
         public DbSet<RevenueDetail> RevenueDetail { get; set; }
-        public DbSet<RevenueReport> MonthlyRevenueReport {  get; set; }
+        public DbSet<RevenueReport> RevenueReport {  get; set; }
         public DbSet<RentalDetail> RentalDetail { get; set; }
         public DbSet<Rental> Rental { get; set; }
         public DbSet<Room> Room { get; set; }
@@ -42,7 +42,7 @@ namespace EntityFramework
         {
             base.OnModelCreating(modelBuilder);
             modelBuilder.Entity<RentalDetail>()
-                .HasKey(rentalDetail => new { rentalDetail.RentalFormID, rentalDetail.CustomerID });
+                .HasKey(rentalDetail => new { rentalDetail.RentalID, rentalDetail.CustomerID });
             modelBuilder.Entity<RevenueDetail>()
                 .HasKey(revenueDetail => new { revenueDetail.ReportID, revenueDetail.InvoiceID });
             modelBuilder.Entity<Customer>().HasIndex(customer => customer.IdentityNumber).IsUnique();
@@ -63,12 +63,22 @@ namespace EntityFramework
                 entity
                     .HasMany(customer => customer.RentalDetails)
                     .WithOne(rentalDetail => rentalDetail.Customer)
-                    .OnDelete(DeleteBehavior.Restrict);
+                    .OnDelete(DeleteBehavior.ClientNoAction);
                 entity
                     .HasOne(customer => customer.CustomerTier)
                     .WithMany(customerTier => customerTier.Customers)
                     .OnDelete(DeleteBehavior.SetNull);
             });
+
+            modelBuilder.Entity<User>()
+                    .HasMany(user => user.Rentals)
+                    .WithOne(rental => rental.User)
+                    .OnDelete(DeleteBehavior.SetNull);
+
+            modelBuilder.Entity<Room>()
+                    .HasOne(room => room.RoomTier)
+                    .WithMany(roomTier => roomTier.Rooms)
+                    .OnDelete(DeleteBehavior.SetNull);
         }
 
         public static void CreateDatabase()

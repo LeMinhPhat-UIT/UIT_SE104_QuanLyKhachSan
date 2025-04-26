@@ -24,10 +24,10 @@ namespace QuanLyKhachSan.Models.DAL.Repositories
             return dbcontext.User.ToList();
         }
 
-        public void Add(User staff)
+        public void Add(User user)
         {
             using var dbcontext = new HotelDbContext();
-            dbcontext.User.Add(staff);
+            dbcontext.User.Add(user);
             dbcontext.SaveChanges();
         }
 
@@ -38,11 +38,11 @@ namespace QuanLyKhachSan.Models.DAL.Repositories
             dbcontext.SaveChanges();
         }
 
-        public void Update(User staffInfo)
+        public void Update(User userInfo)
         {
             using var dbcontext = new HotelDbContext();
-            dbcontext.Attach(staffInfo);
-            dbcontext.Entry(staffInfo).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+            dbcontext.Attach(userInfo);
+            dbcontext.Entry(userInfo).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
             dbcontext.SaveChanges();
         }
 

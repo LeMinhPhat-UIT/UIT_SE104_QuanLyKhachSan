@@ -39,7 +39,7 @@ namespace QuanLyKhachSan.Models.BLL.Services
         public List<RevenueReport> Search(RevenueReport template)
         {
             using var dbcontext = new HotelDbContext();
-            var list = dbcontext.MonthlyRevenueReport.AsQueryable();
+            var list = dbcontext.RevenueReport.AsQueryable();
             var props = typeof(RevenueReport).GetProperties();
             props.ToList().ForEach(
                 prop =>

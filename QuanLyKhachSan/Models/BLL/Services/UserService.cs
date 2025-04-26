@@ -18,14 +18,14 @@ namespace QuanLyKhachSan.Models.BLL.Services
         public List<User> GetAllData()
             => DALs.UserRepo.GetAllData();
 
-        public void Add(User staff)
-            => DALs.UserRepo.Add(staff);
+        public void Add(User user)
+            => DALs.UserRepo.Add(user);
 
         public void Delete(int Id)
             => DALs.UserRepo.Delete(Id);
 
-        public void Update(User staff)
-            => DALs.UserRepo.Update(staff);
+        public void Update(User user)
+            => DALs.UserRepo.Update(user);
 
         public List<Invoice> GetInvoice(int id)
             => DALs.UserRepo.GetInvoice(id);

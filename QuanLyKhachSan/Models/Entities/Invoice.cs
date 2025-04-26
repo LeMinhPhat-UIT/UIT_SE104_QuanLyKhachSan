@@ -25,6 +25,9 @@ namespace EntityFramework
         [Column(TypeName="money")]
         public decimal PricePerDay { get; set; }
 
+        [Column(TypeName = "money")]
+        public decimal SurchargeRate { get; set; }
+
         [Column(TypeName="money")]
         public decimal TotalAmount { get; set; }
 

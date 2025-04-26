@@ -14,7 +14,7 @@ namespace QuanLyKhachSan.Models.DAL.Repositories
         {
             using var dbcontext = new HotelDbContext();
             return (from rf in dbcontext.Rental
-                    where rf.RentalFormID == id
+                    where rf.RentalID == id
                     select rf).FirstOrDefault();
         }
 

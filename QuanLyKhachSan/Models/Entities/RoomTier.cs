@@ -13,6 +13,7 @@ namespace EntityFramework
         [Key]
         public int RoomTierID { get; set; }
 
+        [StringLength(50)]
         [Column(TypeName="nvarchar")]
         public string RoomTierName { get; set; }
 

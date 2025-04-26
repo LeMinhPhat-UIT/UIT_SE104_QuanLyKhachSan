@@ -19,7 +19,7 @@ namespace EntityFramework
         public string RoomNumber { get; set; }
 
         [Column(TypeName="money")]
-        public decimal Price { get; set; }
+        public decimal PricePerDay { get; set; }
         public int Capacity { get; set; }
 
         [StringLength(50)]

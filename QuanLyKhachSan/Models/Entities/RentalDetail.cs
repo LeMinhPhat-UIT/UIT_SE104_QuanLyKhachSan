@@ -10,14 +10,14 @@ namespace EntityFramework
 {
     public class RentalDetail
     {
-        public int RentalFormID { get; set; }
+        public int RentalID { get; set; }
         public int CustomerID { get; set; }
         public bool IsRepresentative { get; set; }
 
         [ForeignKey("CustomerID")]
         public Customer Customer { get; set; }
 
-        [ForeignKey("RentalFormID")]
-        public Rental RentalForm { get; set; }
+        [ForeignKey("RentalID")]
+        public Rental Rental { get; set; }
     }
 }

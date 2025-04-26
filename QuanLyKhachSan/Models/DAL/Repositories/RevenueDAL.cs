@@ -13,7 +13,7 @@ namespace QuanLyKhachSan.Models.DAL.Repositories
         public RevenueReport? GetById(int id)
         {
             using var dbcontext = new HotelDbContext();
-            return (from c in dbcontext.MonthlyRevenueReport
+            return (from c in dbcontext.RevenueReport
                     where c.ReportID == id
                     select c).FirstOrDefault();
         }
@@ -21,13 +21,13 @@ namespace QuanLyKhachSan.Models.DAL.Repositories
         public List<RevenueReport> GetAllData()
         {
             using var dbcontext = new HotelDbContext();
-            return dbcontext.MonthlyRevenueReport.ToList();
+            return dbcontext.RevenueReport.ToList();
         }
 
         public void Add(RevenueReport report)
         {
             using var dbcontext = new HotelDbContext();
-            dbcontext.MonthlyRevenueReport.Add(report);
+            dbcontext.RevenueReport.Add(report);
             dbcontext.SaveChanges();
         }
 

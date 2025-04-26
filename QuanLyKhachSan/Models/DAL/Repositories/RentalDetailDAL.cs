@@ -21,7 +21,7 @@ namespace QuanLyKhachSan.Models.DAL.Repositories
         {
             using var dbcontext = new HotelDbContext();
             var rentalDetail = (from rd in dbcontext.RentalDetail
-                                where rd.RentalFormID == rentalID && rd.CustomerID == customerID
+                                where rd.RentalID == rentalID && rd.CustomerID == customerID
                                 select rd).FirstOrDefault();
             dbcontext.Remove(rentalDetail);
             dbcontext.SaveChanges();
