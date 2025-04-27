@@ -25,6 +25,9 @@ namespace EntityFramework
         [Column(TypeName="char")]
         public string IdentityNumber {  get; set; }
 
+        [Column(TypeName = "bit")]
+        public bool Sex { get; set; }
+
         [StringLength(50)]
         [Column(TypeName="nvarchar")]
         public string Role { get; set; }

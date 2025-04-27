@@ -28,21 +28,21 @@ namespace QuanLyKhachSan
 
             // testing area
 
-            //HotelDbContext.DropDatabase(); //ok
-            //HotelDbContext.CreateDatabase(); //ok
+            HotelDbContext.DropDatabase(); //ok
+            HotelDbContext.CreateDatabase(); //ok
             // các hàm add ok
 
-            Customer template = new Customer()
-            {
-                CustomerID = 1,
-                CustomerTierID = 2,
-                CustomerName = "Le Minh Phat",
-                IdentityNumber = "000000000000",
-                CustomerAddress = "HTP",
-                PhoneNumber = "0123456789"
-            };
-            Service.CustomerService.Update(template);
-            Service.CustomerService.Delete(2);
+            //Customer template = new Customer()
+            //{
+            //    CustomerID = 1,
+            //    CustomerTierID = 2,
+            //    CustomerName = "Le Minh Phat",
+            //    IdentityNumber = "000000000000",
+            //    CustomerAddress = "HTP",
+            //    PhoneNumber = "0123456789"
+            //};
+            //Service.CustomerService.Update(template);
+            //Service.CustomerService.Delete(2);
         }
     }
 }

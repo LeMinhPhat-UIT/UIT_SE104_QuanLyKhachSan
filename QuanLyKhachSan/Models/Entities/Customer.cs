@@ -1,4 +1,4 @@
-﻿using System;
+﻿ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
@@ -24,6 +24,9 @@ namespace EntityFramework
         [Column(TypeName="char")]
         public string IdentityNumber { get; set; }
 
+        [Column(TypeName="bit")]
+        public bool Sex { get; set; }
+
         [StringLength(100)]
         [Column(TypeName="ntext")]
         public string CustomerAddress { get; set; }
@@ -33,7 +36,7 @@ namespace EntityFramework
         public string PhoneNumber { get; set; }
 
         [ForeignKey("CustomerTierID")]
-        public CustomerTier CustomerTier { get; set; }
-        public List<RentalDetail> RentalDetails { get; set; }
+        public CustomerTier? CustomerTier { get; set; }
+        public List<RentalDetail>? RentalDetails { get; set; }
     }
 }

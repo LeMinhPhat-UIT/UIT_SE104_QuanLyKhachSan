@@ -48,37 +48,87 @@ namespace EntityFramework
             modelBuilder.Entity<Customer>().HasIndex(customer => customer.IdentityNumber).IsUnique();
             modelBuilder.Entity<User>().HasIndex(staff => staff.IdentityNumber).IsUnique();
 
-            modelBuilder.Entity<Invoice>(entity => {
+            modelBuilder.Entity<Rental>(entity =>
+            {
                 entity
-                    .HasOne(invoice => invoice.User)
-                    .WithMany(staff => staff.Invoices)
-                    .OnDelete(DeleteBehavior.SetNull);
+                    .HasOne(x => x.Invoice)
+                    .WithOne(y => y.Rental)
+                    .OnDelete(DeleteBehavior.Cascade);
                 entity
-                    .HasOne(invoice => invoice.Rental)
-                    .WithOne(rental => rental.Invoice)
+                    .HasOne(x => x.Room)
+                    .WithMany(y => y.Rentals)
                     .OnDelete(DeleteBehavior.Restrict);
-            });
-
-            modelBuilder.Entity<Customer>(entity => {
                 entity
-                    .HasMany(customer => customer.RentalDetails)
-                    .WithOne(rentalDetail => rentalDetail.Customer)
-                    .OnDelete(DeleteBehavior.ClientNoAction);
+                    .HasMany(x => x.RentalDetails)
+                    .WithOne(y => y.Rental)
+                    .OnDelete(DeleteBehavior.Cascade);
                 entity
-                    .HasOne(customer => customer.CustomerTier)
-                    .WithMany(customerTier => customerTier.Customers)
+                    .HasOne(x => x.User)
+                    .WithMany(y => y.Rentals)
                     .OnDelete(DeleteBehavior.SetNull);
             });
 
-            modelBuilder.Entity<User>()
-                    .HasMany(user => user.Rentals)
-                    .WithOne(rental => rental.User)
+            modelBuilder.Entity<RevenueReport>(entity =>
+            {
+                entity
+                    .HasOne(x => x.RoomTier)
+                    .WithMany(y => y.RevenueReports)
+                    .OnDelete(DeleteBehavior.Restrict);
+                entity
+                    .HasMany(x => x.RevenueDetails)
+                    .WithOne(y => y.Report)
+                    .OnDelete(DeleteBehavior.Cascade);
+                entity
+                    .HasOne(x => x.User)
+                    .WithMany(y => y.RevenueReports)
                     .OnDelete(DeleteBehavior.SetNull);
+            });
 
-            modelBuilder.Entity<Room>()
-                    .HasOne(room => room.RoomTier)
-                    .WithMany(roomTier => roomTier.Rooms)
+            modelBuilder.Entity<Invoice>(entity => 
+            {
+                entity
+                    .HasOne(x => x.User)
+                    .WithMany(y => y.Invoices)
                     .OnDelete(DeleteBehavior.SetNull);
+                entity
+                    .HasMany(x => x.RevenueDetails)
+                    .WithOne(y => y.Invoice)
+                    .OnDelete(DeleteBehavior.Cascade);
+            });
+
+            modelBuilder.Entity<Customer>(entity => 
+            {
+                entity
+                    .HasOne(x => x.CustomerTier)
+                    .WithMany(y => y.Customers)
+                    .OnDelete(DeleteBehavior.SetNull);
+                entity
+                    .HasMany(x => x.RentalDetails)
+                    .WithOne(y => y.Customer)
+                    .OnDelete(DeleteBehavior.Cascade);
+                entity
+                    .ToTable(x =>
+                    {
+                        x.HasCheckConstraint("CK_Customer_PhoneNumber", "LEN(PhoneNumber)=10");
+                        x.HasCheckConstraint("CK_Customer_IdentityNumber", "LEN(IdentityNumber)=12");
+                        x.HasCheckConstraint("CK_Customer_Sex", "Sex IN (1,0)");
+                    });
+            });
+
+            modelBuilder.Entity<User>().ToTable(x =>
+            {
+                x.HasCheckConstraint("CK_User_PhoneNumber", "LEN(PhoneNumber)=10");
+                x.HasCheckConstraint("CK_User_IdentityNumber", "LEN(IdentityNumber)=12");
+                x.HasCheckConstraint("CK_User_Sex", "Sex IN (1,0)");
+            });
+
+            modelBuilder.Entity<Room>(entity =>
+            {
+                entity
+                    .HasOne(x => x.RoomTier)
+                    .WithMany(y => y.Rooms)
+                    .OnDelete(DeleteBehavior.SetNull);
+            });
         }
 
         public static void CreateDatabase()
