@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Navigation;
 using EntityFramework;
+using QuanLyKhachSan.Models.Core.Entities;
 using QuanLyKhachSan.Models.DAL.Interfaces;
 
 namespace QuanLyKhachSan.Models.DAL.Repositories

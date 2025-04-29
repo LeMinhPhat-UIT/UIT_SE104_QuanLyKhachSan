@@ -1,6 +1,7 @@
 ﻿using System.Windows;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
+using QuanLyKhachSan.Models.Core.Entities;
 
 namespace EntityFramework
 {

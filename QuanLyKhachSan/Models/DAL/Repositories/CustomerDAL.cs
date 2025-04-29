@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using EntityFramework;
+using QuanLyKhachSan.Models.Core.Entities;
 using QuanLyKhachSan.Models.DAL.Interfaces;
 
 namespace QuanLyKhachSan.Models.DAL.Repositories

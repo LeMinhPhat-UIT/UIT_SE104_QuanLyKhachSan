@@ -12,7 +12,7 @@ using System.Windows.Shapes;
 using EntityFramework;
 using Microsoft.EntityFrameworkCore;
 using QuanLyKhachSan.Models.BLL;
-using QuanLyKhachSan.Models.BLL.Helper;
+using QuanLyKhachSan.Models.BLL.Helpers;
 using QuanLyKhachSan.Models.DAL;
 using QuanLyKhachSan.Models.DAL.Repositories;
 
@@ -31,9 +31,6 @@ namespace QuanLyKhachSan
 
             //HotelDbContext.DropDatabase(); //ok
             //HotelDbContext.CreateDatabase(); //ok
-            var list=HelperService.Sort<RevenueReport>(
-                Service.RevenueService.GetAllData(), "TotalRevenue", SortOrder.Descending);
-            list.ForEach(x => MessageBox.Show(x.ReportID.ToString()));
         }
     }
 }

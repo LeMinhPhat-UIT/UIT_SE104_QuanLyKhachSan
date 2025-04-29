@@ -3,40 +3,44 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using EntityFramework;
 using Microsoft.EntityFrameworkCore;
 using QuanLyKhachSan.Models.BLL.Interfaces;
-using QuanLyKhachSan.Models.BLL.SupportService;
 using QuanLyKhachSan.Models.DAL;
+using QuanLyKhachSan.Models.BLL.Helpers.Validation;
+using QuanLyKhachSan.UI.Utilities;
+using QuanLyKhachSan.Models.Core.Entities;
 
 namespace QuanLyKhachSan.Models.BLL.Services
 {
     public class CustomerService : IBusinessService<Customer>
     {
         public Customer GetById(int id)
-            => DALs.CustomerRepo.GetById(id);
+            => RepositoryHub.CustomerRepo.GetById(id);
 
         public List<Customer> GetAllData()
-            => DALs.CustomerRepo.GetAllData();
+            => RepositoryHub.CustomerRepo.GetAllData();
 
         public void Add(Customer customer)
-            => DALs.CustomerRepo.Add(customer);
+        {
+            if(CheckValid.IsCustomerValid(customer))
+                RepositoryHub.CustomerRepo.Add(customer);
+        }
 
         public void Delete(int Id)
         {
-            if (DeleteWarning.Warning() == System.Windows.MessageBoxResult.No)
+            if (DeleteDialogHelper.Warning() == System.Windows.MessageBoxResult.No)
                 return;
-            DALs.CustomerRepo.Delete(Id);
+            RepositoryHub.CustomerRepo.Delete(Id);
         }
 
         public void Update(Customer customer)
-            => DALs.CustomerRepo.Update(customer);
+            => RepositoryHub.CustomerRepo.Update(customer);
 
         public CustomerTier GetCustomerTier(int tierID)
-            => DALs.CustomerRepo.GetTier(tierID);
+            => RepositoryHub.CustomerRepo.GetTier(tierID);
 
         public List<RentalDetail> GetRentalDetail(int cusID)
-            => DALs.CustomerRepo.GetRentalDetail(cusID);
+            => RepositoryHub.CustomerRepo.GetRentalDetail(cusID);
 
         //public List<Customer> Search(Customer template)
         //{

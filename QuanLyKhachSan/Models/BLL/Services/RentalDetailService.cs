@@ -3,25 +3,25 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using EntityFramework;
-using QuanLyKhachSan.Models.BLL.SupportService;
+using QuanLyKhachSan.Models.Core.Entities;
 using QuanLyKhachSan.Models.DAL;
+using QuanLyKhachSan.UI.Utilities;
 
 namespace QuanLyKhachSan.Models.BLL.Services
 {
     public class RentalDetailService
     {
         public void Add(RentalDetail rentalDetail)
-            => DALs.RentalDetailRepo.Add(rentalDetail);
+            => RepositoryHub.RentalDetailRepo.Add(rentalDetail);
 
         public void Delete(int rentalID, int customerID)
         {
-            if (DeleteWarning.Warning() == System.Windows.MessageBoxResult.No)
+            if (DeleteDialogHelper.Warning() == System.Windows.MessageBoxResult.No)
                 return;
-            DALs.RentalDetailRepo.Delete(rentalID, customerID);
+            RepositoryHub.RentalDetailRepo.Delete(rentalID, customerID);
         }
 
         public void Update(RentalDetail rentalDetail)
-            => DALs.RentalDetailRepo.Update(rentalDetail);
+            => RepositoryHub.RentalDetailRepo.Update(rentalDetail);
     }
 }

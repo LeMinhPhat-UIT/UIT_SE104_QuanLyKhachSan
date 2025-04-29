@@ -3,42 +3,42 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using EntityFramework;
 using Microsoft.EntityFrameworkCore;
 using QuanLyKhachSan.Models.BLL.Interfaces;
-using QuanLyKhachSan.Models.BLL.SupportService;
+using QuanLyKhachSan.Models.Core.Entities;
 using QuanLyKhachSan.Models.DAL;
+using QuanLyKhachSan.UI.Utilities;
 
 namespace QuanLyKhachSan.Models.BLL.Services
 {
     public class RoomTierService : IBusinessService<RoomTier>
     {
         public RoomTier GetById(int id)
-            => DALs.RoomTierRepo.GetById(id);
+            => RepositoryHub.RoomTierRepo.GetById(id);
 
         public List<RoomTier> GetAllData()
-            => DALs.RoomTierRepo.GetAllData();
+            => RepositoryHub.RoomTierRepo.GetAllData();
 
         public void Add(RoomTier tier)
-            => DALs.RoomTierRepo.Add(tier);
+            => RepositoryHub.RoomTierRepo.Add(tier);
 
         public void Delete(int Id)
         {
-            if (DALs.RoomTierRepo.GetReport(Id).Count != 0)
+            if (RepositoryHub.RoomTierRepo.GetReport(Id).Count != 0)
             {
-                DeleteWarning.RestrictWarning();
+                DeleteDialogHelper.RestrictWarning();
                 return;
             }
-            DALs.RoomTierRepo.Delete(Id);
+            RepositoryHub.RoomTierRepo.Delete(Id);
         }
 
         public void Update(RoomTier tier)
-            => DALs.RoomTierRepo.Update(tier);
+            => RepositoryHub.RoomTierRepo.Update(tier);
 
         public List<Room> GetRoom(int Id)
-            => DALs.RoomTierRepo.GetRoom(Id);
+            => RepositoryHub.RoomTierRepo.GetRoom(Id);
 
         public List<RevenueReport> GetReport(int Id)
-            => DALs.RoomTierRepo.GetReport(Id);
+            => RepositoryHub.RoomTierRepo.GetReport(Id);
     }
 }
