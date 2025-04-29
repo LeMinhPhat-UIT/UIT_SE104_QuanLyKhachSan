@@ -106,20 +106,6 @@ namespace EntityFramework
                     .HasMany(x => x.RentalDetails)
                     .WithOne(y => y.Customer)
                     .OnDelete(DeleteBehavior.Cascade);
-                entity
-                    .ToTable(x =>
-                    {
-                        x.HasCheckConstraint("CK_Customer_PhoneNumber", "LEN(PhoneNumber)=10");
-                        x.HasCheckConstraint("CK_Customer_IdentityNumber", "LEN(IdentityNumber)=12");
-                        x.HasCheckConstraint("CK_Customer_Sex", "Sex IN (1,0)");
-                    });
-            });
-
-            modelBuilder.Entity<User>().ToTable(x =>
-            {
-                x.HasCheckConstraint("CK_User_PhoneNumber", "LEN(PhoneNumber)=10");
-                x.HasCheckConstraint("CK_User_IdentityNumber", "LEN(IdentityNumber)=12");
-                x.HasCheckConstraint("CK_User_Sex", "Sex IN (1,0)");
             });
 
             modelBuilder.Entity<Room>(entity =>
@@ -129,14 +115,51 @@ namespace EntityFramework
                     .WithMany(y => y.Rooms)
                     .OnDelete(DeleteBehavior.SetNull);
             });
+
+            //Constraints
+            modelBuilder.Entity<Customer>().ToTable(x =>
+            {
+                x.HasCheckConstraint("CK_Customer_PhoneNumber", "LEN(PhoneNumber)=10");
+                x.HasCheckConstraint("CK_Customer_IdentityNumber", "LEN(IdentityNumber)=12");
+                x.HasCheckConstraint("CK_Customer_Sex", "Sex IN (1,0)");
+            });
+
+            modelBuilder.Entity<User>().ToTable(x =>
+            {
+                x.HasCheckConstraint("CK_User_PhoneNumber", "LEN(PhoneNumber)=10");
+                x.HasCheckConstraint("CK_User_IdentityNumber", "LEN(IdentityNumber)=12");
+                x.HasCheckConstraint("CK_User_Sex", "Sex IN (1,0)");
+            });
+
+            modelBuilder.Entity<RentalDetail>().ToTable(
+                x => x.HasCheckConstraint("CK_RentalDetail_IsRepresentative", "IsRepresentative IN (1,0)")
+            );
+
+            modelBuilder.Entity<Room>().ToTable(
+                x => x.HasCheckConstraint("CK_Room_RoomState", "RoomState IN ('available', 'occupied')")
+            );
+
+            modelBuilder.Entity<Rental>().ToTable(x => 
+            {
+                x.HasCheckConstraint("CK_Rental_Status", "Status IN ('Pending', 'CheckIn', 'CheckOut', 'Cancelled')");
+                x.HasCheckConstraint("CK_Rental_CheckOutDate", "CheckOutDate > CheckInDate");
+            });
+
+            modelBuilder.Entity<Invoice>().ToTable(x =>
+                x.HasCheckConstraint("CK_Invoice_TotalAmount", "TotalAmount = TotalDays*PricePerDay*(1+SurchargeRate/100)")
+            );
+        }
+
+        public DbSet<T> Set<T>() where T : class
+        {
+            return base.Set<T>();
         }
 
         public static void CreateDatabase()
         {
             using var dbcontext = new HotelDbContext();
             string dbname = dbcontext.Database.GetDbConnection().Database;
-            var result = dbcontext.Database.EnsureCreated();
-            if (result)
+            if (dbcontext.Database.EnsureCreated())
                 MessageBox.Show($"database '{dbname}' was created successfully");
             else
                 MessageBox.Show($"failed to create database '{dbname}'");

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using EntityFramework;
 using Microsoft.EntityFrameworkCore;
 using QuanLyKhachSan.Models.BLL.Interfaces;
+using QuanLyKhachSan.Models.BLL.SupportService;
 using QuanLyKhachSan.Models.DAL;
 
 namespace QuanLyKhachSan.Models.BLL.Services
@@ -22,7 +23,11 @@ namespace QuanLyKhachSan.Models.BLL.Services
             => DALs.CustomerRepo.Add(customer);
 
         public void Delete(int Id)
-            => DALs.CustomerRepo.Delete(Id);
+        {
+            if (DeleteWarning.Warning() == System.Windows.MessageBoxResult.No)
+                return;
+            DALs.CustomerRepo.Delete(Id);
+        }
 
         public void Update(Customer customer)
             => DALs.CustomerRepo.Update(customer);
@@ -33,34 +38,34 @@ namespace QuanLyKhachSan.Models.BLL.Services
         public List<RentalDetail> GetRentalDetail(int cusID)
             => DALs.CustomerRepo.GetRentalDetail(cusID);
 
-        public List<Customer> Search(Customer template)
-        {
-            using var dbcontext = new HotelDbContext();
-            var list = dbcontext.Customer.AsQueryable();
-            var props = typeof(Customer).GetProperties();
-            props.ToList().ForEach(
-                prop =>
-                {
-                    var value = prop.GetValue(template);
-                    if (value == null) return;
-                    if (prop.PropertyType == typeof(string))
-                    {
-                        string strValue = value as string;
-                        if (!string.IsNullOrWhiteSpace(strValue))
-                        {
-                            list = list.Where(a =>
-                                EF.Functions.Like(EF.Property<string>(a, prop.Name), $"%{strValue}%"));
-                        }
-                    }
-                    else if (Nullable.GetUnderlyingType(prop.PropertyType) != null)
-                    {
-                        // kiểu nullable như int?, DateTime?, bool?
-                        list = list.Where(a =>
-                            EF.Property<object>(a, prop.Name).Equals(value));
-                    }
-                }
-            );
-            return list.ToList();
-        }
+        //public List<Customer> Search(Customer template)
+        //{
+        //    using var dbcontext = new HotelDbContext();
+        //    var list = dbcontext.Customer.AsQueryable();
+        //    var props = typeof(Customer).GetProperties();
+        //    props.ToList().ForEach(
+        //        prop =>
+        //        {
+        //            var value = prop.GetValue(template);
+        //            if (value == null) return;
+        //            if (prop.PropertyType == typeof(string))
+        //            {
+        //                string strValue = value as string;
+        //                if (!string.IsNullOrWhiteSpace(strValue))
+        //                {
+        //                    list = list.Where(a =>
+        //                        EF.Functions.Like(EF.Property<string>(a, prop.Name), $"%{strValue}%"));
+        //                }
+        //            }
+        //            else if (Nullable.GetUnderlyingType(prop.PropertyType) != null)
+        //            {
+        //                // kiểu nullable như int?, DateTime?, bool?
+        //                list = list.Where(a =>
+        //                    EF.Property<object>(a, prop.Name).Equals(value));
+        //            }
+        //        }
+        //    );
+        //    return list.ToList();
+        //}
     }
 }

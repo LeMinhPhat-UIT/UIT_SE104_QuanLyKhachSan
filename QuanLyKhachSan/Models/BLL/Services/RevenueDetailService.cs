@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using EntityFramework;
+using QuanLyKhachSan.Models.BLL.SupportService;
 using QuanLyKhachSan.Models.DAL;
 
 namespace QuanLyKhachSan.Models.BLL.Services
@@ -14,7 +15,11 @@ namespace QuanLyKhachSan.Models.BLL.Services
             => DALs.RevenueDetailRepo.Add(revenueDetail);
 
         public void Delete(int rentalID, int customerID)
-            => DALs.RevenueDetailRepo.Delete(rentalID, customerID);
+        {
+            if (DeleteWarning.Warning() == System.Windows.MessageBoxResult.No)
+                return;
+            DALs.RevenueDetailRepo.Delete(rentalID, customerID);
+        }
 
         public void Update(RevenueDetail revenueDetail)
             => DALs.RevenueDetailRepo.Update(revenueDetail);

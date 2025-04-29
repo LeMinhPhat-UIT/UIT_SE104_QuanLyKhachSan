@@ -21,6 +21,10 @@ namespace EntityFramework
         [Column(TypeName="smalldatetime")]
         public DateTime CheckOutDate { get; set; }
 
+        [StringLength(20)]
+        [Column(TypeName="varchar")]
+        public string Status { get; set; }
+
         [ForeignKey("RoomID")]
         public Room Room { get; set; }
 

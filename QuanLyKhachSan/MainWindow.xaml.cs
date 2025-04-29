@@ -12,6 +12,7 @@ using System.Windows.Shapes;
 using EntityFramework;
 using Microsoft.EntityFrameworkCore;
 using QuanLyKhachSan.Models.BLL;
+using QuanLyKhachSan.Models.BLL.Helper;
 using QuanLyKhachSan.Models.DAL;
 using QuanLyKhachSan.Models.DAL.Repositories;
 
@@ -28,21 +29,11 @@ namespace QuanLyKhachSan
 
             // testing area
 
-            HotelDbContext.DropDatabase(); //ok
-            HotelDbContext.CreateDatabase(); //ok
-            // các hàm add ok
-
-            //Customer template = new Customer()
-            //{
-            //    CustomerID = 1,
-            //    CustomerTierID = 2,
-            //    CustomerName = "Le Minh Phat",
-            //    IdentityNumber = "000000000000",
-            //    CustomerAddress = "HTP",
-            //    PhoneNumber = "0123456789"
-            //};
-            //Service.CustomerService.Update(template);
-            //Service.CustomerService.Delete(2);
+            //HotelDbContext.DropDatabase(); //ok
+            //HotelDbContext.CreateDatabase(); //ok
+            var list=HelperService.Sort<RevenueReport>(
+                Service.RevenueService.GetAllData(), "TotalRevenue", SortOrder.Descending);
+            list.ForEach(x => MessageBox.Show(x.ReportID.ToString()));
         }
     }
 }

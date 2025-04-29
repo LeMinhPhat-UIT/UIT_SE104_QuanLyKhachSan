@@ -14,9 +14,12 @@ namespace EntityFramework
         public int ReportID {  get; set; }
 
         [Column(TypeName="smalldatetime")]
-        public DateTime ReportDate { get; set; }
+        public DateTime FirstDate { get; set; }
 
-        public int UserID { get; set; }
+        [Column(TypeName = "smalldatetime")]
+        public DateTime LastDate { get; set; }
+
+        public int? UserID { get; set; }
         public int RoomTierID { get; set; }
 
         [Column(TypeName="money")]

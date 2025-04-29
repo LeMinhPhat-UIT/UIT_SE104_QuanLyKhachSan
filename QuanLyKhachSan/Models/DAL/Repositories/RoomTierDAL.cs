@@ -63,7 +63,7 @@ namespace QuanLyKhachSan.Models.DAL.Repositories
         {
             using var dbcontext = new HotelDbContext();
             var e = dbcontext.Entry(tier);
-            e.Collection(c => c.Rooms).Load();
+            e.Collection(c => c.RevenueReports).Load();
             return tier;
         }
     }

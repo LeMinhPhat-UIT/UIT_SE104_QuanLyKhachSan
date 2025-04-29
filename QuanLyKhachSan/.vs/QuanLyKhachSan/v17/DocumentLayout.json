@@ -3,8 +3,12 @@
   "WorkspaceRootPath": "D:\\LeMinhPhat\\UIT\\2. sophomore year\\semester 2\\Software engineering\\UIT_SE104_QuanLyKhachSan\\QuanLyKhachSan\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{0CC7568F-EA8C-4D36-AF5B-AE6AB1C2A1B6}|QuanLyKhachSan.csproj|d:\\leminhphat\\uit\\2. sophomore year\\semester 2\\software engineering\\uit_se104_quanlykhachsan\\quanlykhachsan\\models\\hoteldbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0CC7568F-EA8C-4D36-AF5B-AE6AB1C2A1B6}|QuanLyKhachSan.csproj|solutionrelative:models\\hoteldbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0CC7568F-EA8C-4D36-AF5B-AE6AB1C2A1B6}|QuanLyKhachSan.csproj|d:\\leminhphat\\uit\\2. sophomore year\\semester 2\\software engineering\\uit_se104_quanlykhachsan\\quanlykhachsan\\models\\bll\\services\\rentalservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0CC7568F-EA8C-4D36-AF5B-AE6AB1C2A1B6}|QuanLyKhachSan.csproj|solutionrelative:models\\bll\\services\\rentalservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0CC7568F-EA8C-4D36-AF5B-AE6AB1C2A1B6}|QuanLyKhachSan.csproj|d:\\leminhphat\\uit\\2. sophomore year\\semester 2\\software engineering\\uit_se104_quanlykhachsan\\quanlykhachsan\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0CC7568F-EA8C-4D36-AF5B-AE6AB1C2A1B6}|QuanLyKhachSan.csproj|solutionrelative:mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -43,14 +47,27 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "HotelDbContext.cs",
-              "DocumentMoniker": "D:\\LeMinhPhat\\UIT\\2. sophomore year\\semester 2\\Software engineering\\UIT_SE104_QuanLyKhachSan\\QuanLyKhachSan\\Models\\HotelDbContext.cs",
-              "RelativeDocumentMoniker": "Models\\HotelDbContext.cs",
-              "ToolTip": "D:\\LeMinhPhat\\UIT\\2. sophomore year\\semester 2\\Software engineering\\UIT_SE104_QuanLyKhachSan\\QuanLyKhachSan\\Models\\HotelDbContext.cs",
-              "RelativeToolTip": "Models\\HotelDbContext.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAHkAAABEAAAAAAAAAA==",
+              "Title": "RentalService.cs",
+              "DocumentMoniker": "D:\\LeMinhPhat\\UIT\\2. sophomore year\\semester 2\\Software engineering\\UIT_SE104_QuanLyKhachSan\\QuanLyKhachSan\\Models\\BLL\\Services\\RentalService.cs",
+              "RelativeDocumentMoniker": "Models\\BLL\\Services\\RentalService.cs",
+              "ToolTip": "D:\\LeMinhPhat\\UIT\\2. sophomore year\\semester 2\\Software engineering\\UIT_SE104_QuanLyKhachSan\\QuanLyKhachSan\\Models\\BLL\\Services\\RentalService.cs",
+              "RelativeToolTip": "Models\\BLL\\Services\\RentalService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-27T08:46:01.501Z",
+              "WhenOpened": "2025-04-29T07:55:48.042Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "MainWindow.xaml.cs",
+              "DocumentMoniker": "D:\\LeMinhPhat\\UIT\\2. sophomore year\\semester 2\\Software engineering\\UIT_SE104_QuanLyKhachSan\\QuanLyKhachSan\\MainWindow.xaml.cs",
+              "RelativeDocumentMoniker": "MainWindow.xaml.cs",
+              "ToolTip": "D:\\LeMinhPhat\\UIT\\2. sophomore year\\semester 2\\Software engineering\\UIT_SE104_QuanLyKhachSan\\QuanLyKhachSan\\MainWindow.xaml.cs",
+              "RelativeToolTip": "MainWindow.xaml.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAqwCYAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-28T10:00:41.427Z",
               "EditorCaption": ""
             }
           ]
