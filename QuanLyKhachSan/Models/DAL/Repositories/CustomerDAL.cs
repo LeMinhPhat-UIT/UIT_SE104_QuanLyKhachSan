@@ -9,7 +9,7 @@ using QuanLyKhachSan.Models.DAL.Interfaces;
 
 namespace QuanLyKhachSan.Models.DAL.Repositories
 {
-    public class CustomerDAL : IEntityRepository<Customer>
+    internal class CustomerDAL : IEntityRepository<Customer>
     {
         public Customer? GetById(int id)
         {
@@ -58,14 +58,14 @@ namespace QuanLyKhachSan.Models.DAL.Repositories
             return cus;
         }
 
-        public List<RentalDetail> GetRentalDetail(int Id)
-            => LoadRentalDetail(GetById(Id)).RentalDetails;
+        public List<Reservation> GetReservations(int Id)
+            => LoadResevations(GetById(Id)).Reservations;
 
-        public Customer LoadRentalDetail(Customer cus)
+        public Customer LoadResevations(Customer cus)
         {
             using var dbcontext = new HotelDbContext();
             var e = dbcontext.Entry(cus);
-            e.Collection(c => c.RentalDetails).Load();
+            e.Collection(c => c.Reservations).Load();
             return cus;
         }
     }

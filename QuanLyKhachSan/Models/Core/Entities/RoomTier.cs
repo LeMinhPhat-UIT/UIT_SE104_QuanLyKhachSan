@@ -20,6 +20,6 @@ namespace QuanLyKhachSan.Models.Core.Entities
         [Column(TypeName="money")]
         public decimal RoomTierPrice { get; set; }
         public List<Room> Rooms { get; set; }
-        public List<RevenueReport> RevenueReports { get; set; }
+        public List<RevenueReport> RevenueReports { get; set; } = new List<RevenueReport>();
     }
 }

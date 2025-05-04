@@ -13,20 +13,13 @@ namespace QuanLyKhachSan.Models.Core.Entities
         [Key]
         public int InvoiceID { get; set; }
 
-        [ForeignKey("Rental")]
-        public int RentalID { get; set; }
+        public int ReservationID { get; set; }
         public int? UserID { get; set; }
 
         [Column(TypeName="smalldatetime")]
         public DateTime InvoiceDate { get; set; }
 
-        public int TotalDays { get; set; }
-
-        [Column(TypeName="money")]
-        public decimal PricePerDay { get; set; }
-
-        [Column(TypeName = "money")]
-        public decimal SurchargeRate { get; set; }
+        public int SurchargeRate { get; set; }
 
         [Column(TypeName="money")]
         public decimal TotalAmount { get; set; }
@@ -37,7 +30,8 @@ namespace QuanLyKhachSan.Models.Core.Entities
 
         [ForeignKey("UserID")]
         public User User { get; set; }
-        public Rental Rental { get; set; }
-        public List<RevenueDetail> RevenueDetails { get; set; }
+        public Reservation Reservation { get; set; }
+        public List<RevenueReport> RevenueReports { get; set; } = new List<RevenueReport>();
+        //public List<Revenue_Invoice> RevenueDetails { get; set; }
     }
 }

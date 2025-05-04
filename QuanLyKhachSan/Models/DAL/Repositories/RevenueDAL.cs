@@ -4,12 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using EntityFramework;
+using Microsoft.EntityFrameworkCore;
 using QuanLyKhachSan.Models.Core.Entities;
 using QuanLyKhachSan.Models.DAL.Interfaces;
 
 namespace QuanLyKhachSan.Models.DAL.Repositories
 {
-    public class RevenueDAL : IEntityRepository<RevenueReport>
+    internal class RevenueDAL : IEntityRepository<RevenueReport>
     {
         public RevenueReport? GetById(int id)
         {
@@ -47,6 +48,23 @@ namespace QuanLyKhachSan.Models.DAL.Repositories
             dbcontext.SaveChanges();
         }
 
+        public void AddInvoice(RevenueReport report, Invoice invoice)
+        {
+            using var dbcontext = new HotelDbContext();
+            dbcontext.Attach(invoice);
+            report.Invoices.Add(invoice);
+            dbcontext.SaveChanges();
+        }
+
+        public void DeleteInvoice(int reportID, int invoiceID)
+        {
+            using var dbcontext = new HotelDbContext();
+            var report = dbcontext.RevenueReport.Include(x => x.Invoices).FirstOrDefault(x => x.ReportID == reportID);
+            var invoice = report.Invoices.FirstOrDefault(x => x.InvoiceID == invoiceID);
+            report.Invoices.Remove(invoice);
+            dbcontext.SaveChanges();
+        }
+
         public User GetUser(int Id)
             => LoadUser(GetById(Id)).User;
 
@@ -69,14 +87,14 @@ namespace QuanLyKhachSan.Models.DAL.Repositories
             return report;
         }
 
-        public List<RevenueDetail> GetDetail(int Id)
-            => LoadDetail(GetById(Id)).RevenueDetails;
+        public List<Invoice> GetInvoices(int Id)
+            => LoadInvoices(GetById(Id)).Invoices;
 
-        public RevenueReport LoadDetail(RevenueReport report)
+        public RevenueReport LoadInvoices(RevenueReport report)
         {
             using var dbcontext = new HotelDbContext();
             var e = dbcontext.Entry(report);
-            e.Collection(c => c.RevenueDetails).Load();
+            e.Collection(c => c.Invoices).Load();
             return report;
         }
     }

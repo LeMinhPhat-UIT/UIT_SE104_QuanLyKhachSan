@@ -14,10 +14,7 @@ namespace QuanLyKhachSan.Models.Core.Entities
         public int ReportID {  get; set; }
 
         [Column(TypeName="smalldatetime")]
-        public DateTime FirstDate { get; set; }
-
-        [Column(TypeName = "smalldatetime")]
-        public DateTime LastDate { get; set; }
+        public DateTime RevenueDate { get; set; }
 
         public int? UserID { get; set; }
         public int RoomTierID { get; set; }
@@ -30,6 +27,7 @@ namespace QuanLyKhachSan.Models.Core.Entities
 
         [ForeignKey("RoomTierID")]
         public RoomTier RoomTier { get; set; }
-        public List<RevenueDetail> RevenueDetails { get; set; }
+        public List<Invoice> Invoices { get; set; } = new List<Invoice>();
+        //public List<Revenue_Invoice> RevenueDetails { get; set; }
     }
 }

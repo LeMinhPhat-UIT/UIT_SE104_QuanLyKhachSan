@@ -12,7 +12,7 @@ using QuanLyKhachSan.Models.Core.Entities;
 
 namespace QuanLyKhachSan.Models.BLL.Services
 {
-    public class CustomerService : IBusinessService<Customer>
+    internal class CustomerService : IBusinessService<Customer>
     {
         public Customer GetById(int id)
             => RepositoryHub.CustomerRepo.GetById(id);
@@ -28,19 +28,25 @@ namespace QuanLyKhachSan.Models.BLL.Services
 
         public void Delete(int Id)
         {
-            if (DeleteDialogHelper.Warning() == System.Windows.MessageBoxResult.No)
+            if (RepositoryHub.CustomerRepo.GetReservations(Id).Count != 0)
+            {
+                DeleteDialogHelper.RestrictWarning();
                 return;
+            }
             RepositoryHub.CustomerRepo.Delete(Id);
         }
 
         public void Update(Customer customer)
-            => RepositoryHub.CustomerRepo.Update(customer);
+        {
+            if (CheckValid.IsCustomerValid(customer))
+                RepositoryHub.CustomerRepo.Update(customer);
+        }
 
-        public CustomerTier GetCustomerTier(int tierID)
-            => RepositoryHub.CustomerRepo.GetTier(tierID);
+        public CustomerTier GetCustomerTier(int cusID)
+            => RepositoryHub.CustomerRepo.GetTier(cusID);
 
-        public List<RentalDetail> GetRentalDetail(int cusID)
-            => RepositoryHub.CustomerRepo.GetRentalDetail(cusID);
+        public List<Reservation> GetReservations(int cusID)
+            => RepositoryHub.CustomerRepo.GetReservations(cusID);
 
         //public List<Customer> Search(Customer template)
         //{

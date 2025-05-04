@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using QuanLyKhachSan.Models.BLL.Helpers.Validation;
 using QuanLyKhachSan.Models.BLL.Interfaces;
 using QuanLyKhachSan.Models.Core.Entities;
 using QuanLyKhachSan.Models.DAL;
@@ -11,7 +12,7 @@ using QuanLyKhachSan.UI.Utilities;
 
 namespace QuanLyKhachSan.Models.BLL.Services
 {
-    public class RoomService : IBusinessService<Room>
+    internal class RoomService : IBusinessService<Room>
     {
         public Room GetById(int id)
             => RepositoryHub.RoomRepo.GetById(id);
@@ -21,31 +22,37 @@ namespace QuanLyKhachSan.Models.BLL.Services
 
         public void Add(Room room)
         {
-            decimal tierPrice = RepositoryHub.RoomTierRepo.GetById((int)room.RoomTierID).RoomTierPrice;
-            if (room.PricePerDay < tierPrice)
-                return;
-            RepositoryHub.RoomRepo.Add(room);
+            if(CheckValid.IsRoomValid(room))
+                RepositoryHub.RoomRepo.Add(room);
         }
 
         public void Delete(int Id)
         {
-            if (DeleteDialogHelper.Warning() == System.Windows.MessageBoxResult.No)
+
+            if (RepositoryHub.RoomRepo.GetReservations(Id).Count != 0)
+            {
+                DeleteDialogHelper.RestrictWarning();
                 return;
+            }
             RepositoryHub.RoomRepo.Delete(Id);
         }
 
         public void Update(Room room)
         {
-            decimal tierPrice = RepositoryHub.RoomTierRepo.GetById((int)room.RoomTierID).RoomTierPrice;
-            if (room.PricePerDay < tierPrice)
-                return;
-            RepositoryHub.RoomRepo.Update(room);
+            if (CheckValid.IsRoomValid(room))
+                RepositoryHub.RoomRepo.Add(room);
         }
+
+        public void AddAmenity(Room room, Amenity amenity)
+            => RepositoryHub.RoomRepo.AddAmenity(room, amenity);
+
+        public void DeleteAmenity(int roomID, int amenityID)
+            => RepositoryHub.RoomRepo.DeleteAmenity(roomID, amenityID);
 
         public RoomTier GetTier(int Id)
             => RepositoryHub.RoomRepo.GetTier(Id);
 
-        public List<Rental> GetRentalDetail(int Id)
-            => RepositoryHub.RoomRepo.GetRentalDetail(Id);
+        public List<Reservation> GetReservations(int Id)
+            => RepositoryHub.RoomRepo.GetResevations(Id);
     }
 }

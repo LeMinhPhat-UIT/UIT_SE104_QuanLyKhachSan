@@ -35,8 +35,10 @@ namespace QuanLyKhachSan.Models.Core.Entities
         [Column(TypeName="char")]
         public string PhoneNumber { get; set; }
 
+
         [ForeignKey("CustomerTierID")]
         public CustomerTier? CustomerTier { get; set; }
-        public List<RentalDetail>? RentalDetails { get; set; }
+        public List<Reservation> Reservations { get; set; } = new List<Reservation>();
+        //public List<Reservation_Customer>? RentalDetails { get; set; }
     }
 }

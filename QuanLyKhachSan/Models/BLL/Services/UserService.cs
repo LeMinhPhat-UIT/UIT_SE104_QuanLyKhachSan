@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using QuanLyKhachSan.Models.BLL.Helpers.Validation;
 using QuanLyKhachSan.Models.BLL.Interfaces;
 using QuanLyKhachSan.Models.Core.Entities;
 using QuanLyKhachSan.Models.DAL;
@@ -11,7 +12,7 @@ using QuanLyKhachSan.UI.Utilities;
 
 namespace QuanLyKhachSan.Models.BLL.Services
 {
-    public class UserService : IBusinessService<User>
+    internal class UserService : IBusinessService<User>
     {
         public User GetById(int id)
             => RepositoryHub.UserRepo.GetById(id);
@@ -20,7 +21,10 @@ namespace QuanLyKhachSan.Models.BLL.Services
             => RepositoryHub.UserRepo.GetAllData();
 
         public void Add(User user)
-            => RepositoryHub.UserRepo.Add(user);
+        {
+            if(CheckValid.IsUserValid(user))
+                RepositoryHub.UserRepo.Add(user);
+        }
 
         public void Delete(int Id)
         {
@@ -30,14 +34,18 @@ namespace QuanLyKhachSan.Models.BLL.Services
         }
 
         public void Update(User user)
-            => RepositoryHub.UserRepo.Update(user);
+        {
+            if (CheckValid.IsUserValid(user))
+                RepositoryHub.UserRepo.Add(user);
+        }
 
-        public List<Invoice> GetInvoice(int id)
-            => RepositoryHub.UserRepo.GetInvoice(id);
+        public List<Invoice> GetInvoices(int id)
+            => RepositoryHub.UserRepo.GetInvoices(id);
 
-        public List<Rental> GetRental(int id)
-            => RepositoryHub.UserRepo.GetRental(id);
+        public List<Reservation> GetReservations(int id)
+            => RepositoryHub.UserRepo.GetReservations(id);
 
-        
+        public List<RevenueReport> GetRevenueReports(int id)
+            => RepositoryHub.UserRepo.GetReports(id);
     }
 }

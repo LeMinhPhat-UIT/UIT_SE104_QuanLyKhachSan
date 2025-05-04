@@ -9,7 +9,7 @@ using QuanLyKhachSan.Models.DAL.Interfaces;
 
 namespace QuanLyKhachSan.Models.DAL.Repositories
 {
-    public class InvoiceDAL : IEntityRepository<Invoice>
+    internal class InvoiceDAL : IEntityRepository<Invoice>
     {
         public Invoice? GetById(int id)
         {
@@ -58,25 +58,25 @@ namespace QuanLyKhachSan.Models.DAL.Repositories
             return invoice;
         }
 
-        public List<RevenueDetail> GetRevenueDetail(int Id)
-            => LoadUser(GetById(Id)).RevenueDetails;
+        public List<RevenueReport> GetRevenueReports(int Id)
+            => LoadReports(GetById(Id)).RevenueReports;
 
-        public Invoice LoadInvoice(Invoice invoice)
+        public Invoice LoadReports(Invoice invoice)
         {
             using var dbcontext = new HotelDbContext();
             var e = dbcontext.Entry(invoice);
-            e.Reference(c => c.RevenueDetails).Load();
+            e.Collection(c => c.RevenueReports).Load();
             return invoice;
         }
 
-        public Rental GetRental(int Id)
-            => LoadRental(GetById(Id)).Rental;
+        public Reservation GetRental(int Id)
+            => LoadReservation(GetById(Id)).Reservation;
 
-        public Invoice LoadRental(Invoice invoice)
+        public Invoice LoadReservation(Invoice invoice)
         {
             using var dbcontext = new HotelDbContext();
             var e = dbcontext.Entry(invoice);
-            e.Reference(c => c.Rental).Load();
+            e.Reference(c => c.Reservation).Load();
             return invoice;
         }
     }

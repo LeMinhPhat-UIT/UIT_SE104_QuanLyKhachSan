@@ -11,7 +11,7 @@ using QuanLyKhachSan.UI.Utilities;
 
 namespace QuanLyKhachSan.Models.BLL.Services
 {
-    public class CustomerTierService : IBusinessService<CustomerTier>
+    internal class CustomerTierService : IBusinessService<CustomerTier>
     {
         public CustomerTier GetById(int id)
             => RepositoryHub.CustomerTierRepo.GetById(id);

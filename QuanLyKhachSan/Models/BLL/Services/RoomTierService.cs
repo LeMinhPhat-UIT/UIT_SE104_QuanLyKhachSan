@@ -11,7 +11,7 @@ using QuanLyKhachSan.UI.Utilities;
 
 namespace QuanLyKhachSan.Models.BLL.Services
 {
-    public class RoomTierService : IBusinessService<RoomTier>
+    internal class RoomTierService : IBusinessService<RoomTier>
     {
         public RoomTier GetById(int id)
             => RepositoryHub.RoomTierRepo.GetById(id);
@@ -24,7 +24,7 @@ namespace QuanLyKhachSan.Models.BLL.Services
 
         public void Delete(int Id)
         {
-            if (RepositoryHub.RoomTierRepo.GetReport(Id).Count != 0)
+            if (RepositoryHub.RoomTierRepo.GetReports(Id).Count != 0)
             {
                 DeleteDialogHelper.RestrictWarning();
                 return;
@@ -35,10 +35,10 @@ namespace QuanLyKhachSan.Models.BLL.Services
         public void Update(RoomTier tier)
             => RepositoryHub.RoomTierRepo.Update(tier);
 
-        public List<Room> GetRoom(int Id)
-            => RepositoryHub.RoomTierRepo.GetRoom(Id);
+        public List<Room> GetRooms(int Id)
+            => RepositoryHub.RoomTierRepo.GetRooms(Id);
 
-        public List<RevenueReport> GetReport(int Id)
-            => RepositoryHub.RoomTierRepo.GetReport(Id);
+        public List<RevenueReport> GetReports(int Id)
+            => RepositoryHub.RoomTierRepo.GetReports(Id);
     }
 }

@@ -43,8 +43,8 @@ namespace QuanLyKhachSan.Models.Core.Entities
         [StringLength(100)]
         [Column(TypeName="ntext")]
         public string Address { get; set; }
-        public List<Invoice> Invoices { get; set; }
-        public List<Rental> Rentals { get; set; }
-        public List<RevenueReport> RevenueReports { get; set; }
+        public List<Invoice> Invoices { get; set; } = new List<Invoice>();
+        public List<Reservation> Reservations { get; set; } = new List<Reservation>();
+        public List<RevenueReport> RevenueReports { get; set; } = new List<RevenueReport>();
     }
 }

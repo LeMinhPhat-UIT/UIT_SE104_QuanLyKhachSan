@@ -8,17 +8,18 @@ using QuanLyKhachSan.Models.DAL.Repositories;
 
 namespace QuanLyKhachSan.Models.BLL
 {
-    public class Service
+    internal class Service
     {
-        public static CustomerService CustomerService => new CustomerService();
-        public static CustomerTierService CustomerTierService => new CustomerTierService();
-        public static InvoiceService InvoiceService => new InvoiceService();
-        public static RentalService RentalService => new RentalService();
-        public static RevenueService RevenueService => new RevenueService();
-        public static RoomService RoomService => new RoomService();
-        public static RoomTierService RoomTierService => new RoomTierService();
-        public static UserService UserService => new UserService();
-        public static RentalDetailService RentalDetailService => new RentalDetailService();
-        public static RevenueDetailService RevenueDetailService => new RevenueDetailService();
+        public static readonly AmenityService AmenityService = new AmenityService();
+        public static readonly CustomerService CustomerService = new CustomerService();
+        public static readonly CustomerTierService CustomerTierService = new CustomerTierService();
+        public static readonly InvoiceService InvoiceService = new InvoiceService();
+        public static readonly ReservationService ReservationService = new ReservationService();
+        public static readonly RevenueService RevenueService = new RevenueService();
+        public static readonly RoomService RoomService = new RoomService();
+        public static readonly RoomTierService RoomTierService = new RoomTierService();
+        public static readonly UserService UserService = new UserService();
+        //public static Reservation_CustomerService Reservation_CustomerService => new Reservation_CustomerService();
+        //public static Revenue_InvoiceService Revenue_InvoiceService => new Revenue_InvoiceService();
     }
 }

@@ -4,12 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using EntityFramework;
+using Microsoft.EntityFrameworkCore;
 using QuanLyKhachSan.Models.Core.Entities;
 using QuanLyKhachSan.Models.DAL.Interfaces;
 
 namespace QuanLyKhachSan.Models.DAL.Repositories
 {
-    public class RoomDAL : IEntityRepository<Room>
+    internal class RoomDAL : IEntityRepository<Room>
     {
         public Room? GetById(int id)
         {
@@ -47,10 +48,27 @@ namespace QuanLyKhachSan.Models.DAL.Repositories
             dbcontext.SaveChanges();
         }
 
-        public RoomTier GetTier(int Id)
-            => LoadTier(GetById(Id)).RoomTier;
+        public void AddAmenity(Room room, Amenity amenity)
+        {
+            using var dbcontext = new HotelDbContext();
+            dbcontext.Attach(room);
+            room.Amenities.Add(amenity);
+            dbcontext.SaveChanges();
+        }
 
-        public Room LoadTier(Room room)
+        public void DeleteAmenity(int roomID, int amenityID)
+        {
+            using var dbcontext = new HotelDbContext();
+            var room = dbcontext.Room.Include(x => x.Amenities).FirstOrDefault(x => x.RoomID == roomID);
+            var amenity = room.Amenities.FirstOrDefault(x => x.AmenityID == amenityID);
+            room.Amenities.Remove(amenity);
+            dbcontext.SaveChanges();
+        }
+
+        public RoomTier GetTier(int Id)
+            => LoadRoomTier(GetById(Id)).RoomTier;
+
+        public Room LoadRoomTier(Room room)
         {
             using var dbcontext = new HotelDbContext();
             var e = dbcontext.Entry(room);
@@ -58,14 +76,25 @@ namespace QuanLyKhachSan.Models.DAL.Repositories
             return room;
         }
 
-        public List<Rental> GetRentalDetail(int Id)
-            => LoadRentalForm(GetById(Id)).Rentals;
+        public List<Reservation> GetReservations(int Id)
+            => LoadReservations(GetById(Id)).Reservations;
 
-        public Room LoadRentalForm(Room room)
+        public Room LoadReservations(Room room)
         {
             using var dbcontext = new HotelDbContext();
             var e = dbcontext.Entry(room);
-            e.Reference(c => c.RoomTier).Load();
+            e.Collection(c => c.Reservations).Load();
+            return room;
+        }
+
+        public List<Reservation> GetAmenities(int Id)
+            => LoadAmenities(GetById(Id)).Reservations;
+
+        public Room LoadAmenities(Room room)
+        {
+            using var dbcontext = new HotelDbContext();
+            var e = dbcontext.Entry(room);
+            e.Collection(c => c.Amenities).Load();
             return room;
         }
     }

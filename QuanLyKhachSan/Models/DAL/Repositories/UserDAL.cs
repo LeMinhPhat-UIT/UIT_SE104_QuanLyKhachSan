@@ -9,7 +9,7 @@ using QuanLyKhachSan.Models.DAL.Interfaces;
 
 namespace QuanLyKhachSan.Models.DAL.Repositories
 {
-    public class UserDAL : IEntityRepository<User>
+    internal class UserDAL : IEntityRepository<User>
     {
         public User? GetById(int id)
         {
@@ -47,10 +47,10 @@ namespace QuanLyKhachSan.Models.DAL.Repositories
             dbcontext.SaveChanges();
         }
 
-        public List<Invoice> GetInvoice(int id) 
-            => LoadInvoice(GetById(id)).Invoices;
+        public List<Invoice> GetInvoices(int id) 
+            => LoadInvoices(GetById(id)).Invoices;
 
-        public User LoadInvoice(User user)
+        public User LoadInvoices(User user)
         {
             using var dbcontext = new HotelDbContext();
             var e = dbcontext.Entry(user);
@@ -58,21 +58,21 @@ namespace QuanLyKhachSan.Models.DAL.Repositories
             return user;
         }
 
-        public List<Rental> GetRental(int id)
-            => LoadRental(GetById(id)).Rentals;
+        public List<Reservation> GetReservations(int id)
+            => LoadReservations(GetById(id)).Reservations;
 
-        public User LoadRental(User user)
+        public User LoadReservations(User user)
         {
             using var dbcontext = new HotelDbContext();
             var e = dbcontext.Entry(user);
-            e.Collection(c => c.Invoices).Load();
+            e.Collection(c => c.Reservations).Load();
             return user;
         }
 
-        public List<RevenueReport> GetReport(int id)
-            => LoadReport(GetById(id)).RevenueReports;
+        public List<RevenueReport> GetReports(int id)
+            => LoadReports(GetById(id)).RevenueReports;
 
-        public User LoadReport(User user)
+        public User LoadReports(User user)
         {
             using var dbcontext = new HotelDbContext();
             var e = dbcontext.Entry(user);

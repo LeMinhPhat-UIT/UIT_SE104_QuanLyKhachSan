@@ -9,7 +9,7 @@ using QuanLyKhachSan.Models.DAL.Interfaces;
 
 namespace QuanLyKhachSan.Models.DAL.Repositories
 {
-    public class RoomTierDAL : IEntityRepository<RoomTier>
+    internal class RoomTierDAL : IEntityRepository<RoomTier>
     {
         public RoomTier? GetById(int id)
         {
@@ -47,20 +47,20 @@ namespace QuanLyKhachSan.Models.DAL.Repositories
             dbcontext.SaveChanges();
         }
 
-        public List<Room> GetRoom(int Id)
-            => LoadRoom(GetById(Id)).Rooms;
+        public List<Room> GetRooms(int Id)
+            => LoadRooms(GetById(Id)).Rooms;
 
-        public RoomTier LoadRoom(RoomTier tier)
+        public RoomTier LoadRooms(RoomTier tier)
         {
             using var dbcontext = new HotelDbContext();
             var e = dbcontext.Entry(tier);
             e.Collection(c => c.Rooms).Load();
             return tier;
         }
-        public List<RevenueReport> GetReport(int Id)
-            => LoadReport(GetById(Id)).RevenueReports;
+        public List<RevenueReport> GetReports(int Id)
+            => LoadReports(GetById(Id)).RevenueReports;
 
-        public RoomTier LoadReport(RoomTier tier)
+        public RoomTier LoadReports(RoomTier tier)
         {
             using var dbcontext = new HotelDbContext();
             var e = dbcontext.Entry(tier);

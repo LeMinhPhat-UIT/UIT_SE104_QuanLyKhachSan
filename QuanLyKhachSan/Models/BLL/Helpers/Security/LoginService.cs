@@ -17,7 +17,7 @@ namespace QuanLyKhachSan.Models.BLL.Helpers.Security
     {
         public bool Success { get; set; }
         public string Message { get; set; }
-        public User? User { get; set; }
+        public QuanLyKhachSan.Models.Core.Entities.User? User { get; set; }
     }
 
     public class LoginService
@@ -31,7 +31,7 @@ namespace QuanLyKhachSan.Models.BLL.Helpers.Security
                     Message = "id invalid",
                     User = null
                 };
-            var user = DALs.UserRepo.GetById(id);
+            var user = RepositoryHub.UserRepo.GetById(id);
             if (user == null)
                 return new LoginResult
                 {

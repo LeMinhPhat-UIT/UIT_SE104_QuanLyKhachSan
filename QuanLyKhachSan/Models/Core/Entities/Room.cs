@@ -20,14 +20,16 @@ namespace QuanLyKhachSan.Models.Core.Entities
 
         [Column(TypeName="money")]
         public decimal PricePerDay { get; set; }
+
         public int Capacity { get; set; }
 
         [StringLength(50)]
         [Column(TypeName="nvarchar")]
         public string RoomState { get; set; }
-        public List<Rental> Rentals { get; set; }
 
         [ForeignKey("RoomTierID")]
         public RoomTier RoomTier { get; set; }
+        public List<Reservation> Reservations { get; set; } = new List<Reservation>();
+        public List<Amenity> Amenities { get; set; } = new List<Amenity>();
     }
 }

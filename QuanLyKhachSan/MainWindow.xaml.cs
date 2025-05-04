@@ -11,10 +11,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using EntityFramework;
 using Microsoft.EntityFrameworkCore;
-using QuanLyKhachSan.Models.BLL;
-using QuanLyKhachSan.Models.BLL.Helpers;
-using QuanLyKhachSan.Models.DAL;
-using QuanLyKhachSan.Models.DAL.Repositories;
+using QuanLyKhachSan.Models;
 
 namespace QuanLyKhachSan
 {
@@ -27,10 +24,9 @@ namespace QuanLyKhachSan
         {
             InitializeComponent();
 
-            // testing area
-
-            //HotelDbContext.DropDatabase(); //ok
-            //HotelDbContext.CreateDatabase(); //ok
+            Testing.AddData();
+            Testing.UpdateData();
+            Testing.DeleteData();
         }
     }
 }

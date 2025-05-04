@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using System.Windows.Media.Media3D;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using QuanLyKhachSan.Models.Core.Entities;
@@ -7,13 +8,12 @@ namespace EntityFramework
 {
     public class HotelDbContext : DbContext
     {
+        public DbSet<Amenity> Amenity { get; set; }
         public DbSet<Customer> Customer { get; set; }
         public DbSet<CustomerTier> CustomerTier { get; set; }
         public DbSet<Invoice> Invoice { get; set; }
-        public DbSet<RevenueDetail> RevenueDetail { get; set; }
         public DbSet<RevenueReport> RevenueReport {  get; set; }
-        public DbSet<RentalDetail> RentalDetail { get; set; }
-        public DbSet<Rental> Rental { get; set; }
+        public DbSet<Reservation> Reservation { get; set; }
         public DbSet<Room> Room { get; set; }
         public DbSet<RoomTier> RoomTier { get; set; }
         public DbSet<User> User { get; set; }
@@ -42,30 +42,32 @@ namespace EntityFramework
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-            modelBuilder.Entity<RentalDetail>()
-                .HasKey(rentalDetail => new { rentalDetail.RentalID, rentalDetail.CustomerID });
-            modelBuilder.Entity<RevenueDetail>()
-                .HasKey(revenueDetail => new { revenueDetail.ReportID, revenueDetail.InvoiceID });
             modelBuilder.Entity<Customer>().HasIndex(customer => customer.IdentityNumber).IsUnique();
             modelBuilder.Entity<User>().HasIndex(staff => staff.IdentityNumber).IsUnique();
 
-            modelBuilder.Entity<Rental>(entity =>
+            modelBuilder.Entity<Reservation>(entity =>
             {
                 entity
                     .HasOne(x => x.Invoice)
-                    .WithOne(y => y.Rental)
+                    .WithOne(y => y.Reservation)
+                    .HasForeignKey<Invoice>(x => x.ReservationID)
                     .OnDelete(DeleteBehavior.Cascade);
                 entity
                     .HasOne(x => x.Room)
-                    .WithMany(y => y.Rentals)
+                    .WithMany(y => y.Reservations)
                     .OnDelete(DeleteBehavior.Restrict);
                 entity
-                    .HasMany(x => x.RentalDetails)
-                    .WithOne(y => y.Rental)
-                    .OnDelete(DeleteBehavior.Cascade);
+                    .HasMany(x => x.Customers)
+                    .WithMany(y => y.Reservations)
+                    .UsingEntity(x => x.ToTable("Reservation_Customer"));
+                entity
+                    .HasOne(x => x.Customer)
+                    .WithMany()
+                    .HasForeignKey(x => x.CustomerID)
+                    .OnDelete(DeleteBehavior.Restrict);
                 entity
                     .HasOne(x => x.User)
-                    .WithMany(y => y.Rentals)
+                    .WithMany(y => y.Reservations)
                     .OnDelete(DeleteBehavior.SetNull);
             });
 
@@ -76,9 +78,9 @@ namespace EntityFramework
                     .WithMany(y => y.RevenueReports)
                     .OnDelete(DeleteBehavior.Restrict);
                 entity
-                    .HasMany(x => x.RevenueDetails)
-                    .WithOne(y => y.Report)
-                    .OnDelete(DeleteBehavior.Cascade);
+                    .HasMany(x => x.Invoices)
+                    .WithMany(y => y.RevenueReports)
+                    .UsingEntity(x => x.ToTable("Revenue_Invoice"));
                 entity
                     .HasOne(x => x.User)
                     .WithMany(y => y.RevenueReports)
@@ -91,10 +93,6 @@ namespace EntityFramework
                     .HasOne(x => x.User)
                     .WithMany(y => y.Invoices)
                     .OnDelete(DeleteBehavior.SetNull);
-                entity
-                    .HasMany(x => x.RevenueDetails)
-                    .WithOne(y => y.Invoice)
-                    .OnDelete(DeleteBehavior.Cascade);
             });
 
             modelBuilder.Entity<Customer>(entity => 
@@ -103,10 +101,6 @@ namespace EntityFramework
                     .HasOne(x => x.CustomerTier)
                     .WithMany(y => y.Customers)
                     .OnDelete(DeleteBehavior.SetNull);
-                entity
-                    .HasMany(x => x.RentalDetails)
-                    .WithOne(y => y.Customer)
-                    .OnDelete(DeleteBehavior.Cascade);
             });
 
             modelBuilder.Entity<Room>(entity =>
@@ -115,46 +109,15 @@ namespace EntityFramework
                     .HasOne(x => x.RoomTier)
                     .WithMany(y => y.Rooms)
                     .OnDelete(DeleteBehavior.SetNull);
+                entity
+                    .HasMany(x => x.Amenities)
+                    .WithMany(y => y.Rooms)
+                    .UsingEntity(x => x.ToTable("Room_Amenity"));
             });
-
-            //Constraints
-            modelBuilder.Entity<Customer>().ToTable(x =>
-            {
-                x.HasCheckConstraint("CK_Customer_PhoneNumber", "LEN(PhoneNumber)=10");
-                x.HasCheckConstraint("CK_Customer_IdentityNumber", "LEN(IdentityNumber)=12");
-                x.HasCheckConstraint("CK_Customer_Sex", "Sex IN (1,0)");
-            });
-
-            modelBuilder.Entity<User>().ToTable(x =>
-            {
-                x.HasCheckConstraint("CK_User_PhoneNumber", "LEN(PhoneNumber)=10");
-                x.HasCheckConstraint("CK_User_IdentityNumber", "LEN(IdentityNumber)=12");
-                x.HasCheckConstraint("CK_User_Sex", "Sex IN (1,0)");
-            });
-
-            modelBuilder.Entity<RentalDetail>().ToTable(
-                x => x.HasCheckConstraint("CK_RentalDetail_IsRepresentative", "IsRepresentative IN (1,0)")
-            );
-
-            modelBuilder.Entity<Room>().ToTable(
-                x => x.HasCheckConstraint("CK_Room_RoomState", "RoomState IN ('available', 'occupied')")
-            );
-
-            modelBuilder.Entity<Rental>().ToTable(x => 
-            {
-                x.HasCheckConstraint("CK_Rental_Status", "Status IN ('Pending', 'CheckIn', 'CheckOut', 'Cancelled')");
-                x.HasCheckConstraint("CK_Rental_CheckOutDate", "CheckOutDate > CheckInDate");
-            });
-
-            modelBuilder.Entity<Invoice>().ToTable(x =>
-                x.HasCheckConstraint("CK_Invoice_TotalAmount", "TotalAmount = TotalDays*PricePerDay*(1+SurchargeRate/100)")
-            );
         }
 
         public DbSet<T> Set<T>() where T : class
-        {
-            return base.Set<T>();
-        }
+            => base.Set<T>();
 
         public static void CreateDatabase()
         {

@@ -16,6 +16,6 @@ namespace QuanLyKhachSan.Models.Core.Entities
         [StringLength(50)]
         [Column(TypeName="nvarchar")]
         public string CustomerTierName { get; set; }
-        public List<Customer> Customers { get; set; }
+        public List<Customer> Customers { get; set; } = new List<Customer>();
     }
 }

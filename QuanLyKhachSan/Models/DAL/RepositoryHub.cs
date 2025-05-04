@@ -9,17 +9,18 @@ using QuanLyKhachSan.Models.DAL.Repositories;
 
 namespace QuanLyKhachSan.Models.DAL
 {
-    public class RepositoryHub
+    internal class RepositoryHub
     {
+        public static readonly AmenityDAL AmenityRepo = new AmenityDAL();
         public static readonly CustomerDAL CustomerRepo = new CustomerDAL();
         public static readonly CustomerTierDAL CustomerTierRepo = new CustomerTierDAL();
         public static readonly InvoiceDAL InvoiceRepo = new InvoiceDAL();
-        public static readonly RentalDAL RentalRepo = new RentalDAL();
+        public static readonly ReservationDAL ReservationRepo = new ReservationDAL();
         public static readonly RevenueDAL RevenueRepo = new RevenueDAL();
         public static readonly RoomDAL RoomRepo = new RoomDAL();
         public static readonly RoomTierDAL RoomTierRepo = new RoomTierDAL();
         public static readonly UserDAL UserRepo = new UserDAL();
-        public static readonly RentalDetailDAL RentalDetailRepo = new RentalDetailDAL();
-        public static readonly RevenueDetailDAL RevenueDetailRepo = new RevenueDetailDAL();
+        //public static readonly Reservation_CustomerDAL RentalDetailRepo = new Reservation_CustomerDAL();
+        //public static readonly Revenue_InvoiceDAL RevenueDetailRepo = new Revenue_InvoiceDAL();
     }
 }

@@ -16,9 +16,9 @@ namespace QuanLyKhachSan.Models.BLL.Helpers.Validation
             try
             {
                 if (cus.IdentityNumber.Length != 12)
-                    throw new ArgumentException("IdentityNumber must be 12 characters");
+                    throw new ArgumentException("IdentityNumber must be 12 characters.");
                 if (cus.PhoneNumber.Length != 10)
-                    throw new ArgumentException("PhoneNumber must be 10 characters");
+                    throw new ArgumentException("PhoneNumber must be 10 characters.");
             }
             catch (Exception ex)
             {
@@ -35,9 +35,9 @@ namespace QuanLyKhachSan.Models.BLL.Helpers.Validation
                 var tierPrice = Service.RoomService.GetTier(room.RoomID).RoomTierPrice;
                 var varlidState = new List<string> { "Available", "Occupied" };
                 if (room.PricePerDay < tierPrice)
-                    throw new ArgumentException("PricePerDay must be greater than referenced RoomTierPrice");
+                    throw new ArgumentException("PricePerDay must be greater than referenced RoomTierPrice.");
                 if (!varlidState.Any(x => x.Equals(room.RoomState)))
-                    throw new ArgumentException("RoomState is invalid");
+                    throw new ArgumentException("RoomState is invalid.");
             }
             catch (Exception ex)
             {
@@ -47,15 +47,15 @@ namespace QuanLyKhachSan.Models.BLL.Helpers.Validation
             return true;
         }
 
-        public static bool IsRentalValid(Rental rental)
+        public static bool IsReservationValid(Reservation rental)
         {
             try
             {
-                var validStatus = new List<string> { "Peding", "CheckIn", "CheckOut", "Cancelled" };
+                var validStatus = new List<string> { "Pending", "CheckIn", "CheckOut", "Cancelled" };
                 if (rental.CheckInDate > rental.CheckOutDate)
-                    throw new ArgumentException("CheckOutDate must be greater than CheckInDate");
+                    throw new ArgumentException("CheckOutDate must be greater than CheckInDate.");
                 if (!validStatus.Any(x => x.Equals(rental.Status)))
-                    throw new ArgumentException("Status is invalid");
+                    throw new ArgumentException("Status is invalid.");
             }
             catch (Exception ex)
             {
@@ -67,13 +67,12 @@ namespace QuanLyKhachSan.Models.BLL.Helpers.Validation
 
         public static bool IsInvoiceValid(Invoice invoice)
         {
+            var reservation = Service.ReservationService.GetById(invoice.ReservationID);
+            var totalDays = (reservation.CheckOutDate - reservation.CheckInDate).Days;
+            var pricePerDay=Service.RoomService.GetById(reservation.RoomID).PricePerDay;
             try
             {
-                var rental = Service.InvoiceService.GetRental(invoice.InvoiceID);
-                var price = Service.RentalService.GetRoom(rental.RentalID).PricePerDay;
-                if (invoice.PricePerDay != price)
-                    throw new ArgumentException("PricePerDay is invalid");
-                if (invoice.TotalAmount != invoice.PricePerDay * invoice.TotalDays * (1 + invoice.SurchargeRate / 100))
+                if (invoice.TotalAmount != totalDays * pricePerDay * (100 + invoice.SurchargeRate) / 100)
                     throw new ArgumentException("TotalAmount is invalid");
             }
             catch (Exception ex)
@@ -83,15 +82,14 @@ namespace QuanLyKhachSan.Models.BLL.Helpers.Validation
             }
             return true;
         }
-
         public static bool IsUserValid(User usr)
         {
             try
             {
                 if (usr.IdentityNumber.Length != 12)
-                    throw new ArgumentException("IdentityNumber must be 12 characters");
+                    throw new ArgumentException("IdentityNumber must be 12 characters.");
                 if (usr.PhoneNumber.Length != 10)
-                    throw new ArgumentException("PhoneNumber must be 10 characters");
+                    throw new ArgumentException("PhoneNumber must be 10 characters.");
             }
             catch (Exception ex)
             {

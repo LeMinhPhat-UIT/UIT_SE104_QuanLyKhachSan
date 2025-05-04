@@ -11,7 +11,7 @@ using QuanLyKhachSan.UI.Utilities;
 
 namespace QuanLyKhachSan.Models.BLL.Services
 {
-    public class RevenueService : IBusinessService<RevenueReport>
+    internal class RevenueService : IBusinessService<RevenueReport>
     {
         public RevenueReport GetById(int id)
             => RepositoryHub.RevenueRepo.GetById(id);
@@ -31,6 +31,11 @@ namespace QuanLyKhachSan.Models.BLL.Services
 
         public void Update(RevenueReport revenue)
             => RepositoryHub.RevenueRepo.Update(revenue);
+        public void AddInvoice(RevenueReport report, Invoice invoice)
+            => RepositoryHub.RevenueRepo.AddInvoice(report, invoice);
+
+        public void DeleteInvoice(int reportID, int invoiceID)
+            => RepositoryHub.RevenueRepo.DeleteInvoice(reportID, invoiceID);
 
         public User GetUser(int Id)
             => RepositoryHub.RevenueRepo.GetUser(Id);
@@ -38,7 +43,7 @@ namespace QuanLyKhachSan.Models.BLL.Services
         public RoomTier GetRoomTier(int Id)
             => RepositoryHub.RevenueRepo.GetRoomTier(Id);
 
-        public List<RevenueDetail> GetDetail(int Id)
-            => RepositoryHub.RevenueRepo.GetDetail(Id);
+        public List<Invoice> GetInvoices(int Id)
+            => RepositoryHub.RevenueRepo.GetInvoices(Id);
     }
 }

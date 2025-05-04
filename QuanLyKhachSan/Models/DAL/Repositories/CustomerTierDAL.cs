@@ -10,7 +10,7 @@ using QuanLyKhachSan.Models.DAL.Interfaces;
 
 namespace QuanLyKhachSan.Models.DAL.Repositories
 {
-    public class CustomerTierDAL : IEntityRepository<CustomerTier>
+    internal class CustomerTierDAL : IEntityRepository<CustomerTier>
     {
         public CustomerTier? GetById(int id)
         {
@@ -49,9 +49,9 @@ namespace QuanLyKhachSan.Models.DAL.Repositories
         }
 
         public List<Customer> GetCustomers(int Id)
-            => LoadCustomer(GetById(Id)).Customers;
+            => LoadCustomers(GetById(Id)).Customers;
 
-        public CustomerTier LoadCustomer(CustomerTier tier)
+        public CustomerTier LoadCustomers(CustomerTier tier)
         {
             using var dbcontext = new HotelDbContext();
             var e = dbcontext.Entry(tier);
