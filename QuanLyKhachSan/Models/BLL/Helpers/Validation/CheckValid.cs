@@ -32,7 +32,7 @@ namespace QuanLyKhachSan.Models.BLL.Helpers.Validation
         {
             try
             {
-                var tierPrice = Service.RoomService.GetTier(room.RoomID).RoomTierPrice;
+                var tierPrice = Service.RoomTierService.GetById((int)room.RoomTierID).RoomTierPrice;
                 var varlidState = new List<string> { "Available", "Occupied" };
                 if (room.PricePerDay < tierPrice)
                     throw new ArgumentException("PricePerDay must be greater than referenced RoomTierPrice.");

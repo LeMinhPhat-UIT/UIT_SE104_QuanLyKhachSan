@@ -31,8 +31,8 @@ namespace QuanLyKhachSan.Models.BLL.Services
 
         public void Update(RevenueReport revenue)
             => RepositoryHub.RevenueRepo.Update(revenue);
-        public void AddInvoice(RevenueReport report, Invoice invoice)
-            => RepositoryHub.RevenueRepo.AddInvoice(report, invoice);
+        public void AddInvoice(int reportID, int invoiceID)
+            => RepositoryHub.RevenueRepo.AddInvoice(reportID, invoiceID);
 
         public void DeleteInvoice(int reportID, int invoiceID)
             => RepositoryHub.RevenueRepo.DeleteInvoice(reportID, invoiceID);

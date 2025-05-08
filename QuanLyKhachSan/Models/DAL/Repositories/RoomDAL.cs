@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using EntityFramework;
 using Microsoft.EntityFrameworkCore;
 using QuanLyKhachSan.Models.Core.Entities;
@@ -26,10 +27,11 @@ namespace QuanLyKhachSan.Models.DAL.Repositories
             return dbcontext.Room.ToList();
         }
 
-        public void Add(Room entitie)
+        public void Add(Room room)
         {
             using var dbcontext = new HotelDbContext();
-            dbcontext.Room.Add(entitie);
+            //MessageBox.Show(room.RoomID.ToString());
+            dbcontext.Room.Add(room);
             dbcontext.SaveChanges();
         }
 
@@ -48,10 +50,11 @@ namespace QuanLyKhachSan.Models.DAL.Repositories
             dbcontext.SaveChanges();
         }
 
-        public void AddAmenity(Room room, Amenity amenity)
+        public void AddAmenity(int roomID, int amenityID)
         {
             using var dbcontext = new HotelDbContext();
-            dbcontext.Attach(room);
+            var room = dbcontext.Room.Include(r => r.Amenities).FirstOrDefault(r => r.RoomID == roomID);
+            var amenity = RepositoryHub.AmenityRepo.GetById(amenityID);
             room.Amenities.Add(amenity);
             dbcontext.SaveChanges();
         }

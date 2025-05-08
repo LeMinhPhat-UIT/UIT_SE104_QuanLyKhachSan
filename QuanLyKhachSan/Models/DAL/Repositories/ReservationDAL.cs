@@ -48,10 +48,11 @@ namespace QuanLyKhachSan.Models.DAL.Repositories
             dbcontext.SaveChanges();
         }
 
-        public void AddCustomer(Reservation reservation, Customer customer)
+        public void AddCustomer(int reservationID, int customerID)
         {
             using var dbcontext = new HotelDbContext();
-            dbcontext.Attach(reservation);
+            var reservation = dbcontext.Reservation.Include(r => r.Customers).FirstOrDefault(r => r.ReservationID == reservationID);
+            var customer = RepositoryHub.CustomerRepo.GetById(customerID);
             reservation.Customers.Add(customer);
             dbcontext.SaveChanges(); 
         }

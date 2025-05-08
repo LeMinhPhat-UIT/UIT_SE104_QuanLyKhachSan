@@ -69,7 +69,7 @@ namespace QuanLyKhachSan.Models.DAL.Repositories
             return invoice;
         }
 
-        public Reservation GetRental(int Id)
+        public Reservation GetReservation(int Id)
             => LoadReservation(GetById(Id)).Reservation;
 
         public Invoice LoadReservation(Invoice invoice)

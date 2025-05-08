@@ -9,6 +9,8 @@ using QuanLyKhachSan.Models.DAL;
 using QuanLyKhachSan.Models.BLL.Helpers.Validation;
 using QuanLyKhachSan.UI.Utilities;
 using QuanLyKhachSan.Models.Core.Entities;
+using System.Windows;
+using EntityFramework;
 
 namespace QuanLyKhachSan.Models.BLL.Services
 {
@@ -28,7 +30,7 @@ namespace QuanLyKhachSan.Models.BLL.Services
 
         public void Delete(int Id)
         {
-            if (RepositoryHub.CustomerRepo.GetReservations(Id).Count != 0)
+            if (GetReservations(Id).Count != 0)
             {
                 DeleteDialogHelper.RestrictWarning();
                 return;

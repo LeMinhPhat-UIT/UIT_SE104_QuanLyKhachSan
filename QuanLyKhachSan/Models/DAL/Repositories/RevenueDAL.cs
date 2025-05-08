@@ -48,10 +48,11 @@ namespace QuanLyKhachSan.Models.DAL.Repositories
             dbcontext.SaveChanges();
         }
 
-        public void AddInvoice(RevenueReport report, Invoice invoice)
+        public void AddInvoice(int reportID, int invoiceID)
         {
             using var dbcontext = new HotelDbContext();
-            dbcontext.Attach(invoice);
+            var report = dbcontext.RevenueReport.Include(r => r.Invoices).FirstOrDefault(r => r.ReportID == reportID);
+            var invoice = RepositoryHub.InvoiceRepo.GetById(invoiceID);
             report.Invoices.Add(invoice);
             dbcontext.SaveChanges();
         }

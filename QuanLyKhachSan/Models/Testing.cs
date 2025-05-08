@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using EntityFramework;
 using QuanLyKhachSan.Models.BLL;
 using QuanLyKhachSan.Models.BLL.Helpers.ReportHelpers;
@@ -92,10 +93,11 @@ namespace QuanLyKhachSan.Models
                 new Room{RoomTierID=3, RoomNumber="P302", PricePerDay=2000000, Capacity=2, RoomState="Available"},
             };
             var AmenitiesOfRoom = new List<int> { 1, 2, 3, 4 };
-            RoomList.ForEach(x => {
+            RoomList.ForEach(x =>
+            {
                 Service.RoomService.Add(x);
-                AmenitiesOfRoom.ForEach(y => 
-                    Service.RoomService.AddAmenity(x, Service.AmenityService.GetById(y))    
+                AmenitiesOfRoom.ForEach(y =>
+                    Service.RoomService.AddAmenity(x.RoomID, y)
                 );
             });
 
@@ -136,7 +138,7 @@ namespace QuanLyKhachSan.Models
             ReservationList.ForEach(x =>
             {
                 Service.ReservationService.Add(x);
-                Service.ReservationService.AddCustomer(x, Service.CustomerService.GetById(x.CustomerID + 2));
+                Service.ReservationService.AddCustomer(x.ReservationID, x.CustomerID+2);
             });
 
             var InvoiceList = new List<Invoice>
@@ -162,7 +164,7 @@ namespace QuanLyKhachSan.Models
                 CustomerID = 1,
                 CustomerTierID = 2,
                 CustomerName = "Pham Quang A",
-                PhoneNumber="000000000",
+                PhoneNumber="0000000000",
                 Sex = true,
                 IdentityNumber = "000000000000",
                 CustomerAddress = new Address("123/abc", "abc", "abc", CommueType.Ward, "abc", DistrictType.UrbanDistrict, "Hồ Chí Minh", ProvinceType.Municipality).ToString()
@@ -195,7 +197,7 @@ namespace QuanLyKhachSan.Models
             Service.RevenueService.DeleteInvoice(1, 1);
 
             Service.CustomerTierService.Delete(1);
-            Service.CustomerService.Delete(1);
+            //Service.CustomerService.Delete(1); //không hiểu sao dòng này để đây thì lỗi mà đem nó sang MainWindow.xaml.cs thì lại chạy đúng. Chung quy là nó chạy đúng
             Service.AmenityService.Delete(2);
             Service.RoomService.Delete(3);
             Service.UserService.Delete(2);

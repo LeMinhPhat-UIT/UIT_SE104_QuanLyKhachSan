@@ -24,7 +24,7 @@ namespace QuanLyKhachSan.Models.BLL.Services
         {
             if(CheckValid.IsReservationValid(reservation))
                 RepositoryHub.ReservationRepo.Add(reservation);
-            AddCustomer(reservation, Service.CustomerService.GetById(reservation.CustomerID));
+            AddCustomer(reservation.ReservationID, reservation.CustomerID);
             var room = Service.RoomService.GetById(reservation.RoomID);
             room.RoomState = "Occupied";
             Service.RoomService.Update(room);
@@ -46,8 +46,8 @@ namespace QuanLyKhachSan.Models.BLL.Services
             }
             RepositoryHub.ReservationRepo.Update(reservation);
         }
-        public void AddCustomer(Reservation resevation, Customer customer)
-            => RepositoryHub.ReservationRepo.AddCustomer(resevation, customer);
+        public void AddCustomer(int resevationID, int customerID)
+            => RepositoryHub.ReservationRepo.AddCustomer(resevationID, customerID);
 
         public void DeleteCustomer(int reservationID, int customerID)
             => RepositoryHub.ReservationRepo.DeleteCustomer(reservationID, customerID);

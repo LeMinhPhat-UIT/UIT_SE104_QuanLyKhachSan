@@ -40,11 +40,11 @@ namespace QuanLyKhachSan.Models.BLL.Services
         public void Update(Room room)
         {
             if (CheckValid.IsRoomValid(room))
-                RepositoryHub.RoomRepo.Add(room);
+                RepositoryHub.RoomRepo.Update(room);
         }
 
-        public void AddAmenity(Room room, Amenity amenity)
-            => RepositoryHub.RoomRepo.AddAmenity(room, amenity);
+        public void AddAmenity(int roomID, int amenityID)
+            => RepositoryHub.RoomRepo.AddAmenity(roomID, amenityID);
 
         public void DeleteAmenity(int roomID, int amenityID)
             => RepositoryHub.RoomRepo.DeleteAmenity(roomID, amenityID);
@@ -53,6 +53,6 @@ namespace QuanLyKhachSan.Models.BLL.Services
             => RepositoryHub.RoomRepo.GetTier(Id);
 
         public List<Reservation> GetReservations(int Id)
-            => RepositoryHub.RoomRepo.GetResevations(Id);
+            => RepositoryHub.RoomRepo.GetReservations(Id);
     }
 }

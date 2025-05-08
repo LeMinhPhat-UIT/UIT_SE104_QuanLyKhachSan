@@ -45,8 +45,8 @@ namespace QuanLyKhachSan.Models.BLL.Services
         public List<RevenueReport> GetRevenueReports(int Id)
             => RepositoryHub.InvoiceRepo.GetRevenueReports(Id);
 
-        public Reservation GetRental(int Id)
-            => RepositoryHub.InvoiceRepo.GetRental(Id);
+        public Reservation GetReservation(int Id)
+            => RepositoryHub.InvoiceRepo.GetReservation(Id);
 
     }
 }

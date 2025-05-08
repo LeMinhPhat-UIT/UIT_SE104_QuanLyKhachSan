@@ -36,7 +36,7 @@ namespace QuanLyKhachSan.Models.BLL.Services
         public void Update(User user)
         {
             if (CheckValid.IsUserValid(user))
-                RepositoryHub.UserRepo.Add(user);
+                RepositoryHub.UserRepo.Update(user);
         }
 
         public List<Invoice> GetInvoices(int id)
