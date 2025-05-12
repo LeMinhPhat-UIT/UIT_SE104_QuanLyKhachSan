@@ -43,7 +43,7 @@ namespace QuanLyKhachSan.Models.BLL.Helpers.ReportHelpers
             list.ForEach(x => Service.RevenueService.AddInvoice(report.ReportID, x.InvoiceID));
         }
 
-        public static List<MonthlyRevenueModel> GroupRevenueByMonth(List<RevenueReport> reports, bool groupByRoomTier)
+        private static List<MonthlyRevenueModel> GroupRevenueByMonth(List<RevenueReport> reports, bool groupByRoomTier)
         {
             var query = reports.AsQueryable();
 

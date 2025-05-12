@@ -32,6 +32,9 @@ namespace QuanLyKhachSan.Models.Core.Entities
         [Column(TypeName="nvarchar")]
         public string Role { get; set; }
 
+        [Column(TypeName="smalldatetime")]
+        public DateTime WorkingDate { get; set; }
+
         [StringLength(20)]
         [Column(TypeName="char")]
         public string EmailAddress { get; set; }

@@ -103,23 +103,23 @@ namespace QuanLyKhachSan.Models
 
             var UserList = new List<User>
             {
-                new User{UserName="Tran Van A", Password="1", Sex=false, Role="Admin", 
-                         EmailAddress="tranvana@gmail.com", PhoneNumber="0123456789", 
+                new User{UserName="Tran Van A", Password="1", Sex=false, Role="Admin", WorkingDate=DateTime.Now,
+                         EmailAddress="tranvana@gmail.com", PhoneNumber="0123456789",
                          IdentityNumber="000000000000",
                          Address=new Address("123/abc", "abc", "abc", CommueType.Ward, "abc", DistrictType.UrbanDistrict, "Hồ Chí Minh", ProvinceType.Municipality).ToString()
                         },
-                new User{UserName="Tran Van B", Password="1", Sex=false, Role="Admin", 
-                         EmailAddress="tranvanb@gmail.com", PhoneNumber="0123456789", 
+                new User{UserName="Tran Van B", Password="1", Sex=false, Role="Admin", WorkingDate=DateTime.Now,
+                         EmailAddress="tranvanb@gmail.com", PhoneNumber="0123456789",
                          IdentityNumber="000000000001",
                          Address=new Address("123/abc", "abc", "abc", CommueType.Ward, "abc", DistrictType.UrbanDistrict, "Hồ Chí Minh", ProvinceType.Municipality).ToString()
                         },
-                new User{UserName="Tran Van C", Password="1", Sex=false, Role="Admin", 
-                         EmailAddress="tranvanc@gmail.com", PhoneNumber="0123456789", 
+                new User{UserName="Tran Van C", Password="1", Sex=false, Role="Admin", WorkingDate=DateTime.Now,
+                         EmailAddress="tranvanc@gmail.com", PhoneNumber="0123456789",
                          IdentityNumber="000000000002",
                          Address=new Address("123/abc", "abc", "abc", CommueType.Ward, "abc", DistrictType.UrbanDistrict, "Hồ Chí Minh", ProvinceType.Municipality).ToString()
                         },
-                new User{UserName="Tran Van D", Password="1", Sex=false, Role="Admin", 
-                         EmailAddress="tranvand@gmail.com", PhoneNumber="0123456789", 
+                new User{UserName="Tran Van D", Password="1", Sex=false, Role="Admin", WorkingDate=DateTime.Now,
+                         EmailAddress="tranvand@gmail.com", PhoneNumber="0123456789",
                          IdentityNumber="000000000004",
                          Address=new Address("123/abc", "abc", "abc", CommueType.Ward, "abc", DistrictType.UrbanDistrict, "Hồ Chí Minh", ProvinceType.Municipality).ToString()
                         },
