@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\LeMinhPhat\\UIT\\2. sophomore year\\semester 2\\Software engineering\\UIT_SE104_QuanLyKhachSan\\QuanLyKhachSan\\QuanLyKhachSan.csproj": {}
+    "C:\\Users\\Admin\\Downloads\\UIT_SE104_QuanLyKhachSan\\QuanLyKhachSan\\QuanLyKhachSan.csproj": {}
   },
   "projects": {
-    "D:\\LeMinhPhat\\UIT\\2. sophomore year\\semester 2\\Software engineering\\UIT_SE104_QuanLyKhachSan\\QuanLyKhachSan\\QuanLyKhachSan.csproj": {
+    "C:\\Users\\Admin\\Downloads\\UIT_SE104_QuanLyKhachSan\\QuanLyKhachSan\\QuanLyKhachSan.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\LeMinhPhat\\UIT\\2. sophomore year\\semester 2\\Software engineering\\UIT_SE104_QuanLyKhachSan\\QuanLyKhachSan\\QuanLyKhachSan.csproj",
+        "projectUniqueName": "C:\\Users\\Admin\\Downloads\\UIT_SE104_QuanLyKhachSan\\QuanLyKhachSan\\QuanLyKhachSan.csproj",
         "projectName": "QuanLyKhachSan",
-        "projectPath": "D:\\LeMinhPhat\\UIT\\2. sophomore year\\semester 2\\Software engineering\\UIT_SE104_QuanLyKhachSan\\QuanLyKhachSan\\QuanLyKhachSan.csproj",
-        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "D:\\LeMinhPhat\\UIT\\2. sophomore year\\semester 2\\Software engineering\\UIT_SE104_QuanLyKhachSan\\QuanLyKhachSan\\obj\\",
+        "projectPath": "C:\\Users\\Admin\\Downloads\\UIT_SE104_QuanLyKhachSan\\QuanLyKhachSan\\QuanLyKhachSan.csproj",
+        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Admin\\Downloads\\UIT_SE104_QuanLyKhachSan\\QuanLyKhachSan\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -43,13 +39,20 @@
           "enableAudit": "true",
           "auditLevel": "low",
           "auditMode": "direct"
-        },
-        "SdkAnalysisLevel": "9.0.200"
+        }
       },
       "frameworks": {
         "net8.0-windows7.0": {
           "targetAlias": "net8.0-windows",
           "dependencies": {
+            "LiveChartsCore.SkiaSharpView.WPF": {
+              "target": "Package",
+              "version": "[2.0.0-rc5.4, )"
+            },
+            "MaterialDesignThemes": {
+              "target": "Package",
+              "version": "[5.2.1, )"
+            },
             "Microsoft.Data.SqlClient": {
               "target": "Package",
               "version": "[6.0.2, )"
@@ -122,7 +125,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.201/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

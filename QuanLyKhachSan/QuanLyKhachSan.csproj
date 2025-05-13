@@ -9,6 +9,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resources\Fonts\Lobster-Regular.ttf" />
+    <None Remove="Resources\Images\meomeo.webp" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="LiveChartsCore.SkiaSharpView.WPF" Version="2.0.0-rc5.4" />
+    <PackageReference Include="MaterialDesignThemes" Version="5.2.1" />
     <PackageReference Include="Microsoft.Data.SqlClient" Version="6.0.2" />
     <PackageReference Include="Microsoft.Data.SqlClient.SNI.runtime" Version="6.0.2" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.4" />
@@ -27,6 +34,13 @@
     <PackageReference Include="Microsoft.Extensions.Logging" Version="9.0.4" />
     <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="9.0.4" />
     <PackageReference Include="System.Data.SqlClient" Version="4.9.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\Fonts\Lobster-Regular.ttf">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\meomeo.webp" />
   </ItemGroup>
 
 </Project>

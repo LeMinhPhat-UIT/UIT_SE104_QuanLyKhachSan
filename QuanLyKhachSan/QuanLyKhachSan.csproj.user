@@ -7,7 +7,78 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="UI\Views\AddCustomerWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="UI\Views\AddRoomWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="UI\Views\AddStaffWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="UI\Views\BookingRoomWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="UI\Views\CustomerWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="UI\Views\LoginWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="UI\Views\OverviewWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="UI\Views\RevenueWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="UI\Views\RoomDetailWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="UI\Views\RoomWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="UI\Views\StaffWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
     <Page Update="MainWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Resources\UserControls\ButtonStyle.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UI\Views\AddCustomerWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UI\Views\AddRoomWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UI\Views\AddStaffWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UI\Views\BookingRoomWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UI\Views\CustomerWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UI\Views\LoginWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UI\Views\OverviewWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UI\Views\RevenueWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UI\Views\RoomDetailWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UI\Views\RoomWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UI\Views\StaffWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
