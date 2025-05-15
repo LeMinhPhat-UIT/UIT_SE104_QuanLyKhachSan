@@ -30,7 +30,7 @@ namespace QuanLyKhachSan.Models.Core.Entities
 
         [StringLength(50)]
         [Column(TypeName="nvarchar")]
-        public string Role { get; set; }
+        public int RoleID { get; set; }
 
         [Column(TypeName="smalldatetime")]
         public DateTime WorkingDate { get; set; }
@@ -50,15 +50,18 @@ namespace QuanLyKhachSan.Models.Core.Entities
         public List<Reservation> Reservations { get; set; } = new List<Reservation>();
         public List<RevenueReport> RevenueReports { get; set; } = new List<RevenueReport>();
 
+        [ForeignKey("RoleID")]
+        public Role Role { get; set; }
+
         public User() { }
         public User(
             string userName, string password, string identityNumber, bool sex, 
-            string role, DateTime workingDate, string emailAddress, string phoneNumber, string address)
+            int role, DateTime workingDate, string emailAddress, string phoneNumber, string address)
         {
             UserName = userName;
             Password = password;
             IdentityNumber = identityNumber;
-            Role = role;
+            RoleID = role;
             WorkingDate = workingDate;
             EmailAddress = emailAddress;
             PhoneNumber = phoneNumber;

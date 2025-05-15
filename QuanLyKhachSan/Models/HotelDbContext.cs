@@ -13,6 +13,7 @@ namespace EntityFramework
         public DbSet<CustomerTier> CustomerTier { get; set; }
         public DbSet<Invoice> Invoice { get; set; }
         public DbSet<RevenueReport> RevenueReport {  get; set; }
+        public DbSet<Role> Role { get; set; }
         public DbSet<Reservation> Reservation { get; set; }
         public DbSet<Room> Room { get; set; }
         public DbSet<RoomTier> RoomTier { get; set; }
