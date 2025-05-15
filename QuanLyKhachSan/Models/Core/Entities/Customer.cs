@@ -39,6 +39,19 @@ namespace QuanLyKhachSan.Models.Core.Entities
         [ForeignKey("CustomerTierID")]
         public CustomerTier? CustomerTier { get; set; }
         public List<Reservation> Reservations { get; set; } = new List<Reservation>();
-        //public List<Reservation_Customer>? RentalDetails { get; set; }
+
+        public Customer() { }
+        public Customer(
+            int customerTierID, string customerName, 
+            string identityNumber, bool sex, string customerAddress,
+            string phoneNumber)
+        {
+            CustomerTierID = customerTierID;
+            CustomerName = customerName;
+            IdentityNumber = identityNumber;
+            Sex = sex;
+            CustomerAddress = customerAddress;
+            PhoneNumber = phoneNumber;
+        }
     }
 }

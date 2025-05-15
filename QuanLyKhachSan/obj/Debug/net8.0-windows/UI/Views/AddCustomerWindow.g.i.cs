@@ -50,13 +50,13 @@ namespace QuanLyKhachSan.UI.Views {
         /// InitializeComponent
         /// </summary>
         [System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("PresentationBuildTasks", "8.0.10.0")]
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("PresentationBuildTasks", "9.0.3.0")]
         public void InitializeComponent() {
             if (_contentLoaded) {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/QuanLyKhachSan;V1.0.0.0;component/ui/views/addcustomerwindow.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/QuanLyKhachSan;component/ui/views/addcustomerwindow.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\..\UI\Views\AddCustomerWindow.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
@@ -66,7 +66,7 @@ namespace QuanLyKhachSan.UI.Views {
         }
         
         [System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [System.CodeDom.Compiler.GeneratedCodeAttribute("PresentationBuildTasks", "8.0.10.0")]
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("PresentationBuildTasks", "9.0.3.0")]
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Design", "CA1033:InterfaceMethodsShouldBeCallableByChildTypes")]
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Maintainability", "CA1502:AvoidExcessiveComplexity")]

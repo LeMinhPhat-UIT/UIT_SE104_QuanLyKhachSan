@@ -32,6 +32,16 @@ namespace QuanLyKhachSan.Models.Core.Entities
         public User User { get; set; }
         public Reservation Reservation { get; set; }
         public List<RevenueReport> RevenueReports { get; set; } = new List<RevenueReport>();
-        //public List<Revenue_Invoice> RevenueDetails { get; set; }
+
+        public Invoice() { }
+        public Invoice(int reservationID, int userID, DateTime invoiceDate, int surchargeRate, decimal totalAmount, string paymentMethod)
+        {
+            ReservationID = reservationID;
+            UserID = userID;
+            InvoiceDate = invoiceDate;
+            SurchargeRate = surchargeRate;
+            TotalAmount = totalAmount;
+            PaymentMethod = paymentMethod;
+        }
     }
 }

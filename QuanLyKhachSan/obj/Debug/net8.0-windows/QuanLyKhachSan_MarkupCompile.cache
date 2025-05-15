@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-C:\Users\Admin\Downloads\UIT_SE104_QuanLyKhachSan\QuanLyKhachSan\obj\Debug\net8.0-windows\
+D:\LeMinhPhat\UIT\2. sophomore year\semester 2\Software engineering\UIT_SE104_QuanLyKhachSan\QuanLyKhachSan\obj\Debug\net8.0-windows\
 QuanLyKhachSan
 none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP
-C:\Users\Admin\Downloads\UIT_SE104_QuanLyKhachSan\QuanLyKhachSan\App.xaml
+D:\LeMinhPhat\UIT\2. sophomore year\semester 2\Software engineering\UIT_SE104_QuanLyKhachSan\QuanLyKhachSan\App.xaml
 13-1759249424
 
-572072227347
-261-1598458553
+5881601699
+2611395791189
 MainWindow.xaml;Resources\UserControls\ButtonStyle.xaml;UI\Views\AddCustomerWindow.xaml;UI\Views\AddRoomWindow.xaml;UI\Views\AddStaffWindow.xaml;UI\Views\BookingRoomWindow.xaml;UI\Views\CustomerWindow.xaml;UI\Views\LoginWindow.xaml;UI\Views\OverviewWindow.xaml;UI\Views\RevenueWindow.xaml;UI\Views\RoomDetailWindow.xaml;UI\Views\RoomWindow.xaml;UI\Views\StaffWindow.xaml;
 
 False

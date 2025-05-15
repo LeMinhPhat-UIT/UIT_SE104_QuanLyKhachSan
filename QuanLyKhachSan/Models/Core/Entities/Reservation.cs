@@ -38,5 +38,16 @@ namespace QuanLyKhachSan.Models.Core.Entities
         //public List<Reservation_Customer> RentalDetails { get; set; }
         public Invoice Invoice { get; set; }
         public List<Customer> Customers { get; set; } = new List<Customer>();
+
+        public Reservation() { }
+        public Reservation(int userID, int roomID, int customerID, DateTime checkInDate, DateTime checkOutDate, string status)
+        {
+            UserID = userID;
+            RoomID = roomID;
+            CustomerID = customerID;
+            CheckInDate = checkInDate;
+            CheckOutDate = checkOutDate;
+            Status = status;
+        }
     }
 }

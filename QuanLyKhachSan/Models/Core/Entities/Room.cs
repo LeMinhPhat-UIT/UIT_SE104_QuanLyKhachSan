@@ -31,5 +31,14 @@ namespace QuanLyKhachSan.Models.Core.Entities
         public RoomTier RoomTier { get; set; }
         public List<Reservation> Reservations { get; set; } = new List<Reservation>();
         public List<Amenity> Amenities { get; set; } = new List<Amenity>();
+        public Room() { }
+        public Room(int roomTierID, string roomNumber, decimal pricePerDay, int capacity, string roomState)
+        {
+            RoomTierID = roomTierID;
+            RoomNumber = roomNumber;
+            PricePerDay = pricePerDay;
+            Capacity = capacity;
+            RoomState = roomState;
+        }
     }
 }

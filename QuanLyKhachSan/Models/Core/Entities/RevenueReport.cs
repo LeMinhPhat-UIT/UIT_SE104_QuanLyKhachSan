@@ -28,6 +28,13 @@ namespace QuanLyKhachSan.Models.Core.Entities
         [ForeignKey("RoomTierID")]
         public RoomTier RoomTier { get; set; }
         public List<Invoice> Invoices { get; set; } = new List<Invoice>();
-        //public List<Revenue_Invoice> RevenueDetails { get; set; }
+        public RevenueReport() { }
+        public RevenueReport(DateTime revenueDate, int userID, int roomTierID, decimal totalRevenue)
+        {
+            RevenueDate = revenueDate;
+            UserID = userID;
+            RoomTierID = roomTierID;
+            TotalRevenue = totalRevenue;
+        }
     }
 }

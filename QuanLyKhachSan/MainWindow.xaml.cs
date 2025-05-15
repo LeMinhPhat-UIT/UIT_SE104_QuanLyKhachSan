@@ -13,6 +13,7 @@ using EntityFramework;
 using Microsoft.EntityFrameworkCore;
 using QuanLyKhachSan.Models;
 using QuanLyKhachSan.Models.BLL;
+using QuanLyKhachSan.Models.BLL.Helpers.Validation;
 using QuanLyKhachSan.Models.Core.Entities;
 
 namespace QuanLyKhachSan

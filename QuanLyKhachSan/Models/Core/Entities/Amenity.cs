@@ -18,5 +18,9 @@ namespace QuanLyKhachSan.Models.Core.Entities
         public string AmenityName { get; set; }
 
         public List<Room> Rooms { get; set; }
+
+        public Amenity() { }
+        public Amenity(string amenityName)
+            => AmenityName = amenityName;
     }
 }
