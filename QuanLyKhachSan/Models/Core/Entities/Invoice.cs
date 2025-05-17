@@ -28,13 +28,17 @@ namespace QuanLyKhachSan.Models.Core.Entities
         [Column(TypeName="nvarchar")]
         public string PaymentMethod { get; set; }
 
+        [StringLength(50)]
+        [Column(TypeName = "nvarchar")]
+        public string Status { get; set; } = "Pending";
+
         [ForeignKey("UserID")]
         public User User { get; set; }
         public Reservation Reservation { get; set; }
         public List<RevenueReport> RevenueReports { get; set; } = new List<RevenueReport>();
 
         public Invoice() { }
-        public Invoice(int reservationID, int userID, DateTime invoiceDate, int surchargeRate, decimal totalAmount, string paymentMethod)
+        public Invoice(int reservationID, int userID, DateTime invoiceDate, int surchargeRate, decimal totalAmount, string paymentMethod, string status="Pending")
         {
             ReservationID = reservationID;
             UserID = userID;
@@ -42,6 +46,7 @@ namespace QuanLyKhachSan.Models.Core.Entities
             SurchargeRate = surchargeRate;
             TotalAmount = totalAmount;
             PaymentMethod = paymentMethod;
+            Status = status;
         }
     }
 }

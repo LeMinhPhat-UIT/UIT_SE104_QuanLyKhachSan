@@ -24,17 +24,9 @@ namespace QuanLyKhachSan.Models.Core.Entities
         [Column(TypeName="char")]
         public string IdentityNumber { get; set; }
 
-        [Column(TypeName="bit")]
-        public bool Sex { get; set; }
-
-        [StringLength(100)]
-        [Column(TypeName="ntext")]
-        public string CustomerAddress { get; set; }
-
         [StringLength(10)]
         [Column(TypeName="char")]
         public string PhoneNumber { get; set; }
-
 
         [ForeignKey("CustomerTierID")]
         public CustomerTier? CustomerTier { get; set; }
@@ -43,14 +35,11 @@ namespace QuanLyKhachSan.Models.Core.Entities
         public Customer() { }
         public Customer(
             int customerTierID, string customerName, 
-            string identityNumber, bool sex, string customerAddress,
-            string phoneNumber)
+            string identityNumber, string phoneNumber)
         {
             CustomerTierID = customerTierID;
             CustomerName = customerName;
             IdentityNumber = identityNumber;
-            Sex = sex;
-            CustomerAddress = customerAddress;
             PhoneNumber = phoneNumber;
         }
     }

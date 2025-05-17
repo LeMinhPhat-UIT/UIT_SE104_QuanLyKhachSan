@@ -31,33 +31,23 @@ namespace QuanLyKhachSan.Models
             CustomerTierList.ForEach(x => Service.CustomerTierService.Add(x));
 
             //Thêm Customer
-            var CustomerList=new List<Customer>
+            var CustomerList = new List<Customer>
             {
-                new Customer 
-                    {CustomerTierID=1, CustomerName="Nguyen Van A", Sex=true, IdentityNumber="000000000000", 
-                     CustomerAddress=new Address("123/abc", "abc", "abc", CommueType.Ward, "abc", DistrictType.UrbanDistrict, "Hồ Chí Minh", ProvinceType.Municipality).ToString(),
-                     PhoneNumber="0123456789"},
                 new Customer
-                    {CustomerTierID=1, CustomerName="Nguyen Van B", Sex=true, IdentityNumber="000000000001",
-                     CustomerAddress=new Address("123/abc", "abc", "abc", CommueType.Ward, "abc", DistrictType.UrbanDistrict, "Hồ Chí Minh", ProvinceType.Municipality).ToString(),
-                     PhoneNumber="0123456789"},
+                    {CustomerTierID=1, CustomerName="Nguyen Van A", IdentityNumber="000000000000", PhoneNumber="0123456789"},
                 new Customer
-                    {CustomerTierID=2, CustomerName="Nguyen Van C", Sex=true, IdentityNumber="000000000002",
-                     CustomerAddress=new Address("123/abc", "abc", "abc", CommueType.Ward, "abc", DistrictType.UrbanDistrict, "Hồ Chí Minh", ProvinceType.Municipality).ToString(),
-                     PhoneNumber="0123456789"},
+                    {CustomerTierID=1, CustomerName="Nguyen Van B", IdentityNumber="000000000001", PhoneNumber="0123456789"},
                 new Customer
-                    {CustomerTierID=4, CustomerName="Nguyen Van D", Sex=true, IdentityNumber="000000000003",
-                     CustomerAddress=new Address("123/abc", "abc", "abc", CommueType.Ward, "abc", DistrictType.UrbanDistrict, "Hồ Chí Minh", ProvinceType.Municipality).ToString(),
-                     PhoneNumber="0123456789"},
+                    {CustomerTierID=2, CustomerName="Nguyen Van C", IdentityNumber="000000000002", PhoneNumber="0123456789"},
                 new Customer
-                    {CustomerTierID=3, CustomerName="Nguyen Van E", Sex=true, IdentityNumber="000000000004",
-                     CustomerAddress=new Address("123/abc", "abc", "abc", CommueType.Ward, "abc", DistrictType.UrbanDistrict, "Hồ Chí Minh", ProvinceType.Municipality).ToString(),
-                     PhoneNumber="0123456789"},
+                    {CustomerTierID=4, CustomerName="Nguyen Van D", IdentityNumber="000000000003", PhoneNumber="0123456789"},
+                new Customer
+                    {CustomerTierID=3, CustomerName="Nguyen Van E", IdentityNumber="000000000004", PhoneNumber="0123456789"},
             };
             CustomerList.ForEach(x => Service.CustomerService.Add(x));
 
             //Thêm Amenity
-            var AmenityList=new List<Amenity>
+            var AmenityList = new List<Amenity>
             {
                 new Amenity{AmenityName="Bed"},
                 new Amenity{AmenityName="Bathtub"},
@@ -70,7 +60,7 @@ namespace QuanLyKhachSan.Models
             AmenityList.ForEach(x => Service.AmenityService.Add(x));
 
             //Thêm RoomTier
-            var RoomTierList=new List<RoomTier>
+            var RoomTierList = new List<RoomTier>
             {
                 new RoomTier{RoomTierName="standard", RoomTierPrice=100000},
                 new RoomTier{RoomTierName="vip", RoomTierPrice=150000},
@@ -106,33 +96,26 @@ namespace QuanLyKhachSan.Models
                 new Role("Admin"),
                 new Role("User")
             };
+            RoleList.ForEach(x => Service.RoleService.Add(x));
 
             var UserList = new List<User>
             {
-                new User{UserName="Tran Van A", Password="1", Sex=false, RoleID=1, WorkingDate=DateTime.Now,
+                new User{UserName="Tran Van A", Password="1", RoleID=1, WorkingDate=DateTime.Now,
                          EmailAddress="tranvana@gmail.com", PhoneNumber="0123456789",
-                         IdentityNumber="000000000000",
-                         Address=new Address("123/abc", "abc", "abc", CommueType.Ward, "abc", DistrictType.UrbanDistrict, "Hồ Chí Minh", ProvinceType.Municipality).ToString()
-                        },
-                new User{UserName="Tran Van B", Password="1", Sex=false, RoleID=2, WorkingDate=DateTime.Now,
+                         IdentityNumber="000000000000"},
+                new User{UserName="Tran Van B", Password="1", RoleID=2, WorkingDate=DateTime.Now,
                          EmailAddress="tranvanb@gmail.com", PhoneNumber="0123456789",
-                         IdentityNumber="000000000001",
-                         Address=new Address("123/abc", "abc", "abc", CommueType.Ward, "abc", DistrictType.UrbanDistrict, "Hồ Chí Minh", ProvinceType.Municipality).ToString()
-                        },
-                new User{UserName="Tran Van C", Password="1", Sex=false, RoleID=2, WorkingDate=DateTime.Now,
+                         IdentityNumber="000000000001"},
+                new User{UserName="Tran Van C", Password="1", RoleID=2, WorkingDate=DateTime.Now,
                          EmailAddress="tranvanc@gmail.com", PhoneNumber="0123456789",
-                         IdentityNumber="000000000002",
-                         Address=new Address("123/abc", "abc", "abc", CommueType.Ward, "abc", DistrictType.UrbanDistrict, "Hồ Chí Minh", ProvinceType.Municipality).ToString()
-                        },
-                new User{UserName="Tran Van D", Password="1", Sex=false, RoleID=2, WorkingDate=DateTime.Now,
+                         IdentityNumber="000000000002"},
+                new User{UserName="Tran Van D", Password="1", RoleID=2, WorkingDate=DateTime.Now,
                          EmailAddress="tranvand@gmail.com", PhoneNumber="0123456789",
-                         IdentityNumber="000000000004",
-                         Address=new Address("123/abc", "abc", "abc", CommueType.Ward, "abc", DistrictType.UrbanDistrict, "Hồ Chí Minh", ProvinceType.Municipality).ToString()
-                        },
+                         IdentityNumber="000000000004"},
             };
             UserList.ForEach(x => Service.UserService.Add(x));
 
-            var ReservationList=new List<Reservation>
+            var ReservationList = new List<Reservation>
             {
                 new Reservation{UserID=1, RoomID=1, CustomerID=1, Status="Pending",
                                 CheckInDate=new DateTime(2025, 5, 1), CheckOutDate=new DateTime(2025, 5, 3),
@@ -144,7 +127,7 @@ namespace QuanLyKhachSan.Models
             ReservationList.ForEach(x =>
             {
                 Service.ReservationService.Add(x);
-                Service.ReservationService.AddCustomer(x.ReservationID, x.CustomerID+2);
+                Service.ReservationService.AddCustomer(x.ReservationID, x.CustomerID + 2);
             });
 
             var InvoiceList = new List<Invoice>
@@ -164,22 +147,20 @@ namespace QuanLyKhachSan.Models
                 CustomerTierID = 2,
                 CustomerTierName = "updated customer tier"
             });
-            
+
             Service.CustomerService.Update(new Customer
             {
                 CustomerID = 1,
                 CustomerTierID = 2,
                 CustomerName = "Pham Quang A",
-                PhoneNumber="0000000000",
-                Sex = true,
+                PhoneNumber = "0000000000",
                 IdentityNumber = "000000000000",
-                CustomerAddress = new Address("123/abc", "abc", "abc", CommueType.Ward, "abc", DistrictType.UrbanDistrict, "Hồ Chí Minh", ProvinceType.Municipality).ToString()
             });
 
             Service.AmenityService.Update(new Amenity
             {
-                AmenityID=1,
-                AmenityName="Super Bed",
+                AmenityID = 1,
+                AmenityName = "Super Bed",
             });
 
             Service.UserService.Update(new User
@@ -187,12 +168,11 @@ namespace QuanLyKhachSan.Models
                 UserID = 2,
                 UserName = "Pham Quang B",
                 Password = "1",
-                Sex = true,
                 RoleID = 1,
+                WorkingDate = DateTime.Now,
                 EmailAddress = "tranvana@gmail.com",
                 PhoneNumber = "0123456789",
-                IdentityNumber = "000000000000",
-                Address = new Address("123/abc", "abc", "abc", CommueType.Ward, "abc", DistrictType.UrbanDistrict, "Hồ Chí Minh", ProvinceType.Municipality).ToString()
+                IdentityNumber = "000000000001",
             });
         }
 
