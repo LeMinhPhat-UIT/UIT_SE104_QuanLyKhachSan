@@ -12,7 +12,7 @@
         ResizeMode="NoResize"
         Background="Transparent"
         Height="400" 
-        Width="600"> 
+        Width="600">
     <Grid>
         <Border
             Width="600"
@@ -78,7 +78,7 @@
                             HorizontalAlignment="Left"
                             Margin="22, 0, 0, 0">
                             <TextBlock
-                            Text="Giới tính:"
+                            Text="Ngày vào làm:"
                             FontSize="14"
                             FontWeight="SemiBold"/>
 
@@ -90,11 +90,10 @@
                             CornerRadius="8"
                             Padding="8, 0"
                             Margin="0, 8, 0, 0">
-                                <ComboBox
-                                    materialDesign:TextFieldAssist.DecorationVisibility="Collapsed"
-                                    BorderThickness="0"
-                                    Height="35">
-                                </ComboBox>
+                                <DatePicker
+                                materialDesign:TextFieldAssist.DecorationVisibility="Collapsed"
+                                BorderThickness="0"
+                                VerticalContentAlignment="Center"/>
                             </Border>
                         </StackPanel>
 
@@ -134,7 +133,7 @@
                     <StackPanel
                         Grid.Column="0">
                         <TextBlock
-                            Text="Số điện thoại:"
+                            Text="CCCD:"
                             FontSize="14"
                             FontWeight="SemiBold"/>
 
@@ -156,7 +155,7 @@
                         Grid.Column="1"
                         HorizontalAlignment="Right">
                         <TextBlock
-                            Text="Ngày vào làm:"
+                            Text="Số điện thoại:"
                             FontSize="14"
                             FontWeight="SemiBold"/>
 
@@ -168,10 +167,9 @@
                             CornerRadius="8"
                             Padding="8, 0"
                             Margin="0, 8, 0, 0">
-                            <DatePicker
+                            <TextBox
                                 materialDesign:TextFieldAssist.DecorationVisibility="Collapsed"
-                                BorderThickness="0"
-                                VerticalContentAlignment="Center"/>
+                                BorderThickness="0"/>
                         </Border>
                     </StackPanel>
                 </Grid>

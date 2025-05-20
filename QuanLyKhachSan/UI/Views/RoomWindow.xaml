@@ -73,8 +73,8 @@
 
                 <ToggleButton 
                     Style="{StaticResource SidebarToggleButtonStyle}" 
-                    Content="Khách hàng"
-                    Tag="AccountMultipleOutline"
+                    Content="Phiếu thuê"
+                    Tag="TicketOutline"
                     Cursor="Hand"
                     Margin="0, 8, 0, 0"/>
 

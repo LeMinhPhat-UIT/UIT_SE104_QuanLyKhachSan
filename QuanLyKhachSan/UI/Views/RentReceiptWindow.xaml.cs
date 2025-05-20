@@ -15,11 +15,11 @@ using System.Windows.Shapes;
 namespace QuanLyKhachSan.UI.Views
 {
     /// <summary>
-    /// Interaction logic for CustomerWindow.xaml
+    /// Interaction logic for RentReceiptWindow.xaml
     /// </summary>
-    public partial class CustomerWindow : Window
+    public partial class RentReceiptWindow : Window
     {
-        public CustomerWindow()
+        public RentReceiptWindow()
         {
             InitializeComponent();
         }
