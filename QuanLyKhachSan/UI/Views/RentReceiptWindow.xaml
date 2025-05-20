@@ -1,4 +1,4 @@
-﻿<Window x:Class="QuanLyKhachSan.UI.Views.CustomerWindow"
+﻿<Window x:Class="QuanLyKhachSan.UI.Views.RentReceiptWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -6,7 +6,7 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:QuanLyKhachSan.UI.Views"
         mc:Ignorable="d"
-        Title="CustomerWindow" 
+        Title="RentReceiptWindow" 
         ResizeMode="NoResize"
         WindowStyle="None"
         Height="800" 
@@ -72,8 +72,8 @@
 
                 <ToggleButton 
                     Style="{StaticResource SidebarToggleButtonStyle}" 
-                    Content="Khách hàng"
-                    Tag="AccountMultipleOutline"
+                    Content="Phiếu thuê"
+                    Tag="TicketOutline"
                     Cursor="Hand"
                     IsChecked="True"
                     Margin="0, 8, 0, 0"/>
@@ -251,7 +251,6 @@
                                         Margin="8, 0, 0, 0"
                                         VerticalContentAlignment="Center"/>
                                 </Grid>
-
                             </Border>
 
                             <DataGrid
@@ -276,21 +275,69 @@
                                 </DataGrid.CellStyle>
 
                                 <DataGrid.Columns>
-                                    <DataGridTextColumn Header="ID" Binding="{Binding }" Width="0.5*"/>
-                                    <DataGridTextColumn Header="Tên" Binding="{Binding }" Width="*"/>
-                                    <DataGridTextColumn Header="Giới tính" Binding="{Binding }" Width="0.8*"/>
-                                    <DataGridTextColumn Header="CCCD" Binding="{Binding }" Width="*"/>
-                                    <DataGridTextColumn Header="Số điện thoại" Binding="{Binding }" Width="*"/>
-                                    <DataGridTextColumn Header="Loại" Binding="{Binding }" Width="*"/>
-                                    <DataGridTextColumn Header="Địa chỉ" Binding="{Binding }" Width="*"/>
+                                    <DataGridTextColumn Header="ID" Binding="{Binding }" Width="*"/>
+                                    <DataGridTextColumn Header="Số phòng" Binding="{Binding }" Width="*"/>
+                                    <DataGridTextColumn Header="Check in" Binding="{Binding }" Width="*"/>
+                                    <DataGridTextColumn Header="Check out" Binding="{Binding }" Width="*"/>
+                                    <DataGridTemplateColumn Header="Trạng thái" Width="*" SortMemberPath="TinhTrang">
+                                        <DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <Border 
+                                                    x:Name="statusBorder"
+                                                    Width="52"
+                                                    Height="24"
+                                                    CornerRadius="12"
+                                                    Padding="4"
+                                                    HorizontalAlignment="Left">
+                                                    <Border.Style>
+                                                        <Style TargetType="Border">
+                                                            <Style.Triggers>
+                                                                <DataTrigger Binding="{Binding }" Value="Check in">
+                                                                    <Setter Property="Background" Value="#E8F1FD"/>
+                                                                </DataTrigger>
+                                                                <DataTrigger Binding="{Binding }" Value="Pending">
+                                                                    <Setter Property="Background" Value="#FEECEB"/>
+                                                                </DataTrigger>
+                                                            </Style.Triggers>
+                                                        </Style>
+                                                    </Border.Style>
+
+                                                    <TextBlock 
+                                                        Text="{Binding }"
+                                                        HorizontalAlignment="Center"
+                                                        VerticalAlignment="Center"
+                                                        TextAlignment="Center"
+                                                        FontSize="12"
+                                                        FontWeight="Regular">
+                                                        <TextBlock.Style>
+                                                            <Style TargetType="TextBlock">
+                                                                <Style.Triggers>
+                                                                    <DataTrigger Binding="{Binding }" Value="Check in">
+                                                                        <Setter Property="Foreground" Value="#448DF2"/>
+                                                                    </DataTrigger>
+                                                                    <DataTrigger Binding="{Binding }" Value="Pending">
+                                                                        <Setter Property="Foreground" Value="#F36960"/>
+                                                                    </DataTrigger>
+                                                                </Style.Triggers>
+                                                            </Style>
+                                                        </TextBlock.Style>
+                                                    </TextBlock>
+                                                </Border>
+                                            </DataTemplate>
+                                        </DataGridTemplateColumn.CellTemplate>
+                                    </DataGridTemplateColumn>
+
                                     <DataGridTemplateColumn Width="60">
                                         <DataGridTemplateColumn.CellTemplate>
                                             <DataTemplate>
-                                                <CheckBox 
+                                                <materialDesign:PackIcon
                                                     Width="20"
                                                     Height="20"
+                                                    Foreground="#5D6679"
                                                     HorizontalAlignment="Center"
-                                                    VerticalAlignment="Center"/>
+                                                    VerticalAlignment="Center"
+                                                    Cursor="Hand"
+                                                    Kind="DotsVertical"/>
                                             </DataTemplate>
                                         </DataGridTemplateColumn.CellTemplate>
                                     </DataGridTemplateColumn>

@@ -72,8 +72,8 @@
 
                 <ToggleButton 
                     Style="{StaticResource SidebarToggleButtonStyle}" 
-                    Content="Khách hàng"
-                    Tag="AccountMultipleOutline"
+                    Content="Phiếu thuê"
+                    Tag="TicketOutline"
                     Cursor="Hand"
                     Margin="0, 8, 0, 0"/>
 
@@ -517,6 +517,7 @@
                                     <RowDefinition Height="Auto"/>
                                     <RowDefinition Height="*"/>
                                     <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
                                 </Grid.RowDefinitions>
 
                                 <Border
@@ -526,7 +527,7 @@
                                     Background="#1570EF"
                                     CornerRadius="12 12 0 0">
                                     <TextBlock 
-                                        Text="Hóa Đơn Thanh Toán" 
+                                        Text="Hóa Đơn" 
                                         FontSize="22" 
                                         FontWeight="SemiBold"
                                         Foreground="White"
@@ -572,21 +573,36 @@
                                             </ItemsControl.ItemTemplate>
                                         </ItemsControl>
 
-                                        <StackPanel Margin="0 16 0 0">
-                                            <TextBlock Text="Khách hàng:" FontWeight="Bold"/>
-                                            <TextBlock Text="{Binding }" Margin="0 4 0 0"/>
-                                            <Separator Margin="0 8 0 0" Background="#DDD"/>
-                                        </StackPanel>
+                                        <ItemsControl ItemsSource="{Binding }">
+                                            <ItemsControl.ItemTemplate>
+                                                <DataTemplate>
+                                                    <StackPanel Margin="0,0,0,12">
+                                                        <TextBlock Text="{Binding }" FontSize="22" FontWeight="Medium"/>
 
-                                        <StackPanel Margin="0 16 0 0" Orientation="Horizontal" HorizontalAlignment="Right">
-                                            <TextBlock Text="Tổng: " FontWeight="Bold" FontSize="14"/>
-                                            <TextBlock Text="{Binding }" FontSize="14"/>
-                                        </StackPanel>
+                                                        <TextBlock 
+                                                            Text="{Binding }" 
+                                                            FontSize="20" 
+                                                            FontWeight="Medium"/> 
+
+                                                        <Separator Margin="0 8 0 0" Background="#DDD"/>
+                                                    </StackPanel>
+                                                </DataTemplate>
+                                            </ItemsControl.ItemTemplate>
+                                        </ItemsControl>
                                     </StackPanel>
                                 </ScrollViewer>
 
-                                <Button 
+                                <StackPanel 
                                     Grid.Row="2"
+                                    Margin="0 16 16 22" 
+                                    Orientation="Horizontal" 
+                                    HorizontalAlignment="Right">
+                                    <TextBlock Text="Tổng: " FontWeight="Bold" FontSize="20"/>
+                                    <TextBlock Text="{Binding }" FontSize="20"/>
+                                </StackPanel>
+
+                                <Button 
+                                    Grid.Row="3"
                                     Style="{DynamicResource BlueButtonStyle}"
                                     Width="200"
                                     Height="50"
@@ -598,10 +614,10 @@
                                             Width="28"
                                             Height="28"
                                             VerticalAlignment="Center"
-                                            Kind="CartOutline"/>
+                                            Kind="BookmarkOutline"/>
                                         <TextBlock
-                                            Text="Thanh toán"
-                                            FontSize="18"
+                                            Text="Lưu"
+                                            FontSize="20"
                                             VerticalAlignment="Center"
                                             Margin="4, 0, 0, 0"/>
                                     </StackPanel>
