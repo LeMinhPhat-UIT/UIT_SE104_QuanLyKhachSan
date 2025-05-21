@@ -12,8 +12,8 @@ namespace QuanLyKhachSan.Models.Core.Entities
     {
         [Key]
         public int InvoiceID { get; set; }
-
         public int ReservationID { get; set; }
+        public int? ReportID { get; set; } = null;
         public int? UserID { get; set; }
 
         [Column(TypeName="smalldatetime")]
@@ -35,7 +35,8 @@ namespace QuanLyKhachSan.Models.Core.Entities
         [ForeignKey("UserID")]
         public User User { get; set; }
         public Reservation Reservation { get; set; }
-        public List<RevenueReport> RevenueReports { get; set; } = new List<RevenueReport>();
+        [ForeignKey("ReportID")]
+        public RevenueReport RevenueReport { get; set; }
 
         public Invoice() { }
         public Invoice(int reservationID, int userID, DateTime invoiceDate, int surchargeRate, decimal totalAmount, string paymentMethod, string status="Pending")

@@ -707,7 +707,6 @@ D:\LeMinhPhat\UIT\2. sophomore year\semester 2\Software engineering\UIT_SE104_Qu
 D:\LeMinhPhat\UIT\2. sophomore year\semester 2\Software engineering\UIT_SE104_QuanLyKhachSan\QuanLyKhachSan\obj\Debug\net8.0-windows\UI\Views\AddRoomWindow.g.cs
 D:\LeMinhPhat\UIT\2. sophomore year\semester 2\Software engineering\UIT_SE104_QuanLyKhachSan\QuanLyKhachSan\obj\Debug\net8.0-windows\UI\Views\AddStaffWindow.g.cs
 D:\LeMinhPhat\UIT\2. sophomore year\semester 2\Software engineering\UIT_SE104_QuanLyKhachSan\QuanLyKhachSan\obj\Debug\net8.0-windows\UI\Views\BookingRoomWindow.g.cs
-D:\LeMinhPhat\UIT\2. sophomore year\semester 2\Software engineering\UIT_SE104_QuanLyKhachSan\QuanLyKhachSan\obj\Debug\net8.0-windows\UI\Views\CustomerWindow.g.cs
 D:\LeMinhPhat\UIT\2. sophomore year\semester 2\Software engineering\UIT_SE104_QuanLyKhachSan\QuanLyKhachSan\obj\Debug\net8.0-windows\UI\Views\LoginWindow.g.cs
 D:\LeMinhPhat\UIT\2. sophomore year\semester 2\Software engineering\UIT_SE104_QuanLyKhachSan\QuanLyKhachSan\obj\Debug\net8.0-windows\UI\Views\OverviewWindow.g.cs
 D:\LeMinhPhat\UIT\2. sophomore year\semester 2\Software engineering\UIT_SE104_QuanLyKhachSan\QuanLyKhachSan\obj\Debug\net8.0-windows\UI\Views\RevenueWindow.g.cs
@@ -719,10 +718,13 @@ D:\LeMinhPhat\UIT\2. sophomore year\semester 2\Software engineering\UIT_SE104_Qu
 D:\LeMinhPhat\UIT\2. sophomore year\semester 2\Software engineering\UIT_SE104_QuanLyKhachSan\QuanLyKhachSan\obj\Debug\net8.0-windows\UI\Views\AddRoomWindow.baml
 D:\LeMinhPhat\UIT\2. sophomore year\semester 2\Software engineering\UIT_SE104_QuanLyKhachSan\QuanLyKhachSan\obj\Debug\net8.0-windows\UI\Views\AddStaffWindow.baml
 D:\LeMinhPhat\UIT\2. sophomore year\semester 2\Software engineering\UIT_SE104_QuanLyKhachSan\QuanLyKhachSan\obj\Debug\net8.0-windows\UI\Views\BookingRoomWindow.baml
-D:\LeMinhPhat\UIT\2. sophomore year\semester 2\Software engineering\UIT_SE104_QuanLyKhachSan\QuanLyKhachSan\obj\Debug\net8.0-windows\UI\Views\CustomerWindow.baml
 D:\LeMinhPhat\UIT\2. sophomore year\semester 2\Software engineering\UIT_SE104_QuanLyKhachSan\QuanLyKhachSan\obj\Debug\net8.0-windows\UI\Views\LoginWindow.baml
 D:\LeMinhPhat\UIT\2. sophomore year\semester 2\Software engineering\UIT_SE104_QuanLyKhachSan\QuanLyKhachSan\obj\Debug\net8.0-windows\UI\Views\OverviewWindow.baml
 D:\LeMinhPhat\UIT\2. sophomore year\semester 2\Software engineering\UIT_SE104_QuanLyKhachSan\QuanLyKhachSan\obj\Debug\net8.0-windows\UI\Views\RevenueWindow.baml
 D:\LeMinhPhat\UIT\2. sophomore year\semester 2\Software engineering\UIT_SE104_QuanLyKhachSan\QuanLyKhachSan\obj\Debug\net8.0-windows\UI\Views\RoomDetailWindow.baml
 D:\LeMinhPhat\UIT\2. sophomore year\semester 2\Software engineering\UIT_SE104_QuanLyKhachSan\QuanLyKhachSan\obj\Debug\net8.0-windows\UI\Views\RoomWindow.baml
 D:\LeMinhPhat\UIT\2. sophomore year\semester 2\Software engineering\UIT_SE104_QuanLyKhachSan\QuanLyKhachSan\obj\Debug\net8.0-windows\UI\Views\StaffWindow.baml
+D:\LeMinhPhat\UIT\2. sophomore year\semester 2\Software engineering\UIT_SE104_QuanLyKhachSan\QuanLyKhachSan\obj\Debug\net8.0-windows\UI\Views\InvoiceWindow.g.cs
+D:\LeMinhPhat\UIT\2. sophomore year\semester 2\Software engineering\UIT_SE104_QuanLyKhachSan\QuanLyKhachSan\obj\Debug\net8.0-windows\UI\Views\RentReceiptWindow.g.cs
+D:\LeMinhPhat\UIT\2. sophomore year\semester 2\Software engineering\UIT_SE104_QuanLyKhachSan\QuanLyKhachSan\obj\Debug\net8.0-windows\UI\Views\InvoiceWindow.baml
+D:\LeMinhPhat\UIT\2. sophomore year\semester 2\Software engineering\UIT_SE104_QuanLyKhachSan\QuanLyKhachSan\obj\Debug\net8.0-windows\UI\Views\RentReceiptWindow.baml

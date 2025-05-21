@@ -180,7 +180,6 @@ namespace QuanLyKhachSan.Models
         {
             Service.RoomService.DeleteAmenity(1, 1);
             Service.ReservationService.DeleteCustomer(1, 1);
-            Service.RevenueService.DeleteInvoice(1, 1);
 
             Service.CustomerTierService.Delete(1);
             //Service.CustomerService.Delete(1); //không hiểu sao dòng này để đây thì lỗi mà đem nó sang MainWindow.xaml.cs thì lại chạy đúng. Chung quy là nó chạy đúng

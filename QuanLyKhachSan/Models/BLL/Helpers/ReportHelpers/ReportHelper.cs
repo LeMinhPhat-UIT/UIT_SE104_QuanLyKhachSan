@@ -40,7 +40,11 @@ namespace QuanLyKhachSan.Models.BLL.Helpers.ReportHelpers
                 TotalRevenue = total
             };
             Service.RevenueService.Add(report);
-            list.ForEach(x => Service.RevenueService.AddInvoice(report.ReportID, x.InvoiceID));
+            list.ForEach(x =>
+            {
+                x.ReportID = report.ReportID;
+                Service.InvoiceService.Update(x);
+            });
         }
 
         private static List<MonthlyRevenueModel> GroupRevenueByMonth(List<RevenueReport> reports, bool groupByRoomTier)

@@ -28,7 +28,12 @@ namespace QuanLyKhachSan.Models.BLL.Services
 
         public void Delete(int Id)
         {
-            if (DeleteDialogHelper.Warning() == System.Windows.MessageBoxResult.No)
+            if (GetById(Id).ReportID != null)
+            {
+                DeleteDialogHelper.RestrictWarning();
+                return;
+            }
+            else if (DeleteDialogHelper.Warning() == System.Windows.MessageBoxResult.No)
                 return;
             RepositoryHub.InvoiceRepo.Delete(Id);
         }
@@ -42,8 +47,8 @@ namespace QuanLyKhachSan.Models.BLL.Services
         public User GetUser(int invoiceID)
             => RepositoryHub.InvoiceRepo.GetUser(invoiceID);
 
-        public List<RevenueReport> GetRevenueReports(int Id)
-            => RepositoryHub.InvoiceRepo.GetRevenueReports(Id);
+        public RevenueReport GetRevenueReport(int Id)
+            => RepositoryHub.InvoiceRepo.GetRevenueReport(Id);
 
         public Reservation GetReservation(int Id)
             => RepositoryHub.InvoiceRepo.GetReservation(Id);

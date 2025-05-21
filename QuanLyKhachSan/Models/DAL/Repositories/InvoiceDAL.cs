@@ -58,14 +58,14 @@ namespace QuanLyKhachSan.Models.DAL.Repositories
             return invoice;
         }
 
-        public List<RevenueReport> GetRevenueReports(int Id)
-            => LoadReports(GetById(Id)).RevenueReports;
+        public RevenueReport GetRevenueReport(int Id)
+            => LoadReport(GetById(Id)).RevenueReport;
 
-        public Invoice LoadReports(Invoice invoice)
+        public Invoice LoadReport(Invoice invoice)
         {
             using var dbcontext = new HotelDbContext();
             var e = dbcontext.Entry(invoice);
-            e.Collection(c => c.RevenueReports).Load();
+            e.Reference(c => c.RevenueReport).Load();
             return invoice;
         }
 

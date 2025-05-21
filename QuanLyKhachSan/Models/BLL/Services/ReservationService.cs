@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
+using EntityFramework;
 using Microsoft.EntityFrameworkCore;
 using QuanLyKhachSan.Models.BLL.Helpers.Validation;
 using QuanLyKhachSan.Models.BLL.Interfaces;
@@ -43,6 +45,23 @@ namespace QuanLyKhachSan.Models.BLL.Services
                 var room = Service.RoomService.GetById(reservation.RoomID);
                 room.RoomState = "Available";
                 Service.RoomService.Update(room);
+                if (reservation.Status == "Cancelled")
+                {
+                    using var dbcontext = new HotelDbContext();
+                    var rent = dbcontext.Reservation
+                        .Include(x => x.Invoice)
+                        .FirstOrDefault(x => x.ReservationID == reservation.ReservationID);
+                    var inv = Service.InvoiceService.GetById(rent.Invoice.InvoiceID);
+                    if (inv.ReportID != null)
+                    {
+                        MessageBox.Show(
+                            @"This reservation cannot be canceled because its invoice has already been included in a revenue report.",
+                            "Warning", MessageBoxButton.OK, MessageBoxImage.Stop);
+                        return;
+                    }
+                    else
+                        Service.InvoiceService.Delete(rent.Invoice.InvoiceID);
+                }
             }
             RepositoryHub.ReservationRepo.Update(reservation);
         }

@@ -79,10 +79,6 @@ namespace EntityFramework
                     .WithMany(y => y.RevenueReports)
                     .OnDelete(DeleteBehavior.Restrict);
                 entity
-                    .HasMany(x => x.Invoices)
-                    .WithMany(y => y.RevenueReports)
-                    .UsingEntity(x => x.ToTable("Revenue_Invoice"));
-                entity
                     .HasOne(x => x.User)
                     .WithMany(y => y.RevenueReports)
                     .OnDelete(DeleteBehavior.SetNull);

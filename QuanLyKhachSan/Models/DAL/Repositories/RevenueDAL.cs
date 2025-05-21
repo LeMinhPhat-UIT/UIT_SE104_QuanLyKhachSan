@@ -48,24 +48,6 @@ namespace QuanLyKhachSan.Models.DAL.Repositories
             dbcontext.SaveChanges();
         }
 
-        public void AddInvoice(int reportID, int invoiceID)
-        {
-            using var dbcontext = new HotelDbContext();
-            var report = dbcontext.RevenueReport.Include(r => r.Invoices).FirstOrDefault(r => r.ReportID == reportID);
-            var invoice = RepositoryHub.InvoiceRepo.GetById(invoiceID);
-            report.Invoices.Add(invoice);
-            dbcontext.SaveChanges();
-        }
-
-        public void DeleteInvoice(int reportID, int invoiceID)
-        {
-            using var dbcontext = new HotelDbContext();
-            var report = dbcontext.RevenueReport.Include(x => x.Invoices).FirstOrDefault(x => x.ReportID == reportID);
-            var invoice = report.Invoices.FirstOrDefault(x => x.InvoiceID == invoiceID);
-            report.Invoices.Remove(invoice);
-            dbcontext.SaveChanges();
-        }
-
         public User GetUser(int Id)
             => LoadUser(GetById(Id)).User;
 
