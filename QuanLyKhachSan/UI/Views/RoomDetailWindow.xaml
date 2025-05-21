@@ -32,7 +32,7 @@
                     Margin="0, -8, -24, 0"/>
 
                 <TextBlock
-                    Text="Nhập thông tin nhân viên"
+                    Text="Thông tin phòng"
                     FontSize="24"
                     FontWeight="SemiBold"
                     Foreground="#1570EF"

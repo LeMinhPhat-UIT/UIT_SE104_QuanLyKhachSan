@@ -1,4 +1,4 @@
-﻿<Window x:Class="QuanLyKhachSan.UI.Views.AddStaffWindow"
+﻿<Window x:Class="QuanLyKhachSan.UI.Views.AddUpdateRoomWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -6,7 +6,7 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:QuanLyKhachSan.UI.Views"
         mc:Ignorable="d"
-        Title="AddStaffWindow" 
+        Title="AddRoomWindow" 
         WindowStyle="None"
         AllowsTransparency="True"
         ResizeMode="NoResize"
@@ -32,7 +32,7 @@
                     Margin="0, -8, -24, 0"/>
 
                 <TextBlock
-                    Text="Nhập thông tin nhân viên"
+                    Text="Nhập thông tin phòng"
                     FontSize="24"
                     FontWeight="SemiBold"
                     Foreground="#1570EF"
@@ -48,7 +48,7 @@
                     <StackPanel
                         Grid.Column="0">
                         <TextBlock
-                            Text="Họ và tên:"
+                            Text="Số phòng:"
                             FontSize="14"
                             FontWeight="SemiBold"/>
 
@@ -66,61 +66,29 @@
                         </Border>
                     </StackPanel>
 
-                    <Grid
-                        Grid.Column="1">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="Auto"/>
-                        </Grid.ColumnDefinitions>
-
-                        <StackPanel
-                            Grid.Column="0"
-                            HorizontalAlignment="Left"
-                            Margin="22, 0, 0, 0">
-                            <TextBlock
-                            Text="Ngày vào làm:"
-                            FontSize="14"
-                            FontWeight="SemiBold"/>
-
-                            <Border
-                            Width="110"
-                            Height="35"
-                            Background="#DCF1FF"
-                            HorizontalAlignment="Left"
-                            CornerRadius="8"
-                            Padding="8, 0"
-                            Margin="0, 8, 0, 0">
-                                <DatePicker
-                                materialDesign:TextFieldAssist.DecorationVisibility="Collapsed"
-                                BorderThickness="0"
-                                VerticalContentAlignment="Center"/>
-                            </Border>
-                        </StackPanel>
-
-                        <StackPanel
+                    <StackPanel
                             Grid.Column="1"
-                            HorizontalAlignment="Right">
-                            <TextBlock
-                            Text="Chức vụ:"
+                            HorizontalAlignment="Right"
+                            Margin="22, 0, 0, 0">
+                        <TextBlock
+                            Text="Loại phòng:"
                             FontSize="14"
                             FontWeight="SemiBold"/>
 
-                            <Border
-                            Width="110"
+                        <Border
+                            Width="230"
                             Height="35"
                             Background="#DCF1FF"
-                            HorizontalAlignment="Left"
                             CornerRadius="8"
                             Padding="8, 0"
                             Margin="0, 8, 0, 0">
-                                <ComboBox
+                            <ComboBox
                                     materialDesign:TextFieldAssist.DecorationVisibility="Collapsed"
                                     BorderThickness="0"
                                     Height="35">
-                                </ComboBox>
-                            </Border>
-                        </StackPanel>
-                    </Grid>
+                            </ComboBox>
+                        </Border>
+                    </StackPanel>
                 </Grid>
 
                 <Grid
@@ -133,7 +101,7 @@
                     <StackPanel
                         Grid.Column="0">
                         <TextBlock
-                            Text="CCCD:"
+                            Text="Giá (VNĐ):"
                             FontSize="14"
                             FontWeight="SemiBold"/>
 
@@ -155,7 +123,7 @@
                         Grid.Column="1"
                         HorizontalAlignment="Right">
                         <TextBlock
-                            Text="Số điện thoại:"
+                            Text="Tình trạng:"
                             FontSize="14"
                             FontWeight="SemiBold"/>
 
@@ -167,9 +135,11 @@
                             CornerRadius="8"
                             Padding="8, 0"
                             Margin="0, 8, 0, 0">
-                            <TextBox
+                            <ComboBox
                                 materialDesign:TextFieldAssist.DecorationVisibility="Collapsed"
-                                BorderThickness="0"/>
+                                BorderThickness="0"
+                                Height="35">
+                            </ComboBox>
                         </Border>
                     </StackPanel>
                 </Grid>
@@ -178,7 +148,7 @@
                     Grid.Column="0"
                     Margin="0, 24, 0, 0">
                     <TextBlock
-                            Text="Email:"
+                            Text="Cơ sở vật chất:"
                             FontSize="14"
                             FontWeight="SemiBold"/>
 
@@ -190,9 +160,11 @@
                             CornerRadius="8"
                             Padding="8, 0"
                             Margin="0, 8, 0, 0">
-                        <TextBox
-                                materialDesign:TextFieldAssist.DecorationVisibility="Collapsed"
-                                BorderThickness="0"/>
+                        <ComboBox
+                            materialDesign:TextFieldAssist.DecorationVisibility="Collapsed"
+                            BorderThickness="0"
+                            Height="35">
+                        </ComboBox>
                     </Border>
                 </StackPanel>
 
