@@ -19,6 +19,9 @@ namespace QuanLyKhachSan.Models.BLL.Services
         public Customer GetById(int id)
             => RepositoryHub.CustomerRepo.GetById(id);
 
+        public Customer? GetByIdentity(string identity)
+            => RepositoryHub.CustomerRepo.GetByIdentity(identity);
+
         public List<Customer> GetAllData()
             => RepositoryHub.CustomerRepo.GetAllData();
 
@@ -50,34 +53,6 @@ namespace QuanLyKhachSan.Models.BLL.Services
         public List<Reservation> GetReservations(int cusID)
             => RepositoryHub.CustomerRepo.GetReservations(cusID);
 
-        //public List<Customer> Search(Customer template)
-        //{
-        //    using var dbcontext = new HotelDbContext();
-        //    var list = dbcontext.Customer.AsQueryable();
-        //    var props = typeof(Customer).GetProperties();
-        //    props.ToList().ForEach(
-        //        prop =>
-        //        {
-        //            var value = prop.GetValue(template);
-        //            if (value == null) return;
-        //            if (prop.PropertyType == typeof(string))
-        //            {
-        //                string strValue = value as string;
-        //                if (!string.IsNullOrWhiteSpace(strValue))
-        //                {
-        //                    list = list.Where(a =>
-        //                        EF.Functions.Like(EF.Property<string>(a, prop.Name), $"%{strValue}%"));
-        //                }
-        //            }
-        //            else if (Nullable.GetUnderlyingType(prop.PropertyType) != null)
-        //            {
-        //                // kiểu nullable như int?, DateTime?, bool?
-        //                list = list.Where(a =>
-        //                    EF.Property<object>(a, prop.Name).Equals(value));
-        //            }
-        //        }
-        //    );
-        //    return list.ToList();
-        //}
+        
     }
 }

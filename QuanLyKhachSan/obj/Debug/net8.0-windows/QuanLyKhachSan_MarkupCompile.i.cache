@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP;WINDOWS;WINDOWS7_0;NET5_0_OR_GREATER;NET6_0_OR_GREATER;NET7_0_OR_GREATER;NET8_0_OR_GREATER;NETCOREAPP3_0_OR_GREATER;NETCOREAPP3_1_OR_GREATER;WINDOWS7_0_OR_GREATER
 D:\LeMinhPhat\UIT\2. sophomore year\semester 2\Software engineering\UIT_SE104_QuanLyKhachSan\QuanLyKhachSan\App.xaml
-142126983038
+142143417578
 
-64298460885
+64710259607
 2611395791189
-MainWindow.xaml;Resources\UserControls\ButtonStyle.xaml;UI\Views\AddCustomerWindow.xaml;UI\Views\AddRoomWindow.xaml;UI\Views\AddStaffWindow.xaml;UI\Views\BookingRoomWindow.xaml;UI\Views\InvoiceWindow.xaml;UI\Views\LoginWindow.xaml;UI\Views\OverviewWindow.xaml;UI\Views\RentReceiptWindow.xaml;UI\Views\RevenueWindow.xaml;UI\Views\RoomDetailWindow.xaml;UI\Views\RoomWindow.xaml;UI\Views\StaffWindow.xaml;
+MainWindow.xaml;Resources\UserControls\ButtonStyle.xaml;UI\Views\AddUpdateCustomerWindow.xaml;UI\Views\AddUpdateRoomWindow.xaml;UI\Views\AddUpdateStaffWindow.xaml;UI\Views\BookingRoomWindow.xaml;UI\Views\InvoiceWindow.xaml;UI\Views\LoginWindow.xaml;UI\Views\OverviewWindow.xaml;UI\Views\RentReceiptWindow.xaml;UI\Views\RevenueWindow.xaml;UI\Views\RoomDetailWindow.xaml;UI\Views\RoomWindow.xaml;UI\Views\StaffWindow.xaml;
 
 False
 

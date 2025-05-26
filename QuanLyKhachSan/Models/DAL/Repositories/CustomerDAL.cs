@@ -19,6 +19,14 @@ namespace QuanLyKhachSan.Models.DAL.Repositories
                     select c).FirstOrDefault();
         }
 
+        public Customer? GetByIdentity(string identity)
+        {
+            using var dbcontext = new HotelDbContext();
+            return (from c in dbcontext.Customer
+                    where c.IdentityNumber == identity
+                    select c).FirstOrDefault();
+        }
+
         public List<Customer> GetAllData() 
         {
             using var dbcontext = new HotelDbContext();
