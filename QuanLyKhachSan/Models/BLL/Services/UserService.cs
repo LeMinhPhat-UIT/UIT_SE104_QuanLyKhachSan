@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using QuanLyKhachSan.Models.BLL.Helpers.Security;
 using QuanLyKhachSan.Models.BLL.Helpers.Validation;
 using QuanLyKhachSan.Models.BLL.Interfaces;
 using QuanLyKhachSan.Models.Core.Entities;
@@ -22,8 +23,11 @@ namespace QuanLyKhachSan.Models.BLL.Services
 
         public void Add(User user)
         {
-            if(CheckValid.IsUserValid(user))
+            if (CheckValid.IsUserValid(user))
+            {
+                user.Password = PasswordService.HashPassword(user.Password);
                 RepositoryHub.UserRepo.Add(user);
+            }
         }
 
         public void Delete(int Id)
