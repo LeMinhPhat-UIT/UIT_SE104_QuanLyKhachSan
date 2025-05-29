@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using EntityFramework;
@@ -19,31 +21,77 @@ namespace QuanLyKhachSan.Models.BLL.Helpers.QueryHelpers
         public static List<T> Search<T>(T template) where T : class
         {
             using var dbcontext = new HotelDbContext();
-            var list = dbcontext.Set<T>().AsQueryable();
-            var props = typeof(T).GetProperties();
-            props.ToList().ForEach(
-                prop =>
+            IQueryable<T> query = dbcontext.Set<T>().AsQueryable();
+
+            var parameter = Expression.Parameter(typeof(T), "x");
+            Expression? combined = null;
+
+            foreach (var prop in typeof(T).GetProperties(BindingFlags.Public | BindingFlags.Instance))
+            {
+                if (!prop.CanRead) continue;
+
+                // Skip navigation/collection types (except string)
+                if (typeof(System.Collections.IEnumerable).IsAssignableFrom(prop.PropertyType) && prop.PropertyType != typeof(string))
+                    continue;
+
+                if (!prop.PropertyType.IsValueType && prop.PropertyType != typeof(string))
+                    continue;
+
+                var value = prop.GetValue(template);
+                if (value == null) continue;
+
+                var effectiveType = Nullable.GetUnderlyingType(prop.PropertyType) ?? prop.PropertyType;
+
+                if (effectiveType == typeof(string))
                 {
-                    var value = prop.GetValue(template);
-                    if (value == null) return;
-                    if (prop.PropertyType == typeof(string))
+                    if (string.IsNullOrWhiteSpace(value as string)) continue;
+                }
+                else
+                {
+                    object? defaultValue = Activator.CreateInstance(effectiveType);
+                    if (value.Equals(defaultValue)) continue;
+                }
+
+                var propertyAccess = Expression.Property(parameter, prop.Name);
+                var constant = Expression.Constant(value, prop.PropertyType);
+                Expression? condition = null;
+
+                if (effectiveType == typeof(string))
+                {
+                    var likeMethod = typeof(DbFunctionsExtensions).GetMethod(
+                        nameof(DbFunctionsExtensions.Like),
+                        new[] { typeof(DbFunctions), typeof(string), typeof(string) }
+                    );
+
+                    if (likeMethod != null)
                     {
-                        string strValue = value as string;
-                        if (!string.IsNullOrWhiteSpace(strValue))
-                        {
-                            list = list.Where(a =>
-                                EF.Functions.Like(EF.Property<string>(a, prop.Name), $"%{strValue}%"));
-                        }
-                    }
-                    else if (Nullable.GetUnderlyingType(prop.PropertyType) != null)
-                    {
-                        // kiểu nullable như int?, DateTime?, bool?
-                        list = list.Where(a =>
-                            EF.Property<object>(a, prop.Name).Equals(value));
+                        condition = Expression.Call(
+                            null,
+                            likeMethod,
+                            Expression.Constant(EF.Functions),
+                            propertyAccess,
+                            Expression.Constant($"%{value}%", typeof(string))
+                        );
                     }
                 }
-            );
-            return list.ToList();
+                else
+                {
+                    condition = Expression.Equal(propertyAccess, constant);
+                }
+
+                if (condition != null)
+                {
+                    combined = combined == null ? condition : Expression.AndAlso(combined, condition);
+                }
+            }
+
+            if (combined != null)
+            {
+                var lambda = Expression.Lambda<Func<T, bool>>(combined, parameter);
+                query = query.Where(lambda);
+            }
+
+            return query.ToList();
         }
 
         public static List<T> Sort<T>(List<T> source, string property, SortOrder order=SortOrder.Ascending)
