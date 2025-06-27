@@ -4,10 +4,43 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:QuanLyKhachSan"
+        xmlns:mainviews="clr-namespace:QuanLyKhachSan.UI.Views.MainViews"
+        xmlns:vms="clr-namespace:QuanLyKhachSan.ViewModel"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
+        Title="LoginWindow" 
+        ResizeMode="NoResize"
+        WindowStyle="None"
+        WindowStartupLocation="CenterScreen"
+        SizeToContent="WidthAndHeight">
 
+    <Grid>
+        <Grid.Resources>
+            <DataTemplate DataType="{x:Type vms:LoginViewModel}">
+                <mainviews:LoginWindow/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type vms:OverviewViewModel}">
+                <mainviews:OverviewWindow/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type vms:BookingViewModel}">
+                <mainviews:BookingRoomWindow/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type vms:RoomWViewModel}">
+                <mainviews:RoomWindow/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type vms:ReservationWViewModel}">
+                <mainviews:RentReceiptWindow/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type vms:UserWViewModel}">
+                <mainviews:StaffWindow/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type vms:RevenueViewModel}">
+                <mainviews:RevenueWindow/>
+            </DataTemplate>
+        </Grid.Resources>
+
+
+        <ContentControl Content="{Binding CurrentViewModel}">
+            
+        </ContentControl>
     </Grid>
 </Window>

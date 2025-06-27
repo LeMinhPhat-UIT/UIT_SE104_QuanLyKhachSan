@@ -1,6 +1,10 @@
 ﻿using System.Configuration;
 using System.Data;
 using System.Windows;
+using QuanLyKhachSan.ViewModel;
+using QuanLyKhachSan.ViewModel.Service;
+using QuanLyKhachSan.ViewModel.Store;
+using QuanLyKhachSan.ViewModel.EntityViewModels;
 
 namespace QuanLyKhachSan
 {
@@ -9,6 +13,32 @@ namespace QuanLyKhachSan
     /// </summary>
     public partial class App : Application
     {
+        private readonly NavigationStore _mainNavigationStore;
+        private readonly NavigationStore _subNavigationStore;
+
+        public App()
+        {
+            _mainNavigationStore = new NavigationStore();
+            _subNavigationStore = new NavigationStore();
+        }
+        protected override void OnStartup(StartupEventArgs e)
+        {
+            _mainNavigationStore.CurrentViewModel = new LoginViewModel(_mainNavigationStore, CreateOverviewViewModel);
+
+            MainWindow = new MainWindow()
+            {
+                DataContext = new MainViewModel(_mainNavigationStore)
+            };
+            MainWindow.Show();
+
+            base.OnStartup(e);
+        }
+
+        private OverviewViewModel CreateOverviewViewModel()
+        {
+            return new OverviewViewModel(_mainNavigationStore);
+        }
+
     }
 
 }

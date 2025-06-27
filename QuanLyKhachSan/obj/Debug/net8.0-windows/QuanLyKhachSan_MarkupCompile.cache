@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-D:\LeMinhPhat\UIT\2. sophomore year\semester 2\Software engineering\UIT_SE104_QuanLyKhachSan\QuanLyKhachSan\obj\Debug\net8.0-windows\
+D:\LeMinhPhat\NewPull\UIT_SE104_QuanLyKhachSan\QuanLyKhachSan\obj\Debug\net8.0-windows\
 QuanLyKhachSan
 none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP
-D:\LeMinhPhat\UIT\2. sophomore year\semester 2\Software engineering\UIT_SE104_QuanLyKhachSan\QuanLyKhachSan\App.xaml
-142126983038
+D:\LeMinhPhat\NewPull\UIT_SE104_QuanLyKhachSan\QuanLyKhachSan\App.xaml
+15623477757
 
-621555369002
-2611395791189
-MainWindow.xaml;Resources\UserControls\ButtonStyle.xaml;UI\Views\AddCustomerWindow.xaml;UI\Views\AddRoomWindow.xaml;UI\Views\AddStaffWindow.xaml;UI\Views\BookingRoomWindow.xaml;UI\Views\InvoiceWindow.xaml;UI\Views\LoginWindow.xaml;UI\Views\OverviewWindow.xaml;UI\Views\RentReceiptWindow.xaml;UI\Views\RevenueWindow.xaml;UI\Views\RoomDetailWindow.xaml;UI\Views\RoomWindow.xaml;UI\Views\StaffWindow.xaml;
+110-328839388
+266-2036467904
+MainWindow.xaml;Resources\UserControls\ButtonStyle.xaml;UI\BindablePasswordBox.xaml;UI\Views\MainViews\BookingRoomWindow.xaml;UI\Views\MainViews\LoginWindow.xaml;UI\Views\MainViews\OverviewWindow.xaml;UI\Views\MainViews\RentReceiptWindow.xaml;UI\Views\MainViews\RevenueWindow.xaml;UI\Views\MainViews\RoomWindow.xaml;UI\Views\MainViews\StaffWindow.xaml;UI\Views\SubViews\AddUpdateCustomerWindow.xaml;UI\Views\SubViews\AddUpdateRoomWindow.xaml;UI\Views\SubViews\AddUpdateStaffWindow.xaml;UI\Views\SubViews\InvoiceWindow.xaml;UI\Views\SubViews\RoomDetailWindow.xaml;
 
 False
 

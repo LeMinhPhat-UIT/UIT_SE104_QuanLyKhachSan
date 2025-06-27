@@ -26,10 +26,6 @@ namespace QuanLyKhachSan
         public MainWindow()
         {
             InitializeComponent();
-
-            Testing.AddData();
-            Testing.UpdateData();
-            Testing.DeleteData();
         }
     }
 }

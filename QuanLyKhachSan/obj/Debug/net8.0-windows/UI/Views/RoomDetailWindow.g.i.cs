@@ -56,7 +56,7 @@ namespace QuanLyKhachSan.UI.Views {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/QuanLyKhachSan;V1.0.0.0;component/ui/views/roomdetailwindow.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/QuanLyKhachSan_BackUp;component/ui/views/roomdetailwindow.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\..\UI\Views\RoomDetailWindow.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

@@ -1,18 +1,10 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\LeMinhPhat\\UIT\\2. sophomore year\\semester 2\\Software engineering\\UIT_SE104_QuanLyKhachSan\\QuanLyKhachSan\\",
+  "WorkspaceRootPath": "D:\\LeMinhPhat\\NewPull\\UIT_SE104_QuanLyKhachSan\\QuanLyKhachSan\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{0CC7568F-EA8C-4D36-AF5B-AE6AB1C2A1B6}|QuanLyKhachSan.csproj|d:\\leminhphat\\uit\\2. sophomore year\\semester 2\\software engineering\\uit_se104_quanlykhachsan\\quanlykhachsan\\models\\bll\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0CC7568F-EA8C-4D36-AF5B-AE6AB1C2A1B6}|QuanLyKhachSan.csproj|solutionrelative:models\\bll\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0CC7568F-EA8C-4D36-AF5B-AE6AB1C2A1B6}|QuanLyKhachSan.csproj|d:\\leminhphat\\uit\\2. sophomore year\\semester 2\\software engineering\\uit_se104_quanlykhachsan\\quanlykhachsan\\models\\bll\\services\\customerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0CC7568F-EA8C-4D36-AF5B-AE6AB1C2A1B6}|QuanLyKhachSan.csproj|solutionrelative:models\\bll\\services\\customerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0CC7568F-EA8C-4D36-AF5B-AE6AB1C2A1B6}|QuanLyKhachSan.csproj|d:\\leminhphat\\uit\\2. sophomore year\\semester 2\\software engineering\\uit_se104_quanlykhachsan\\quanlykhachsan\\models\\dal\\repositories\\customerdal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0CC7568F-EA8C-4D36-AF5B-AE6AB1C2A1B6}|QuanLyKhachSan.csproj|solutionrelative:models\\dal\\repositories\\customerdal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0CC7568F-EA8C-4D36-AF5B-AE6AB1C2A1B6}|QuanLyKhachSan.csproj|d:\\leminhphat\\newpull\\uit_se104_quanlykhachsan\\quanlykhachsan\\ui\\views\\mainviews\\overviewwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{0CC7568F-EA8C-4D36-AF5B-AE6AB1C2A1B6}|QuanLyKhachSan.csproj|solutionrelative:ui\\views\\mainviews\\overviewwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     }
   ],
   "DocumentGroupContainers": [
@@ -51,39 +43,13 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "UserService.cs",
-              "DocumentMoniker": "D:\\LeMinhPhat\\UIT\\2. sophomore year\\semester 2\\Software engineering\\UIT_SE104_QuanLyKhachSan\\QuanLyKhachSan\\Models\\BLL\\Services\\UserService.cs",
-              "RelativeDocumentMoniker": "Models\\BLL\\Services\\UserService.cs",
-              "ToolTip": "D:\\LeMinhPhat\\UIT\\2. sophomore year\\semester 2\\Software engineering\\UIT_SE104_QuanLyKhachSan\\QuanLyKhachSan\\Models\\BLL\\Services\\UserService.cs",
-              "RelativeToolTip": "Models\\BLL\\Services\\UserService.cs",
-              "ViewState": "AgIAABEAAAAAAAAAAAAzwB0AAAANAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-28T10:23:19.591Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "CustomerDAL.cs",
-              "DocumentMoniker": "D:\\LeMinhPhat\\UIT\\2. sophomore year\\semester 2\\Software engineering\\UIT_SE104_QuanLyKhachSan\\QuanLyKhachSan\\Models\\DAL\\Repositories\\CustomerDAL.cs",
-              "RelativeDocumentMoniker": "Models\\DAL\\Repositories\\CustomerDAL.cs",
-              "ToolTip": "D:\\LeMinhPhat\\UIT\\2. sophomore year\\semester 2\\Software engineering\\UIT_SE104_QuanLyKhachSan\\QuanLyKhachSan\\Models\\DAL\\Repositories\\CustomerDAL.cs",
-              "RelativeToolTip": "Models\\DAL\\Repositories\\CustomerDAL.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAYAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-26T14:23:01.658Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "CustomerService.cs",
-              "DocumentMoniker": "D:\\LeMinhPhat\\UIT\\2. sophomore year\\semester 2\\Software engineering\\UIT_SE104_QuanLyKhachSan\\QuanLyKhachSan\\Models\\BLL\\Services\\CustomerService.cs",
-              "RelativeDocumentMoniker": "Models\\BLL\\Services\\CustomerService.cs",
-              "ToolTip": "D:\\LeMinhPhat\\UIT\\2. sophomore year\\semester 2\\Software engineering\\UIT_SE104_QuanLyKhachSan\\QuanLyKhachSan\\Models\\BLL\\Services\\CustomerService.cs",
-              "RelativeToolTip": "Models\\BLL\\Services\\CustomerService.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAwBYAAABCAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-26T14:21:55.816Z",
+              "Title": "OverviewWindow.xaml",
+              "DocumentMoniker": "D:\\LeMinhPhat\\NewPull\\UIT_SE104_QuanLyKhachSan\\QuanLyKhachSan\\UI\\Views\\MainViews\\OverviewWindow.xaml",
+              "RelativeDocumentMoniker": "UI\\Views\\MainViews\\OverviewWindow.xaml",
+              "ToolTip": "D:\\LeMinhPhat\\NewPull\\UIT_SE104_QuanLyKhachSan\\QuanLyKhachSan\\UI\\Views\\MainViews\\OverviewWindow.xaml*",
+              "RelativeToolTip": "UI\\Views\\MainViews\\OverviewWindow.xaml*",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-06-27T16:06:03.696Z",
               "EditorCaption": ""
             }
           ]

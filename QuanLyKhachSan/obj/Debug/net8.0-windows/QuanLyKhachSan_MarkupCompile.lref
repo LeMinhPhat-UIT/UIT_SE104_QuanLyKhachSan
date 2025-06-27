@@ -1,16 +1,17 @@
 ﻿
-FD:\LeMinhPhat\UIT\2. sophomore year\semester 2\Software engineering\UIT_SE104_QuanLyKhachSan\QuanLyKhachSan\App.xaml;;
-FD:\LeMinhPhat\UIT\2. sophomore year\semester 2\Software engineering\UIT_SE104_QuanLyKhachSan\QuanLyKhachSan\MainWindow.xaml;;
-FD:\LeMinhPhat\UIT\2. sophomore year\semester 2\Software engineering\UIT_SE104_QuanLyKhachSan\QuanLyKhachSan\UI\Views\AddCustomerWindow.xaml;;
-FD:\LeMinhPhat\UIT\2. sophomore year\semester 2\Software engineering\UIT_SE104_QuanLyKhachSan\QuanLyKhachSan\UI\Views\AddRoomWindow.xaml;;
-FD:\LeMinhPhat\UIT\2. sophomore year\semester 2\Software engineering\UIT_SE104_QuanLyKhachSan\QuanLyKhachSan\UI\Views\AddStaffWindow.xaml;;
-FD:\LeMinhPhat\UIT\2. sophomore year\semester 2\Software engineering\UIT_SE104_QuanLyKhachSan\QuanLyKhachSan\UI\Views\BookingRoomWindow.xaml;;
-FD:\LeMinhPhat\UIT\2. sophomore year\semester 2\Software engineering\UIT_SE104_QuanLyKhachSan\QuanLyKhachSan\UI\Views\LoginWindow.xaml;;
-FD:\LeMinhPhat\UIT\2. sophomore year\semester 2\Software engineering\UIT_SE104_QuanLyKhachSan\QuanLyKhachSan\UI\Views\OverviewWindow.xaml;;
-FD:\LeMinhPhat\UIT\2. sophomore year\semester 2\Software engineering\UIT_SE104_QuanLyKhachSan\QuanLyKhachSan\UI\Views\RevenueWindow.xaml;;
-FD:\LeMinhPhat\UIT\2. sophomore year\semester 2\Software engineering\UIT_SE104_QuanLyKhachSan\QuanLyKhachSan\UI\Views\RoomDetailWindow.xaml;;
-FD:\LeMinhPhat\UIT\2. sophomore year\semester 2\Software engineering\UIT_SE104_QuanLyKhachSan\QuanLyKhachSan\UI\Views\RoomWindow.xaml;;
-FD:\LeMinhPhat\UIT\2. sophomore year\semester 2\Software engineering\UIT_SE104_QuanLyKhachSan\QuanLyKhachSan\UI\Views\StaffWindow.xaml;;
-FD:\LeMinhPhat\UIT\2. sophomore year\semester 2\Software engineering\UIT_SE104_QuanLyKhachSan\QuanLyKhachSan\UI\Views\InvoiceWindow.xaml;;
-FD:\LeMinhPhat\UIT\2. sophomore year\semester 2\Software engineering\UIT_SE104_QuanLyKhachSan\QuanLyKhachSan\UI\Views\RentReceiptWindow.xaml;;
+FD:\LeMinhPhat\NewPull\UIT_SE104_QuanLyKhachSan\QuanLyKhachSan\App.xaml;;
+FD:\LeMinhPhat\NewPull\UIT_SE104_QuanLyKhachSan\QuanLyKhachSan\MainWindow.xaml;;
+FD:\LeMinhPhat\NewPull\UIT_SE104_QuanLyKhachSan\QuanLyKhachSan\UI\BindablePasswordBox.xaml;;
+FD:\LeMinhPhat\NewPull\UIT_SE104_QuanLyKhachSan\QuanLyKhachSan\UI\Views\MainViews\BookingRoomWindow.xaml;;
+FD:\LeMinhPhat\NewPull\UIT_SE104_QuanLyKhachSan\QuanLyKhachSan\UI\Views\MainViews\LoginWindow.xaml;;
+FD:\LeMinhPhat\NewPull\UIT_SE104_QuanLyKhachSan\QuanLyKhachSan\UI\Views\MainViews\OverviewWindow.xaml;;
+FD:\LeMinhPhat\NewPull\UIT_SE104_QuanLyKhachSan\QuanLyKhachSan\UI\Views\MainViews\RentReceiptWindow.xaml;;
+FD:\LeMinhPhat\NewPull\UIT_SE104_QuanLyKhachSan\QuanLyKhachSan\UI\Views\MainViews\RevenueWindow.xaml;;
+FD:\LeMinhPhat\NewPull\UIT_SE104_QuanLyKhachSan\QuanLyKhachSan\UI\Views\MainViews\RoomWindow.xaml;;
+FD:\LeMinhPhat\NewPull\UIT_SE104_QuanLyKhachSan\QuanLyKhachSan\UI\Views\MainViews\StaffWindow.xaml;;
+FD:\LeMinhPhat\NewPull\UIT_SE104_QuanLyKhachSan\QuanLyKhachSan\UI\Views\SubViews\AddUpdateCustomerWindow.xaml;;
+FD:\LeMinhPhat\NewPull\UIT_SE104_QuanLyKhachSan\QuanLyKhachSan\UI\Views\SubViews\AddUpdateRoomWindow.xaml;;
+FD:\LeMinhPhat\NewPull\UIT_SE104_QuanLyKhachSan\QuanLyKhachSan\UI\Views\SubViews\AddUpdateStaffWindow.xaml;;
+FD:\LeMinhPhat\NewPull\UIT_SE104_QuanLyKhachSan\QuanLyKhachSan\UI\Views\SubViews\InvoiceWindow.xaml;;
+FD:\LeMinhPhat\NewPull\UIT_SE104_QuanLyKhachSan\QuanLyKhachSan\UI\Views\SubViews\RoomDetailWindow.xaml;;
 
