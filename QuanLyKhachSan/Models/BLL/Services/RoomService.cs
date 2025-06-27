@@ -54,5 +54,8 @@ namespace QuanLyKhachSan.Models.BLL.Services
 
         public List<Reservation> GetReservations(int Id)
             => RepositoryHub.RoomRepo.GetReservations(Id);
+
+        public List<Amenity> GetAmenities(int Id)
+            => RepositoryHub.RoomRepo.GetAmenities(Id);
     }
 }

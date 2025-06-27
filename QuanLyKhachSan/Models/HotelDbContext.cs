@@ -18,6 +18,7 @@ namespace EntityFramework
         public DbSet<Room> Room { get; set; }
         public DbSet<RoomTier> RoomTier { get; set; }
         public DbSet<User> User { get; set; }
+        public DbSet<Rule> Rule { get; set; }
 
         // chỉnh lại cho phù hợp tên server trên máy cá nhân
         private const string connectionString =
@@ -61,11 +62,6 @@ namespace EntityFramework
                     .HasMany(x => x.Customers)
                     .WithMany(y => y.Reservations)
                     .UsingEntity(x => x.ToTable("Reservation_Customer"));
-                entity
-                    .HasOne(x => x.Customer)
-                    .WithMany()
-                    .HasForeignKey(x => x.CustomerID)
-                    .OnDelete(DeleteBehavior.Restrict);
                 entity
                     .HasOne(x => x.User)
                     .WithMany(y => y.Reservations)

@@ -19,6 +19,14 @@ namespace QuanLyKhachSan.Models.DAL.Repositories
                     select c).FirstOrDefault();
         }
 
+        public User? GetByIdentity(string identity)
+        {
+            using var dbcontext = new HotelDbContext();
+            return (from c in dbcontext.User
+                    where c.IdentityNumber == identity
+                    select c).FirstOrDefault();
+        }
+
         public List<User> GetAllData()
         {
             using var dbcontext = new HotelDbContext();
@@ -77,6 +85,17 @@ namespace QuanLyKhachSan.Models.DAL.Repositories
             using var dbcontext = new HotelDbContext();
             var e = dbcontext.Entry(user);
             e.Collection(c => c.Invoices).Load();
+            return user;
+        }
+
+        public Role GetRole(int id)
+            => LoadRole(GetById(id)).Role;
+
+        public User LoadRole(User user)
+        {
+            using var dbcontext = new HotelDbContext();
+            var e = dbcontext.Entry(user);
+            e.Reference(c => c.Role).Load();
             return user;
         }
     }

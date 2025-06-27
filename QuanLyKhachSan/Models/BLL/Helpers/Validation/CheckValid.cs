@@ -72,7 +72,7 @@ namespace QuanLyKhachSan.Models.BLL.Helpers.Validation
             var pricePerDay=Service.RoomService.GetById(reservation.RoomID).PricePerDay;
             try
             {
-                if (invoice.TotalAmount != totalDays * pricePerDay * (100 + invoice.SurchargeRate) / 100)
+                if (invoice.TotalAmount < totalDays * pricePerDay * (100 + invoice.SurchargeRate) / 100)
                     throw new ArgumentException("TotalAmount is invalid");
             }
             catch (Exception ex)

@@ -19,8 +19,9 @@ namespace QuanLyKhachSan.Models.Core.Entities
 
         [Column(TypeName="money")]
         public decimal RoomTierPrice { get; set; }
-        public List<Room> Rooms { get; set; }
+        public List<Room> Rooms { get; set; } = new List<Room>();
         public List<RevenueReport> RevenueReports { get; set; } = new List<RevenueReport>();
+        public int CountRooms { get => Rooms.Count; }
         public RoomTier() { }
         public RoomTier(string roomTierName, decimal roomTierPrice)
         {

@@ -18,6 +18,16 @@ namespace QuanLyKhachSan.Models.BLL.Helpers.ReportHelpers
         public decimal TotalRevenue { get; set; }
     }
 
+    public class WeeklyRevenueModel
+    {
+        public int? RoomTierID { get; set; }
+        public int Year { get; set; }
+        public int WeekNumber { get; set; }
+        public DateTime StartDate { get; set; }
+        public DateTime EndDate { get; set; }
+        public decimal TotalRevenue { get; set; }
+    }
+
     public class RoomTierPercentageModel
     {
         public int? RoomTierID { get; set; }
@@ -29,7 +39,11 @@ namespace QuanLyKhachSan.Models.BLL.Helpers.ReportHelpers
         {
             var list = QueryHelper.Filter(
                 Service.InvoiceService.GetAllData(),
-                x => x.InvoiceDate == reportDate
+                x =>
+                {
+                    var roomTierID = QuanLyKhachSan.Models.BLL.Service.ReservationService.GetRoom(x.ReservationID).RoomTierID;
+                    return x.InvoiceDate == reportDate && roomTierID == tierID;
+                }
             );
             var total = list.Sum(x => x.TotalAmount);
             var report = new RevenueReport
@@ -112,6 +126,78 @@ namespace QuanLyKhachSan.Models.BLL.Helpers.ReportHelpers
                     })
                     .OrderByDescending(x => x.Percentage)
                     .ToList();
+        }
+
+        private static DateTime GetStartOfWeek(DateTime date)
+        {
+            int diff = (7 + (date.DayOfWeek - DayOfWeek.Monday)) % 7;
+            return date.AddDays(-1 * diff).Date;
+        }
+
+        private static List<WeeklyRevenueModel> GetWeeklyRevenue(List<RevenueReport> reports, bool groupByRoomTier)
+        {
+            var preprocessed = reports
+                .Select(x => new
+                {
+                    Report = x,
+                    StartOfWeek = GetStartOfWeek(x.RevenueDate),
+                })
+                .ToList();
+
+            if (groupByRoomTier)
+                return preprocessed
+                    .GroupBy(x => new { x.Report.RoomTierID, x.StartOfWeek })
+                    .Select(group => new WeeklyRevenueModel
+                    {
+                        RoomTierID = group.Key.RoomTierID,
+                        Year = group.Key.StartOfWeek.Year,
+                        WeekNumber = System.Globalization.CultureInfo.CurrentCulture.Calendar.GetWeekOfYear(
+                            group.Key.StartOfWeek,
+                            System.Globalization.CalendarWeekRule.FirstFourDayWeek,
+                            DayOfWeek.Monday
+                        ),
+                        StartDate = group.Key.StartOfWeek,
+                        EndDate = group.Key.StartOfWeek.AddDays(6),
+                        TotalRevenue = group.Sum(x => x.Report.TotalRevenue)
+                    })
+                    .OrderBy(x => x.Year)
+                    .ThenBy(x => x.WeekNumber)
+                    .ToList();
+            else
+                return preprocessed
+                    .GroupBy(x => x.StartOfWeek)
+                    .Select(group => new WeeklyRevenueModel
+                    {
+                        RoomTierID = null,
+                        Year = group.Key.Year,
+                        WeekNumber = System.Globalization.CultureInfo.CurrentCulture.Calendar.GetWeekOfYear(
+                            group.Key,
+                            System.Globalization.CalendarWeekRule.FirstFourDayWeek,
+                            DayOfWeek.Monday
+                        ),
+                        StartDate = group.Key,
+                        EndDate = group.Key.AddDays(6),
+                        TotalRevenue = group.Sum(x => x.Report.TotalRevenue)
+                    })
+                    .OrderBy(x => x.Year)
+                    .ThenBy(x => x.WeekNumber)
+                    .ToList();
+        }
+
+        public static List<WeeklyRevenueModel> GetRTWeeklyRevenue(List<RevenueReport> dailyReports)
+            => GetWeeklyRevenue(dailyReports, true);
+
+        public static List<WeeklyRevenueModel> GetAllWeeklyRevenue(List<RevenueReport> dailyReports)
+            => GetWeeklyRevenue(dailyReports, false);
+
+        public static int GetWeekNumber(DateTime date)
+        {
+            var culture = System.Globalization.CultureInfo.CurrentCulture;
+            return culture.Calendar.GetWeekOfYear(
+                date,
+                System.Globalization.CalendarWeekRule.FirstFourDayWeek,
+                DayOfWeek.Monday
+            );
         }
     }
 }

@@ -23,8 +23,11 @@ namespace QuanLyKhachSan.Models.BLL.Services
 
         public void Delete(int Id)
         {
-            if (DeleteDialogHelper.Warning() == System.Windows.MessageBoxResult.No)
+            if (GetUsers(Id).Count != 0)
+            {
+                DeleteDialogHelper.RestrictWarning();
                 return;
+            }
             RepositoryHub.RoleRepo.Delete(Id);
         }
 

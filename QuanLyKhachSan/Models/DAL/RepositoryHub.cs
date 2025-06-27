@@ -21,6 +21,7 @@ namespace QuanLyKhachSan.Models.DAL
         public static readonly RoomDAL RoomRepo = new RoomDAL();
         public static readonly RoomTierDAL RoomTierRepo = new RoomTierDAL();
         public static readonly UserDAL UserRepo = new UserDAL();
+        public static readonly RuleDAL RuleRepo = new RuleDAL();
         //public static readonly Reservation_CustomerDAL RentalDetailRepo = new Reservation_CustomerDAL();
         //public static readonly Revenue_InvoiceDAL RevenueDetailRepo = new Revenue_InvoiceDAL();
     }

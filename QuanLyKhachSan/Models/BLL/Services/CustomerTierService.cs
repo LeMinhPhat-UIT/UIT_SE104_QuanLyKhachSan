@@ -24,8 +24,11 @@ namespace QuanLyKhachSan.Models.BLL.Services
 
         public void Delete(int Id)
         {
-            if (DeleteDialogHelper.Warning() == System.Windows.MessageBoxResult.No)
+            if (GetCustomers(Id).Count != 0)
+            {
+                DeleteDialogHelper.RestrictWarning();
                 return;
+            }
             RepositoryHub.CustomerTierRepo.Delete(Id);
         }
 

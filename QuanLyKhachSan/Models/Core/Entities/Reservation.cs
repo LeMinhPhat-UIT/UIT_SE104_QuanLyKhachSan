@@ -15,8 +15,6 @@ namespace QuanLyKhachSan.Models.Core.Entities
         public int? UserID { get; set; }
         public int RoomID { get; set; }
 
-        public int CustomerID { get; set; }
-
         [Column(TypeName="smalldatetime")]
         public DateTime CheckInDate { get; set; }
 
@@ -26,9 +24,6 @@ namespace QuanLyKhachSan.Models.Core.Entities
         [StringLength(20)]
         [Column(TypeName="varchar")]
         public string Status { get; set; }
-
-        //[ForeignKey("CustomerID")]
-        public Customer Customer { get; set; }
 
         [ForeignKey("RoomID")]
         public Room Room { get; set; }
@@ -40,11 +35,10 @@ namespace QuanLyKhachSan.Models.Core.Entities
         public List<Customer> Customers { get; set; } = new List<Customer>();
 
         public Reservation() { }
-        public Reservation(int userID, int roomID, int customerID, DateTime checkInDate, DateTime checkOutDate, string status)
+        public Reservation(int userID, int roomID, DateTime checkInDate, DateTime checkOutDate, string status)
         {
             UserID = userID;
             RoomID = roomID;
-            CustomerID = customerID;
             CheckInDate = checkInDate;
             CheckOutDate = checkOutDate;
             Status = status;

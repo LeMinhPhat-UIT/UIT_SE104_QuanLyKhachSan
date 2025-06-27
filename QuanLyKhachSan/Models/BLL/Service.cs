@@ -20,6 +20,7 @@ namespace QuanLyKhachSan.Models.BLL
         public static readonly RoomService RoomService = new RoomService();
         public static readonly RoomTierService RoomTierService = new RoomTierService();
         public static readonly UserService UserService = new UserService();
+        public static readonly RuleService RuleService = new RuleService();
         //public static Reservation_CustomerService Reservation_CustomerService => new Reservation_CustomerService();
         //public static Revenue_InvoiceService Revenue_InvoiceService => new Revenue_InvoiceService();
     }

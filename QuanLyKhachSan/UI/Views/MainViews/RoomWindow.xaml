@@ -1,0 +1,398 @@
+﻿<UserControl x:Class="QuanLyKhachSan.UI.Views.MainViews.RoomWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:local="clr-namespace:QuanLyKhachSan.UI.Views.MainViews"
+        mc:Ignorable="d"
+        Height="800" 
+        Width="1280">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*" />
+            <ColumnDefinition Width="8*" />
+        </Grid.ColumnDefinitions>
+
+        <Grid
+            Background="White"
+            x:Name="grdSideBar"
+            Margin="0"
+            Height="800"
+            Width="256"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="100"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <TextBlock
+                Grid.Row="0"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Top"
+                Text="Ehotel"
+                FontSize="42"
+                FontFamily="pack://application:,,,/Resources/Fonts/#Lobster"
+                Foreground="#1366D9"
+                Cursor="Hand"
+                Margin="0, 22, 0, 0"/>
+
+            <StackPanel
+                x:Name="spMenu"
+                Grid.Row="1"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Top"
+                Width="196"
+                Margin="0">
+
+                <ToggleButton 
+                    Command="{Binding SidebarCommand.OverviewWindow}"
+                    Style="{StaticResource SidebarToggleButtonStyle}" 
+                    Content="Tổng quan"
+                    Tag="HomeOutline"
+                    Cursor="Hand"/>
+
+                <ToggleButton 
+                    Command="{Binding SidebarCommand.BookingWindow}"
+                    Style="{StaticResource SidebarToggleButtonStyle}" 
+                    Content="Đặt phòng"
+                    Tag="ShapePlusOutline"
+                    Cursor="Hand"
+                    Margin="0, 8, 0, 0"/>
+
+                <ToggleButton 
+                    Style="{StaticResource SidebarToggleButtonStyle}" 
+                    Content="Phòng"
+                    Tag="BedOutline"
+                    Cursor="Hand"
+                    IsChecked="True"
+                    Margin="0, 8, 0, 0"/>
+
+                <ToggleButton 
+                    Command="{Binding SidebarCommand.ReservationWindow}"
+                    Style="{StaticResource SidebarToggleButtonStyle}" 
+                    Content="Phiếu thuê"
+                    Tag="TicketOutline"
+                    Cursor="Hand"
+                    Margin="0, 8, 0, 0"/>
+
+                <ToggleButton 
+                    Command="{Binding SidebarCommand.RevenueWindow}"
+                    Style="{StaticResource SidebarToggleButtonStyle}" 
+                    Content="Doanh thu"
+                    Tag="ChartBellCurveCumulative"
+                    Cursor="Hand"
+                    Margin="0, 8, 0, 0"/>
+
+                <ToggleButton 
+                    Command="{Binding SidebarCommand.UserWindow}"
+                    Style="{StaticResource SidebarToggleButtonStyle}" 
+                    Content="Nhân viên"
+                    Tag="AccountGroupOutline"
+                    Cursor="Hand"
+                    Margin="0, 8, 0, 0"/>
+            </StackPanel>
+
+        </Grid>
+
+        <Grid
+            x:Name="gridHome"
+            Grid.Column="1"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Height="800"
+            Width="1024"
+            Margin="0">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="100"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <Grid
+                Background="White"
+                x:Name="grdHeader"
+                Grid.Row="0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Height="100"
+                Width="1024">
+
+                <StackPanel
+                    Orientation="Horizontal"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Center">
+
+                    <materialDesign:PackIcon 
+                        Kind="BellOutline"
+                        Width="32"
+                        Height="32"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Center"
+                        Cursor="Hand"
+                        Foreground="#5D6679"
+                        Margin="0, 0, 14, 0"/>
+
+                    <materialDesign:PackIcon 
+                        Kind="EmailOutline"
+                        Width="32"
+                        Height="32"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Center"
+                        Cursor="Hand"
+                        Foreground="#5D6679"
+                        Margin="0, 0, 32, 0"/>
+
+                    <Border
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Center"
+                        CornerRadius="18"
+                        Background="#A1C7FF"
+                        Width="320"
+                        Height="70"
+                        Padding="12,8"
+                        Margin="0,0,16,0"
+                        Cursor="Hand">
+                        <StackPanel
+                            Orientation="Horizontal">
+
+                            <Ellipse 
+                                Width="52" 
+                                Height="52"
+                                VerticalAlignment="Center">
+                                <Ellipse.Fill>
+                                    <ImageBrush ImageSource="pack://application:,,,/Resources/Images/user.png"/>
+                                </Ellipse.Fill>
+                            </Ellipse>
+
+                            <StackPanel
+                                VerticalAlignment="Center"
+                                Margin="16, 0, 0, 0">
+
+                                <TextBlock 
+                                    Text="{Binding User.UserRole}"
+                                    VerticalAlignment="Center"
+                                    FontSize="14"
+                                    FontWeight="SemiBold"/>
+
+                                <TextBlock 
+                                    Text="{Binding User.UserEmail}"
+                                    VerticalAlignment="Center"
+                                    FontSize="16"    
+                                    FontWeight="SemiBold"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </Border>
+                </StackPanel>
+
+
+            </Grid>
+
+            <Grid
+                x:Name="grdBody"
+                Grid.Row="1"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Height="700"
+                Width="1024"
+                Background="#DFDFDF">
+
+                <StackPanel
+                x:Name="spBody"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Height="700"
+                Width="1024">
+
+                    <Border
+                        Width="992"
+                        Height="645"
+                        Background="#FFFFFF"
+                        HorizontalAlignment="Center"
+                        CornerRadius="12"
+                        Padding="16"
+                        Margin="0, 16, 0, 0">
+
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+
+                            <Grid
+                                Grid.Row="0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <StackPanel
+                                    Grid.Column="0"
+                                    Orientation="Horizontal">
+
+                                    <ItemsControl ItemsSource="{Binding LoadRooms}">
+                                        <ItemsControl.ItemsPanel>
+                                            <ItemsPanelTemplate>
+                                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left"/>
+                                            </ItemsPanelTemplate>
+                                        </ItemsControl.ItemsPanel>
+
+                                        <ItemsControl.ItemTemplate>
+                                            <DataTemplate>
+                                                <ToggleButton
+                                                    Style="{StaticResource OutlinedToggleButtonStyle}"
+                                                    Content="{Binding Label}"
+                                                    IsChecked="{Binding IsChecked, Mode=TwoWay}"
+                                                    Command="{Binding Command}"
+                                                    Margin="0, 0, 8, 0"/>
+                                            </DataTemplate>
+                                        </ItemsControl.ItemTemplate>
+                                    </ItemsControl>
+                                </StackPanel>
+
+                                <Button
+                                    Command="{Binding RoomAdd}"
+                                    Grid.Column="1"
+                                    Style="{DynamicResource BlueButtonStyle}"
+                                    Content="Thêm phòng"
+                                    Cursor="Hand"
+                                    HorizontalAlignment="Right"/>
+                            </Grid>
+
+                            <DataGrid
+                                Grid.Row="1"
+                                Background="#F7F9FC"
+                                ItemsSource="{Binding Rooms}"
+                                SelectedItem="{Binding SelectedRoom}"
+                                materialDesign:DataGridAssist.CornerRadius="12"
+                                SelectionUnit="FullRow"
+                                AutoGenerateColumns="False"
+                                HeadersVisibility="Column"
+                                CanUserAddRows="False"
+                                IsReadOnly="True"
+                                MinRowHeight="50"
+                                ColumnWidth="*"
+                                Margin="0, 24, 0, 0">
+
+                                <DataGrid.Resources>
+                                    <ContextMenu x:Key="RowContextMenu">
+                                        <MenuItem 
+                                            Header="Chỉnh sửa phòng"
+                                            Command="{Binding DataContext.RoomAdd, RelativeSource={RelativeSource AncestorType=UserControl}}"/>
+                                        <MenuItem 
+                                            Header="Xóa phòng"
+                                            Command="{Binding DataContext.RoomDelete, RelativeSource={RelativeSource AncestorType=UserControl}}"/>
+                                        <Separator/>
+                                        <MenuItem 
+                                            Header="Chi tiết phòng"
+                                            Command="{Binding DataContext.ShowDetail, RelativeSource={RelativeSource AncestorType=UserControl}}"/>
+                                    </ContextMenu>
+                                </DataGrid.Resources>
+
+                                <DataGrid.RowStyle>
+                                    <Style TargetType="{x:Type DataGridRow}">
+                                        <Setter Property="ContextMenu" Value="{StaticResource RowContextMenu}"/>
+                                        <Style.Triggers>
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter Property="Background" Value="#F0F5FA"/>
+                                            </Trigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </DataGrid.RowStyle>
+
+                                <DataGrid.CellStyle>
+                                    <Style TargetType="DataGridCell" BasedOn="{StaticResource {x:Type DataGridCell}}">
+                                        <Setter Property="BorderThickness" Value="0"/>
+                                        <Setter Property="FontSize" Value="14"/>
+                                        <Setter Property="Foreground" Value="Black"/>
+                                    </Style>
+                                </DataGrid.CellStyle>
+
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Header="Số phòng" Binding="{Binding RoomNumber}" Width="*"/>
+                                    <DataGridTextColumn Header="Loại phòng" Binding="{Binding RoomTierName}" Width="*"/>
+                                    <DataGridTextColumn Header="Giá" Binding="{Binding PricePerDay, StringFormat={}{0:N0}}" Width="*"/>
+                                    <DataGridTemplateColumn Header="Cơ sở vật chất" Width="2*">
+                                        <DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <TextBlock
+                                                    Text="{Binding Amenity}"
+                                                    TextWrapping="Wrap"
+                                                    VerticalAlignment="Center"
+                                                    Margin="4"
+                                                    FontSize="14"/>
+                                            </DataTemplate>
+                                        </DataGridTemplateColumn.CellTemplate>
+                                    </DataGridTemplateColumn>
+                                    <DataGridTemplateColumn Header="Tình trạng" Width="*" SortMemberPath="TinhTrang">
+                                        <DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <Border 
+                                                    x:Name="statusBorder"
+                                                    CornerRadius="12"
+                                                    Padding="4"
+                                                    HorizontalAlignment="Left"
+                                                    MaxHeight="28">
+                                                    <Border.Style>
+                                                        <Style TargetType="Border">
+                                                            <Style.Triggers>
+                                                                <DataTrigger Binding="{Binding RoomState}" Value="Available">
+                                                                    <Setter Property="Background" Value="#E8F1FD"/>
+                                                                </DataTrigger>
+                                                                <DataTrigger Binding="{Binding RoomState}" Value="Occupied">
+                                                                    <Setter Property="Background" Value="#FEECEB"/>
+                                                                </DataTrigger>
+                                                            </Style.Triggers>
+                                                        </Style>
+                                                    </Border.Style>
+
+                                                    <TextBlock 
+                                                        Text="{Binding RoomState}"
+                                                        HorizontalAlignment="Center"
+                                                        VerticalAlignment="Center"
+                                                        TextAlignment="Center"
+                                                        FontSize="12"
+                                                        FontWeight="Regular">
+                                                        <TextBlock.Style>
+                                                            <Style TargetType="TextBlock">
+                                                                <Style.Triggers>
+                                                                    <DataTrigger Binding="{Binding RoomState}" Value="Available">
+                                                                        <Setter Property="Background" Value="#E8F1FD"/>
+                                                                    </DataTrigger>
+                                                                    <DataTrigger Binding="{Binding RoomState}" Value="Occupied">
+                                                                        <Setter Property="Background" Value="#FEECEB"/>
+                                                                    </DataTrigger>
+                                                                </Style.Triggers>
+                                                            </Style>
+                                                        </TextBlock.Style>
+                                                    </TextBlock>
+                                                </Border>
+                                            </DataTemplate>
+                                        </DataGridTemplateColumn.CellTemplate>
+                                    </DataGridTemplateColumn>
+
+                                    <DataGridTemplateColumn Width="60">
+                                        <DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <materialDesign:PackIcon
+                                                    Width="20"
+                                                    Height="20"
+                                                    Foreground="#5D6679"
+                                                    HorizontalAlignment="Center"
+                                                    VerticalAlignment="Center"
+                                                    Cursor="Hand"
+                                                    Kind="DotsVertical"/>
+                                            </DataTemplate>
+                                        </DataGridTemplateColumn.CellTemplate>
+                                    </DataGridTemplateColumn>
+                                </DataGrid.Columns>
+                            </DataGrid>
+                        </Grid>
+                    </Border>
+                </StackPanel>
+            </Grid>
+        </Grid>
+    </Grid>
+</UserControl>

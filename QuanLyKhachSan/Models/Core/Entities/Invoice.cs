@@ -20,6 +20,7 @@ namespace QuanLyKhachSan.Models.Core.Entities
         public DateTime InvoiceDate { get; set; }
 
         public int SurchargeRate { get; set; }
+        public decimal Coef { get; set; }
 
         [Column(TypeName="money")]
         public decimal TotalAmount { get; set; }

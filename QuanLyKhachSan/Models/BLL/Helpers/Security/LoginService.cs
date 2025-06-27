@@ -9,6 +9,7 @@ using Microsoft.Azure.Cosmos;
 using Microsoft.EntityFrameworkCore;
 using QuanLyKhachSan.Models.Core.Entities;
 using QuanLyKhachSan.Models.DAL;
+using QuanLyKhachSan.ViewModel.EntityViewModels;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace QuanLyKhachSan.Models.BLL.Helpers.Security
@@ -17,7 +18,7 @@ namespace QuanLyKhachSan.Models.BLL.Helpers.Security
     {
         public bool Success { get; set; }
         public string Message { get; set; }
-        public QuanLyKhachSan.Models.Core.Entities.User? User { get; set; }
+        public UserViewModel? User { get; set; }
     }
 
     public class LoginService
@@ -32,11 +33,11 @@ namespace QuanLyKhachSan.Models.BLL.Helpers.Security
                     User = null
                 };
             var user = RepositoryHub.UserRepo.GetById(id);
-            if (user == null)
+            if (user is null)
                 return new LoginResult
                 {
                     Success = false,
-                    Message = "no account",
+                    Message = "no account was found",
                     User = null
                 };
             var verify = PasswordService.VerifyPassword(password, user.Password);
@@ -45,7 +46,7 @@ namespace QuanLyKhachSan.Models.BLL.Helpers.Security
                 {
                     Success = true,
                     Message = "",
-                    User = user
+                    User = new UserViewModel(user)
                 }
                 : new LoginResult 
                 {

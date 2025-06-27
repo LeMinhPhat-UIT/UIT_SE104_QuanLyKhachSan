@@ -20,7 +20,6 @@ namespace QuanLyKhachSan.Models.Core.Entities
 
         [Column(TypeName="money")]
         public decimal PricePerDay { get; set; }
-
         public int Capacity { get; set; }
 
         [StringLength(50)]
@@ -31,6 +30,10 @@ namespace QuanLyKhachSan.Models.Core.Entities
         public RoomTier RoomTier { get; set; }
         public List<Reservation> Reservations { get; set; } = new List<Reservation>();
         public List<Amenity> Amenities { get; set; } = new List<Amenity>();
+        public string GetAmenitiesByName 
+        { 
+            get => string.Join(", ", Amenities.Select(x => x.AmenityName));
+        }
         public Room() { }
         public Room(int roomTierID, string roomNumber, decimal pricePerDay, int capacity, string roomState)
         {

@@ -14,180 +14,52 @@ namespace QuanLyKhachSan.Models
 {
     public class Testing
     {
-        public static void AddData()
+        public static void GenerateData()
         {
             HotelDbContext.DropDatabase();
             HotelDbContext.CreateDatabase();
 
-            //Thêm CustomerTier
-            var CustomerTierList = new List<CustomerTier>
-            {
-                new CustomerTier { CustomerTierName = "cooper" },
-                new CustomerTier { CustomerTierName = "silver"},
-                new CustomerTier { CustomerTierName = "gold" },
-                new CustomerTier { CustomerTierName = "platium"},
-                new CustomerTier { CustomerTierName = "diamond" },
-            };
-            CustomerTierList.ForEach(x => Service.CustomerTierService.Add(x));
-
-            //Thêm Customer
-            var CustomerList = new List<Customer>
-            {
-                new Customer
-                    {CustomerTierID=1, CustomerName="Nguyen Van A", IdentityNumber="000000000000", PhoneNumber="0123456789"},
-                new Customer
-                    {CustomerTierID=1, CustomerName="Nguyen Van B", IdentityNumber="000000000001", PhoneNumber="0123456789"},
-                new Customer
-                    {CustomerTierID=2, CustomerName="Nguyen Van C", IdentityNumber="000000000002", PhoneNumber="0123456789"},
-                new Customer
-                    {CustomerTierID=4, CustomerName="Nguyen Van D", IdentityNumber="000000000003", PhoneNumber="0123456789"},
-                new Customer
-                    {CustomerTierID=3, CustomerName="Nguyen Van E", IdentityNumber="000000000004", PhoneNumber="0123456789"},
-            };
-            CustomerList.ForEach(x => Service.CustomerService.Add(x));
-
-            //Thêm Amenity
-            var AmenityList = new List<Amenity>
-            {
-                new Amenity{AmenityName="Bed"},
-                new Amenity{AmenityName="Bathtub"},
-                new Amenity{AmenityName="TV"},
-                new Amenity{AmenityName="Air Conditioner"},
-                new Amenity{AmenityName="Refrigerator"},
-                new Amenity{AmenityName="Wifi"},
-                new Amenity{AmenityName="Love Chair"},
-            };
-            AmenityList.ForEach(x => Service.AmenityService.Add(x));
-
-            //Thêm RoomTier
-            var RoomTierList = new List<RoomTier>
-            {
-                new RoomTier{RoomTierName="standard", RoomTierPrice=100000},
-                new RoomTier{RoomTierName="vip", RoomTierPrice=150000},
-                new RoomTier{RoomTierName="vipXPro", RoomTierPrice=200000},
-            };
-            RoomTierList.ForEach(x => Service.RoomTierService.Add(x));
-
-            //Thêm Room
-            var RoomList = new List<Room>
-            {
-                new Room{RoomTierID=1, RoomNumber="P101", PricePerDay=100000, Capacity=2, RoomState="Available"},
-                new Room{RoomTierID=1, RoomNumber="P102", PricePerDay=100000, Capacity=2, RoomState="Available"},
-                new Room{RoomTierID=1, RoomNumber="P103", PricePerDay=100000, Capacity=2, RoomState="Available"},
-                new Room{RoomTierID=2, RoomNumber="P201", PricePerDay=200000, Capacity=2, RoomState="Available"},
-                new Room{RoomTierID=2, RoomNumber="P202", PricePerDay=250000, Capacity=2, RoomState="Available"},
-                new Room{RoomTierID=2, RoomNumber="P203", PricePerDay=200000, Capacity=2, RoomState="Available"},
-                new Room{RoomTierID=2, RoomNumber="P204", PricePerDay=300000, Capacity=2, RoomState="Available"},
-                new Room{RoomTierID=2, RoomNumber="P205", PricePerDay=350000, Capacity=2, RoomState="Available"},
-                new Room{RoomTierID=3, RoomNumber="P301", PricePerDay=1000000, Capacity=2, RoomState="Available"},
-                new Room{RoomTierID=3, RoomNumber="P302", PricePerDay=2000000, Capacity=2, RoomState="Available"},
-            };
-            var AmenitiesOfRoom = new List<int> { 1, 2, 3, 4 };
-            RoomList.ForEach(x =>
-            {
-                Service.RoomService.Add(x);
-                AmenitiesOfRoom.ForEach(y =>
-                    Service.RoomService.AddAmenity(x.RoomID, y)
-                );
-            });
-
             var RoleList = new List<Role>
             {
-                new Role("Admin"),
-                new Role("User")
+                new Role("Administrator"),
+                new Role("Employee")
             };
             RoleList.ForEach(x => Service.RoleService.Add(x));
 
             var UserList = new List<User>
             {
-                new User{UserName="Tran Van A", Password="1", RoleID=1, WorkingDate=DateTime.Now,
-                         EmailAddress="tranvana@gmail.com", PhoneNumber="0123456789",
-                         IdentityNumber="000000000000"},
-                new User{UserName="Tran Van B", Password="1", RoleID=2, WorkingDate=DateTime.Now,
-                         EmailAddress="tranvanb@gmail.com", PhoneNumber="0123456789",
-                         IdentityNumber="000000000001"},
-                new User{UserName="Tran Van C", Password="1", RoleID=2, WorkingDate=DateTime.Now,
-                         EmailAddress="tranvanc@gmail.com", PhoneNumber="0123456789",
-                         IdentityNumber="000000000002"},
-                new User{UserName="Tran Van D", Password="1", RoleID=2, WorkingDate=DateTime.Now,
-                         EmailAddress="tranvand@gmail.com", PhoneNumber="0123456789",
-                         IdentityNumber="000000000004"},
+                new User{UserName="Lê Quý Bình", Password="password123", RoleID=1, WorkingDate=new DateTime(2020, 1, 1),
+                         EmailAddress="lequyb@hotel.vn", PhoneNumber="0987654321", IdentityNumber="100000000001"},
+
+                new User{UserName="Ngô Thanh Hằng", Password="password123", RoleID=1, WorkingDate=new DateTime(2020, 1, 15),
+                         EmailAddress="ngothanhh@hotel.vn", PhoneNumber="0987654322", IdentityNumber="100000000002"},
+
+                new User{UserName="Đặng Văn Khoa", Password="password123", RoleID=2, WorkingDate=new DateTime(2021, 1, 2),
+                         EmailAddress="dangvank@hotel.vn", PhoneNumber="0987654323", IdentityNumber="100000000003"},
+
+                new User{UserName="Trần Thị Mai", Password="password123", RoleID=2, WorkingDate=new DateTime(2021, 10, 3),
+                         EmailAddress="tranthim@hotel.vn", PhoneNumber="0987654324", IdentityNumber="100000000004"},
+
+                new User{UserName="Phan Thanh Tú", Password="password123", RoleID=2, WorkingDate=new DateTime(2022, 5, 4),
+                         EmailAddress="phathant@hotel.vn", PhoneNumber="0987654325", IdentityNumber="100000000005"},
+
+                new User{UserName="Võ Ngọc An", Password="password123", RoleID=2, WorkingDate=new DateTime(2022, 5, 20),
+                         EmailAddress="vongoca@hotel.vn", PhoneNumber="0987654326", IdentityNumber="100000000006"},
+
+                new User{UserName="Bùi Minh Nhật", Password="password123", RoleID=2, WorkingDate=new DateTime(2023, 1, 6),
+                         EmailAddress="buiminnh@hotel.vn", PhoneNumber="0987654327", IdentityNumber="100000000007"},
+
+                new User{UserName="Hồ Thị Kim", Password="password123", RoleID=2, WorkingDate=new DateTime(2023, 7, 15),
+                         EmailAddress="hothik@hotel.vn", PhoneNumber="0987654328", IdentityNumber="100000000008"},
+
+                new User{UserName="Tạ Đình Phong", Password="password123", RoleID=2, WorkingDate=new DateTime(2024, 1, 8),
+                         EmailAddress="tadinph@hotel.vn", PhoneNumber="0987654329", IdentityNumber="100000000009"},
+
+                new User{UserName="Dương Cẩm Tú", Password="password123", RoleID=2, WorkingDate=new DateTime(2024, 10, 9),
+                         EmailAddress="duongcamt@hotel.vn", PhoneNumber="0987654330", IdentityNumber="100000000010"},
             };
+
             UserList.ForEach(x => Service.UserService.Add(x));
-
-            var ReservationList = new List<Reservation>
-            {
-                new Reservation{UserID=1, RoomID=1, CustomerID=1, Status="Pending",
-                                CheckInDate=new DateTime(2025, 5, 1), CheckOutDate=new DateTime(2025, 5, 3),
-                               },
-                new Reservation{UserID=1, RoomID=2, CustomerID=2, Status="Pending",
-                                CheckInDate=new DateTime(2025, 5, 1), CheckOutDate=new DateTime(2025, 5, 3),
-                               },
-            };
-            ReservationList.ForEach(x =>
-            {
-                Service.ReservationService.Add(x);
-                Service.ReservationService.AddCustomer(x.ReservationID, x.CustomerID + 2);
-            });
-
-            var InvoiceList = new List<Invoice>
-            {
-                new Invoice{ReservationID=1, UserID=1, InvoiceDate=DateTime.Now, SurchargeRate=10, TotalAmount=220000, PaymentMethod="Cash"},
-                new Invoice{ReservationID=2, UserID=3, InvoiceDate=DateTime.Now, SurchargeRate=0, TotalAmount=200000, PaymentMethod="Credit Card"},
-            };
-            InvoiceList.ForEach(x => Service.InvoiceService.Add(x));
-
-            ReportHelper.GenerateReport(1, 1, DateTime.Now);
-        }
-
-        public static void UpdateData()
-        {
-            Service.CustomerTierService.Update(new CustomerTier
-            {
-                CustomerTierID = 2,
-                CustomerTierName = "updated customer tier"
-            });
-
-            Service.CustomerService.Update(new Customer
-            {
-                CustomerID = 1,
-                CustomerTierID = 2,
-                CustomerName = "Pham Quang A",
-                PhoneNumber = "0000000000",
-                IdentityNumber = "000000000000",
-            });
-
-            Service.AmenityService.Update(new Amenity
-            {
-                AmenityID = 1,
-                AmenityName = "Super Bed",
-            });
-
-            Service.UserService.Update(new User
-            {
-                UserID = 2,
-                UserName = "Pham Quang B",
-                Password = "1",
-                RoleID = 1,
-                WorkingDate = DateTime.Now,
-                EmailAddress = "tranvana@gmail.com",
-                PhoneNumber = "0123456789",
-                IdentityNumber = "000000000001",
-            });
-        }
-
-        public static void DeleteData()
-        {
-            Service.RoomService.DeleteAmenity(1, 1);
-            Service.ReservationService.DeleteCustomer(1, 1);
-
-            Service.CustomerTierService.Delete(1);
-            //Service.CustomerService.Delete(1); //không hiểu sao dòng này để đây thì lỗi mà đem nó sang MainWindow.xaml.cs thì lại chạy đúng. Chung quy là nó chạy đúng
-            Service.AmenityService.Delete(2);
-            Service.RoomService.Delete(3);
-            Service.UserService.Delete(2);
-            Service.ReservationService.Delete(1);
-            Service.RevenueService.Delete(1);
         }
     }
 }

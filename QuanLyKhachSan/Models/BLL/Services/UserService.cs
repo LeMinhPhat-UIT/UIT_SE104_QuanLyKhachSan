@@ -18,6 +18,9 @@ namespace QuanLyKhachSan.Models.BLL.Services
         public User GetById(int id)
             => RepositoryHub.UserRepo.GetById(id);
 
+        public User? GetByIdentity(string identity)
+            => RepositoryHub.UserRepo.GetByIdentity(identity);
+
         public List<User> GetAllData()
             => RepositoryHub.UserRepo.GetAllData();
 
@@ -30,11 +33,14 @@ namespace QuanLyKhachSan.Models.BLL.Services
             }
         }
 
-        public void Delete(int Id)
+        public void Delete(int id)
         {
-            if (DeleteDialogHelper.Warning() == System.Windows.MessageBoxResult.No)
+            if (GetReservations(id).Count !=0 || GetRevenueReports(id).Count !=0 || GetInvoices(id).Count != 0)
+            {
+                DeleteDialogHelper.RestrictWarning();
                 return;
-            RepositoryHub.UserRepo.Delete(Id);
+            }
+            RepositoryHub.UserRepo.Delete(id);
         }
 
         public void Update(User user)
@@ -51,5 +57,9 @@ namespace QuanLyKhachSan.Models.BLL.Services
 
         public List<RevenueReport> GetRevenueReports(int id)
             => RepositoryHub.UserRepo.GetReports(id);
+
+        //Add
+        public Role GetRole(int id)
+            => RepositoryHub.UserRepo.GetRole(id);
     }
 }

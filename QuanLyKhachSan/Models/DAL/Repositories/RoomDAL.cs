@@ -90,8 +90,8 @@ namespace QuanLyKhachSan.Models.DAL.Repositories
             return room;
         }
 
-        public List<Reservation> GetAmenities(int Id)
-            => LoadAmenities(GetById(Id)).Reservations;
+        public List<Amenity> GetAmenities(int Id)
+            => LoadAmenities(GetById(Id)).Amenities;
 
         public Room LoadAmenities(Room room)
         {

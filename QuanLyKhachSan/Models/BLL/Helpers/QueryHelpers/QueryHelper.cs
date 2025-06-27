@@ -18,10 +18,85 @@ namespace QuanLyKhachSan.Models.BLL.Helpers.QueryHelpers
     }
     public class QueryHelper
     {
-        public static List<T> Search<T>(T template) where T : class
+        //public static List<T> Search<T>(T template) where T : class
+        //{
+        //    using var dbcontext = new HotelDbContext();
+        //    IQueryable<T> query = dbcontext.Set<T>().AsQueryable();
+
+        //    var parameter = Expression.Parameter(typeof(T), "x");
+        //    Expression? combined = null;
+
+        //    foreach (var prop in typeof(T).GetProperties(BindingFlags.Public | BindingFlags.Instance))
+        //    {
+        //        if (!prop.CanRead) continue;
+
+        //        // Skip navigation/collection types (except string)
+        //        if (typeof(System.Collections.IEnumerable).IsAssignableFrom(prop.PropertyType) && prop.PropertyType != typeof(string))
+        //            continue;
+
+        //        if (!prop.PropertyType.IsValueType && prop.PropertyType != typeof(string))
+        //            continue;
+
+        //        var value = prop.GetValue(template);
+        //        if (value == null) continue;
+
+        //        var effectiveType = Nullable.GetUnderlyingType(prop.PropertyType) ?? prop.PropertyType;
+
+        //        if (effectiveType == typeof(string))
+        //        {
+        //            if (string.IsNullOrWhiteSpace(value as string)) continue;
+        //        }
+        //        else
+        //        {
+        //            object? defaultValue = Activator.CreateInstance(effectiveType);
+        //            if (value.Equals(defaultValue)) continue;
+        //        }
+
+        //        var propertyAccess = Expression.Property(parameter, prop.Name);
+        //        var constant = Expression.Constant(value, prop.PropertyType);
+        //        Expression? condition = null;
+
+        //        if (effectiveType == typeof(string))
+        //        {
+        //            var likeMethod = typeof(DbFunctionsExtensions).GetMethod(
+        //                nameof(DbFunctionsExtensions.Like),
+        //                new[] { typeof(DbFunctions), typeof(string), typeof(string) }
+        //            );
+
+        //            if (likeMethod != null)
+        //            {
+        //                condition = Expression.Call(
+        //                    null,
+        //                    likeMethod,
+        //                    Expression.Constant(EF.Functions),
+        //                    propertyAccess,
+        //                    Expression.Constant($"%{value}%", typeof(string))
+        //                );
+        //            }
+        //        }
+        //        else
+        //        {
+        //            condition = Expression.Equal(propertyAccess, constant);
+        //        }
+
+        //        if (condition != null)
+        //        {
+        //            combined = combined == null ? condition : Expression.AndAlso(combined, condition);
+        //        }
+        //    }
+
+        //    if (combined != null)
+        //    {
+        //        var lambda = Expression.Lambda<Func<T, bool>>(combined, parameter);
+        //        query = query.Where(lambda);
+        //    }
+
+        //    return query.ToList();
+        //}
+
+        public static List<T> Search<T>(List<T> list, T template) where T : class
         {
-            using var dbcontext = new HotelDbContext();
-            IQueryable<T> query = dbcontext.Set<T>().AsQueryable();
+            var query = list.AsQueryable();
 
             var parameter = Expression.Parameter(typeof(T), "x");
             Expression? combined = null;
@@ -30,7 +105,7 @@ namespace QuanLyKhachSan.Models.BLL.Helpers.QueryHelpers
             {
                 if (!prop.CanRead) continue;
 
-                // Skip navigation/collection types (except string)
+                // Skip collections (except string)
                 if (typeof(System.Collections.IEnumerable).IsAssignableFrom(prop.PropertyType) && prop.PropertyType != typeof(string))
                     continue;
 
@@ -42,13 +117,14 @@ namespace QuanLyKhachSan.Models.BLL.Helpers.QueryHelpers
 
                 var effectiveType = Nullable.GetUnderlyingType(prop.PropertyType) ?? prop.PropertyType;
 
+                // Skip default values
                 if (effectiveType == typeof(string))
                 {
                     if (string.IsNullOrWhiteSpace(value as string)) continue;
                 }
                 else
                 {
-                    object? defaultValue = Activator.CreateInstance(effectiveType);
+                    var defaultValue = Activator.CreateInstance(effectiveType);
                     if (value.Equals(defaultValue)) continue;
                 }
 
@@ -58,21 +134,8 @@ namespace QuanLyKhachSan.Models.BLL.Helpers.QueryHelpers
 
                 if (effectiveType == typeof(string))
                 {
-                    var likeMethod = typeof(DbFunctionsExtensions).GetMethod(
-                        nameof(DbFunctionsExtensions.Like),
-                        new[] { typeof(DbFunctions), typeof(string), typeof(string) }
-                    );
-
-                    if (likeMethod != null)
-                    {
-                        condition = Expression.Call(
-                            null,
-                            likeMethod,
-                            Expression.Constant(EF.Functions),
-                            propertyAccess,
-                            Expression.Constant($"%{value}%", typeof(string))
-                        );
-                    }
+                    var containsMethod = typeof(string).GetMethod(nameof(string.Contains), new[] { typeof(string) });
+                    condition = Expression.Call(propertyAccess, containsMethod!, Expression.Constant((string)value));
                 }
                 else
                 {
