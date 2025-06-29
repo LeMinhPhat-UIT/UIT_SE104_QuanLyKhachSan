@@ -50,10 +50,12 @@ namespace QuanLyKhachSan.ViewModel
         public IEnumerable<RoomViewModel> Rooms => _rooms;
         public IEnumerable<LoadRoomButton> LoadRooms => _loadRooms;
 
+
         public ICommand AllRooms;
         public ICommand AvailableRooms;
         public ICommand OccupiedRooms;
         public ICommand RoomAdd { get; }
+        public ICommand RoomUpdate { get; }
         public ICommand RoomDelete { get; }
         public ICommand ShowDetail { get; }
 
@@ -75,6 +77,8 @@ namespace QuanLyKhachSan.ViewModel
             UpdateLoadRoomButtons();
 
             RoomAdd = new RoomCommand(this, _ => OpenAndAddRoom(), _ => User.UserRole == "Administrator");
+
+            RoomUpdate = new RoomCommand(this, _ => OpenAndUpdateRoom(), _ => User.UserRole == "Administrator");
 
             RoomDelete = new RoomCommand(this, _ => DeleteRoom(), _ => User.UserRole == "Administrator");
 
@@ -117,7 +121,7 @@ namespace QuanLyKhachSan.ViewModel
 
         private void OpenAndAddRoom()
         {
-            var viewmodel = new AddUpdateRoomViewModel(SelectedRoom);
+            var viewmodel = new AddUpdateRoomViewModel();
             var addUpdateRoomWindow = new AddUpdateRoomWindow()
             {
                 DataContext = viewmodel
@@ -131,6 +135,24 @@ namespace QuanLyKhachSan.ViewModel
             }
             else OnPropertyChanged(nameof(Rooms));
         }
+
+        private void OpenAndUpdateRoom()
+        {
+            var viewmodel = new AddUpdateRoomViewModel(SelectedRoom);
+            var addUpdateRoomWindow = new AddUpdateRoomWindow()
+            {
+                DataContext = viewmodel
+            };
+            viewmodel.CloseAction = () => addUpdateRoomWindow.Close();
+            addUpdateRoomWindow.ShowDialog();
+            if (viewmodel.IsSaved && SelectedRoom.RoomID == 0)
+            {
+                _rooms.Add(viewmodel.Room);
+                UpdateLoadRoomButtons();
+            }
+            else OnPropertyChanged(nameof(Rooms));
+        }
+
         private void LoadRoomByState(string? roomState = null)
         {
             if(roomState == null)

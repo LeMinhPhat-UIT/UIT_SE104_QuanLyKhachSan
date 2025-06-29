@@ -26,7 +26,16 @@ namespace QuanLyKhachSan.ViewModel
         public IEnumerable<RoomTierViewModel> RoomTiers => _roomTiers;
         public IEnumerable<AmenityViewModel> Amenities => _amenities;
         public IEnumerable<AmenityViewModel> SelectedAmenities => _selectedAmenities;
-        public RoomTierViewModel SelectedTier { get => _selectedRoomTier; set { _selectedRoomTier = value; OnPropertyChanged(nameof(SelectedTier)); } }
+        public RoomTierViewModel SelectedTier 
+        { 
+            get => _selectedRoomTier; 
+            set 
+            { 
+                _selectedRoomTier = value;
+                Room.PricePerDay = _selectedRoomTier.RoomTierPrice;
+                OnPropertyChanged(nameof(SelectedTier)); 
+            } 
+        }
         public bool IsSaved { get; set; } = false;
 
         public ICommand Save { get; set; }

@@ -280,7 +280,7 @@
                                     <ContextMenu x:Key="RowContextMenu">
                                         <MenuItem 
                                             Header="Chỉnh sửa phòng"
-                                            Command="{Binding DataContext.RoomAdd, RelativeSource={RelativeSource AncestorType=UserControl}}"/>
+                                            Command="{Binding DataContext.RoomUpdate, RelativeSource={RelativeSource AncestorType=UserControl}}"/>
                                         <MenuItem 
                                             Header="Xóa phòng"
                                             Command="{Binding DataContext.RoomDelete, RelativeSource={RelativeSource AncestorType=UserControl}}"/>
