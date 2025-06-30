@@ -95,6 +95,14 @@
                     Cursor="Hand"
                     IsChecked="True"
                     Margin="0, 8, 0, 0"/>
+
+                <ToggleButton 
+                    Command="{Binding SidebarCommand.UserWindow}"
+                    Style="{StaticResource SidebarToggleButtonStyle}" 
+                    Content="Thiết lập"
+                    Tag="SettingsOutline"
+                    Cursor="Hand"
+                    Margin="0, 8, 0, 0"/> 
             </StackPanel>
 
         </Grid>
