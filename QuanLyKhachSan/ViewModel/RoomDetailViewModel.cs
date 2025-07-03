@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using QuanLyKhachSan.ViewModel.EntityViewModels;
-using QuanLyKhachSan_BackUp.ViewModel.Commands;
+using QuanLyKhachSan.ViewModel.Commands;
 
 namespace QuanLyKhachSan.ViewModel
 {

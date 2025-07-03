@@ -1,15 +1,17 @@
-﻿<UserControl x:Class="QuanLyKhachSan.UI.Views.MainViews.RevenueWindow"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        xmlns:lvc="clr-namespace:LiveChartsCore.SkiaSharpView.WPF;assembly=LiveChartsCore.SkiaSharpView.WPF"
-        xmlns:local="clr-namespace:QuanLyKhachSan.UI.Views.MainViews"
-        xmlns:behavior="http://schemas.microsoft.com/xaml/behaviors"
-        mc:Ignorable="d"
-        Height="800" 
-        Width="1280"> 
+﻿<UserControl 
+    x:Class="QuanLyKhachSan.UI.Views.MainViews.RevenueWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+    xmlns:lvc="clr-namespace:LiveChartsCore.SkiaSharpView.WPF;assembly=LiveChartsCore.SkiaSharpView.WPF"
+    xmlns:local="clr-namespace:QuanLyKhachSan.UI.Views.MainViews"
+    xmlns:behavior="http://schemas.microsoft.com/xaml/behaviors"
+    xmlns:behaviors="clr-namespace:QuanLyKhachSan.ViewModel.ScrollBehavior"
+    mc:Ignorable="d"
+    Height="800" 
+    Width="1280"> 
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="2*" />
@@ -97,7 +99,7 @@
                     Margin="0, 8, 0, 0"/>
 
                 <ToggleButton 
-                    Command="{Binding SidebarCommand.UserWindow}"
+                    Command="{Binding SidebarCommand.SettingWindow}"
                     Style="{StaticResource SidebarToggleButtonStyle}" 
                     Content="Thiết lập"
                     Tag="SettingsOutline"
@@ -239,15 +241,22 @@
                                     <ColumnDefinition Width="*"/>
                                 </Grid.ColumnDefinitions>
 
-                                <StackPanel
-                                    Grid.Column="0">
+                                <Grid Grid.Column="0" HorizontalAlignment="Right" Width="196">
+
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
 
                                     <TextBlock
+                                        Grid.Row="0"
                                         Text="Doanh thu (%)"
                                         FontSize="20"
                                         FontWeight="SemiBold"/>
 
                                     <ComboBox
+                                        Grid.Row="1"
                                         ItemsSource="{Binding ChartView}"
                                         SelectedItem="{Binding SelectedPieChartView}"
                                         materialDesign:TextFieldAssist.DecorationVisibility="Collapsed"
@@ -264,28 +273,32 @@
                                         </behavior:Interaction.Triggers>
                                     </ComboBox>
 
-                                    <ItemsControl
-                                        ItemsSource="{Binding PieChartItems}"
-                                        Margin="0,32,0,0">
-                                        <ItemsControl.ItemTemplate>
-                                            <DataTemplate>
-                                                <StackPanel Orientation="Horizontal" Margin="0, 8, 0, 0">
-                                                    <Border
-                                                        Width="50"
-                                                        Height="25"
-                                                        Background="{Binding Brush}"
-                                                        CornerRadius="8"/>
-                                                    <TextBlock
-                                                        Text="{Binding Tier.RoomTierName}"
-                                                        FontSize="18"
-                                                        FontWeight="Regular"
-                                                        Foreground="#747474"
-                                                        Margin="16, 0, 0, 0"/>
-                                                </StackPanel>
-                                            </DataTemplate>
-                                        </ItemsControl.ItemTemplate>
-                                    </ItemsControl>
-                                </StackPanel>
+                                    <ScrollViewer
+                                        Grid.Row="2"
+                                        VerticalScrollBarVisibility="Hidden">
+                                        <ItemsControl
+                                            ItemsSource="{Binding PieChartItems}"
+                                            Margin="0,32,0,0">
+                                            <ItemsControl.ItemTemplate>
+                                                <DataTemplate>
+                                                    <StackPanel Orientation="Horizontal" Margin="0, 8, 0, 0">
+                                                        <Border
+                                                            Width="50"
+                                                            Height="25"
+                                                            Background="{Binding Brush}"
+                                                            CornerRadius="8"/>
+                                                        <TextBlock
+                                                            Text="{Binding Tier.RoomTierName}"
+                                                            FontSize="18"
+                                                            FontWeight="Regular"
+                                                            Foreground="#747474"
+                                                            Margin="16, 0, 0, 0"/>
+                                                    </StackPanel>
+                                                </DataTemplate>
+                                            </ItemsControl.ItemTemplate>
+                                        </ItemsControl>
+                                    </ScrollViewer>
+                                </Grid>
 
                                 <lvc:PieChart
                                     Grid.Column="1" 
@@ -413,39 +426,42 @@
                                     Padding="0, 16"
                                     ZoomMode="None"/>
 
-                                <StackPanel
-                                    Grid.Row="2"
-                                    Orientation="Horizontal">
+                                <Grid Grid.Row="2">
 
-                                    <ItemsControl
-                                        ItemsSource="{Binding PieChartItems}"
-                                        Margin="16,0,0,0">
+                                    <ScrollViewer
+                                        VerticalScrollBarVisibility="Hidden"
+                                        HorizontalScrollBarVisibility="Hidden"
+                                        behaviors:HorizontalScrollOnMouseWheelBehavior.EnableHorizontalScroll="True">
+                                        <ItemsControl
+                                            ItemsSource="{Binding PieChartItems}"
+                                            Margin="16,0,0,0">
+                                            <ItemsControl.ItemsPanel>
+                                                <ItemsPanelTemplate>
+                                                    <StackPanel Orientation="Horizontal"/>
+                                                </ItemsPanelTemplate>
+                                            </ItemsControl.ItemsPanel>
 
-                                        <ItemsControl.ItemsPanel>
-                                            <ItemsPanelTemplate>
-                                                <StackPanel Orientation="Horizontal"/>
-                                            </ItemsPanelTemplate>
-                                        </ItemsControl.ItemsPanel>
-
-                                        <ItemsControl.ItemTemplate>
-                                            <DataTemplate>
-                                                <StackPanel Orientation="Horizontal" Margin="0, 8, 0, 0">
-                                                    <Border
-                                                        Width="16"
-                                                        Height="16"
-                                                        Background="{Binding Brush}"
-                                                        CornerRadius="8"/>
-                                                    <TextBlock
-                                                        Text="{Binding Tier.RoomTierName}"
-                                                        FontSize="18"
-                                                        FontWeight="Regular"
-                                                        Foreground="#747474"
-                                                        Margin="16, 0, 16, 0"/>
-                                                </StackPanel>
-                                            </DataTemplate>
-                                        </ItemsControl.ItemTemplate>
-                                    </ItemsControl>
-                                </StackPanel>
+                                            <ItemsControl.ItemTemplate>
+                                                <DataTemplate>
+                                                    <StackPanel Orientation="Horizontal" Margin="0, 8, 0, 0">
+                                                        <Border
+                                                            Width="16"
+                                                            Height="16"
+                                                            Background="{Binding Brush}"
+                                                            CornerRadius="8"/>
+                                                        <TextBlock
+                                                            Text="{Binding Tier.RoomTierName}"
+                                                            FontSize="18"
+                                                            FontWeight="Regular"
+                                                            Foreground="#747474"
+                                                            Margin="16, 0, 16, 0"/>
+                                                    </StackPanel>
+                                                </DataTemplate>
+                                            </ItemsControl.ItemTemplate>
+                                        </ItemsControl>
+                                    </ScrollViewer>
+                                    
+                                </Grid>
                             </Grid>
 
                         </Border>

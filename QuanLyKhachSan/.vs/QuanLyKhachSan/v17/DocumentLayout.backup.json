@@ -3,12 +3,8 @@
   "WorkspaceRootPath": "D:\\LeMinhPhat\\NewPull\\UIT_SE104_QuanLyKhachSan\\QuanLyKhachSan\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{0CC7568F-EA8C-4D36-AF5B-AE6AB1C2A1B6}|QuanLyKhachSan.csproj|d:\\leminhphat\\newpull\\uit_se104_quanlykhachsan\\quanlykhachsan\\viewmodel\\addupdateroomviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0CC7568F-EA8C-4D36-AF5B-AE6AB1C2A1B6}|QuanLyKhachSan.csproj|solutionrelative:viewmodel\\addupdateroomviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0CC7568F-EA8C-4D36-AF5B-AE6AB1C2A1B6}|QuanLyKhachSan.csproj|d:\\leminhphat\\newpull\\uit_se104_quanlykhachsan\\quanlykhachsan\\ui\\views\\subviews\\addupdateroomwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{0CC7568F-EA8C-4D36-AF5B-AE6AB1C2A1B6}|QuanLyKhachSan.csproj|solutionrelative:ui\\views\\subviews\\addupdateroomwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{0CC7568F-EA8C-4D36-AF5B-AE6AB1C2A1B6}|QuanLyKhachSan.csproj|d:\\leminhphat\\newpull\\uit_se104_quanlykhachsan\\quanlykhachsan\\ui\\views\\mainviews\\settingwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{0CC7568F-EA8C-4D36-AF5B-AE6AB1C2A1B6}|QuanLyKhachSan.csproj|solutionrelative:ui\\views\\mainviews\\settingwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,7 +14,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 107,
-          "SelectedChildIndex": 7,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Bookmark",
@@ -46,27 +42,14 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "AddUpdateRoomWindow.xaml",
-              "DocumentMoniker": "D:\\LeMinhPhat\\NewPull\\UIT_SE104_QuanLyKhachSan\\QuanLyKhachSan\\UI\\Views\\SubViews\\AddUpdateRoomWindow.xaml",
-              "RelativeDocumentMoniker": "UI\\Views\\SubViews\\AddUpdateRoomWindow.xaml",
-              "ToolTip": "D:\\LeMinhPhat\\NewPull\\UIT_SE104_QuanLyKhachSan\\QuanLyKhachSan\\UI\\Views\\SubViews\\AddUpdateRoomWindow.xaml",
-              "RelativeToolTip": "UI\\Views\\SubViews\\AddUpdateRoomWindow.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-06-29T14:42:13.177Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "AddUpdateRoomViewModel.cs",
-              "DocumentMoniker": "D:\\LeMinhPhat\\NewPull\\UIT_SE104_QuanLyKhachSan\\QuanLyKhachSan\\ViewModel\\AddUpdateRoomViewModel.cs",
-              "RelativeDocumentMoniker": "ViewModel\\AddUpdateRoomViewModel.cs",
-              "ToolTip": "D:\\LeMinhPhat\\NewPull\\UIT_SE104_QuanLyKhachSan\\QuanLyKhachSan\\ViewModel\\AddUpdateRoomViewModel.cs",
-              "RelativeToolTip": "ViewModel\\AddUpdateRoomViewModel.cs",
-              "ViewState": "AgIAAA4AAAAAAAAAAAA/wCIAAABDAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-29T14:41:19.418Z",
+              "Title": "SettingWindow.xaml",
+              "DocumentMoniker": "D:\\LeMinhPhat\\NewPull\\UIT_SE104_QuanLyKhachSan\\QuanLyKhachSan\\UI\\Views\\MainViews\\SettingWindow.xaml",
+              "RelativeDocumentMoniker": "UI\\Views\\MainViews\\SettingWindow.xaml",
+              "ToolTip": "D:\\LeMinhPhat\\NewPull\\UIT_SE104_QuanLyKhachSan\\QuanLyKhachSan\\UI\\Views\\MainViews\\SettingWindow.xaml",
+              "RelativeToolTip": "UI\\Views\\MainViews\\SettingWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-07-03T03:52:58.067Z",
               "EditorCaption": ""
             }
           ]

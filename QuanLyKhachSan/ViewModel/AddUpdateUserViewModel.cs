@@ -62,7 +62,7 @@ namespace QuanLyKhachSan.ViewModel
             user.WorkingDate = _user.WorkingDate.Date;
             user.EmailAddress = _user.UserEmail;
             user.PhoneNumber = _user.PhoneNumber;
-            user.Password = "1";
+            user.Password = "password123";
             QuanLyKhachSan.Models.BLL.Service.UserService.Add(user);
             _user.ID = user.UserID;
             CloseAction?.Invoke();

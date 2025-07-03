@@ -34,5 +34,8 @@ namespace QuanLyKhachSan.ViewModel.Commands
 
         public RevenueViewModel CreateRevenueViewModel()
             => new RevenueViewModel(_navigationStore);
+
+        public SettingViewModel CreateSettingViewModel()
+            => new SettingViewModel(_navigationStore);
     }
 }

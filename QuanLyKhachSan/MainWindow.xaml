@@ -36,6 +36,9 @@
             <DataTemplate DataType="{x:Type vms:RevenueViewModel}">
                 <mainviews:RevenueWindow/>
             </DataTemplate>
+            <DataTemplate DataType="{x:Type vms:SettingViewModel}">
+                <mainviews:SettingWindow/>
+            </DataTemplate>
         </Grid.Resources>
 
 

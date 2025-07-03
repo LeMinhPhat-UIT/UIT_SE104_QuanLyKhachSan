@@ -46,7 +46,7 @@ namespace QuanLyKhachSan.ViewModel
                 {
                     var cus = QuanLyKhachSan.Models.BLL.Service.CustomerService.GetByIdentity(Customer.IdentityNumber);
                     if (cus != null)
-                        Customer.ID = cus.CustomerID;
+                        Customer = new CustomerViewModel(cus);
                     else
                     {
                         var customer = Customer.ToCustomer();

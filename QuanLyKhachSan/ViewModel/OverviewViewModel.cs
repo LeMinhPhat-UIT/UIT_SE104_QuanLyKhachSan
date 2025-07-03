@@ -79,19 +79,19 @@ namespace QuanLyKhachSan.ViewModel
         private void SetStatistic()
         {
             var listOfDate = DateTimeHelper.GetFullWeekFromDate(DateTime.Now);
+            //var listOfDate = DateTimeHelper.GetFullWeekFromDate(new DateTime(2025,7,7));
             var revenueOfWeek = QuanLyKhachSan.Models.BLL.Service.RevenueService
                 .GetAllData().Where(x => x.RevenueDate.Date >= listOfDate.First().Date && x.RevenueDate.Date <= listOfDate.Last().Date)
                 .ToList();
 
-            var chartValues = revenueOfWeek.GroupBy(x => (x.RoomTierID, x.RevenueDate)).Select(gr => new
+            var chartValues = revenueOfWeek.GroupBy(x => x.RevenueDate).Select(gr => new
             {
-                RoomTierName = QuanLyKhachSan.Models.BLL.Service.RoomTierService.GetById(gr.Key.RoomTierID).RoomTierName,
-                Day = gr.Key.RevenueDate.DayOfWeek,
+                Day = gr.Key.DayOfWeek,
                 Revenue = (double)gr.Sum(x => x.TotalRevenue),
             }).OrderBy(x => x.Day).ToList();
 
             var maxValue = chartValues.Select(x => x.Revenue).DefaultIfEmpty(0).Max();
-            var valueBackground = Enumerable.Repeat(maxValue, 7).ToList();
+            //var valueBackground = Enumerable.Repeat(maxValue, 7).ToList();
             var valueForground = listOfDate.Select(date =>
             {
                 var revenue = chartValues.FirstOrDefault(x => x.Day == date.DayOfWeek);
@@ -100,17 +100,6 @@ namespace QuanLyKhachSan.ViewModel
 
             _series = new ObservableCollection<ISeries>
             {
-                //new ColumnSeries<double>
-                //{
-                //    Values = Enumerable.Repeat(maxValue, 7).ToList(),
-                //    Fill = new SolidColorPaint(SKColors.LightGray),
-                //    Stroke = null,
-                //    IgnoresBarPosition = true,
-                //    ZIndex = 0,
-                //    Rx = 15,
-                //    Ry = 15,
-                //    IsHoverable = false,
-                //},
 
                 new ColumnSeries<double>
                 {
@@ -118,8 +107,6 @@ namespace QuanLyKhachSan.ViewModel
                     Fill = new SolidColorPaint(SKColors.DodgerBlue),
                     IgnoresBarPosition = true,
                     ZIndex = 1,
-                    //Rx = 15,
-                    //Ry = 15,
                 }
             };
 

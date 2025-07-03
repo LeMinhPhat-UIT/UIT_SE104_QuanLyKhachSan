@@ -53,6 +53,7 @@ namespace QuanLyKhachSan.ViewModel
         private readonly SidebarCommand _sidebarCommand;
         private int _adults;
         private int _kids;
+        private RuleViewModel _rule;
 
 
         public UserViewModel User => _userViewModel;
@@ -84,6 +85,7 @@ namespace QuanLyKhachSan.ViewModel
             _rooms = new ObservableCollection<RoomViewModel>();
             _loadRooms = new ObservableCollection<LoadRoomListButton>();
             _invoice = new InvoiceViewModel(_selectedRoom, _reservation);
+            _rule = new RuleViewModel(QuanLyKhachSan.Models.BLL.Service.RuleService.GetById(1));
 
             var roomList = QuanLyKhachSan.Models.BLL.Service.RoomService.GetAllData().Where(x => x.RoomState == "Available").ToList();
             roomList.ForEach(room => {
@@ -97,10 +99,10 @@ namespace QuanLyKhachSan.ViewModel
                 new LoadRoomListButton(new RoomTierViewModel(roomTier),_ => this.LoadRoomByTier(roomTier.RoomTierName)))
             );
 
-            AdultsIncrease = new BookingCommand(this, _ => Adults++, _ => CustomersCount <3 );
+            AdultsIncrease = new BookingCommand(this, _ => Adults++, _ => CustomersCount < _rule.RoomMaxCustomer );
             AdultsDecrease = new BookingCommand(this, _ => Adults=Math.Max(0, --Adults));
 
-            KidsIncrease = new BookingCommand(this, _ => Kids++, _ => CustomersCount < 3);
+            KidsIncrease = new BookingCommand(this, _ => Kids++, _ => CustomersCount < _rule.RoomMaxCustomer);
             KidsDecrease = new BookingCommand(this, _ => Kids=Math.Max(0, --Kids));
 
             CustomerAdd = new BookingCommand(this, _ => OpenAndAddCustomer(), _ => _customers.Count<CustomersCount);
@@ -159,8 +161,8 @@ namespace QuanLyKhachSan.ViewModel
                 _customers?.Add(viewmodel.Customer);
                 if (viewmodel.Customer.CustomerTierName == "Nước ngoài")
                     _invoice.Coef = 1.5;
-                if (_customers?.Count == 3)
-                    _invoice.SurchargeRate = 25;
+                if (_customers?.Count >= _rule.CustomerToApplySurchargeRate)
+                    _invoice.SurchargeRate = _rule.SurchargeRate;
                 UpdateTotal();
             }
         }

@@ -102,7 +102,7 @@
                     Margin="0, 8, 0, 0"/>
 
                 <ToggleButton 
-                    Command="{Binding SidebarCommand.UserWindow}"
+                    Command="{Binding SidebarCommand.SettingWindow}"
                     Style="{StaticResource SidebarToggleButtonStyle}" 
                     Content="Thiết lập"
                     Tag="SettingsOutline"

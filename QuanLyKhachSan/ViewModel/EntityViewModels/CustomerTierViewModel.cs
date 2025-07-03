@@ -7,10 +7,15 @@ using QuanLyKhachSan.Models.Core.Entities;
 
 namespace QuanLyKhachSan.ViewModel.EntityViewModels
 {
-    public class CustomerTierViewModel
+    public class CustomerTierViewModel : BaseViewModel
     {
-        public int ID { get; }
-        public string CustomerTierName { get; }
+        private int _id;
+        private string _name;
+
+        public int ID { get => _id; set { _id = value; OnPropertyChanged(nameof(ID)); } }
+        public string CustomerTierName { get => _name; set { _name = value; OnPropertyChanged(nameof(CustomerTierName)); } }
+
+        public CustomerTierViewModel() { }
 
         public CustomerTierViewModel(CustomerTier customerTier)
         {

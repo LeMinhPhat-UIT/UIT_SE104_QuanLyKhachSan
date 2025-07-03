@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using QuanLyKhachSan.ViewModel;
 
-namespace QuanLyKhachSan_BackUp.ViewModel.Commands
+namespace QuanLyKhachSan.ViewModel.Commands
 {
     public class RoomDetailCommand : BaseCommand
     {

@@ -1008,3 +1008,5 @@ D:\LeMinhPhat\NewPull\UIT_SE104_QuanLyKhachSan\QuanLyKhachSan\obj\Debug\net8.0-w
 D:\LeMinhPhat\NewPull\UIT_SE104_QuanLyKhachSan\QuanLyKhachSan\obj\Debug\net8.0-windows\QuanLyKhachSan.pdb
 D:\LeMinhPhat\NewPull\UIT_SE104_QuanLyKhachSan\QuanLyKhachSan\obj\Debug\net8.0-windows\QuanLyKhachSan.genruntimeconfig.cache
 D:\LeMinhPhat\NewPull\UIT_SE104_QuanLyKhachSan\QuanLyKhachSan\obj\Debug\net8.0-windows\ref\QuanLyKhachSan.dll
+D:\LeMinhPhat\NewPull\UIT_SE104_QuanLyKhachSan\QuanLyKhachSan\obj\Debug\net8.0-windows\UI\Views\MainViews\SettingWindow.g.cs
+D:\LeMinhPhat\NewPull\UIT_SE104_QuanLyKhachSan\QuanLyKhachSan\obj\Debug\net8.0-windows\UI\Views\MainViews\SettingWindow.baml

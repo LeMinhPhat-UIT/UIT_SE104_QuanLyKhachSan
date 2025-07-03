@@ -15,6 +15,8 @@ namespace QuanLyKhachSan.ViewModel.EntityViewModels
         public int RoomCount { get; }
         public int Capacity { get; set; }
 
+        public RoomTierViewModel() { }
+
         public RoomTierViewModel(RoomTier roomTier)
         {
             ID = roomTier.RoomTierID;

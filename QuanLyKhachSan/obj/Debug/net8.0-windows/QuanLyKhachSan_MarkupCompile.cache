@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP
 D:\LeMinhPhat\NewPull\UIT_SE104_QuanLyKhachSan\QuanLyKhachSan\App.xaml
-15623477757
+16106245040
 
-110-328839388
+114724981650
 266-2036467904
-MainWindow.xaml;Resources\UserControls\ButtonStyle.xaml;UI\BindablePasswordBox.xaml;UI\Views\MainViews\BookingRoomWindow.xaml;UI\Views\MainViews\LoginWindow.xaml;UI\Views\MainViews\OverviewWindow.xaml;UI\Views\MainViews\RentReceiptWindow.xaml;UI\Views\MainViews\RevenueWindow.xaml;UI\Views\MainViews\RoomWindow.xaml;UI\Views\MainViews\StaffWindow.xaml;UI\Views\SubViews\AddUpdateCustomerWindow.xaml;UI\Views\SubViews\AddUpdateRoomWindow.xaml;UI\Views\SubViews\AddUpdateStaffWindow.xaml;UI\Views\SubViews\InvoiceWindow.xaml;UI\Views\SubViews\RoomDetailWindow.xaml;
+MainWindow.xaml;Resources\UserControls\ButtonStyle.xaml;UI\BindablePasswordBox.xaml;UI\Views\MainViews\BookingRoomWindow.xaml;UI\Views\MainViews\LoginWindow.xaml;UI\Views\MainViews\OverviewWindow.xaml;UI\Views\MainViews\RentReceiptWindow.xaml;UI\Views\MainViews\RevenueWindow.xaml;UI\Views\MainViews\RoomWindow.xaml;UI\Views\MainViews\SettingWindow.xaml;UI\Views\MainViews\StaffWindow.xaml;UI\Views\SubViews\AddUpdateCustomerWindow.xaml;UI\Views\SubViews\AddUpdateRoomWindow.xaml;UI\Views\SubViews\AddUpdateStaffWindow.xaml;UI\Views\SubViews\InvoiceWindow.xaml;UI\Views\SubViews\RoomDetailWindow.xaml;
 
 False
 

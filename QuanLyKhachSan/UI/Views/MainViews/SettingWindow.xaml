@@ -1,12 +1,14 @@
-﻿<UserControl x:Class="QuanLyKhachSan.UI.Views.MainViews.SettingWindow"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        xmlns:lvc="clr-namespace:LiveChartsCore.SkiaSharpView.WPF;assembly=LiveChartsCore.SkiaSharpView.WPF"
-        xmlns:local="clr-namespace:QuanLyKhachSan.UI.Views.MainViews"
-        mc:Ignorable="d">
+﻿<UserControl 
+    x:Class="QuanLyKhachSan.UI.Views.MainViews.SettingWindow"
+    x:Name="RootControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+    xmlns:lvc="clr-namespace:LiveChartsCore.SkiaSharpView.WPF;assembly=LiveChartsCore.SkiaSharpView.WPF"
+    xmlns:local="clr-namespace:QuanLyKhachSan.UI.Views.MainViews"
+    mc:Ignorable="d">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="2*" />
@@ -47,6 +49,7 @@
                 Margin="0">
 
                 <ToggleButton 
+                    Command="{Binding SidebarCommand.OverviewWindow}"
                     Style="{StaticResource SidebarToggleButtonStyle}" 
                     Content="Tổng quan"
                     Tag="HomeOutline"
@@ -93,7 +96,6 @@
                     Margin="0, 8, 0, 0"/>
 
                 <ToggleButton 
-                    Command="{Binding SidebarCommand.UserWindow}"
                     Style="{StaticResource SidebarToggleButtonStyle}" 
                     Content="Thiết lập"
                     Tag="SettingsOutline"
@@ -213,229 +215,289 @@
                     Height="700"
                     Width="1024">
 
-
-                    <Grid HorizontalAlignment="Center" 
-                          Width="992" 
-                          Margin="0, 24, 0, 0">
+                    <Grid 
+                        HorizontalAlignment="Center" 
+                        Height="266"
+                        Width="992" 
+                        Margin="0, 24, 0, 0">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
                         </Grid.RowDefinitions>
 
                         <Border
-                                Grid.Row="0"
-                                Background="#1570EF"
-                                CornerRadius="12, 12, 0, 0"
-                                Height="50">
+                            Grid.Row="0"
+                            Background="#1570EF"
+                            CornerRadius="12, 12, 0, 0"
+                            Height="50">
                             <TextBlock
-                                    Text="Danh sách phòng"
-                                    FontSize="18"
-                                    FontWeight="Medium"
-                                    Foreground="White"
-                                    VerticalAlignment="Center"
-                                    HorizontalAlignment="Left"
-                                    Margin="20, 0, 0, 0"/>
+                                Text="Danh sách loại phòng"
+                                FontSize="18"
+                                FontWeight="Medium"
+                                Foreground="White"
+                                VerticalAlignment="Center"
+                                HorizontalAlignment="Left"
+                                Margin="20, 0, 0, 0"/>
                         </Border>
-
+                        
                         <Border
+                            Height="Auto"
+                            Grid.Row="1"
+                            CornerRadius="0,0,12,12">
+                            <DataGrid 
+                                RowEditEnding="DataGrid_RoomTier_RowEditEnding"
+                                IsReadOnly="False"
+                                CanUserAddRows="True"
+                                CanUserDeleteRows="True"
+                                ItemsSource="{Binding RoomTiers}"
+                                AutoGenerateColumns="False"
+                                HeadersVisibility="Column"
                                 Grid.Row="1"
                                 Background="White"
-                                CornerRadius="0, 0, 12, 12"
-                                Padding="16, 8">
+                                Margin="0"
+                                Padding="16,8"
+                                RowHeight="40">
 
-                            <StackPanel>
-                                <Grid Margin="0, 0, 0, 10">
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="*"/>
-                                        <ColumnDefinition Width="*"/>
-                                    </Grid.ColumnDefinitions>
+                                <DataGrid.Resources>
+                                    <ContextMenu x:Key="RowContextMenu">
+                                        <MenuItem 
+                                            Header="Xóa loại phòng"
+                                            Command="{Binding DataContext.DeleteRoomTier, RelativeSource={RelativeSource AncestorType=UserControl}}"
+                                            CommandParameter="{Binding}"/>
+                                    </ContextMenu>
+                                </DataGrid.Resources>
 
-                                    <TextBlock 
-                                        Grid.Column="0" 
-                                        Text="Tên loại phòng" 
-                                        FontSize="14" 
-                                        FontWeight="Medium" 
-                                        VerticalAlignment="Center"/>
-                                    <TextBlock 
-                                        Grid.Column="1" 
-                                        Text="Giá tiền" 
-                                        FontSize="14" 
-                                        FontWeight="Medium" 
-                                        VerticalAlignment="Center" 
-                                        Margin="100, 0, 0, 0"/>
-                                </Grid>
+                                <DataGrid.RowStyle>
+                                    <Style TargetType="{x:Type DataGridRow}">
+                                        <Setter Property="ContextMenu" Value="{StaticResource RowContextMenu}"/>
+                                        <Style.Triggers>
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter Property="Background" Value="#F0F5FA"/>
+                                            </Trigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </DataGrid.RowStyle>
 
-                                <Separator Background="#E0E0E0" Margin="0, 5"/>
+                                <DataGrid.Columns>
+                                    <DataGridTemplateColumn Width="50">
+                                        <DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <materialDesign:PackIcon 
+                                                        Kind="ChevronRight"
+                                                        Width="16" Height="16"
+                                                        VerticalAlignment="Center"
+                                                        HorizontalAlignment="Center"
+                                                        Cursor="Hand"
+                                                        Foreground="#5D6679">
+                                                        <materialDesign:PackIcon.Style>
+                                                            <Style TargetType="materialDesign:PackIcon">
+                                                                <Setter Property="Opacity" Value="0"/>
+                                                                <Style.Triggers>
+                                                                    <DataTrigger Binding="{Binding IsMouseOver, RelativeSource={RelativeSource AncestorType=DataGridRow}}" Value="True">
+                                                                        <Setter Property="Opacity" Value="1"/>
+                                                                    </DataTrigger>
+                                                                </Style.Triggers>
+                                                            </Style>
+                                                        </materialDesign:PackIcon.Style>
+                                                    </materialDesign:PackIcon>
+                                            </DataTemplate>
+                                        </DataGridTemplateColumn.CellTemplate>
+                                        <DataGridTemplateColumn.CellStyle>
+                                            <Style TargetType="DataGridCell">
+                                                <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+                                                <Setter Property="BorderThickness" Value="0"/>
+                                                <Setter Property="Background" Value="Transparent"/>
+                                                <Style.Triggers>
+                                                    <Trigger Property="IsMouseOver" Value="True">
+                                                        <Setter Property="BorderBrush" Value="Transparent"/>
+                                                        <Setter Property="Background" Value="Transparent"/>
+                                                    </Trigger>
+                                                    <Trigger Property="IsSelected" Value="True">
+                                                        <Setter Property="BorderBrush" Value="Transparent"/>
+                                                        <Setter Property="Background" Value="Transparent"/>
+                                                        <Setter Property="Foreground" Value="{Binding RelativeSource={RelativeSource AncestorType=DataGrid}, Path=(TextElement.Foreground)}"/>
+                                                    </Trigger>
+                                                    <Trigger Property="IsKeyboardFocusWithin" Value="True">
+                                                        <Setter Property="BorderBrush" Value="Transparent"/>
+                                                        <Setter Property="Background" Value="Transparent"/>
+                                                    </Trigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </DataGridTemplateColumn.CellStyle>
 
-                                <Grid Margin="0, 15, 0, 15">
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="*"/>
-                                        <ColumnDefinition Width="*"/>
-                                        <ColumnDefinition Width="Auto"/>
-                                    </Grid.ColumnDefinitions>
+                                    </DataGridTemplateColumn>
 
-                                    <TextBlock 
-                                        Grid.Column="0" 
-                                        Text="VIP" 
-                                        FontSize="14" 
-                                        VerticalAlignment="Center"/>
-                                    <TextBlock 
-                                        Grid.Column="1" 
-                                        Text="1000" 
-                                        FontSize="14" 
-                                        VerticalAlignment="Center"  
-                                        Margin="110, 0, 0, 0"/>
-                                    <materialDesign:PackIcon Grid.Column="2" Kind="DotsVertical" Width="20" Height="20" Foreground="#5D6679" Cursor="Hand"/>
-                                </Grid>
+                                    <DataGridTextColumn
+                                        Header="Tên loại phòng" 
+                                        Width="*"
+                                        Binding="{Binding RoomTierName}" 
+                                        FontSize="14"
+                                        FontWeight="Medium"/>
 
-                                <Separator Background="#F0F0F0" Margin="0, 5"/>
+                                    <DataGridTextColumn 
+                                        Header="Giá tiền" 
+                                        Width="*"
+                                        Binding="{Binding RoomTierPrice}" 
+                                        FontSize="14"
+                                        FontWeight="Medium"/>
 
-                                <Grid Margin="0, 15, 0, 15">
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="*"/>
-                                        <ColumnDefinition Width="*"/>
-                                        <ColumnDefinition Width="Auto"/>
-                                    </Grid.ColumnDefinitions>
-
-                                    <TextBlock 
-                                        Grid.Column="0" 
-                                        Text="Phòng đôi" 
-                                        FontSize="14" 
-                                        VerticalAlignment="Center"/>
-                                    <TextBlock 
-                                        Grid.Column="1" 
-                                        Text="1000" 
-                                        FontSize="14" 
-                                        VerticalAlignment="Center" 
-                                        Margin="110, 0, 0, 0"/>
-                                    <materialDesign:PackIcon Grid.Column="2" Kind="DotsVertical" Width="20" Height="20" Foreground="#5D6679" Cursor="Hand"/>
-                                </Grid>
-
-                                <Separator Background="#F0F0F0" Margin="0, 5"/>
-
-                                <Grid Margin="0, 15, 0, 15">
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="*"/>
-                                        <ColumnDefinition Width="*"/>
-                                        <ColumnDefinition Width="Auto"/>
-                                    </Grid.ColumnDefinitions>
-
-                                    <TextBlock 
-                                        Grid.Column="0" 
-                                        Text="Phòng đơn" 
-                                        FontSize="14" 
-                                        VerticalAlignment="Center"/>
-                                    <TextBlock 
-                                        Grid.Column="1" 
-                                        Text="1000" 
-                                        FontSize="14" 
-                                        VerticalAlignment="Center" 
-                                        Margin="110, 0, 0, 0"/>
-                                    <materialDesign:PackIcon Grid.Column="2" Kind="DotsVertical" Width="20" Height="20" Foreground="#5D6679" Cursor="Hand"/>
-                                </Grid>
-                            </StackPanel>
+                                    <DataGridTemplateColumn Width="Auto">
+                                        <DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <materialDesign:PackIcon 
+                                                    Kind="DotsVertical" 
+                                                    Width="20" Height="20" 
+                                                    Foreground="#5D6679" 
+                                                    Cursor="Hand"/>
+                                            </DataTemplate>
+                                        </DataGridTemplateColumn.CellTemplate>
+                                    </DataGridTemplateColumn>
+                                </DataGrid.Columns>
+                            </DataGrid>
                         </Border>
                     </Grid>
 
                     <Grid
                         HorizontalAlignment="Center"
                         Margin="0, 48, 0, 0"
+                        Height="250"
                         Width="992">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="0.7*"/>
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
 
-                        <Grid Grid.Column="0">
+                        <Grid 
+                            Grid.Column="0"
+                            Height="226">
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="Auto"/>
-                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="*"/>
                             </Grid.RowDefinitions>
 
                             <Border
-                                    Grid.Row="0"
-                                    Background="#1570EF"
-                                    CornerRadius="12, 12, 0, 0"
-                                    Height="50">
+                                Grid.Row="0"
+                                Background="#1570EF"
+                                CornerRadius="12, 12, 0, 0"
+                                Height="50">
                                 <TextBlock
-                                        Text="Danh sách khách hàng"
-                                        FontSize="16"
-                                        FontWeight="Medium"
-                                        Foreground="White"
-                                        VerticalAlignment="Center"
-                                        HorizontalAlignment="Left"
-                                        Margin="16, 0, 0, 0"/>
+                                    Text="Danh sách loại khách hàng"
+                                    FontSize="16"
+                                    FontWeight="Medium"
+                                    Foreground="White"
+                                    VerticalAlignment="Center"
+                                    HorizontalAlignment="Left"
+                                    Margin="16, 0, 0, 0"/>
                             </Border>
 
                             <Border
+                                Height="176"
+                                Grid.Row="1"
+                                Background="White"
+                                CornerRadius="0, 0, 12, 12">
+                                <DataGrid 
+                                    RowEditEnding="DataGrid_CustomerTier_RowEditEnding"
+                                    IsReadOnly="False"
+                                    CanUserAddRows="True"
+                                    CanUserDeleteRows="True"
+                                    ItemsSource="{Binding CustomerTiers}"
+                                    AutoGenerateColumns="False"
+                                    HeadersVisibility="Column"
                                     Grid.Row="1"
                                     Background="White"
-                                    CornerRadius="0, 0, 12, 12"
-                                    Padding="16, 8">
+                                    Margin="0"
+                                    Padding="16,8"
+                                    RowHeight="40">
 
-                                <StackPanel>
-                                    <Grid Margin="0, 0, 0, 8">
-                                        <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="*"/>
-                                            <ColumnDefinition Width="Auto"/>
-                                        </Grid.ColumnDefinitions>
+                                    <DataGrid.Resources>
+                                        <ContextMenu x:Key="RowContextMenu">
+                                            <MenuItem 
+                                                Header="Xóa loại khách hàng"
+                                                Command="{Binding DataContext.DeleteCustomerTier, RelativeSource={RelativeSource AncestorType=UserControl}}"
+                                                CommandParameter="{Binding}"/>
+                                        </ContextMenu>
+                                    </DataGrid.Resources>
 
-                                        <TextBlock 
-                                            Grid.Column="0" 
-                                            Text="Tên loại khách hàng" 
-                                            FontSize="14" 
-                                            FontWeight="Medium" 
-                                            VerticalAlignment="Center"/>
-                                    </Grid>
+                                    <DataGrid.RowStyle>
+                                        <Style TargetType="{x:Type DataGridRow}">
+                                            <Setter Property="ContextMenu" Value="{StaticResource RowContextMenu}"/>
+                                            <Style.Triggers>
+                                                <Trigger Property="IsMouseOver" Value="True">
+                                                    <Setter Property="Background" Value="#F0F5FA"/>
+                                                </Trigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </DataGrid.RowStyle>
 
-                                    <Separator Background="#E0E0E0" Margin="0, 4"/>
+                                    <DataGrid.Columns>
+                                        <DataGridTemplateColumn Width="50">
+                                            <DataGridTemplateColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <materialDesign:PackIcon 
+                                                        Kind="ChevronRight"
+                                                        Width="16" Height="16"
+                                                        VerticalAlignment="Center"
+                                                        HorizontalAlignment="Center"
+                                                        Cursor="Hand"
+                                                        Foreground="#5D6679">
+                                                        <materialDesign:PackIcon.Style>
+                                                            <Style TargetType="materialDesign:PackIcon">
+                                                                <Setter Property="Opacity" Value="0"/>
+                                                                <Style.Triggers>
+                                                                    <DataTrigger Binding="{Binding IsMouseOver, RelativeSource={RelativeSource AncestorType=DataGridRow}}" Value="True">
+                                                                        <Setter Property="Opacity" Value="1"/>
+                                                                    </DataTrigger>
+                                                                </Style.Triggers>
+                                                            </Style>
+                                                        </materialDesign:PackIcon.Style>
+                                                    </materialDesign:PackIcon>
+                                                </DataTemplate>
+                                            </DataGridTemplateColumn.CellTemplate>
+                                            <DataGridTemplateColumn.CellStyle>
+                                                <Style TargetType="DataGridCell">
+                                                    <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+                                                    <Setter Property="BorderThickness" Value="0"/>
+                                                    <Setter Property="Background" Value="Transparent"/>
+                                                    <Style.Triggers>
+                                                        <Trigger Property="IsMouseOver" Value="True">
+                                                            <Setter Property="BorderBrush" Value="Transparent"/>
+                                                            <Setter Property="Background" Value="Transparent"/>
+                                                        </Trigger>
+                                                        <Trigger Property="IsSelected" Value="True">
+                                                            <Setter Property="BorderBrush" Value="Transparent"/>
+                                                            <Setter Property="Background" Value="Transparent"/>
+                                                            <Setter Property="Foreground" Value="{Binding RelativeSource={RelativeSource AncestorType=DataGrid}, Path=(TextElement.Foreground)}"/>
+                                                        </Trigger>
+                                                        <Trigger Property="IsKeyboardFocusWithin" Value="True">
+                                                            <Setter Property="BorderBrush" Value="Transparent"/>
+                                                            <Setter Property="Background" Value="Transparent"/>
+                                                        </Trigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </DataGridTemplateColumn.CellStyle>
 
-                                    <Grid Margin="0, 12, 0, 12">
-                                        <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="*"/>
-                                            <ColumnDefinition Width="Auto"/>
-                                        </Grid.ColumnDefinitions>
+                                        </DataGridTemplateColumn>
 
-                                        <TextBlock 
-                                            Grid.Column="0" 
-                                            Text="Nước ngoài" 
-                                            FontSize="14" 
-                                            VerticalAlignment="Center"/>
-                                        <materialDesign:PackIcon Grid.Column="1" Kind="DotsVertical" Width="16" Height="16" Foreground="#5D6679" Cursor="Hand"/>
-                                    </Grid>
+                                        <DataGridTextColumn
+                                            Header="Tên loại khách hàng" 
+                                            Width="*"
+                                            Binding="{Binding CustomerTierName}" 
+                                            FontSize="14"
+                                            FontWeight="Medium"/>
 
-                                    <Separator Background="#F0F0F0" Margin="0, 4"/>
-
-                                    <Grid Margin="0, 12, 0, 12">
-                                        <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="*"/>
-                                            <ColumnDefinition Width="Auto"/>
-                                        </Grid.ColumnDefinitions>
-
-                                        <TextBlock 
-                                            Grid.Column="0" 
-                                            Text="Nội địa" 
-                                            FontSize="14" 
-                                            VerticalAlignment="Center"/>
-                                        <materialDesign:PackIcon Grid.Column="1" Kind="DotsVertical" Width="16" Height="16" Foreground="#5D6679" Cursor="Hand"/>
-                                    </Grid>
-
-                                    <Separator Background="#F0F0F0" Margin="0, 4"/>
-
-                                    <Grid Margin="0, 12, 0, 12">
-                                        <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="*"/>
-                                            <ColumnDefinition Width="Auto"/>
-                                        </Grid.ColumnDefinitions>
-
-                                        <TextBlock 
-                                            Grid.Column="0" 
-                                            Text="ABC" 
-                                            FontSize="14" 
-                                            VerticalAlignment="Center"/>
-                                        <materialDesign:PackIcon Grid.Column="1" Kind="DotsVertical" Width="16" Height="16" Foreground="#5D6679" Cursor="Hand"/>
-                                    </Grid>
-                                </StackPanel>
+                                        <DataGridTemplateColumn Width="Auto"> 
+                                            <DataGridTemplateColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <materialDesign:PackIcon 
+                                                        Kind="DotsVertical" 
+                                                        Width="20" Height="20" 
+                                                        Foreground="#5D6679" 
+                                                        Cursor="Hand"/>
+                                                </DataTemplate>
+                                            </DataGridTemplateColumn.CellTemplate>
+                                        </DataGridTemplateColumn>
+                                    </DataGrid.Columns>
+                                </DataGrid>
                             </Border>
                         </Grid>
 
@@ -452,7 +514,7 @@
                                 CornerRadius="12, 12, 0, 0"
                                 Height="50"> 
                                 <TextBlock
-                                    Text="Danh sách phụ thu"
+                                    Text="Danh sách các quy định khác"
                                     FontSize="16"
                                     FontWeight="Medium"
                                     Foreground="White"
@@ -465,129 +527,42 @@
                                 Grid.Row="1"
                                 Background="White"
                                 CornerRadius="0, 0, 12, 12"
-                                Padding="16">
+                                Padding="16, 8">
 
-                                <StackPanel>
-                                    <Grid Margin="0, 8, 0, 8">
-                                        <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="1.5*"/>
-                                            <ColumnDefinition Width="*"/>
-                                            <ColumnDefinition Width="*"/>
-                                            <ColumnDefinition Width="*"/>
-                                            <ColumnDefinition Width="Auto"/>
-                                        </Grid.ColumnDefinitions>
+                                <ItemsControl 
+                                    ItemsSource="{Binding RuleDisplayItems}"
+                                    Padding="16,8">
+                                    <ItemsControl.ItemTemplate>
+                                        <DataTemplate>
+                                            <StackPanel>
+                                                <Grid Margin="0, 8, 0, 8">
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="*"/>
+                                                        <ColumnDefinition Width="*"/>
+                                                        <ColumnDefinition Width="*"/>
+                                                    </Grid.ColumnDefinitions>
 
-                                        <TextBlock 
-                                            Grid.Column="0" 
-                                            Text="Tỉ lệ phụ thu (%)" 
-                                            FontSize="14" 
-                                            FontWeight="Medium" 
-                                            VerticalAlignment="Center"/>
-                                        
-                                        <TextBlock 
-                                            Grid.Column="1" 
-                                            Text="10" FontSize="14" 
-                                            VerticalAlignment="Center" 
-                                            HorizontalAlignment="Center"/>
-                                        
-                                        <TextBlock 
-                                            Grid.Column="2" 
-                                            Text="5" 
-                                            FontSize="14" 
-                                            VerticalAlignment="Center" 
-                                            HorizontalAlignment="Center"/>
-                                        
-                                        <TextBlock 
-                                            Grid.Column="3" 
-                                            Text="8" 
-                                            FontSize="14" 
-                                            VerticalAlignment="Center" 
-                                            HorizontalAlignment="Center"/>
-                                        <materialDesign:PackIcon Grid.Column="4" Kind="DotsVertical" Width="16" Height="16" Foreground="#5D6679" Cursor="Hand"/>
-                                    </Grid>
+                                                    <TextBlock 
+                                                        Grid.Column="0" Text="{Binding Header}" 
+                                                        FontSize="14" FontWeight="Medium" VerticalAlignment="Center"/>
 
-                                    <Separator Background="#E0E0E0" Margin="0, 4"/>
+                                                    <TextBox 
+                                                        BorderBrush="Transparent"
+                                                        BorderThickness="0"
+                                                        Grid.Column="1" Text="{Binding Value, UpdateSourceTrigger=PropertyChanged}" FontSize="14" 
+                                                        VerticalAlignment="Center" HorizontalAlignment="Center"/>
 
-                                    <Grid Margin="0, 12, 0, 12">
-                                        <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="1.5*"/>
-                                            <ColumnDefinition Width="*"/>
-                                            <ColumnDefinition Width="*"/>
-                                            <ColumnDefinition Width="*"/>
-                                            <ColumnDefinition Width="Auto"/>
-                                        </Grid.ColumnDefinitions>
+                                                    <materialDesign:PackIcon 
+                                                        HorizontalAlignment="Right"
+                                                        Grid.Column="2" Kind="DotsVertical" Width="16" Height="16"
+                                                        Foreground="#5D6679" Cursor="Hand"/>
 
-                                        <TextBlock 
-                                            Grid.Column="0" 
-                                            Text="Khách tối đa / phòng" 
-                                            FontSize="14" 
-                                            FontWeight="Medium" 
-                                            VerticalAlignment="Center"/>
-                                        
-                                        <TextBlock 
-                                            Grid.Column="1" 
-                                            Text="2" 
-                                            FontSize="14" 
-                                            VerticalAlignment="Center" 
-                                            HorizontalAlignment="Center"/>
-                                        
-                                        <TextBlock 
-                                            Grid.Column="2" 
-                                            Text="2" 
-                                            FontSize="14" 
-                                            VerticalAlignment="Center" 
-                                            HorizontalAlignment="Center"/>
-                                        
-                                        <TextBlock 
-                                            Grid.Column="3" 
-                                            Text="2" 
-                                            FontSize="14" 
-                                            VerticalAlignment="Center" 
-                                            HorizontalAlignment="Center"/>
-                                        <materialDesign:PackIcon Grid.Column="4" Kind="DotsVertical" Width="16" Height="16" Foreground="#5D6679" Cursor="Hand"/>
-                                    </Grid>
-
-                                    <Separator Background="#F0F0F0" Margin="0, 4"/>
-
-                                    <Grid Margin="0, 12, 0, 12">
-                                        <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="1.5*"/>
-                                            <ColumnDefinition Width="*"/>
-                                            <ColumnDefinition Width="*"/>
-                                            <ColumnDefinition Width="*"/>
-                                            <ColumnDefinition Width="Auto"/>
-                                        </Grid.ColumnDefinitions>
-
-                                        <TextBlock 
-                                            Grid.Column="0" 
-                                            Text="Áp dụng từ khách thứ" 
-                                            FontSize="14" 
-                                            FontWeight="Medium" 
-                                            VerticalAlignment="Center"/>
-                                        
-                                        <TextBlock 
-                                            Grid.Column="1" 
-                                            Text="2" 
-                                            FontSize="14" 
-                                            VerticalAlignment="Center" 
-                                            HorizontalAlignment="Center"/>
-                                        
-                                        <TextBlock 
-                                            Grid.Column="2" 
-                                            Text="2" 
-                                            FontSize="14" 
-                                            VerticalAlignment="Center" 
-                                            HorizontalAlignment="Center"/>
-                                        
-                                        <TextBlock 
-                                            Grid.Column="3" 
-                                            Text="2" 
-                                            FontSize="14" 
-                                            VerticalAlignment="Center" 
-                                            HorizontalAlignment="Center"/>
-                                        <materialDesign:PackIcon Grid.Column="4" Kind="DotsVertical" Width="16" Height="16" Foreground="#5D6679" Cursor="Hand"/>
-                                    </Grid>
-                                </StackPanel>
+                                                </Grid>
+                                                <Separator Background="#E0E0E0" Margin="0,4"/>
+                                            </StackPanel>
+                                        </DataTemplate>
+                                    </ItemsControl.ItemTemplate>
+                                </ItemsControl>
                             </Border>
                         </Grid>
                     </Grid>

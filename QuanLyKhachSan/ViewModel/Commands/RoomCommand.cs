@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using QuanLyKhachSan.ViewModel;
 using QuanLyKhachSan.ViewModel.EntityViewModels;
 
-namespace QuanLyKhachSan_BackUp.ViewModel.Commands
+namespace QuanLyKhachSan.ViewModel.Commands
 {
     public class RoomCommand : BaseCommand
     {

@@ -11,7 +11,6 @@ using QuanLyKhachSan.ViewModel;
 using QuanLyKhachSan.ViewModel.Commands;
 using QuanLyKhachSan.ViewModel.EntityViewModels;
 using QuanLyKhachSan.ViewModel.Store;
-using QuanLyKhachSan_BackUp.ViewModel.Commands;
 
 namespace QuanLyKhachSan.ViewModel
 {
@@ -80,7 +79,7 @@ namespace QuanLyKhachSan.ViewModel
 
             RoomUpdate = new RoomCommand(this, _ => OpenAndUpdateRoom(), _ => User.UserRole == "Administrator");
 
-            RoomDelete = new RoomCommand(this, _ => DeleteRoom(), _ => User.UserRole == "Administrator");
+            RoomDelete = new RoomCommand(this, _ => DeleteRoom(), _ => User.UserRole == "Administrator" && SelectedRoom.RoomState != "Occupied");
 
             ShowDetail = new RoomCommand(this, _ => OpenRoomDetail(), _ => SelectedRoom!=null && SelectedRoom.RoomState == "Occupied");
         }
