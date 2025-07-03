@@ -127,7 +127,7 @@ namespace QuanLyKhachSan.UI.Views.MainViews {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/QuanLyKhachSan;component/ui/views/mainviews/revenuewindow.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/QuanLyKhachSan;V1.0.0.0;component/ui/views/mainviews/revenuewindow.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\..\..\UI\Views\MainViews\RevenueWindow.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
