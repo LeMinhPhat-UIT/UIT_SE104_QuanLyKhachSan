@@ -32,10 +32,7 @@ namespace QuanLyKhachSan.Models.BLL.Helpers.Validation
         {
             try
             {
-                var tierPrice = Service.RoomTierService.GetById((int)room.RoomTierID).RoomTierPrice;
                 var varlidState = new List<string> { "Available", "Occupied" };
-                if (room.PricePerDay < tierPrice)
-                    throw new ArgumentException("PricePerDay must be greater than referenced RoomTierPrice.");
                 if (!varlidState.Any(x => x.Equals(room.RoomState)))
                     throw new ArgumentException("RoomState is invalid.");
             }
@@ -69,7 +66,8 @@ namespace QuanLyKhachSan.Models.BLL.Helpers.Validation
         {
             var reservation = Service.ReservationService.GetById(invoice.ReservationID);
             var totalDays = (reservation.CheckOutDate - reservation.CheckInDate).Days;
-            var pricePerDay=Service.RoomService.GetById(reservation.RoomID).PricePerDay;
+            var room = Service.RoomService.GetById(reservation.RoomID);
+            var pricePerDay=Service.RoomTierService.GetById((int)room.RoomTierID).RoomTierPrice;
             try
             {
                 if (invoice.TotalAmount < totalDays * pricePerDay * (100 + invoice.SurchargeRate) / 100)

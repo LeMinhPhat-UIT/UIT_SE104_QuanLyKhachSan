@@ -8,6 +8,8 @@ using System.Windows.Input;
 using QuanLyKhachSan.ViewModel;
 using QuanLyKhachSan.ViewModel.EntityViewModels;
 using QuanLyKhachSan.ViewModel.Commands;
+using System.Windows;
+using System.Security.Policy;
 
 namespace QuanLyKhachSan.ViewModel
 {
@@ -16,14 +18,41 @@ namespace QuanLyKhachSan.ViewModel
         private CustomerViewModel _customer;
         private ObservableCollection<CustomerTierViewModel> _customerTiers;
         private CustomerTierViewModel _selectedCustomerTier;
+        private ObservableCollection<CustomerViewModel> _suggestions;
+        private CustomerViewModel _selectedCustomer;
 
         
-        public CustomerViewModel Customer { get =>  _customer; set { _customer = value; OnPropertyChanged(nameof(Customer)); } }
+        public CustomerViewModel Customer 
+        { 
+            get => _customer; 
+            set 
+            {
+                _customer = value; 
+                OnPropertyChanged(nameof(Customer));
+            } 
+        }
         public IEnumerable<CustomerTierViewModel> CustomerTiers => _customerTiers;
+        public IEnumerable<CustomerViewModel> Suggestions => _suggestions;
         public CustomerTierViewModel SelectedCustomerTier 
         { 
             get => _selectedCustomerTier; 
             set { _selectedCustomerTier = value; OnPropertyChanged(nameof(SelectedCustomerTier)); } 
+        }
+        public CustomerViewModel SelectedCustomer
+        {
+            get => _selectedCustomer;
+            set
+            {
+                _selectedCustomer = value;
+                OnPropertyChanged(nameof(SelectedCustomer));
+                if (_selectedCustomer != null)
+                {
+                    Customer.IdentityNumber = _selectedCustomer.IdentityNumber;
+                    Customer.CustomerName = _selectedCustomer.CustomerName;
+                    Customer.PhoneNumber = _selectedCustomer.PhoneNumber;
+                    Customer.CustomerTierName = _selectedCustomer.CustomerTierName;
+                }
+            }
         }
         public Action? CloseAction { get; set; }
 
@@ -34,10 +63,14 @@ namespace QuanLyKhachSan.ViewModel
         public AddUpdateCustomerViewModel()
         {
             _customerTiers = new ObservableCollection<CustomerTierViewModel>();
-            _customer = new CustomerViewModel();    
+            _suggestions = new ObservableCollection<CustomerViewModel>();
+            _customer = new CustomerViewModel();
+            _selectedCustomer = new CustomerViewModel();
 
             var customerTierList = QuanLyKhachSan.Models.BLL.Service.CustomerTierService.GetAllData();
             customerTierList.ForEach(x => _customerTiers.Add(new CustomerTierViewModel(x)));
+
+            QuanLyKhachSan.Models.BLL.Service.CustomerService.GetAllData().ForEach(x => _suggestions.Add(new CustomerViewModel(x)));
 
             Save = new AddUpdateCustomerCommand
             (

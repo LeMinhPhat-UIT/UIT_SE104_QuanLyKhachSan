@@ -18,8 +18,8 @@ namespace QuanLyKhachSan.Models.Core.Entities
         [Column(TypeName="char")]
         public string RoomNumber { get; set; }
 
-        [Column(TypeName="money")]
-        public decimal PricePerDay { get; set; }
+        //[Column(TypeName="money")]
+        //public decimal PricePerDay { get; set; }
 
         [StringLength(50)]
         [Column(TypeName="nvarchar")]
@@ -34,11 +34,10 @@ namespace QuanLyKhachSan.Models.Core.Entities
             get => string.Join(", ", Amenities.Select(x => x.AmenityName));
         }
         public Room() { }
-        public Room(int roomTierID, string roomNumber, decimal pricePerDay, string roomState)
+        public Room(int roomTierID, string roomNumber, string roomState)
         {
             RoomTierID = roomTierID;
             RoomNumber = roomNumber;
-            PricePerDay = pricePerDay;
             RoomState = roomState;
         }
     }

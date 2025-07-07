@@ -87,7 +87,6 @@ namespace QuanLyKhachSan.ViewModel
                 var room = QuanLyKhachSan.Models.BLL.Service.RoomService.GetById(_room.RoomID);
                 room.RoomTierID = SelectedTier.ID;
                 room.RoomNumber = _room.RoomNumber;
-                room.PricePerDay = _room.PricePerDay;
                 room.RoomState = _room.RoomState;
                 var amenities = QuanLyKhachSan.Models.BLL.Service.RoomService.GetAmenities(room.RoomID);
                 amenities.ForEach(x => QuanLyKhachSan.Models.BLL.Service.RoomService.DeleteAmenity(room.RoomID, x.AmenityID));
@@ -102,7 +101,6 @@ namespace QuanLyKhachSan.ViewModel
                 var room = new Room();
                 room.RoomTierID = SelectedTier.ID;
                 room.RoomNumber = _room.RoomNumber;
-                room.PricePerDay = _room.PricePerDay;
                 room.RoomState = _room.RoomState;
                 room.RoomTierID = SelectedTier.ID;
                 QuanLyKhachSan.Models.BLL.Service.RoomService.Add(room);

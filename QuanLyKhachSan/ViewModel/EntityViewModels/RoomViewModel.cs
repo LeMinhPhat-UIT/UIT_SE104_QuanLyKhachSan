@@ -45,8 +45,8 @@ namespace QuanLyKhachSan.ViewModel.EntityViewModels
         {
             RoomID = room.RoomID;
             RoomNumber = room.RoomNumber;
-            PricePerDay = room.PricePerDay;
             RoomState = room.RoomState;
+            PricePerDay = QuanLyKhachSan.Models.BLL.Service.RoomTierService.GetById((int)room.RoomTierID).RoomTierPrice;
             RoomTierName = QuanLyKhachSan.Models.BLL.Service.RoomService.GetTier(room.RoomID).RoomTierName;
             QuanLyKhachSan.Models.BLL.Service.RoomService.GetAmenities(room.RoomID).ForEach(x => _amenities.Add(new AmenityViewModel(x)));
 

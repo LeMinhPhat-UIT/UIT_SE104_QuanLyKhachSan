@@ -66,7 +66,7 @@
                             Padding="8, 0"
                             Margin="0, 8, 0, 0">
                             <TextBox
-                                Text="{Binding Customer.CustomerName, UpdateSourceTrigger=PropertyChanged}"
+                                Text="{Binding Customer.CustomerName, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
                                 materialDesign:TextFieldAssist.DecorationVisibility="Collapsed"
                                 BorderThickness="0"/>
                         </Border>
@@ -121,8 +121,12 @@
                             CornerRadius="8"
                             Padding="8, 0"
                             Margin="0, 8, 0, 0">
-                            <TextBox
-                                Text="{Binding Customer.IdentityNumber, UpdateSourceTrigger=PropertyChanged}"
+                            <ComboBox
+                                IsEditable="True"
+                                DisplayMemberPath="IdentityNumber"
+                                ItemsSource="{Binding Suggestions}"
+                                SelectedItem="{Binding SelectedCustomer, UpdateSourceTrigger=PropertyChanged}"
+                                Text="{Binding Customer.IdentityNumber, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
                                 materialDesign:TextFieldAssist.DecorationVisibility="Collapsed"
                                 BorderThickness="0"/>
                         </Border>
@@ -145,7 +149,7 @@
                             Padding="8, 0"
                             Margin="0, 8, 0, 0">
                             <TextBox
-                                Text="{Binding Customer.PhoneNumber, UpdateSourceTrigger=PropertyChanged}"
+                                Text="{Binding Customer.PhoneNumber, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
                                 materialDesign:TextFieldAssist.DecorationVisibility="Collapsed"
                                 BorderThickness="0"/>
                         </Border>
