@@ -327,7 +327,7 @@ namespace QuanLyKhachSan.ViewModel
             {
                 var listOfWeek = DateTimeHelper.GetFullWeekFromDate(DateTime.Now);
                 TotalRevenue = (double)QuanLyKhachSan.Models.BLL.Service.RevenueService.GetAllData()
-                    .Where(x => x.RevenueDate.Date>=listOfWeek.First() && x.RevenueDate.Date<=DateTime.Now.Date).Sum(x => x.TotalRevenue);
+                    .Where(x => x.RevenueDate.Date>=listOfWeek.First() && x.RevenueDate.Date<= listOfWeek.Last()).Sum(x => x.TotalRevenue);
             }
             else if(SelectedTotalRevenue == ChartView[1])
                 TotalRevenue = (double)QuanLyKhachSan.Models.BLL.Service.RevenueService.GetAllData()

@@ -1,12 +1,7 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "D:\\LeMinhPhat\\NewPull\\UIT_SE104_QuanLyKhachSan\\QuanLyKhachSan\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{0CC7568F-EA8C-4D36-AF5B-AE6AB1C2A1B6}|QuanLyKhachSan.csproj|d:\\leminhphat\\newpull\\uit_se104_quanlykhachsan\\quanlykhachsan\\ui\\views\\mainviews\\bookingroomwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{0CC7568F-EA8C-4D36-AF5B-AE6AB1C2A1B6}|QuanLyKhachSan.csproj|solutionrelative:ui\\views\\mainviews\\bookingroomwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    }
-  ],
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -14,7 +9,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 107,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": -1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -39,18 +34,6 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "BookingRoomWindow.xaml",
-              "DocumentMoniker": "D:\\LeMinhPhat\\NewPull\\UIT_SE104_QuanLyKhachSan\\QuanLyKhachSan\\UI\\Views\\MainViews\\BookingRoomWindow.xaml",
-              "RelativeDocumentMoniker": "UI\\Views\\MainViews\\BookingRoomWindow.xaml",
-              "ToolTip": "D:\\LeMinhPhat\\NewPull\\UIT_SE104_QuanLyKhachSan\\QuanLyKhachSan\\UI\\Views\\MainViews\\BookingRoomWindow.xaml",
-              "RelativeToolTip": "UI\\Views\\MainViews\\BookingRoomWindow.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-07-03T04:01:45.446Z",
-              "EditorCaption": ""
             }
           ]
         }
