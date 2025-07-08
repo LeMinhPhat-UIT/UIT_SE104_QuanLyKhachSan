@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:validation="clr-namespace:QuanLyKhachSan.ValidationRules"
         xmlns:local="clr-namespace:QuanLyKhachSan.UI.Views.SubViews"
         mc:Ignorable="d"
         MouseDown="Window_MouseDown"
@@ -156,9 +157,17 @@
                             Padding="8, 0"
                             Margin="0, 8, 0, 0">
                             <TextBox
-                                Text="{Binding User.Identity}"
                                 materialDesign:TextFieldAssist.DecorationVisibility="Collapsed"
-                                BorderThickness="0"/>
+                                BorderThickness="0">
+                                <TextBox.Text>
+                                    <Binding Path="User.Identity" Mode="TwoWay" UpdateSourceTrigger="PropertyChanged">
+                                        <Binding.ValidationRules>
+                                            <validation:CCCDValidationRule />
+                                        </Binding.ValidationRules>
+                                    </Binding>
+                                </TextBox.Text>
+
+                            </TextBox>
                         </Border>
                     </StackPanel>
 
@@ -179,9 +188,18 @@
                             Padding="8, 0"
                             Margin="0, 8, 0, 0">
                             <TextBox
-                                Text="{Binding User.PhoneNumber}"
                                 materialDesign:TextFieldAssist.DecorationVisibility="Collapsed"
-                                BorderThickness="0"/>
+                                BorderThickness="0">
+                                <TextBox.Text>
+                                    <Binding Path="User.PhoneNumber" Mode="TwoWay" UpdateSourceTrigger="PropertyChanged">
+                                        <Binding.ValidationRules>
+                                            <validation:PhoneNumberValidationRule />
+                                        </Binding.ValidationRules>
+                                    </Binding>
+                                </TextBox.Text>
+
+                            </TextBox>
+
                         </Border>
                     </StackPanel>
                 </Grid>
@@ -203,9 +221,17 @@
                         Padding="8, 0"
                         Margin="0, 8, 0, 0">
                         <TextBox
-                            Text="{Binding User.UserEmail}"
                             materialDesign:TextFieldAssist.DecorationVisibility="Collapsed"
-                            BorderThickness="0"/>
+                            BorderThickness="0">
+                            <TextBox.Text>
+                                <Binding Path="User.UserEmail" Mode="TwoWay" UpdateSourceTrigger="PropertyChanged">
+                                    <Binding.ValidationRules>
+                                        <validation:EmailValidationRule />
+                                    </Binding.ValidationRules>
+                                </Binding>
+                            </TextBox.Text>
+
+                        </TextBox>
                     </Border>
                 </StackPanel>
 

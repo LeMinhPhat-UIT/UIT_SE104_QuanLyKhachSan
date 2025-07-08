@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:QuanLyKhachSan.UI.Views.SubViews"
+        xmlns:validation="clr-namespace:QuanLyKhachSan.ValidationRules"
         mc:Ignorable="d"
         MouseDown="Window_MouseDown"
         Title="AddCustomerWindow" 
@@ -123,12 +124,22 @@
                             Margin="0, 8, 0, 0">
                             <ComboBox
                                 IsEditable="True"
+                                StaysOpenOnEdit="True"
+                                IsTextSearchEnabled="False"
                                 DisplayMemberPath="IdentityNumber"
                                 ItemsSource="{Binding Suggestions}"
                                 SelectedItem="{Binding SelectedCustomer, UpdateSourceTrigger=PropertyChanged}"
-                                Text="{Binding Customer.IdentityNumber, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                            
                                 materialDesign:TextFieldAssist.DecorationVisibility="Collapsed"
-                                BorderThickness="0"/>
+                                BorderThickness="0">
+                                <ComboBox.Text>
+                                    <Binding Path="Customer.IdentityNumber" Mode="TwoWay" UpdateSourceTrigger="PropertyChanged">
+                                        <Binding.ValidationRules>
+                                            <validation:CCCDValidationRule/>
+                                        </Binding.ValidationRules>
+                                    </Binding>
+                                </ComboBox.Text>
+                            </ComboBox>
                         </Border>
                     </StackPanel>
 
@@ -149,9 +160,17 @@
                             Padding="8, 0"
                             Margin="0, 8, 0, 0">
                             <TextBox
-                                Text="{Binding Customer.PhoneNumber, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
                                 materialDesign:TextFieldAssist.DecorationVisibility="Collapsed"
-                                BorderThickness="0"/>
+                                BorderThickness="0">
+                                <TextBox.Text>
+                                    <Binding Path="Customer.PhoneNumber" Mode="TwoWay" UpdateSourceTrigger="PropertyChanged">
+                                        <Binding.ValidationRules>
+                                            <validation:PhoneNumberValidationRule/>
+                                        </Binding.ValidationRules>
+                                    </Binding>
+                                </TextBox.Text>
+
+                            </TextBox>
                         </Border>
                     </StackPanel>
                 </Grid>

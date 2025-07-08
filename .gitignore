@@ -1,0 +1,33 @@
+# Visual Studio
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Build results
+bin/
+obj/
+
+# NuGet
+*.nupkg
+packages/
+*.snupkg
+
+# Logs
+*.log
+
+# Others
+*.sqlite
+*.db
+*.pdb
+*.cache
+*.tmp
+*.bak
+
+# VS Code
+.vscode/
+
+# Windows
+Thumbs.db
+Desktop.ini

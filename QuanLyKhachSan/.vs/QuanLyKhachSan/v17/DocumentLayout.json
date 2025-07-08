@@ -1,25 +1,97 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\LeMinhPhat\\NewPull\\UIT_SE104_QuanLyKhachSan\\QuanLyKhachSan\\",
+  "WorkspaceRootPath": "C:\\Users\\LENOVO\\source\\repos\\UIT_SE104_QuanLyKhachSan\\QuanLyKhachSan\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{0CC7568F-EA8C-4D36-AF5B-AE6AB1C2A1B6}|QuanLyKhachSan.csproj|d:\\leminhphat\\newpull\\uit_se104_quanlykhachsan\\quanlykhachsan\\viewmodel\\bookingviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{0CC7568F-EA8C-4D36-AF5B-AE6AB1C2A1B6}|QuanLyKhachSan.csproj|c:\\users\\lenovo\\source\\repos\\uit_se104_quanlykhachsan\\quanlykhachsan\\ui\\views\\subviews\\addupdatestaffwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{0CC7568F-EA8C-4D36-AF5B-AE6AB1C2A1B6}|QuanLyKhachSan.csproj|solutionrelative:ui\\views\\subviews\\addupdatestaffwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0CC7568F-EA8C-4D36-AF5B-AE6AB1C2A1B6}|QuanLyKhachSan.csproj|c:\\users\\lenovo\\source\\repos\\uit_se104_quanlykhachsan\\quanlykhachsan\\validationrules\\emailvalidationrule.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0CC7568F-EA8C-4D36-AF5B-AE6AB1C2A1B6}|QuanLyKhachSan.csproj|solutionrelative:validationrules\\emailvalidationrule.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0CC7568F-EA8C-4D36-AF5B-AE6AB1C2A1B6}|QuanLyKhachSan.csproj|c:\\users\\lenovo\\source\\repos\\uit_se104_quanlykhachsan\\quanlykhachsan\\validationrules\\cccdvalidationrule.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0CC7568F-EA8C-4D36-AF5B-AE6AB1C2A1B6}|QuanLyKhachSan.csproj|solutionrelative:validationrules\\cccdvalidationrule.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0CC7568F-EA8C-4D36-AF5B-AE6AB1C2A1B6}|QuanLyKhachSan.csproj|c:\\users\\lenovo\\source\\repos\\uit_se104_quanlykhachsan\\quanlykhachsan\\validationrules\\phonevalidationrule.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0CC7568F-EA8C-4D36-AF5B-AE6AB1C2A1B6}|QuanLyKhachSan.csproj|solutionrelative:validationrules\\phonevalidationrule.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0CC7568F-EA8C-4D36-AF5B-AE6AB1C2A1B6}|QuanLyKhachSan.csproj|c:\\users\\lenovo\\source\\repos\\uit_se104_quanlykhachsan\\quanlykhachsan\\models\\core\\entities\\customer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0CC7568F-EA8C-4D36-AF5B-AE6AB1C2A1B6}|QuanLyKhachSan.csproj|solutionrelative:models\\core\\entities\\customer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0CC7568F-EA8C-4D36-AF5B-AE6AB1C2A1B6}|QuanLyKhachSan.csproj|c:\\users\\lenovo\\source\\repos\\uit_se104_quanlykhachsan\\quanlykhachsan\\models\\core\\entities\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0CC7568F-EA8C-4D36-AF5B-AE6AB1C2A1B6}|QuanLyKhachSan.csproj|solutionrelative:models\\core\\entities\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0CC7568F-EA8C-4D36-AF5B-AE6AB1C2A1B6}|QuanLyKhachSan.csproj|c:\\users\\lenovo\\source\\repos\\uit_se104_quanlykhachsan\\quanlykhachsan\\ui\\views\\subviews\\addupdatecustomerwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{0CC7568F-EA8C-4D36-AF5B-AE6AB1C2A1B6}|QuanLyKhachSan.csproj|solutionrelative:ui\\views\\subviews\\addupdatecustomerwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0CC7568F-EA8C-4D36-AF5B-AE6AB1C2A1B6}|QuanLyKhachSan.csproj|c:\\users\\lenovo\\source\\repos\\uit_se104_quanlykhachsan\\quanlykhachsan\\models\\bll\\helpers\\security\\passwordservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0CC7568F-EA8C-4D36-AF5B-AE6AB1C2A1B6}|QuanLyKhachSan.csproj|solutionrelative:models\\bll\\helpers\\security\\passwordservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0CC7568F-EA8C-4D36-AF5B-AE6AB1C2A1B6}|QuanLyKhachSan.csproj|c:\\users\\lenovo\\source\\repos\\uit_se104_quanlykhachsan\\quanlykhachsan\\viewmodel\\addupdatecustomerviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0CC7568F-EA8C-4D36-AF5B-AE6AB1C2A1B6}|QuanLyKhachSan.csproj|solutionrelative:viewmodel\\addupdatecustomerviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0CC7568F-EA8C-4D36-AF5B-AE6AB1C2A1B6}|QuanLyKhachSan.csproj|c:\\users\\lenovo\\source\\repos\\uit_se104_quanlykhachsan\\quanlykhachsan\\models\\testing.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0CC7568F-EA8C-4D36-AF5B-AE6AB1C2A1B6}|QuanLyKhachSan.csproj|solutionrelative:models\\testing.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0CC7568F-EA8C-4D36-AF5B-AE6AB1C2A1B6}|QuanLyKhachSan.csproj|c:\\users\\lenovo\\source\\repos\\uit_se104_quanlykhachsan\\quanlykhachsan\\models\\bll\\helpers\\security\\loginservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0CC7568F-EA8C-4D36-AF5B-AE6AB1C2A1B6}|QuanLyKhachSan.csproj|solutionrelative:models\\bll\\helpers\\security\\loginservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0CC7568F-EA8C-4D36-AF5B-AE6AB1C2A1B6}|QuanLyKhachSan.csproj|c:\\users\\lenovo\\source\\repos\\uit_se104_quanlykhachsan\\quanlykhachsan\\app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0CC7568F-EA8C-4D36-AF5B-AE6AB1C2A1B6}|QuanLyKhachSan.csproj|solutionrelative:app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0CC7568F-EA8C-4D36-AF5B-AE6AB1C2A1B6}|QuanLyKhachSan.csproj|c:\\users\\lenovo\\source\\repos\\uit_se104_quanlykhachsan\\quanlykhachsan\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0CC7568F-EA8C-4D36-AF5B-AE6AB1C2A1B6}|QuanLyKhachSan.csproj|solutionrelative:mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0CC7568F-EA8C-4D36-AF5B-AE6AB1C2A1B6}|QuanLyKhachSan.csproj|c:\\users\\lenovo\\source\\repos\\uit_se104_quanlykhachsan\\quanlykhachsan\\viewmodel\\loginviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0CC7568F-EA8C-4D36-AF5B-AE6AB1C2A1B6}|QuanLyKhachSan.csproj|solutionrelative:viewmodel\\loginviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0CC7568F-EA8C-4D36-AF5B-AE6AB1C2A1B6}|QuanLyKhachSan.csproj|c:\\users\\lenovo\\source\\repos\\uit_se104_quanlykhachsan\\quanlykhachsan\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{0CC7568F-EA8C-4D36-AF5B-AE6AB1C2A1B6}|QuanLyKhachSan.csproj|solutionrelative:app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0CC7568F-EA8C-4D36-AF5B-AE6AB1C2A1B6}|QuanLyKhachSan.csproj|c:\\users\\lenovo\\source\\repos\\uit_se104_quanlykhachsan\\quanlykhachsan\\ui\\views\\mainviews\\loginwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{0CC7568F-EA8C-4D36-AF5B-AE6AB1C2A1B6}|QuanLyKhachSan.csproj|solutionrelative:ui\\views\\mainviews\\loginwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0CC7568F-EA8C-4D36-AF5B-AE6AB1C2A1B6}|QuanLyKhachSan.csproj|c:\\users\\lenovo\\source\\repos\\uit_se104_quanlykhachsan\\quanlykhachsan\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{0CC7568F-EA8C-4D36-AF5B-AE6AB1C2A1B6}|QuanLyKhachSan.csproj|solutionrelative:mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0CC7568F-EA8C-4D36-AF5B-AE6AB1C2A1B6}|QuanLyKhachSan.csproj|c:\\users\\lenovo\\source\\repos\\uit_se104_quanlykhachsan\\quanlykhachsan\\models\\hoteldbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0CC7568F-EA8C-4D36-AF5B-AE6AB1C2A1B6}|QuanLyKhachSan.csproj|solutionrelative:models\\hoteldbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0CC7568F-EA8C-4D36-AF5B-AE6AB1C2A1B6}|QuanLyKhachSan.csproj|c:\\users\\lenovo\\source\\repos\\uit_se104_quanlykhachsan\\quanlykhachsan\\viewmodel\\bookingviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{0CC7568F-EA8C-4D36-AF5B-AE6AB1C2A1B6}|QuanLyKhachSan.csproj|solutionrelative:viewmodel\\bookingviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0CC7568F-EA8C-4D36-AF5B-AE6AB1C2A1B6}|QuanLyKhachSan.csproj|d:\\leminhphat\\newpull\\uit_se104_quanlykhachsan\\quanlykhachsan\\ui\\views\\mainviews\\bookingroomwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "AbsoluteMoniker": "D:0:0:{0CC7568F-EA8C-4D36-AF5B-AE6AB1C2A1B6}|QuanLyKhachSan.csproj|c:\\users\\lenovo\\source\\repos\\uit_se104_quanlykhachsan\\quanlykhachsan\\ui\\views\\mainviews\\bookingroomwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{0CC7568F-EA8C-4D36-AF5B-AE6AB1C2A1B6}|QuanLyKhachSan.csproj|solutionrelative:ui\\views\\mainviews\\bookingroomwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0CC7568F-EA8C-4D36-AF5B-AE6AB1C2A1B6}|QuanLyKhachSan.csproj|d:\\leminhphat\\newpull\\uit_se104_quanlykhachsan\\quanlykhachsan\\ui\\views\\mainviews\\rentreceiptwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "AbsoluteMoniker": "D:0:0:{0CC7568F-EA8C-4D36-AF5B-AE6AB1C2A1B6}|QuanLyKhachSan.csproj|c:\\users\\lenovo\\source\\repos\\uit_se104_quanlykhachsan\\quanlykhachsan\\ui\\views\\mainviews\\rentreceiptwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{0CC7568F-EA8C-4D36-AF5B-AE6AB1C2A1B6}|QuanLyKhachSan.csproj|solutionrelative:ui\\views\\mainviews\\rentreceiptwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0CC7568F-EA8C-4D36-AF5B-AE6AB1C2A1B6}|QuanLyKhachSan.csproj|d:\\leminhphat\\newpull\\uit_se104_quanlykhachsan\\quanlykhachsan\\ui\\views\\subviews\\roomdetailwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "AbsoluteMoniker": "D:0:0:{0CC7568F-EA8C-4D36-AF5B-AE6AB1C2A1B6}|QuanLyKhachSan.csproj|c:\\users\\lenovo\\source\\repos\\uit_se104_quanlykhachsan\\quanlykhachsan\\ui\\views\\subviews\\roomdetailwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{0CC7568F-EA8C-4D36-AF5B-AE6AB1C2A1B6}|QuanLyKhachSan.csproj|solutionrelative:ui\\views\\subviews\\roomdetailwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0CC7568F-EA8C-4D36-AF5B-AE6AB1C2A1B6}|QuanLyKhachSan.csproj|d:\\leminhphat\\newpull\\uit_se104_quanlykhachsan\\quanlykhachsan\\models\\core\\entities\\reservation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{0CC7568F-EA8C-4D36-AF5B-AE6AB1C2A1B6}|QuanLyKhachSan.csproj|c:\\users\\lenovo\\source\\repos\\uit_se104_quanlykhachsan\\quanlykhachsan\\models\\core\\entities\\reservation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{0CC7568F-EA8C-4D36-AF5B-AE6AB1C2A1B6}|QuanLyKhachSan.csproj|solutionrelative:models\\core\\entities\\reservation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -30,8 +102,40 @@
       "DocumentGroups": [
         {
           "DockedWidth": 107,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 15,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:130:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{57d563b6-44a5-47df-85be-f4199ad6b651}"
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
@@ -42,81 +146,298 @@
             },
             {
               "$type": "Bookmark",
-              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
-            },
-            {
-              "$type": "Bookmark",
               "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
             },
             {
               "$type": "Bookmark",
-              "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "EmailValidationRule.cs",
+              "DocumentMoniker": "C:\\Users\\LENOVO\\source\\repos\\UIT_SE104_QuanLyKhachSan\\QuanLyKhachSan\\ValidationRules\\EmailValidationRule.cs",
+              "RelativeDocumentMoniker": "ValidationRules\\EmailValidationRule.cs",
+              "ToolTip": "C:\\Users\\LENOVO\\source\\repos\\UIT_SE104_QuanLyKhachSan\\QuanLyKhachSan\\ValidationRules\\EmailValidationRule.cs",
+              "RelativeToolTip": "ValidationRules\\EmailValidationRule.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAA4AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-08T22:12:17.169Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Customer.cs",
+              "DocumentMoniker": "C:\\Users\\LENOVO\\source\\repos\\UIT_SE104_QuanLyKhachSan\\QuanLyKhachSan\\Models\\Core\\Entities\\Customer.cs",
+              "RelativeDocumentMoniker": "Models\\Core\\Entities\\Customer.cs",
+              "ToolTip": "C:\\Users\\LENOVO\\source\\repos\\UIT_SE104_QuanLyKhachSan\\QuanLyKhachSan\\Models\\Core\\Entities\\Customer.cs",
+              "RelativeToolTip": "Models\\Core\\Entities\\Customer.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-08T22:07:23.658Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "User.cs",
+              "DocumentMoniker": "C:\\Users\\LENOVO\\source\\repos\\UIT_SE104_QuanLyKhachSan\\QuanLyKhachSan\\Models\\Core\\Entities\\User.cs",
+              "RelativeDocumentMoniker": "Models\\Core\\Entities\\User.cs",
+              "ToolTip": "C:\\Users\\LENOVO\\source\\repos\\UIT_SE104_QuanLyKhachSan\\QuanLyKhachSan\\Models\\Core\\Entities\\User.cs",
+              "RelativeToolTip": "Models\\Core\\Entities\\User.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAAwBcAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-08T22:06:37.496Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "AddUpdateStaffWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\LENOVO\\source\\repos\\UIT_SE104_QuanLyKhachSan\\QuanLyKhachSan\\UI\\Views\\SubViews\\AddUpdateStaffWindow.xaml",
+              "RelativeDocumentMoniker": "UI\\Views\\SubViews\\AddUpdateStaffWindow.xaml",
+              "ToolTip": "C:\\Users\\LENOVO\\source\\repos\\UIT_SE104_QuanLyKhachSan\\QuanLyKhachSan\\UI\\Views\\SubViews\\AddUpdateStaffWindow.xaml",
+              "RelativeToolTip": "UI\\Views\\SubViews\\AddUpdateStaffWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-07-08T22:02:18.046Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "PasswordService.cs",
+              "DocumentMoniker": "C:\\Users\\LENOVO\\source\\repos\\UIT_SE104_QuanLyKhachSan\\QuanLyKhachSan\\Models\\BLL\\Helpers\\Security\\PasswordService.cs",
+              "RelativeDocumentMoniker": "Models\\BLL\\Helpers\\Security\\PasswordService.cs",
+              "ToolTip": "C:\\Users\\LENOVO\\source\\repos\\UIT_SE104_QuanLyKhachSan\\QuanLyKhachSan\\Models\\BLL\\Helpers\\Security\\PasswordService.cs",
+              "RelativeToolTip": "Models\\BLL\\Helpers\\Security\\PasswordService.cs",
+              "ViewState": "AgIAABgAAAAAAAAAAAAswDQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-08T21:16:44.524Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "PhoneValidationRule.cs",
+              "DocumentMoniker": "C:\\Users\\LENOVO\\source\\repos\\UIT_SE104_QuanLyKhachSan\\QuanLyKhachSan\\ValidationRules\\PhoneValidationRule.cs",
+              "RelativeDocumentMoniker": "ValidationRules\\PhoneValidationRule.cs",
+              "ToolTip": "C:\\Users\\LENOVO\\source\\repos\\UIT_SE104_QuanLyKhachSan\\QuanLyKhachSan\\ValidationRules\\PhoneValidationRule.cs",
+              "RelativeToolTip": "ValidationRules\\PhoneValidationRule.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-08T21:55:02.981Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "CCCDValidationRule.cs",
+              "DocumentMoniker": "C:\\Users\\LENOVO\\source\\repos\\UIT_SE104_QuanLyKhachSan\\QuanLyKhachSan\\ValidationRules\\CCCDValidationRule.cs",
+              "RelativeDocumentMoniker": "ValidationRules\\CCCDValidationRule.cs",
+              "ToolTip": "C:\\Users\\LENOVO\\source\\repos\\UIT_SE104_QuanLyKhachSan\\QuanLyKhachSan\\ValidationRules\\CCCDValidationRule.cs",
+              "RelativeToolTip": "ValidationRules\\CCCDValidationRule.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-08T21:49:57.135Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "AddUpdateCustomerWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\LENOVO\\source\\repos\\UIT_SE104_QuanLyKhachSan\\QuanLyKhachSan\\UI\\Views\\SubViews\\AddUpdateCustomerWindow.xaml",
+              "RelativeDocumentMoniker": "UI\\Views\\SubViews\\AddUpdateCustomerWindow.xaml",
+              "ToolTip": "C:\\Users\\LENOVO\\source\\repos\\UIT_SE104_QuanLyKhachSan\\QuanLyKhachSan\\UI\\Views\\SubViews\\AddUpdateCustomerWindow.xaml",
+              "RelativeToolTip": "UI\\Views\\SubViews\\AddUpdateCustomerWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-07-08T21:24:02.102Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "MainWindow.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\LENOVO\\source\\repos\\UIT_SE104_QuanLyKhachSan\\QuanLyKhachSan\\MainWindow.xaml.cs",
+              "RelativeDocumentMoniker": "MainWindow.xaml.cs",
+              "ToolTip": "C:\\Users\\LENOVO\\source\\repos\\UIT_SE104_QuanLyKhachSan\\QuanLyKhachSan\\MainWindow.xaml.cs",
+              "RelativeToolTip": "MainWindow.xaml.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-08T21:15:34.802Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "LoginService.cs",
+              "DocumentMoniker": "C:\\Users\\LENOVO\\source\\repos\\UIT_SE104_QuanLyKhachSan\\QuanLyKhachSan\\Models\\BLL\\Helpers\\Security\\LoginService.cs",
+              "RelativeDocumentMoniker": "Models\\BLL\\Helpers\\Security\\LoginService.cs",
+              "ToolTip": "C:\\Users\\LENOVO\\source\\repos\\UIT_SE104_QuanLyKhachSan\\QuanLyKhachSan\\Models\\BLL\\Helpers\\Security\\LoginService.cs",
+              "RelativeToolTip": "Models\\BLL\\Helpers\\Security\\LoginService.cs",
+              "ViewState": "AgIAABQAAAAAAAAAAAA3wAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-08T21:16:27.342Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Testing.cs",
+              "DocumentMoniker": "C:\\Users\\LENOVO\\source\\repos\\UIT_SE104_QuanLyKhachSan\\QuanLyKhachSan\\Models\\Testing.cs",
+              "RelativeDocumentMoniker": "Models\\Testing.cs",
+              "ToolTip": "C:\\Users\\LENOVO\\source\\repos\\UIT_SE104_QuanLyKhachSan\\QuanLyKhachSan\\Models\\Testing.cs",
+              "RelativeToolTip": "Models\\Testing.cs",
+              "ViewState": "AgIAACEAAAAAAAAAAAAwwC8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-08T21:17:48.633Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "AddUpdateCustomerViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\LENOVO\\source\\repos\\UIT_SE104_QuanLyKhachSan\\QuanLyKhachSan\\ViewModel\\AddUpdateCustomerViewModel.cs",
+              "RelativeDocumentMoniker": "ViewModel\\AddUpdateCustomerViewModel.cs",
+              "ToolTip": "C:\\Users\\LENOVO\\source\\repos\\UIT_SE104_QuanLyKhachSan\\QuanLyKhachSan\\ViewModel\\AddUpdateCustomerViewModel.cs",
+              "RelativeToolTip": "ViewModel\\AddUpdateCustomerViewModel.cs",
+              "ViewState": "AgIAAIQAAAAAAAAAAAAwwI8AAABDAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-08T21:10:33.077Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "LoginViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\LENOVO\\source\\repos\\UIT_SE104_QuanLyKhachSan\\QuanLyKhachSan\\ViewModel\\LoginViewModel.cs",
+              "RelativeDocumentMoniker": "ViewModel\\LoginViewModel.cs",
+              "ToolTip": "C:\\Users\\LENOVO\\source\\repos\\UIT_SE104_QuanLyKhachSan\\QuanLyKhachSan\\ViewModel\\LoginViewModel.cs",
+              "RelativeToolTip": "ViewModel\\LoginViewModel.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAABYAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-08T21:10:23.979Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "LoginWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\LENOVO\\source\\repos\\UIT_SE104_QuanLyKhachSan\\QuanLyKhachSan\\UI\\Views\\MainViews\\LoginWindow.xaml",
+              "RelativeDocumentMoniker": "UI\\Views\\MainViews\\LoginWindow.xaml",
+              "ToolTip": "C:\\Users\\LENOVO\\source\\repos\\UIT_SE104_QuanLyKhachSan\\QuanLyKhachSan\\UI\\Views\\MainViews\\LoginWindow.xaml",
+              "RelativeToolTip": "UI\\Views\\MainViews\\LoginWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-07-08T21:09:54.495Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "App.xaml",
+              "DocumentMoniker": "C:\\Users\\LENOVO\\Source\\Repos\\UIT_SE104_QuanLyKhachSan\\QuanLyKhachSan\\App.xaml",
+              "RelativeDocumentMoniker": "App.xaml",
+              "ToolTip": "C:\\Users\\LENOVO\\Source\\Repos\\UIT_SE104_QuanLyKhachSan\\QuanLyKhachSan\\App.xaml",
+              "RelativeToolTip": "App.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-07-08T21:07:12.408Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "App.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\LENOVO\\source\\repos\\UIT_SE104_QuanLyKhachSan\\QuanLyKhachSan\\App.xaml.cs",
+              "RelativeDocumentMoniker": "App.xaml.cs",
+              "ToolTip": "C:\\Users\\LENOVO\\source\\repos\\UIT_SE104_QuanLyKhachSan\\QuanLyKhachSan\\App.xaml.cs",
+              "RelativeToolTip": "App.xaml.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAA8AAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-08T21:07:02.726Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "MainWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\LENOVO\\source\\repos\\UIT_SE104_QuanLyKhachSan\\QuanLyKhachSan\\MainWindow.xaml",
+              "RelativeDocumentMoniker": "MainWindow.xaml",
+              "ToolTip": "C:\\Users\\LENOVO\\source\\repos\\UIT_SE104_QuanLyKhachSan\\QuanLyKhachSan\\MainWindow.xaml",
+              "RelativeToolTip": "MainWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-07-08T21:06:21.703Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "HotelDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\LENOVO\\source\\repos\\UIT_SE104_QuanLyKhachSan\\QuanLyKhachSan\\Models\\HotelDbContext.cs",
+              "RelativeDocumentMoniker": "Models\\HotelDbContext.cs",
+              "ToolTip": "C:\\Users\\LENOVO\\source\\repos\\UIT_SE104_QuanLyKhachSan\\QuanLyKhachSan\\Models\\HotelDbContext.cs",
+              "RelativeToolTip": "Models\\HotelDbContext.cs",
+              "ViewState": "AgIAABEAAAAAAAAAAAAywBoAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-08T21:02:20.017Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
               "Title": "BookingViewModel.cs",
-              "DocumentMoniker": "D:\\LeMinhPhat\\NewPull\\UIT_SE104_QuanLyKhachSan\\QuanLyKhachSan\\ViewModel\\BookingViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\LENOVO\\source\\repos\\UIT_SE104_QuanLyKhachSan\\QuanLyKhachSan\\ViewModel\\BookingViewModel.cs",
               "RelativeDocumentMoniker": "ViewModel\\BookingViewModel.cs",
-              "ToolTip": "D:\\LeMinhPhat\\NewPull\\UIT_SE104_QuanLyKhachSan\\QuanLyKhachSan\\ViewModel\\BookingViewModel.cs",
+              "ToolTip": "C:\\Users\\LENOVO\\source\\repos\\UIT_SE104_QuanLyKhachSan\\QuanLyKhachSan\\ViewModel\\BookingViewModel.cs",
               "RelativeToolTip": "ViewModel\\BookingViewModel.cs",
-              "ViewState": "AgIAADsAAAAAAAAAAAA4wDsAAABGAAAAAAAAAA==",
+              "ViewState": "AgIAABMAAAAAAAAAAAAgwBwAAAAqAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-07-08T01:51:49.458Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 19,
               "Title": "BookingRoomWindow.xaml",
-              "DocumentMoniker": "D:\\LeMinhPhat\\NewPull\\UIT_SE104_QuanLyKhachSan\\QuanLyKhachSan\\UI\\Views\\MainViews\\BookingRoomWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\LENOVO\\source\\repos\\UIT_SE104_QuanLyKhachSan\\QuanLyKhachSan\\UI\\Views\\MainViews\\BookingRoomWindow.xaml",
               "RelativeDocumentMoniker": "UI\\Views\\MainViews\\BookingRoomWindow.xaml",
-              "ToolTip": "D:\\LeMinhPhat\\NewPull\\UIT_SE104_QuanLyKhachSan\\QuanLyKhachSan\\UI\\Views\\MainViews\\BookingRoomWindow.xaml",
+              "ToolTip": "C:\\Users\\LENOVO\\source\\repos\\UIT_SE104_QuanLyKhachSan\\QuanLyKhachSan\\UI\\Views\\MainViews\\BookingRoomWindow.xaml",
               "RelativeToolTip": "UI\\Views\\MainViews\\BookingRoomWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-07-08T01:36:16.603Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-08T01:36:16.603Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 22,
               "Title": "Reservation.cs",
-              "DocumentMoniker": "D:\\LeMinhPhat\\NewPull\\UIT_SE104_QuanLyKhachSan\\QuanLyKhachSan\\Models\\Core\\Entities\\Reservation.cs",
+              "DocumentMoniker": "C:\\Users\\LENOVO\\source\\repos\\UIT_SE104_QuanLyKhachSan\\QuanLyKhachSan\\Models\\Core\\Entities\\Reservation.cs",
               "RelativeDocumentMoniker": "Models\\Core\\Entities\\Reservation.cs",
-              "ToolTip": "D:\\LeMinhPhat\\NewPull\\UIT_SE104_QuanLyKhachSan\\QuanLyKhachSan\\Models\\Core\\Entities\\Reservation.cs",
+              "ToolTip": "C:\\Users\\LENOVO\\source\\repos\\UIT_SE104_QuanLyKhachSan\\QuanLyKhachSan\\Models\\Core\\Entities\\Reservation.cs",
               "RelativeToolTip": "Models\\Core\\Entities\\Reservation.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-08T01:35:17.659Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-08T01:35:17.659Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 20,
               "Title": "RentReceiptWindow.xaml",
-              "DocumentMoniker": "D:\\LeMinhPhat\\NewPull\\UIT_SE104_QuanLyKhachSan\\QuanLyKhachSan\\UI\\Views\\MainViews\\RentReceiptWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\LENOVO\\source\\repos\\UIT_SE104_QuanLyKhachSan\\QuanLyKhachSan\\UI\\Views\\MainViews\\RentReceiptWindow.xaml",
               "RelativeDocumentMoniker": "UI\\Views\\MainViews\\RentReceiptWindow.xaml",
-              "ToolTip": "D:\\LeMinhPhat\\NewPull\\UIT_SE104_QuanLyKhachSan\\QuanLyKhachSan\\UI\\Views\\MainViews\\RentReceiptWindow.xaml",
+              "ToolTip": "C:\\Users\\LENOVO\\source\\repos\\UIT_SE104_QuanLyKhachSan\\QuanLyKhachSan\\UI\\Views\\MainViews\\RentReceiptWindow.xaml",
               "RelativeToolTip": "UI\\Views\\MainViews\\RentReceiptWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-07-08T01:33:00.615Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-08T01:33:00.615Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 21,
               "Title": "RoomDetailWindow.xaml",
-              "DocumentMoniker": "D:\\LeMinhPhat\\NewPull\\UIT_SE104_QuanLyKhachSan\\QuanLyKhachSan\\UI\\Views\\SubViews\\RoomDetailWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\LENOVO\\source\\repos\\UIT_SE104_QuanLyKhachSan\\QuanLyKhachSan\\UI\\Views\\SubViews\\RoomDetailWindow.xaml",
               "RelativeDocumentMoniker": "UI\\Views\\SubViews\\RoomDetailWindow.xaml",
-              "ToolTip": "D:\\LeMinhPhat\\NewPull\\UIT_SE104_QuanLyKhachSan\\QuanLyKhachSan\\UI\\Views\\SubViews\\RoomDetailWindow.xaml",
+              "ToolTip": "C:\\Users\\LENOVO\\source\\repos\\UIT_SE104_QuanLyKhachSan\\QuanLyKhachSan\\UI\\Views\\SubViews\\RoomDetailWindow.xaml",
               "RelativeToolTip": "UI\\Views\\SubViews\\RoomDetailWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-07-08T01:19:21.125Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-08T01:19:21.125Z"
             }
           ]
         }

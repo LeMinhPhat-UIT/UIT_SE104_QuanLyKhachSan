@@ -1,8 +1,7 @@
-﻿using System.Windows;
-using System.Windows.Media.Media3D;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using QuanLyKhachSan.Models.Core.Entities;
+using System.Windows;
 
 namespace EntityFramework
 {
@@ -12,7 +11,7 @@ namespace EntityFramework
         public DbSet<Customer> Customer { get; set; }
         public DbSet<CustomerTier> CustomerTier { get; set; }
         public DbSet<Invoice> Invoice { get; set; }
-        public DbSet<RevenueReport> RevenueReport {  get; set; }
+        public DbSet<RevenueReport> RevenueReport { get; set; }
         public DbSet<Role> Role { get; set; }
         public DbSet<Reservation> Reservation { get; set; }
         public DbSet<Room> Room { get; set; }
@@ -22,8 +21,7 @@ namespace EntityFramework
 
         // chỉnh lại cho phù hợp tên server trên máy cá nhân
         private const string connectionString =
-            @"
-            Data Source=MSI\SQLEXPRESS;
+            @"Data Source=LAPTOP-S81EDDLK;
             Initial Catalog=HotelData;
             Integrated Security=True;
             Trust Server Certificate=True";
@@ -80,7 +78,7 @@ namespace EntityFramework
                     .OnDelete(DeleteBehavior.SetNull);
             });
 
-            modelBuilder.Entity<Invoice>(entity => 
+            modelBuilder.Entity<Invoice>(entity =>
             {
                 entity
                     .HasOne(x => x.User)
@@ -88,7 +86,7 @@ namespace EntityFramework
                     .OnDelete(DeleteBehavior.SetNull);
             });
 
-            modelBuilder.Entity<Customer>(entity => 
+            modelBuilder.Entity<Customer>(entity =>
             {
                 entity
                     .HasOne(x => x.CustomerTier)

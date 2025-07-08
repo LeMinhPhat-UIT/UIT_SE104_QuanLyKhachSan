@@ -1,10 +1,6 @@
-﻿using System.Configuration;
-using System.Data;
-using System.Windows;
-using QuanLyKhachSan.ViewModel;
-using QuanLyKhachSan.ViewModel.Service;
+﻿using QuanLyKhachSan.ViewModel;
 using QuanLyKhachSan.ViewModel.Store;
-using QuanLyKhachSan.ViewModel.EntityViewModels;
+using System.Windows;
 
 namespace QuanLyKhachSan
 {
@@ -24,7 +20,7 @@ namespace QuanLyKhachSan
         protected override void OnStartup(StartupEventArgs e)
         {
             _mainNavigationStore.CurrentViewModel = new LoginViewModel(_mainNavigationStore, CreateOverviewViewModel);
-
+            //_mainNavigationStore.CurrentViewModel = new AddUpdateCustomerViewModel();
             MainWindow = new MainWindow()
             {
                 DataContext = new MainViewModel(_mainNavigationStore)

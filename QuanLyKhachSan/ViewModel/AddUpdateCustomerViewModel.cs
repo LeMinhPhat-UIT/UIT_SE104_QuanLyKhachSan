@@ -1,15 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Input;
-using QuanLyKhachSan.ViewModel;
+﻿using QuanLyKhachSan.ViewModel.Commands;
 using QuanLyKhachSan.ViewModel.EntityViewModels;
-using QuanLyKhachSan.ViewModel.Commands;
-using System.Windows;
-using System.Security.Policy;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
+using System.Windows.Input;
 
 namespace QuanLyKhachSan.ViewModel
 {
@@ -21,23 +14,36 @@ namespace QuanLyKhachSan.ViewModel
         private ObservableCollection<CustomerViewModel> _suggestions;
         private CustomerViewModel _selectedCustomer;
 
-        
-        public CustomerViewModel Customer 
-        { 
-            get => _customer; 
-            set 
+        public CustomerViewModel Customer
+        {
+            get => _customer;
+            set
             {
-                _customer = value; 
+                if (_customer != null)
+                    _customer.PropertyChanged -= Customer_PropertyChanged;
+
+                _customer = value;
+
+                if (_customer != null)
+                    _customer.PropertyChanged += Customer_PropertyChanged;
+
                 OnPropertyChanged(nameof(Customer));
-            } 
+            }
         }
+
         public IEnumerable<CustomerTierViewModel> CustomerTiers => _customerTiers;
         public IEnumerable<CustomerViewModel> Suggestions => _suggestions;
-        public CustomerTierViewModel SelectedCustomerTier 
-        { 
-            get => _selectedCustomerTier; 
-            set { _selectedCustomerTier = value; OnPropertyChanged(nameof(SelectedCustomerTier)); } 
+
+        public CustomerTierViewModel SelectedCustomerTier
+        {
+            get => _selectedCustomerTier;
+            set
+            {
+                _selectedCustomerTier = value;
+                OnPropertyChanged(nameof(SelectedCustomerTier));
+            }
         }
+
         public CustomerViewModel SelectedCustomer
         {
             get => _selectedCustomer;
@@ -45,27 +51,18 @@ namespace QuanLyKhachSan.ViewModel
             {
                 _selectedCustomer = value;
                 OnPropertyChanged(nameof(SelectedCustomer));
-                if (_selectedCustomer != null)
-                {
-                    Customer.IdentityNumber = _selectedCustomer.IdentityNumber;
-                    Customer.CustomerName = _selectedCustomer.CustomerName;
-                    Customer.PhoneNumber = _selectedCustomer.PhoneNumber;
-                    Customer.CustomerTierName = _selectedCustomer.CustomerTierName;
-                    Customer.CustomerTierName = _selectedCustomer.CustomerTierName;
-                    SelectedCustomerTier = CustomerTiers.First(x => x.CustomerTierName == _selectedCustomer.CustomerTierName);
-                }
-                else
-                {
-                    Customer = new CustomerViewModel();
-                    SelectedCustomerTier = null;
-                }
+
+                // Không autofill ở đây
+                // Chỉ hiển thị gợi ý thôi, không làm gì thêm
             }
         }
-        public Action? CloseAction { get; set; }
 
+        public Action? CloseAction { get; set; }
 
         public ICommand Save { get; }
         public ICommand Close { get; }
+
+        private bool _isAutofilled = false;
 
         public AddUpdateCustomerViewModel()
         {
@@ -74,6 +71,10 @@ namespace QuanLyKhachSan.ViewModel
             _customer = new CustomerViewModel();
             _selectedCustomer = new CustomerViewModel();
 
+            // Gắn sự kiện theo dõi thay đổi trong IdentityNumber
+            _customer.PropertyChanged += Customer_PropertyChanged;
+
+            // Load data
             var customerTierList = QuanLyKhachSan.Models.BLL.Service.CustomerTierService.GetAllData();
             customerTierList.ForEach(x => _customerTiers.Add(new CustomerTierViewModel(x)));
 
@@ -86,7 +87,9 @@ namespace QuanLyKhachSan.ViewModel
                 {
                     var cus = QuanLyKhachSan.Models.BLL.Service.CustomerService.GetByIdentity(Customer.IdentityNumber);
                     if (cus != null)
+                    {
                         Customer.ID = cus.CustomerID;
+                    }
                     else
                     {
                         var customer = Customer.ToCustomer();
@@ -97,15 +100,63 @@ namespace QuanLyKhachSan.ViewModel
                 },
                 _ =>
                 {
-                    if(SelectedCustomerTier != null)
+                    if (SelectedCustomerTier != null)
                         Customer.CustomerTierName = SelectedCustomerTier.CustomerTierName;
-                    return 
-                        !string.IsNullOrEmpty(Customer.CustomerName) && !string.IsNullOrEmpty(Customer.IdentityNumber) && 
-                        !string.IsNullOrEmpty(Customer.PhoneNumber) && !string.IsNullOrEmpty(Customer.CustomerTierName);
+
+                    // Kiểm tra CCCD: 12 chữ số
+                    bool isValidCCCD = !string.IsNullOrEmpty(Customer.IdentityNumber) &&
+                                       Customer.IdentityNumber.Length == 12 &&
+                                       Customer.IdentityNumber.All(char.IsDigit);
+
+                    // Kiểm tra SĐT: 10 chữ số
+                    bool isValidPhone = !string.IsNullOrEmpty(Customer.PhoneNumber) &&
+                                        Customer.PhoneNumber.Length == 10 &&
+                                        Customer.PhoneNumber.All(char.IsDigit);
+
+                    return
+                        !string.IsNullOrEmpty(Customer.CustomerName) &&
+                        !string.IsNullOrEmpty(Customer.IdentityNumber) &&
+                        !string.IsNullOrEmpty(Customer.PhoneNumber) &&
+                        !string.IsNullOrEmpty(Customer.CustomerTierName) &&
+                        isValidCCCD &&
+                        isValidPhone;
                 }
             );
 
-            Close = new AddUpdateCustomerCommand( this, _ => CloseAction?.Invoke() );
+            Close = new AddUpdateCustomerCommand(this, _ => CloseAction?.Invoke());
+        }
+
+        private void Customer_PropertyChanged(object? sender, PropertyChangedEventArgs e)
+        {
+            if (e.PropertyName == nameof(Customer.IdentityNumber))
+            {
+                var cccd = Customer.IdentityNumber;
+
+                // Chỉ autofill khi nhập đủ 12 số
+                if (!string.IsNullOrEmpty(cccd) && cccd.Length == 12)
+                {
+                    var matched = _suggestions.FirstOrDefault(c => c.IdentityNumber == cccd);
+                    if (matched != null)
+                    {
+                        _isAutofilled = true;
+
+                        Customer.CustomerName = matched.CustomerName;
+                        Customer.PhoneNumber = matched.PhoneNumber;
+                        Customer.CustomerTierName = matched.CustomerTierName;
+                        SelectedCustomerTier = _customerTiers.FirstOrDefault(t => t.CustomerTierName == matched.CustomerTierName);
+                        return; // thoát sớm nếu tìm thấy
+                    }
+                }
+
+                // Nếu không tìm thấy CCCD hợp lệ hoặc chưa đủ 12 số → xoá dữ liệu autofill
+                if (_isAutofilled)
+                {
+                    Customer.CustomerName = string.Empty;
+                    Customer.PhoneNumber = string.Empty;
+                    Customer.CustomerTierName = string.Empty;
+                    SelectedCustomerTier = null;
+                }
+            }
         }
     }
 }
