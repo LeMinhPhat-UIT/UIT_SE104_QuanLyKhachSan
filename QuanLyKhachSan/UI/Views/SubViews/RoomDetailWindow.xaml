@@ -65,6 +65,8 @@
                             Padding="8, 0"
                             Margin="0, 8, 0, 0">
                             <DatePicker
+                                IsHitTestVisible="False"
+                                Focusable="False"
                                 SelectedDate="{Binding Reservation.CheckIn}"
                                 materialDesign:TextFieldAssist.DecorationVisibility="Collapsed"
                                 BorderThickness="0"
@@ -89,6 +91,8 @@
                             Padding="8, 0"
                             Margin="0, 8, 0, 0">
                             <DatePicker
+                                IsHitTestVisible="False"
+                                Focusable="False"
                                 SelectedDate="{Binding Reservation.CheckOut}"
                                 materialDesign:TextFieldAssist.DecorationVisibility="Collapsed"
                                 BorderThickness="0"
@@ -102,26 +106,61 @@
                 <StackPanel
                     Grid.Column="0"
                     Margin="0, 18, 0, 0">
-                    <TextBlock
+
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="2*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock
+                            Grid.Column="0"
                             Text="Khách hàng:"
                             FontSize="14"
                             FontWeight="SemiBold"/>
 
+                        <Button
+                            Grid.Column="1"
+                            Command="{Binding CustomerAdd}"
+                            Width="20" 
+                            Height="20"
+                            VerticalAlignment="Center"  
+                            Background="#E8F1FD"
+                            Cursor="Hand">
+                            <materialDesign:PackIcon 
+                                Kind="Plus" 
+                                Width="20" 
+                                Height="20" 
+                                Foreground="#1570EF"/>
+                            <Button.Template>
+                                <ControlTemplate TargetType="Button">
+                                    <Border 
+                                        Background="{TemplateBinding Background}" 
+                                        CornerRadius="20">
+                                        <ContentPresenter 
+                                            HorizontalAlignment="Center" 
+                                            VerticalAlignment="Center"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                    </Grid>
+
                     <DataGrid
-                                Grid.Row="1"
-                                Width="504"
-                                Height="130" 
-                                Background="#F7F9FC"
-                                ItemsSource="{Binding Reservation.Customers}"
-                                materialDesign:DataGridAssist.CornerRadius="12"
-                                SelectionUnit="FullRow"
-                                AutoGenerateColumns="False"
-                                HeadersVisibility="Column"
-                                CanUserAddRows="False"
-                                IsReadOnly="True"
-                                RowHeight="50"
-                                ColumnWidth="*"
-                                Margin="0, 8, 0, 0">
+                        Grid.Row="1"
+                        Width="504"
+                        Height="130" 
+                        Background="#F7F9FC"
+                        ItemsSource="{Binding Reservation.Customers}"
+                        materialDesign:DataGridAssist.CornerRadius="12"
+                        SelectionUnit="FullRow"
+                        AutoGenerateColumns="False"
+                        HeadersVisibility="Column"
+                        CanUserAddRows="False"
+                        IsReadOnly="True"
+                        RowHeight="50"
+                        ColumnWidth="*"
+                        Margin="0, 8, 0, 0">
 
                         <DataGrid.CellStyle>
                             <Style TargetType="DataGridCell" BasedOn="{StaticResource {x:Type DataGridCell}}">

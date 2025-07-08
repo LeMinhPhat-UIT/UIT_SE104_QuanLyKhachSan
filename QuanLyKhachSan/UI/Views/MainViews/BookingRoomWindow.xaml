@@ -600,8 +600,8 @@
                                             <Button
                                                 Grid.Column="1"
                                                 Command="{Binding CustomerAdd}"
-                                                Width="36" 
-                                                Height="36"
+                                                Width="30" 
+                                                Height="30"
                                                 VerticalAlignment="Center"  
                                                 Background="#E8F1FD"
                                                 Cursor="Hand">

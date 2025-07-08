@@ -293,6 +293,25 @@
                                 ColumnWidth="*"
                                 Margin="0, 24, 0, 0">
 
+                                <DataGrid.Resources>
+                                    <ContextMenu x:Key="RowContextMenu">
+                                        <MenuItem 
+                                            Header="Chi tiết"
+                                            Command="{Binding DataContext.ShowDetail, RelativeSource={RelativeSource AncestorType=UserControl}}"/>
+                                    </ContextMenu>
+                                </DataGrid.Resources>
+
+                                <DataGrid.RowStyle>
+                                    <Style TargetType="{x:Type DataGridRow}">
+                                        <Setter Property="ContextMenu" Value="{StaticResource RowContextMenu}"/>
+                                        <Style.Triggers>
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter Property="Background" Value="#F0F5FA"/>
+                                            </Trigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </DataGrid.RowStyle>
+
                                 <DataGrid.CellStyle>
                                     <Style TargetType="DataGridCell" BasedOn="{StaticResource {x:Type DataGridCell}}">
                                         <Setter Property="BorderThickness" Value="0"/>

@@ -3,24 +3,24 @@
   "WorkspaceRootPath": "D:\\LeMinhPhat\\NewPull\\UIT_SE104_QuanLyKhachSan\\QuanLyKhachSan\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{0CC7568F-EA8C-4D36-AF5B-AE6AB1C2A1B6}|QuanLyKhachSan.csproj|d:\\leminhphat\\newpull\\uit_se104_quanlykhachsan\\quanlykhachsan\\viewmodel\\addupdatecustomerviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0CC7568F-EA8C-4D36-AF5B-AE6AB1C2A1B6}|QuanLyKhachSan.csproj|solutionrelative:viewmodel\\addupdatecustomerviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0CC7568F-EA8C-4D36-AF5B-AE6AB1C2A1B6}|QuanLyKhachSan.csproj|d:\\leminhphat\\newpull\\uit_se104_quanlykhachsan\\quanlykhachsan\\ui\\views\\subviews\\addupdatecustomerwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{0CC7568F-EA8C-4D36-AF5B-AE6AB1C2A1B6}|QuanLyKhachSan.csproj|solutionrelative:ui\\views\\subviews\\addupdatecustomerwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{0CC7568F-EA8C-4D36-AF5B-AE6AB1C2A1B6}|QuanLyKhachSan.csproj|d:\\leminhphat\\newpull\\uit_se104_quanlykhachsan\\quanlykhachsan\\viewmodel\\bookingviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{0CC7568F-EA8C-4D36-AF5B-AE6AB1C2A1B6}|QuanLyKhachSan.csproj|solutionrelative:viewmodel\\bookingviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0CC7568F-EA8C-4D36-AF5B-AE6AB1C2A1B6}|QuanLyKhachSan.csproj|d:\\leminhphat\\newpull\\uit_se104_quanlykhachsan\\quanlykhachsan\\viewmodel\\entityviewmodels\\customerviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0CC7568F-EA8C-4D36-AF5B-AE6AB1C2A1B6}|QuanLyKhachSan.csproj|solutionrelative:viewmodel\\entityviewmodels\\customerviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{0CC7568F-EA8C-4D36-AF5B-AE6AB1C2A1B6}|QuanLyKhachSan.csproj|d:\\leminhphat\\newpull\\uit_se104_quanlykhachsan\\quanlykhachsan\\ui\\views\\mainviews\\bookingroomwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{0CC7568F-EA8C-4D36-AF5B-AE6AB1C2A1B6}|QuanLyKhachSan.csproj|solutionrelative:ui\\views\\mainviews\\bookingroomwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0CC7568F-EA8C-4D36-AF5B-AE6AB1C2A1B6}|QuanLyKhachSan.csproj|d:\\leminhphat\\newpull\\uit_se104_quanlykhachsan\\quanlykhachsan\\ui\\views\\mainviews\\rentreceiptwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{0CC7568F-EA8C-4D36-AF5B-AE6AB1C2A1B6}|QuanLyKhachSan.csproj|solutionrelative:ui\\views\\mainviews\\rentreceiptwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0CC7568F-EA8C-4D36-AF5B-AE6AB1C2A1B6}|QuanLyKhachSan.csproj|d:\\leminhphat\\newpull\\uit_se104_quanlykhachsan\\quanlykhachsan\\ui\\views\\subviews\\roomdetailwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{0CC7568F-EA8C-4D36-AF5B-AE6AB1C2A1B6}|QuanLyKhachSan.csproj|solutionrelative:ui\\views\\subviews\\roomdetailwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0CC7568F-EA8C-4D36-AF5B-AE6AB1C2A1B6}|QuanLyKhachSan.csproj|d:\\leminhphat\\newpull\\uit_se104_quanlykhachsan\\quanlykhachsan\\models\\core\\entities\\reservation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0CC7568F-EA8C-4D36-AF5B-AE6AB1C2A1B6}|QuanLyKhachSan.csproj|solutionrelative:models\\core\\entities\\reservation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,7 +30,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 107,
-          "SelectedChildIndex": 10,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Bookmark",
@@ -58,65 +58,64 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "CustomerViewModel.cs",
-              "DocumentMoniker": "D:\\LeMinhPhat\\NewPull\\UIT_SE104_QuanLyKhachSan\\QuanLyKhachSan\\ViewModel\\EntityViewModels\\CustomerViewModel.cs",
-              "RelativeDocumentMoniker": "ViewModel\\EntityViewModels\\CustomerViewModel.cs",
-              "ToolTip": "D:\\LeMinhPhat\\NewPull\\UIT_SE104_QuanLyKhachSan\\QuanLyKhachSan\\ViewModel\\EntityViewModels\\CustomerViewModel.cs",
-              "RelativeToolTip": "ViewModel\\EntityViewModels\\CustomerViewModel.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAABIAAABZAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "BookingViewModel.cs",
+              "DocumentMoniker": "D:\\LeMinhPhat\\NewPull\\UIT_SE104_QuanLyKhachSan\\QuanLyKhachSan\\ViewModel\\BookingViewModel.cs",
+              "RelativeDocumentMoniker": "ViewModel\\BookingViewModel.cs",
+              "ToolTip": "D:\\LeMinhPhat\\NewPull\\UIT_SE104_QuanLyKhachSan\\QuanLyKhachSan\\ViewModel\\BookingViewModel.cs",
+              "RelativeToolTip": "ViewModel\\BookingViewModel.cs",
+              "ViewState": "AgIAADsAAAAAAAAAAAA4wDsAAABGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-07T07:42:12.115Z",
+              "WhenOpened": "2025-07-08T01:51:49.458Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 1,
               "Title": "BookingRoomWindow.xaml",
               "DocumentMoniker": "D:\\LeMinhPhat\\NewPull\\UIT_SE104_QuanLyKhachSan\\QuanLyKhachSan\\UI\\Views\\MainViews\\BookingRoomWindow.xaml",
               "RelativeDocumentMoniker": "UI\\Views\\MainViews\\BookingRoomWindow.xaml",
               "ToolTip": "D:\\LeMinhPhat\\NewPull\\UIT_SE104_QuanLyKhachSan\\QuanLyKhachSan\\UI\\Views\\MainViews\\BookingRoomWindow.xaml",
               "RelativeToolTip": "UI\\Views\\MainViews\\BookingRoomWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-07-07T07:31:14.136Z",
+              "WhenOpened": "2025-07-08T01:36:16.603Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Reservation.cs",
+              "DocumentMoniker": "D:\\LeMinhPhat\\NewPull\\UIT_SE104_QuanLyKhachSan\\QuanLyKhachSan\\Models\\Core\\Entities\\Reservation.cs",
+              "RelativeDocumentMoniker": "Models\\Core\\Entities\\Reservation.cs",
+              "ToolTip": "D:\\LeMinhPhat\\NewPull\\UIT_SE104_QuanLyKhachSan\\QuanLyKhachSan\\Models\\Core\\Entities\\Reservation.cs",
+              "RelativeToolTip": "Models\\Core\\Entities\\Reservation.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-08T01:35:17.659Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "BookingViewModel.cs",
-              "DocumentMoniker": "D:\\LeMinhPhat\\NewPull\\UIT_SE104_QuanLyKhachSan\\QuanLyKhachSan\\ViewModel\\BookingViewModel.cs",
-              "RelativeDocumentMoniker": "ViewModel\\BookingViewModel.cs",
-              "ToolTip": "D:\\LeMinhPhat\\NewPull\\UIT_SE104_QuanLyKhachSan\\QuanLyKhachSan\\ViewModel\\BookingViewModel.cs",
-              "RelativeToolTip": "ViewModel\\BookingViewModel.cs",
-              "ViewState": "AgIAAGEAAAAAAAAAAAAowEMAAAAzAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-07T06:33:55.943Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "AddUpdateCustomerWindow.xaml",
-              "DocumentMoniker": "D:\\LeMinhPhat\\NewPull\\UIT_SE104_QuanLyKhachSan\\QuanLyKhachSan\\UI\\Views\\SubViews\\AddUpdateCustomerWindow.xaml",
-              "RelativeDocumentMoniker": "UI\\Views\\SubViews\\AddUpdateCustomerWindow.xaml",
-              "ToolTip": "D:\\LeMinhPhat\\NewPull\\UIT_SE104_QuanLyKhachSan\\QuanLyKhachSan\\UI\\Views\\SubViews\\AddUpdateCustomerWindow.xaml",
-              "RelativeToolTip": "UI\\Views\\SubViews\\AddUpdateCustomerWindow.xaml",
+              "Title": "RentReceiptWindow.xaml",
+              "DocumentMoniker": "D:\\LeMinhPhat\\NewPull\\UIT_SE104_QuanLyKhachSan\\QuanLyKhachSan\\UI\\Views\\MainViews\\RentReceiptWindow.xaml",
+              "RelativeDocumentMoniker": "UI\\Views\\MainViews\\RentReceiptWindow.xaml",
+              "ToolTip": "D:\\LeMinhPhat\\NewPull\\UIT_SE104_QuanLyKhachSan\\QuanLyKhachSan\\UI\\Views\\MainViews\\RentReceiptWindow.xaml",
+              "RelativeToolTip": "UI\\Views\\MainViews\\RentReceiptWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-07-07T07:18:45.67Z",
+              "WhenOpened": "2025-07-08T01:33:00.615Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "AddUpdateCustomerViewModel.cs",
-              "DocumentMoniker": "D:\\LeMinhPhat\\NewPull\\UIT_SE104_QuanLyKhachSan\\QuanLyKhachSan\\ViewModel\\AddUpdateCustomerViewModel.cs",
-              "RelativeDocumentMoniker": "ViewModel\\AddUpdateCustomerViewModel.cs",
-              "ToolTip": "D:\\LeMinhPhat\\NewPull\\UIT_SE104_QuanLyKhachSan\\QuanLyKhachSan\\ViewModel\\AddUpdateCustomerViewModel.cs",
-              "RelativeToolTip": "ViewModel\\AddUpdateCustomerViewModel.cs",
-              "ViewState": "AgIAACEAAAAAAAAAAAA1wDEAAAASAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-07T06:34:02.428Z",
+              "DocumentIndex": 3,
+              "Title": "RoomDetailWindow.xaml",
+              "DocumentMoniker": "D:\\LeMinhPhat\\NewPull\\UIT_SE104_QuanLyKhachSan\\QuanLyKhachSan\\UI\\Views\\SubViews\\RoomDetailWindow.xaml",
+              "RelativeDocumentMoniker": "UI\\Views\\SubViews\\RoomDetailWindow.xaml",
+              "ToolTip": "D:\\LeMinhPhat\\NewPull\\UIT_SE104_QuanLyKhachSan\\QuanLyKhachSan\\UI\\Views\\SubViews\\RoomDetailWindow.xaml",
+              "RelativeToolTip": "UI\\Views\\SubViews\\RoomDetailWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-07-08T01:19:21.125Z",
               "EditorCaption": ""
             }
           ]

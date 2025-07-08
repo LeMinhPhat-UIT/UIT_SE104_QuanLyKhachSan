@@ -51,6 +51,13 @@ namespace QuanLyKhachSan.ViewModel
                     Customer.CustomerName = _selectedCustomer.CustomerName;
                     Customer.PhoneNumber = _selectedCustomer.PhoneNumber;
                     Customer.CustomerTierName = _selectedCustomer.CustomerTierName;
+                    Customer.CustomerTierName = _selectedCustomer.CustomerTierName;
+                    SelectedCustomerTier = CustomerTiers.First(x => x.CustomerTierName == _selectedCustomer.CustomerTierName);
+                }
+                else
+                {
+                    Customer = new CustomerViewModel();
+                    SelectedCustomerTier = null;
                 }
             }
         }
@@ -79,7 +86,7 @@ namespace QuanLyKhachSan.ViewModel
                 {
                     var cus = QuanLyKhachSan.Models.BLL.Service.CustomerService.GetByIdentity(Customer.IdentityNumber);
                     if (cus != null)
-                        Customer = new CustomerViewModel(cus);
+                        Customer.ID = cus.CustomerID;
                     else
                     {
                         var customer = Customer.ToCustomer();

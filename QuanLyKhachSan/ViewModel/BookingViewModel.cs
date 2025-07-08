@@ -99,11 +99,11 @@ namespace QuanLyKhachSan.ViewModel
                 new LoadRoomListButton(new RoomTierViewModel(roomTier),_ => this.LoadRoomByTier(roomTier.RoomTierName)))
             );
 
-            AdultsIncrease = new BookingCommand(this, _ => Adults++, _ => CustomersCount < _rule.RoomMaxCustomer );
-            AdultsDecrease = new BookingCommand(this, _ => Adults=Math.Max(0, --Adults));
+            AdultsIncrease = new BookingCommand(this, _ => { Adults++; UpdateInvoice(); }, _ => CustomersCount < _rule.RoomMaxCustomer );
+            AdultsDecrease = new BookingCommand(this, _ => { Adults = Math.Max(0, --Adults); UpdateInvoice(); });
 
-            KidsIncrease = new BookingCommand(this, _ => Kids++, _ => CustomersCount < _rule.RoomMaxCustomer);
-            KidsDecrease = new BookingCommand(this, _ => Kids=Math.Max(0, --Kids));
+            KidsIncrease = new BookingCommand(this, _ => { Kids++; UpdateInvoice(); }, _ => CustomersCount < _rule.RoomMaxCustomer);
+            KidsDecrease = new BookingCommand(this, _ => { Kids = Math.Max(0, --Kids); UpdateInvoice(); });
 
             CustomerAdd = new BookingCommand(this, _ => OpenAndAddCustomer(), _ => _customers.Count<CustomersCount);
 
@@ -156,7 +156,7 @@ namespace QuanLyKhachSan.ViewModel
             };
             viewmodel.CloseAction = () => addUpdateCustomerWindow.Close();
             addUpdateCustomerWindow.ShowDialog();
-            if (viewmodel.Customer.ID != 0 && !_customers.Contains(viewmodel.Customer))
+            if (viewmodel.Customer.ID != 0 && _customers.FirstOrDefault(x => x.ID==viewmodel.Customer.ID)==null)
             {
                 _customers?.Add(viewmodel.Customer);
                 if (viewmodel.Customer.CustomerTierName == "Nước ngoài")
@@ -189,6 +189,15 @@ namespace QuanLyKhachSan.ViewModel
         {
             if (_selectedRoom != null && _reservation != null)
                 Invoice.Total = (double)SelectedRoom.PricePerDay * Reservation.Nights * (100 + Invoice.SurchargeRate) * Invoice.Coef / 100;
+        }
+
+        private void UpdateInvoice()
+        {
+            if (CustomersCount >= _rule.RoomMaxCustomer)
+                _invoice.SurchargeRate = _rule.SurchargeRate;
+            else
+                _invoice.SurchargeRate = 0;
+            UpdateTotal();
         }
     }
 }
