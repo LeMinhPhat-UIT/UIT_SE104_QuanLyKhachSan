@@ -125,7 +125,7 @@
                             <ComboBox
                                 IsEditable="True"
                                 StaysOpenOnEdit="True"
-                                IsTextSearchEnabled="False"
+                                IsTextSearchEnabled="True"
                                 DisplayMemberPath="IdentityNumber"
                                 ItemsSource="{Binding Suggestions}"
                                 SelectedItem="{Binding SelectedCustomer, UpdateSourceTrigger=PropertyChanged}"

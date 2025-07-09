@@ -16,16 +16,18 @@ namespace QuanLyKhachSan.ViewModel.EntityViewModels
         private DateTime _checkOut;
         private ObservableCollection<CustomerViewModel> _customers = new ObservableCollection<CustomerViewModel>();
         private string _status;
-        
+        private int _customersCount;
+
         public int ReservationID { get; set; }
         public string RoomNumber { get; set; }
         public DateTime CheckIn { get => _checkIn; set { _checkIn = value; OnPropertyChanged(nameof(CheckIn)); OnPropertyChanged(nameof(Nights)); } }
         public DateTime CheckOut { get => _checkOut; set { _checkOut = value; OnPropertyChanged(nameof(CheckOut)); OnPropertyChanged(nameof(Nights)); } }
         public int Nights => (CheckOut - CheckIn).Days;
         public string Status { get => _status; set { _status = value; OnPropertyChanged(nameof(Status)); } }
+        public int CustomersCount { get => _customersCount; set { _customersCount = value; OnPropertyChanged(nameof(CustomersCount)); } }
         public IEnumerable<CustomerViewModel> Customers => _customers;
 
-        public ReservationViewModel() 
+        public ReservationViewModel()
         {
             CheckIn = DateTime.Now.Date;
             CheckOut = DateTime.Now.Date;
@@ -41,6 +43,7 @@ namespace QuanLyKhachSan.ViewModel.EntityViewModels
                 .GetCustomers(reservation.ReservationID)
                 .ForEach(x => _customers?.Add(new CustomerViewModel(x)));
             Status = reservation.Status;
+            CustomersCount = reservation.CustomersCount;
         }
 
         public int GetNights()
@@ -48,5 +51,20 @@ namespace QuanLyKhachSan.ViewModel.EntityViewModels
 
         public int GetCustomersCount()
             => Customers.ToList().Count;
+
+        public void DeleteCustomer(CustomerViewModel customerViewModel)
+        {
+            if (customerViewModel != null)
+            {
+                var cus = _customers.FirstOrDefault(x => x.ID == customerViewModel.ID);
+                _customers.Remove(cus);
+            }
+        }
+
+        public void AddCustomer(CustomerViewModel customerViewModel)
+        {
+            if (_customers.FirstOrDefault(x => x.ID == customerViewModel.ID) == null)
+                _customers.Add(customerViewModel);
+        }
     }
 }

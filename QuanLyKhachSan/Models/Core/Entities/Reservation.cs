@@ -24,6 +24,7 @@ namespace QuanLyKhachSan.Models.Core.Entities
         [StringLength(20)]
         [Column(TypeName="varchar")]
         public string Status { get; set; }
+        public int CustomersCount { get; set; }
 
         [ForeignKey("RoomID")]
         public Room Room { get; set; }

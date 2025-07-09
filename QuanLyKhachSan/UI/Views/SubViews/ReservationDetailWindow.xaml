@@ -1,4 +1,4 @@
-﻿<Window x:Class="QuanLyKhachSan.UI.Views.SubViews.RoomDetailWindow"
+﻿<Window x:Class="QuanLyKhachSan.UI.Views.SubViews.ReservationDetailWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -36,7 +36,7 @@
                 </Button>
 
                 <TextBlock
-                    Text="Chi tiết phòng"
+                    Text="Chi tiết phiếu thuê"
                     FontSize="24"
                     FontWeight="SemiBold"
                     Foreground="#1570EF"
@@ -111,6 +111,7 @@
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="2*"/>
                             <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
 
                         <TextBlock
@@ -121,6 +122,32 @@
 
                         <Button
                             Grid.Column="1"
+                            Command="{Binding CustomerDelete}"
+                            Width="20" 
+                            Height="20"
+                            VerticalAlignment="Center"  
+                            Background="#E8F1FD"
+                            Cursor="Hand">
+                            <materialDesign:PackIcon 
+                                Kind="Minus" 
+                                Width="20" 
+                                Height="20" 
+                                Foreground="#1570EF"/>
+                            <Button.Template>
+                                <ControlTemplate TargetType="Button">
+                                    <Border 
+                                        Background="{TemplateBinding Background}" 
+                                        CornerRadius="20">
+                                        <ContentPresenter 
+                                            HorizontalAlignment="Center" 
+                                            VerticalAlignment="Center"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+
+                        <Button
+                            Grid.Column="2"
                             Command="{Binding CustomerAdd}"
                             Width="20" 
                             Height="20"
@@ -147,9 +174,10 @@
                     </Grid>
 
                     <DataGrid
+                        SelectedItem="{Binding SelectedCustomer}"
                         Grid.Row="1"
                         Width="504"
-                        Height="130" 
+                        Height="150" 
                         Background="#F7F9FC"
                         ItemsSource="{Binding Reservation.Customers}"
                         materialDesign:DataGridAssist.CornerRadius="12"
@@ -179,7 +207,8 @@
                     </DataGrid>
                 </StackPanel>
 
-                <!--<Button
+                <Button
+                    Command="{Binding Save}"
                     Style="{DynamicResource BlueButtonStyle}"
                     Content="Lưu"
                     Width="80"
@@ -187,7 +216,7 @@
                     HorizontalAlignment="Right"
                     Padding="4"
                     Cursor="Hand"
-                    Margin="0, 18, 0, 0"/>-->
+                    Margin="0, 0, 0, 0"/>
             </StackPanel>
         </Border>
     </Grid>

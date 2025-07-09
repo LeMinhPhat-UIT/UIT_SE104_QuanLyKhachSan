@@ -54,6 +54,7 @@ namespace QuanLyKhachSan.ViewModel
 
         public ICommand SelectedChanged { get; }
         public ICommand Search { get; }
+        public ICommand ShowDetail { get; }
         public ReservationWViewModel(NavigationStore navigationStore)
         {
             _navigationStore = navigationStore;
@@ -70,13 +71,27 @@ namespace QuanLyKhachSan.ViewModel
             SelectedChanged = new ReservationCommand(this, _ => UpdateReservation());
 
             Search = new ReservationCommand(this, _ => SearchByRoomNumber(SearchingRoomNumber));
+
+            ShowDetail = new ReservationCommand(this, _ => OpenReservationDetail());
+        }
+
+        private void OpenReservationDetail()
+        {
+            var viewmodel = new RoomDetailViewModel(SelectedReservation);
+            var reservationDetailWindow = new ReservationDetailWindow()
+            {
+                DataContext = viewmodel,
+            };
+            viewmodel.CloseAction = () => reservationDetailWindow.Close();
+            reservationDetailWindow.ShowDialog();
         }
 
         private void SearchByRoomNumber(string roomNumber)
         {
-            if (!string.IsNullOrEmpty(roomNumber) || !string.IsNullOrWhiteSpace(roomNumber) ){
+            if (!string.IsNullOrEmpty(roomNumber) || !string.IsNullOrWhiteSpace(roomNumber))
+            {
                 var reservationList = QuanLyKhachSan.Models.BLL.Service.ReservationService.GetAllData()
-                .Where(x => 
+                .Where(x =>
                 {
                     x.Room = QuanLyKhachSan.Models.BLL.Service.ReservationService.GetRoom(x.ReservationID);
                     return (x.Status == "Pending" || x.Status == "CheckIn") && x.Room.RoomNumber.Contains(roomNumber);
@@ -97,12 +112,22 @@ namespace QuanLyKhachSan.ViewModel
         {
             var reservation = QuanLyKhachSan.Models.BLL.Service.ReservationService.GetById(SelectedReservation.ReservationID);
             reservation.Status = SelectedReservation.Status;
-            if(SelectedReservation.Status == "Cancelled")
+            if (SelectedReservation.Status == "CheckIn")
+            {
+                var viewmodel = new RoomDetailViewModel(SelectedReservation);
+                var roomDetailWindow = new ReservationDetailWindow
+                {
+                    DataContext = viewmodel,
+                };
+                viewmodel.CloseAction = () => roomDetailWindow.Close();
+                roomDetailWindow.ShowDialog();
+            }
+            else if (SelectedReservation.Status == "Cancelled")
             {
                 _reservations.Remove(SelectedReservation);
                 SelectedReservation = new ReservationViewModel();
             }
-            else if(SelectedReservation.Status == "CheckOut")
+            else if (SelectedReservation.Status == "CheckOut")
             {
                 var viewmodel = new InvoiceWViewModel(SelectedReservation);
                 var invoiceWindow = new InvoiceWindow()

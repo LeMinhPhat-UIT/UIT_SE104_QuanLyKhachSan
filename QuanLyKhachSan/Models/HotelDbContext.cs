@@ -21,7 +21,7 @@ namespace EntityFramework
 
         // chỉnh lại cho phù hợp tên server trên máy cá nhân
         private const string connectionString =
-            @"Data Source=LAPTOP-S81EDDLK;
+            @"Data Source=MSI\SQLEXPRESS;
             Initial Catalog=HotelData;
             Integrated Security=True;
             Trust Server Certificate=True";

@@ -690,6 +690,31 @@
                                                 FontWeight="Medium"/>
                                         </Grid>
 
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="2*"/>
+                                                <ColumnDefinition Width="*"/>
+                                            </Grid.ColumnDefinitions>
+
+                                            <TextBlock 
+                                                Grid.Column="0" 
+                                                Text="Có khách nước ngoài" 
+                                                FontSize="20" 
+                                                FontWeight="Medium"/>
+                                            <CheckBox
+                                                Command="{Binding Checked}"
+                                                CommandParameter="{Binding IsChecked, RelativeSource={RelativeSource Self}}"
+                                                Grid.Column="1"
+                                                HorizontalAlignment="Center"
+                                                />
+                                            <!--<TextBlock 
+                                                Grid.Column="1" 
+                                                HorizontalAlignment="Right"
+                                                Text="{Binding Invoice.Coef, Mode=TwoWay}" 
+                                                FontSize="20" 
+                                                FontWeight="Medium"/>-->
+                                        </Grid>
+
                                     </StackPanel>
                                 </ScrollViewer>
 

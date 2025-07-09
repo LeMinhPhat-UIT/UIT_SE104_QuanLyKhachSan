@@ -17,9 +17,9 @@ namespace QuanLyKhachSan.UI.Views.SubViews
     /// <summary>
     /// Interaction logic for RoomDetailWindow.xaml
     /// </summary>
-    public partial class RoomDetailWindow : Window
+    public partial class ReservationDetailWindow : Window
     {
-        public RoomDetailWindow()
+        public ReservationDetailWindow()
         {
             InitializeComponent();
         }

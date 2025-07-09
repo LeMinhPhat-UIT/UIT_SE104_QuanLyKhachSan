@@ -79,23 +79,23 @@ namespace QuanLyKhachSan.ViewModel
 
             RoomUpdate = new RoomCommand(this, _ => OpenAndUpdateRoom(), _ => User.UserRole == "Administrator");
 
-            RoomDelete = new RoomCommand(this, _ => DeleteRoom(), _ => User.UserRole == "Administrator" && SelectedRoom.RoomState != "Occupied");
+            RoomDelete = new RoomCommand(this, _ => DeleteRoom(), _ => SelectedRoom != null && User.UserRole == "Administrator" && SelectedRoom.RoomState != "Occupied");
 
-            ShowDetail = new RoomCommand(this, _ => OpenRoomDetail(), _ => SelectedRoom!=null && SelectedRoom.RoomState == "Occupied");
+            //ShowDetail = new RoomCommand(this, _ => OpenRoomDetail(), _ => SelectedRoom!=null && SelectedRoom.RoomState == "Occupied");
         }
 
-        private void OpenRoomDetail()
-        {
-            var reservations = QuanLyKhachSan.Models.BLL.Service.RoomService.GetReservations(SelectedRoom.RoomID);
-            var reservationViewModel = new ReservationViewModel(reservations[reservations.Count - 1]);
-            var viewmodel = new RoomDetailViewModel(reservationViewModel);
-            var roomDetailWindow = new RoomDetailWindow()
-            {
-                DataContext = viewmodel,
-            };
-            viewmodel.CloseAction = () => roomDetailWindow.Close();
-            roomDetailWindow.ShowDialog();
-        }
+        //private void OpenRoomDetail()
+        //{
+        //    var reservations = QuanLyKhachSan.Models.BLL.Service.RoomService.GetReservations(SelectedRoom.RoomID);
+        //    var reservationViewModel = new ReservationViewModel(reservations[reservations.Count - 1]);
+        //    var viewmodel = new RoomDetailViewModel(reservationViewModel);
+        //    var roomDetailWindow = new ReservationDetailWindow()
+        //    {
+        //        DataContext = viewmodel,
+        //    };
+        //    viewmodel.CloseAction = () => roomDetailWindow.Close();
+        //    roomDetailWindow.ShowDialog();
+        //}
 
         private void UpdateLoadRoomButtons()
         {
@@ -127,7 +127,7 @@ namespace QuanLyKhachSan.ViewModel
             };
             viewmodel.CloseAction = () => addUpdateRoomWindow.Close();
             addUpdateRoomWindow.ShowDialog();
-            if (viewmodel.IsSaved && SelectedRoom.RoomID==0)
+            if (viewmodel.IsSaved)
             {
                 _rooms.Add(viewmodel.Room);
                 UpdateLoadRoomButtons();

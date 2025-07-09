@@ -41,7 +41,7 @@ namespace QuanLyKhachSan.ViewModel
         }
     }
 
-    public class BookingViewModel : BaseViewModel 
+    public class BookingViewModel : BaseViewModel
     {
         private UserViewModel _userViewModel;
         private ObservableCollection<RoomViewModel> _rooms;
@@ -62,7 +62,7 @@ namespace QuanLyKhachSan.ViewModel
         public IEnumerable<LoadRoomListButton> LoadRoomButtons => _loadRooms;
         public RoomViewModel SelectedRoom { get => _selectedRoom; set { _selectedRoom = value; OnPropertyChanged(nameof(SelectedRoom)); UpdateTotal(); } }
         public ReservationViewModel Reservation { get => _reservation; set { _reservation = value; OnPropertyChanged(nameof(Reservation)); UpdateTotal(); } }
-        public InvoiceViewModel Invoice { get => _invoice; set { OnPropertyChanged(nameof(Invoice)); } } 
+        public InvoiceViewModel Invoice { get => _invoice; set { OnPropertyChanged(nameof(Invoice)); } }
         public int Adults { get => _adults; set { _adults = value; OnPropertyChanged(nameof(Adults)); OnPropertyChanged(nameof(CustomersCount)); } }
         public int Kids { get => _kids; set { _kids = value; OnPropertyChanged(nameof(Kids)); OnPropertyChanged(nameof(CustomersCount)); } }
         public int CustomersCount => Adults + Kids;
@@ -73,6 +73,7 @@ namespace QuanLyKhachSan.ViewModel
         public ICommand KidsIncrease { get; }
         public ICommand KidsDecrease { get; }
         public ICommand CustomerAdd { get; }
+        public ICommand Checked { get; }
         public ICommand Save { get; }
 
         public SidebarCommand SidebarCommand => _sidebarCommand;
@@ -96,18 +97,28 @@ namespace QuanLyKhachSan.ViewModel
 
             var roomTierList = QuanLyKhachSan.Models.BLL.Service.RoomTierService.GetAllData();
             roomTierList.ForEach(roomTier => _loadRooms?.Add(
-                new LoadRoomListButton(new RoomTierViewModel(roomTier),_ => this.LoadRoomByTier(roomTier.RoomTierName)))
+                new LoadRoomListButton(new RoomTierViewModel(roomTier), _ => this.LoadRoomByTier(roomTier.RoomTierName)))
             );
 
-            AdultsIncrease = new BookingCommand(this, _ => { Adults++; UpdateInvoice(); }, _ => CustomersCount < _rule.RoomMaxCustomer );
+            AdultsIncrease = new BookingCommand(this, _ => { Adults++; UpdateInvoice(); }, _ => CustomersCount < _rule.RoomMaxCustomer);
             AdultsDecrease = new BookingCommand(this, _ => { Adults = Math.Max(0, --Adults); UpdateInvoice(); });
 
             KidsIncrease = new BookingCommand(this, _ => { Kids++; UpdateInvoice(); }, _ => CustomersCount < _rule.RoomMaxCustomer);
             KidsDecrease = new BookingCommand(this, _ => { Kids = Math.Max(0, --Kids); UpdateInvoice(); });
 
-            CustomerAdd = new BookingCommand(this, _ => OpenAndAddCustomer(), _ => _customers.Count<CustomersCount);
+            CustomerAdd = new BookingCommand(this, _ => OpenAndAddCustomer(), _ => _customers.Count < CustomersCount);
 
             Save = new BookingCommand(this, _ => AddReservationAndInvoice(), _ => _invoice.Total != 0);
+
+            Checked = new BookingCommand(this, (object isChecked) => HasForeignCustomerCheck((bool)isChecked));
+        }
+
+        private void HasForeignCustomerCheck(bool isChecked)
+        {
+            if (isChecked)
+                _invoice.Coef = 1.5;
+            else _invoice.Coef = 1;
+            UpdateTotal();
         }
 
         private void AddReservationAndInvoice()
@@ -119,6 +130,7 @@ namespace QuanLyKhachSan.ViewModel
                 CheckInDate = Reservation.CheckIn,
                 CheckOutDate = Reservation.CheckOut,
                 Status = "Pending",
+                CustomersCount = CustomersCount,
             };
             var invoice = new Invoice()
             {
@@ -156,7 +168,7 @@ namespace QuanLyKhachSan.ViewModel
             };
             viewmodel.CloseAction = () => addUpdateCustomerWindow.Close();
             addUpdateCustomerWindow.ShowDialog();
-            if (viewmodel.Customer.ID != 0 && _customers.FirstOrDefault(x => x.ID==viewmodel.Customer.ID)==null)
+            if (viewmodel.Customer.ID != 0 && _customers.FirstOrDefault(x => x.ID == viewmodel.Customer.ID) == null)
             {
                 _customers?.Add(viewmodel.Customer);
                 if (viewmodel.Customer.CustomerTierName == "Nước ngoài")
@@ -167,14 +179,14 @@ namespace QuanLyKhachSan.ViewModel
             }
         }
 
-        private void LoadRoomByTier(string? roomTierName=null)
+        private void LoadRoomByTier(string? roomTierName = null)
         {
             _rooms.Clear();
             var roomList = QuanLyKhachSan.Models.BLL.Service.RoomService.GetAllData().Where(x => x.RoomState == "Available").ToList();
-            if(!string.IsNullOrEmpty(roomTierName) && roomTierName != "Tất cả")
+            if (!string.IsNullOrEmpty(roomTierName) && roomTierName != "Tất cả")
                 roomList.ForEach(room => {
                     var roomViewModel = new RoomViewModel(room);
-                    if(roomViewModel.RoomTierName == roomTierName)
+                    if (roomViewModel.RoomTierName == roomTierName)
                         _rooms.Add(roomViewModel);
                 });
             else
