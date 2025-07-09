@@ -13,7 +13,7 @@ using LiveChartsCore.Painting;
 using LiveChartsCore.SkiaSharpView;
 using LiveChartsCore.SkiaSharpView.Painting;
 using Microsoft.Azure.Cosmos.Linq;
-using QuanLyKhachSan.Model.BLL.Helpers.ReportHelpers;
+using QuanLyKhachSan.Models.BLL.Helpers.ReportHelpers;
 using QuanLyKhachSan.Models.Core.Entities;
 using QuanLyKhachSan.ViewModel.Commands;
 using QuanLyKhachSan.ViewModel.EntityViewModels;

@@ -10,7 +10,6 @@ using LiveChartsCore;
 using LiveChartsCore.SkiaSharpView;
 using LiveChartsCore.SkiaSharpView.Painting;
 using OpenTK.Graphics.OpenGL;
-using QuanLyKhachSan.Model.BLL.Helpers.ReportHelpers;
 using QuanLyKhachSan.Models.BLL;
 using QuanLyKhachSan.Models.BLL.Helpers.QueryHelpers;
 using QuanLyKhachSan.Models.BLL.Helpers.ReportHelpers;

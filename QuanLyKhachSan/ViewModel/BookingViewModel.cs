@@ -75,6 +75,7 @@ namespace QuanLyKhachSan.ViewModel
         public ICommand CustomerAdd { get; }
         public ICommand Checked { get; }
         public ICommand Save { get; }
+        public ICommand CustomerDelete { get; }
 
         public SidebarCommand SidebarCommand => _sidebarCommand;
         public BookingViewModel(NavigationStore navigationStore)
@@ -111,6 +112,19 @@ namespace QuanLyKhachSan.ViewModel
             Save = new BookingCommand(this, _ => AddReservationAndInvoice(), _ => _invoice.Total != 0);
 
             Checked = new BookingCommand(this, (object isChecked) => HasForeignCustomerCheck((bool)isChecked));
+
+            CustomerDelete = new BookingCommand(this, (object customer) => Delete((CustomerViewModel)customer));
+        }
+
+        private void Delete(CustomerViewModel cus)
+        {
+            if (cus != null)
+            {
+                _customers.Remove(_customers.FirstOrDefault(x => x.ID == cus.ID));
+                if (_customers.Any(x => x.CustomerTierName == "Nước ngoài"))
+                    _invoice.Coef = 1.5;
+                else _invoice.Coef = 1;
+            }
         }
 
         private void HasForeignCustomerCheck(bool isChecked)
