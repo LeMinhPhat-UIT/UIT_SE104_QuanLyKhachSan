@@ -51,10 +51,12 @@ namespace QuanLyKhachSan.ViewModel
                 MessageBox.Show($"Please fill in all the customers, you are missing {Reservation.CustomersCount - Reservation.Customers.Count()} customer(s)");
                 return;
             }
-            for (int i = 1; i < Reservation.CustomersCount; i++) {
-                var cusID = Reservation.Customers.ToList()[i].ID;
-                QuanLyKhachSan.Models.BLL.Service.ReservationService.AddCustomer(Reservation.ReservationID, cusID);
-            }
+            var realCustomerList = QuanLyKhachSan.Models.BLL.Service.ReservationService.GetCustomers(Reservation.ReservationID);
+            Reservation.Customers.ToList().ForEach(x =>
+            {
+                if (realCustomerList.FirstOrDefault(y => y.CustomerID == x.ID) == null)
+                    QuanLyKhachSan.Models.BLL.Service.ReservationService.AddCustomer(Reservation.ReservationID, x.ID);
+            });
             CloseAction?.Invoke();
         }
 

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace QuanLyKhachSan.Model.BLL.Helpers.ReportHelpers
+namespace QuanLyKhachSan.Models.BLL.Helpers.ReportHelpers
 {
     public class DateTimeHelper
     {
