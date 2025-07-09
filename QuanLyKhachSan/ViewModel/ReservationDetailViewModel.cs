@@ -19,6 +19,7 @@ namespace QuanLyKhachSan.ViewModel
 
         public ReservationViewModel Reservation { get => _reservation; set { _reservation = value; OnPropertyChanged(nameof(Reservation)); } }
         public CustomerViewModel SelectedCustomer { get => _selectedCustomer; set { _selectedCustomer = value; OnPropertyChanged(nameof(SelectedCustomer)); } }
+        public bool IsSaved { get; set; } = false;
 
         public Action? CloseAction { get; set; }
 
@@ -44,6 +45,7 @@ namespace QuanLyKhachSan.ViewModel
 
         private void SaveAndClose()
         {
+            IsSaved = true;
             if (Reservation.Customers.Count() < Reservation.CustomersCount)
             {
                 MessageBox.Show($"Please fill in all the customers, you are missing {Reservation.CustomersCount - Reservation.Customers.Count()} customer(s)");

@@ -64,7 +64,8 @@ namespace QuanLyKhachSan.ViewModel
             user.PhoneNumber = _user.PhoneNumber;
             user.Password = "password123";
             QuanLyKhachSan.Models.BLL.Service.UserService.Add(user);
-            _user.ID = user.UserID;
+            //_user.ID = user.UserID;
+            _user = new UserViewModel(user);
             CloseAction?.Invoke();
         }
     }

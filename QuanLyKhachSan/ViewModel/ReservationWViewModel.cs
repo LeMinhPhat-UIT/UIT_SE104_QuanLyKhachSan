@@ -121,6 +121,11 @@ namespace QuanLyKhachSan.ViewModel
                 };
                 viewmodel.CloseAction = () => roomDetailWindow.Close();
                 roomDetailWindow.ShowDialog();
+                if (!viewmodel.IsSaved)
+                {
+                    SelectedReservation.Status = "Pending";
+                    return;
+                }
             }
             else if (SelectedReservation.Status == "Cancelled")
             {
