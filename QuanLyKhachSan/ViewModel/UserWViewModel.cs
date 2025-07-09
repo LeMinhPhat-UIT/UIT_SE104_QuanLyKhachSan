@@ -63,8 +63,11 @@ namespace QuanLyKhachSan.ViewModel
         private void DeleteUser()
         {
             QuanLyKhachSan.Models.BLL.Service.UserService.Delete(SelectedUser.ID);
-            _users.Remove(SelectedUser);
-            SelectedUser = new UserViewModel();
+            if(QuanLyKhachSan.Models.BLL.Service.UserService.GetById(SelectedUser.ID) == null)
+            {
+                _users.Remove(SelectedUser);
+                SelectedUser = new UserViewModel();
+            }
         }
 
         private void OpenAddUserWindow()
