@@ -121,6 +121,8 @@ namespace QuanLyKhachSan.ViewModel
             if (cus != null)
             {
                 _customers.Remove(_customers.FirstOrDefault(x => x.ID == cus.ID));
+                if(QuanLyKhachSan.Models.BLL.Service.CustomerService.GetReservations(cus.ID).Count == 0)
+                    QuanLyKhachSan.Models.BLL.Service.CustomerService.Delete(cus.ID);
                 if (_customers.Any(x => x.CustomerTierName == "Nước ngoài"))
                     _invoice.Coef = 1.5;
                 else _invoice.Coef = 1;
