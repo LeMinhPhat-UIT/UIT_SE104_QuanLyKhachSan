@@ -219,7 +219,7 @@ namespace QuanLyKhachSan.ViewModel
 
         private void UpdateInvoice()
         {
-            if (CustomersCount >= _rule.RoomMaxCustomer)
+            if (CustomersCount >= _rule.CustomerToApplySurchargeRate)
                 _invoice.SurchargeRate = _rule.SurchargeRate;
             else
                 _invoice.SurchargeRate = 0;

@@ -24,7 +24,7 @@ namespace QuanLyKhachSan.Models.BLL.Services
 
         public void Delete(int Id)
         {
-            if (RepositoryHub.RoomTierRepo.GetReports(Id).Count != 0)
+            if (RepositoryHub.RoomTierRepo.GetReports(Id).Count != 0 || RepositoryHub.RoomTierRepo.GetRooms(Id).Count !=0)
             {
                 DeleteDialogHelper.RestrictWarning();
                 return;

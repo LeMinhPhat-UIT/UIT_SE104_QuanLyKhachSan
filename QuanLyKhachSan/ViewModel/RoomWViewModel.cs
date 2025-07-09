@@ -113,9 +113,12 @@ namespace QuanLyKhachSan.ViewModel
         private void DeleteRoom()
         {
             QuanLyKhachSan.Models.BLL.Service.RoomService.Delete(SelectedRoom.RoomID);
-            _rooms.Remove(SelectedRoom);
-            SelectedRoom = new RoomViewModel();
-            UpdateLoadRoomButtons();
+            if(QuanLyKhachSan.Models.BLL.Service.RoomService.GetById(SelectedRoom.RoomID) == null)
+            {
+                _rooms.Remove(SelectedRoom);
+                SelectedRoom = new RoomViewModel();
+                UpdateLoadRoomButtons();
+            }
         }
 
         private void OpenAndAddRoom()
