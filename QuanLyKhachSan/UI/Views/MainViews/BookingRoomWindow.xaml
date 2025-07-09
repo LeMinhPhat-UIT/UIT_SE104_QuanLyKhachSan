@@ -505,7 +505,16 @@
                                     <DataGridTextColumn Header="Số phòng" Binding="{Binding RoomNumber}" Width="Auto"/>
                                     <DataGridTextColumn Header="Loại phòng" Binding="{Binding RoomTierName}" Width="*"/>
                                     <DataGridTextColumn Header="Giá" Binding="{Binding PricePerDay, StringFormat={}{0:N0}}" Width="*"/>
-                                    <DataGridTextColumn Header="Cơ sở vật chất" Binding="{Binding Amenity}" Width="2*"/>
+                                    <DataGridTextColumn Header="Cơ sở vật chất" Binding="{Binding Amenity}" Width="2*">
+                                        <DataGridTextColumn.CellStyle>
+                                            <Style TargetType="DataGridCell" BasedOn="{StaticResource {x:Type DataGridCell}}">
+                                                <Setter Property="BorderThickness" Value="0"/>
+                                                <Setter Property="FontSize" Value="14"/>
+                                                <Setter Property="Foreground" Value="Black"/>
+                                                <Setter Property="ToolTip" Value="{Binding Amenity}"/>
+                                            </Style>
+                                        </DataGridTextColumn.CellStyle>
+                                    </DataGridTextColumn>
                                 </DataGrid.Columns>
                             </DataGrid>
                         </StackPanel>

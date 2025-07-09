@@ -292,8 +292,8 @@
                                         <MenuItem 
                                             Header="Xóa phòng"
                                             Command="{Binding DataContext.RoomDelete, RelativeSource={RelativeSource AncestorType=UserControl}}"/>
-                                        <Separator/>
-                                        <!--<MenuItem 
+                                        <!--<Separator/>
+                                        <MenuItem 
                                             Header="Chi tiết phòng"
                                             Command="{Binding DataContext.ShowDetail, RelativeSource={RelativeSource AncestorType=UserControl}}"/>-->
                                     </ContextMenu>

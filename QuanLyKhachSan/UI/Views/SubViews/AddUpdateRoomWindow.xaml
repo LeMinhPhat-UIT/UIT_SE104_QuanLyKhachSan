@@ -124,6 +124,7 @@
                             Padding="8, 0"
                             Margin="0, 8, 0, 0">
                             <TextBox
+                                IsReadOnly="True"
                                 Text="{Binding Room.PricePerDay, UpdateSourceTrigger=PropertyChanged}"
                                 materialDesign:TextFieldAssist.DecorationVisibility="Collapsed"
                                 BorderThickness="0"/>

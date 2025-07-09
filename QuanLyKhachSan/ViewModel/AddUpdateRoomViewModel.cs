@@ -105,6 +105,7 @@ namespace QuanLyKhachSan.ViewModel
                 room.RoomTierID = SelectedTier.ID;
                 QuanLyKhachSan.Models.BLL.Service.RoomService.Add(room);
                 SelectedAmenities.ToList().ForEach(x => QuanLyKhachSan.Models.BLL.Service.RoomService.AddAmenity(room.RoomID, x.ID));
+                _room = new RoomViewModel(room);
             }
             IsSaved = true;
             CloseAction?.Invoke();

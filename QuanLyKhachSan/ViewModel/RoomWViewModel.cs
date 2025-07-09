@@ -77,7 +77,7 @@ namespace QuanLyKhachSan.ViewModel
 
             RoomAdd = new RoomCommand(this, _ => OpenAndAddRoom(), _ => User.UserRole == "Administrator");
 
-            RoomUpdate = new RoomCommand(this, _ => OpenAndUpdateRoom(), _ => User.UserRole == "Administrator");
+            RoomUpdate = new RoomCommand(this, _ => OpenAndUpdateRoom(), _ => SelectedRoom != null && User.UserRole == "Administrator" && SelectedRoom.RoomState != "Occupied");
 
             RoomDelete = new RoomCommand(this, _ => DeleteRoom(), _ => SelectedRoom != null && User.UserRole == "Administrator" && SelectedRoom.RoomState != "Occupied");
 
