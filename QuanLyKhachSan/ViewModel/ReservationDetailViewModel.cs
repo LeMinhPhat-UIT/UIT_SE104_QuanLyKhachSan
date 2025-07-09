@@ -9,6 +9,7 @@ using QuanLyKhachSan.ViewModel.Commands;
 using QuanLyKhachSan.Models.Core.Entities;
 using QuanLyKhachSan.UI.Views.SubViews;
 using System.Windows;
+using Microsoft.Azure.Cosmos.Spatial;
 
 namespace QuanLyKhachSan.ViewModel
 {
@@ -32,7 +33,7 @@ namespace QuanLyKhachSan.ViewModel
         {
             _reservation = reservation;
             Close = new RoomDetailCommand(this, _ => CloseAction?.Invoke());
-            CustomerAdd = new RoomDetailCommand(this, _ => OpenAndAddCustomer());
+            CustomerAdd = new RoomDetailCommand(this, _ => OpenAndAddCustomer(), _ => Reservation.Customers.Count() < Reservation.CustomersCount);
             CustomerDelete = new RoomDetailCommand(this, _ => DeleteCustomer());
             Save = new RoomDetailCommand(this, _ => SaveAndClose());
         }
@@ -40,7 +41,11 @@ namespace QuanLyKhachSan.ViewModel
         private void DeleteCustomer()
         {
             if (SelectedCustomer != null && SelectedCustomer.ID != Reservation.Customers.First().ID)
+            {
+                if (QuanLyKhachSan.Models.BLL.Service.CustomerService.GetReservations(SelectedCustomer.ID).Count == 0)
+                    QuanLyKhachSan.Models.BLL.Service.CustomerService.Delete(SelectedCustomer.ID);
                 Reservation.DeleteCustomer(SelectedCustomer);
+            }
         }
 
         private void SaveAndClose()
