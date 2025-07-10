@@ -347,6 +347,7 @@
 
                                                 <DatePicker
                                                     SelectedDate="{Binding Reservation.CheckOut, Mode=TwoWay}"
+                                                    DisplayDateStart="{Binding Reservation.CheckIn}"
                                                     materialDesign:TextFieldAssist.DecorationVisibility="Collapsed"
                                                     materialDesign:HintAssist.Hint="Select a date"
                                                     FontSize="14"

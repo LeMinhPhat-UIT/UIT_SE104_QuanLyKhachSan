@@ -366,7 +366,7 @@
                                     <DataGridTextColumn 
                                         Header="Giá tiền" 
                                         Width="*"
-                                        Binding="{Binding RoomTierPrice}" 
+                                        Binding="{Binding RoomTierPrice, StringFormat={}{0:N0}}" 
                                         FontSize="14"
                                         FontWeight="Medium"/>
 
