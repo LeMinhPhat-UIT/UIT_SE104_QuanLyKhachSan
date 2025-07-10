@@ -162,7 +162,8 @@
                                 <TextBox.Text>
                                     <Binding Path="User.Identity" Mode="TwoWay" UpdateSourceTrigger="PropertyChanged">
                                         <Binding.ValidationRules>
-                                            <validation:CCCDValidationRule />
+                                            <validation:CCCDValidationRule/>
+                                            <validation:DuplicateCCCDValidationRule/>
                                         </Binding.ValidationRules>
                                     </Binding>
                                 </TextBox.Text>
