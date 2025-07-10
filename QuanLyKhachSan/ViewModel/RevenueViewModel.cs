@@ -101,7 +101,8 @@ namespace QuanLyKhachSan.ViewModel
             {
                 Tier = new RoomTierViewModel(x),
                 Value = 0,
-                Fill = GetRandomColorPaint(),
+                //Fill = GetRandomColorPaint(),
+                Fill = new SolidColorPaint(DefaultChartColors[_pieChartItems.Count]),
             }));
 
             PieChartViewChanged = new RevenueCommand(this, _ => SetPieChart());
@@ -370,5 +371,20 @@ namespace QuanLyKhachSan.ViewModel
             byte b = (byte)((b1 + m) * 255);
             return (r, g, b);
         }
+
+        private static readonly SKColor[] DefaultChartColors = new SKColor[]
+        {
+            SKColors.Blue,
+            SKColors.Red,
+            SKColors.Green,
+            SKColors.Orange,
+            SKColors.Purple,
+            SKColors.Teal,
+            SKColors.Brown,
+            SKColors.LimeGreen,
+            SKColors.Gold,
+            SKColors.Cyan
+            // Add more colors if you expect more segments
+        };
     }
 }
