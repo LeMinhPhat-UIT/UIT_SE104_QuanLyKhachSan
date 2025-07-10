@@ -376,7 +376,7 @@
                                                         x:Name="StatusComboBox"
                                                         HorizontalAlignment="Left"
                                                         VerticalAlignment="Center"
-                                                        ItemsSource="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type DataGrid}}, Path=DataContext.StatusValues}"
+                                                        ItemsSource="{Binding AvailableStatusValues}"
                                                         SelectedItem="{Binding Status, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                                                         BorderBrush="Transparent"
                                                         Foreground="Black"

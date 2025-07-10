@@ -110,41 +110,44 @@ namespace QuanLyKhachSan.ViewModel
 
         private void UpdateReservation()
         {
-            var reservation = QuanLyKhachSan.Models.BLL.Service.ReservationService.GetById(SelectedReservation.ReservationID);
-            reservation.Status = SelectedReservation.Status;
-            if (SelectedReservation.Status == "CheckIn")
+            if(SelectedReservation.OriginalStatus != SelectedReservation.Status)
             {
-                var viewmodel = new RoomDetailViewModel(SelectedReservation);
-                var roomDetailWindow = new ReservationDetailWindow
+                var reservation = QuanLyKhachSan.Models.BLL.Service.ReservationService.GetById(SelectedReservation.ReservationID);
+                reservation.Status = SelectedReservation.Status;
+                if (SelectedReservation.Status == "CheckIn")
                 {
-                    DataContext = viewmodel,
-                };
-                viewmodel.CloseAction = () => roomDetailWindow.Close();
-                roomDetailWindow.ShowDialog();
-                if (!viewmodel.IsSaved)
-                {
-                    SelectedReservation.Status = "Pending";
-                    return;
+                    var viewmodel = new RoomDetailViewModel(SelectedReservation);
+                    var roomDetailWindow = new ReservationDetailWindow
+                    {
+                        DataContext = viewmodel,
+                    };
+                    viewmodel.CloseAction = () => roomDetailWindow.Close();
+                    roomDetailWindow.ShowDialog();
+                    if (!viewmodel.IsSaved)
+                    {
+                        SelectedReservation.Status = "Pending";
+                        return;
+                    }
                 }
-            }
-            else if (SelectedReservation.Status == "Cancelled")
-            {
-                _reservations.Remove(SelectedReservation);
-                SelectedReservation = new ReservationViewModel();
-            }
-            else if (SelectedReservation.Status == "CheckOut")
-            {
-                var viewmodel = new InvoiceWViewModel(SelectedReservation);
-                var invoiceWindow = new InvoiceWindow()
+                else if (SelectedReservation.Status == "Cancelled")
                 {
-                    DataContext = viewmodel,
-                };
-                viewmodel.CloseAction = () => invoiceWindow.Close();
-                invoiceWindow.ShowDialog();
-                _reservations.Remove(SelectedReservation);
-                _selectedReservation = new ReservationViewModel();
-            }
-            QuanLyKhachSan.Models.BLL.Service.ReservationService.Update(reservation);
+                    _reservations.Remove(SelectedReservation);
+                    SelectedReservation = new ReservationViewModel();
+                }
+                else if (SelectedReservation.Status == "CheckOut")
+                {
+                    var viewmodel = new InvoiceWViewModel(SelectedReservation);
+                    var invoiceWindow = new InvoiceWindow()
+                    {
+                        DataContext = viewmodel,
+                    };
+                    viewmodel.CloseAction = () => invoiceWindow.Close();
+                    invoiceWindow.ShowDialog();
+                    _reservations.Remove(SelectedReservation);
+                    _selectedReservation = new ReservationViewModel();
+                }
+                QuanLyKhachSan.Models.BLL.Service.ReservationService.Update(reservation);
+            } 
         }
     }
 }

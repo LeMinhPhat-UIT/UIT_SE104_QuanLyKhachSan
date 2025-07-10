@@ -109,7 +109,7 @@ namespace QuanLyKhachSan.ViewModel
 
             CustomerAdd = new BookingCommand(this, _ => OpenAndAddCustomer(), _ => _customers.Count < CustomersCount);
 
-            Save = new BookingCommand(this, _ => AddReservationAndInvoice(), _ => _invoice.Total != 0);
+            Save = new BookingCommand(this, _ => AddReservationAndInvoice(), _ => _invoice.Total != 0 && _customers.Count >= 1);
 
             Checked = new BookingCommand(this, (object isChecked) => HasForeignCustomerCheck((bool)isChecked));
 

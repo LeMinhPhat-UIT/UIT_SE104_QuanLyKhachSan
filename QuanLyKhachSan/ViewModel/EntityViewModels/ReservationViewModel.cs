@@ -17,15 +17,42 @@ namespace QuanLyKhachSan.ViewModel.EntityViewModels
         private ObservableCollection<CustomerViewModel> _customers = new ObservableCollection<CustomerViewModel>();
         private string _status;
         private int _customersCount;
+        private string _originalStatus;
 
         public int ReservationID { get; set; }
         public string RoomNumber { get; set; }
         public DateTime CheckIn { get => _checkIn; set { _checkIn = value; OnPropertyChanged(nameof(CheckIn)); OnPropertyChanged(nameof(Nights)); } }
         public DateTime CheckOut { get => _checkOut; set { _checkOut = value; OnPropertyChanged(nameof(CheckOut)); OnPropertyChanged(nameof(Nights)); } }
         public int Nights => (CheckOut - CheckIn).Days;
-        public string Status { get => _status; set { _status = value; OnPropertyChanged(nameof(Status)); } }
+        public string Status 
+        { 
+            get => _status; 
+            set 
+            {
+                if (_status != value)
+                {
+                    _originalStatus = _status;
+                    _status = value;
+                    OnPropertyChanged(nameof(Status));
+                    OnPropertyChanged(nameof(AvailableStatusValues));
+                }
+            } 
+        }
+        public string OriginalStatus => _originalStatus;
         public int CustomersCount { get => _customersCount; set { _customersCount = value; OnPropertyChanged(nameof(CustomersCount)); } }
         public IEnumerable<CustomerViewModel> Customers => _customers;
+        public List<string> AvailableStatusValues
+        {
+            get
+            {
+                return Status switch
+                {
+                    "Pending" => new List<string> { "Pending", "CheckIn", "Cancelled" },
+                    "CheckIn" => new List<string> { "CheckIn", "CheckOut" },
+                    _ => new List<string> { Status }
+                };
+            }
+        }
 
         public ReservationViewModel()
         {
@@ -43,6 +70,7 @@ namespace QuanLyKhachSan.ViewModel.EntityViewModels
                 .GetCustomers(reservation.ReservationID)
                 .ForEach(x => _customers?.Add(new CustomerViewModel(x)));
             Status = reservation.Status;
+            _originalStatus = reservation.Status;
             CustomersCount = reservation.CustomersCount;
         }
 

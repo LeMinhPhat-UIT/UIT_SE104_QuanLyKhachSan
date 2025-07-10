@@ -157,6 +157,7 @@ namespace QuanLyKhachSan.ViewModel
 
         private void LoadRoomByState(string? roomState = null)
         {
+            _rooms?.Clear();
             if(roomState == null)
             {
                 var roomList = QuanLyKhachSan.Models.BLL.Service.RoomService.GetAllData();
@@ -164,7 +165,6 @@ namespace QuanLyKhachSan.ViewModel
             }
             else
             {
-                _rooms?.Clear();
                 var roomList = QuanLyKhachSan.Models.BLL.Service.RoomService.GetAllData();
                 roomList.Where(room => room.RoomState == roomState).ToList().ForEach(room => _rooms.Add(new RoomViewModel(room)));
             }
