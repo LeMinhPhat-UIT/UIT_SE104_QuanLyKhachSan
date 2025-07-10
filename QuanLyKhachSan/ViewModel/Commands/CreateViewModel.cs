@@ -16,7 +16,8 @@ namespace QuanLyKhachSan.ViewModel.Commands
             _navigationStore = navigationStore;
         }
 
-
+        public LoginViewModel CreateLoginViewModel()
+            => new LoginViewModel(_navigationStore, CreateOverviewViewModel);
         public OverviewViewModel CreateOverviewViewModel()
             => new OverviewViewModel(_navigationStore);
 

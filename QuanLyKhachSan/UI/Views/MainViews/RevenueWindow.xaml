@@ -169,35 +169,64 @@
                         Padding="12,8"
                         Margin="0,0,16,0"
                         Cursor="Hand">
-                        <StackPanel
-                            Orientation="Horizontal">
 
-                            <Ellipse 
-                                Width="52" 
-                                Height="52"
-                                VerticalAlignment="Center">
-                                <Ellipse.Fill>
-                                    <ImageBrush ImageSource="pack://application:,,,/Resources/Images/user.png"/>
-                                </Ellipse.Fill>
-                            </Ellipse>
+                        <Border.ContextMenu>
+                            <ContextMenu>
+                                <MenuItem Header="Đăng xuất" Click="Logout_Click"/>
+                                <MenuItem Header="Thay đổi mật khẩu" Click="ChangePassword_Click"/>
+                            </ContextMenu>
+                        </Border.ContextMenu>
 
+                        <Grid>
                             <StackPanel
-                                VerticalAlignment="Center"
-                                Margin="16, 0, 0, 0">
+                                Orientation="Horizontal">
 
-                                <TextBlock 
-                                    Text="{Binding User.UserRole}"
-                                    VerticalAlignment="Center"
-                                    FontSize="14"
-                                    FontWeight="SemiBold"/>
+                                <Ellipse 
+                                    Width="52" 
+                                    Height="52"
+                                    VerticalAlignment="Center">
+                                    <Ellipse.Fill>
+                                        <ImageBrush ImageSource="pack://application:,,,/Resources/Images/user.png"/>
+                                    </Ellipse.Fill>
+                                </Ellipse>
 
-                                <TextBlock 
-                                    Text="{Binding User.UserEmail}"
+                                <StackPanel
                                     VerticalAlignment="Center"
-                                    FontSize="16"    
-                                    FontWeight="SemiBold"/>
+                                    Margin="16, 0, 0, 0">
+
+                                    <TextBlock 
+                                        Text="{Binding User.UserRole}"
+                                        VerticalAlignment="Center"
+                                        FontSize="14"
+                                        FontWeight="SemiBold"/>
+
+                                    <TextBlock 
+                                        Text="{Binding User.UserEmail}"
+                                        VerticalAlignment="Center"
+                                        FontSize="16"    
+                                        FontWeight="SemiBold"/>
+                                </StackPanel>
                             </StackPanel>
-                        </StackPanel>
+
+                            <Popup x:Name="ChangePasswordPopup"
+                                PlacementTarget="{Binding ElementName=ChangePasswordMenuItem}"
+                                Placement="Bottom"
+                                StaysOpen="False"
+                                AllowsTransparency="True">
+                                <Border Background="White"
+                                    BorderBrush="LightGray"
+                                    BorderThickness="1"
+                                    CornerRadius="5"
+                                    Padding="10"
+                                    Effect="{StaticResource MaterialDesignShadowDepth2}">
+                                    <StackPanel>
+                                        <TextBlock Text="Nhập mật khẩu mới:" FontWeight="SemiBold" Margin="0,0,0,5"/>
+                                        <PasswordBox x:Name="NewPasswordBox" Width="200" Margin="0,0,0,10"/>
+                                        <Button Content="Cập nhật" Click="UpdatePassword_Click" HorizontalAlignment="Right"/>
+                                    </StackPanel>
+                                </Border>
+                            </Popup>
+                        </Grid>
                     </Border>
                 </StackPanel>
             </Grid>

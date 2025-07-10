@@ -15,6 +15,7 @@ namespace QuanLyKhachSan.ViewModel.Commands
         private readonly NavigateCommand _navigateCommand;
         private readonly CreatViewModel _creatViewModel;
 
+        public ICommand Logout { get; }
         public ICommand OverviewWindow { get; }
         public ICommand BookingWindow { get; }
         public ICommand RoomWindow { get; }
@@ -27,6 +28,7 @@ namespace QuanLyKhachSan.ViewModel.Commands
         {
             _creatViewModel = new CreatViewModel(navigationStore);
 
+            Logout = new NavigateCommand(new Service.NavigationService(navigationStore, _creatViewModel.CreateLoginViewModel));
             OverviewWindow = new NavigateCommand(new Service.NavigationService(navigationStore, _creatViewModel.CreateOverviewViewModel));
             BookingWindow = new NavigateCommand(new Service.NavigationService(navigationStore, _creatViewModel.CreateBookingViewModel));
             RoomWindow = new NavigateCommand(new Service.NavigationService(navigationStore, _creatViewModel.CreateRoomViewModel));
