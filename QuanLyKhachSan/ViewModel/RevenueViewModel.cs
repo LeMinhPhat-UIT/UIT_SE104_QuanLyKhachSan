@@ -107,6 +107,8 @@ namespace QuanLyKhachSan.ViewModel
 
             PieChartViewChanged = new RevenueCommand(this, _ => SetPieChart());
             TotalRevenueViewChanged = new RevenueCommand(this, _ => GetRevenue());
+            GetRevenue();
+            SetPieChart();
             SetLineChart();
             SetColumnChart();
         }
