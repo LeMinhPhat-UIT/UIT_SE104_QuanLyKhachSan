@@ -12,9 +12,9 @@ TRACE;DEBUG;NET;NET8_0;NETCOREAPP;WINDOWS;WINDOWS7_0;NET5_0_OR_GREATER;NET6_0_OR
 D:\LeMinhPhat\NewPull\SE104\UIT_SE104_QuanLyKhachSan\QuanLyKhachSan\App.xaml
 16-951439267
 
-120-495021773
+1251182178551
 266-2036467904
 MainWindow.xaml;Resources\UserControls\ButtonStyle.xaml;UI\BindablePasswordBox.xaml;UI\Views\MainViews\BookingRoomWindow.xaml;UI\Views\MainViews\LoginWindow.xaml;UI\Views\MainViews\OverviewWindow.xaml;UI\Views\MainViews\RentReceiptWindow.xaml;UI\Views\MainViews\RevenueWindow.xaml;UI\Views\MainViews\RoomWindow.xaml;UI\Views\MainViews\SettingWindow.xaml;UI\Views\MainViews\StaffWindow.xaml;UI\Views\SubViews\AddUpdateCustomerWindow.xaml;UI\Views\SubViews\AddUpdateRoomWindow.xaml;UI\Views\SubViews\AddUpdateStaffWindow.xaml;UI\Views\SubViews\InvoiceWindow.xaml;UI\Views\SubViews\ReservationDetailWindow.xaml;
 
-False
+True
 

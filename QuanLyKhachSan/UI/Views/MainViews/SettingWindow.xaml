@@ -7,6 +7,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
     xmlns:lvc="clr-namespace:LiveChartsCore.SkiaSharpView.WPF;assembly=LiveChartsCore.SkiaSharpView.WPF"
+    xmlns:validation="clr-namespace:QuanLyKhachSan.ValidationRules"
     xmlns:local="clr-namespace:QuanLyKhachSan.UI.Views.MainViews"
     mc:Ignorable="d">
     <Grid>
@@ -296,6 +297,10 @@
                                     </ContextMenu>
                                 </DataGrid.Resources>
 
+                                <DataGrid.RowValidationRules>
+                                    <validation:RoomTierRowValidationRule ValidationStep="UpdatedValue"/>
+                                </DataGrid.RowValidationRules>
+
                                 <DataGrid.RowStyle>
                                     <Style TargetType="{x:Type DataGridRow}">
                                         <Setter Property="ContextMenu" Value="{StaticResource RowContextMenu}"/>
@@ -359,16 +364,30 @@
                                     <DataGridTextColumn
                                         Header="Tên loại phòng" 
                                         Width="*"
-                                        Binding="{Binding RoomTierName}" 
                                         FontSize="14"
-                                        FontWeight="Medium"/>
+                                        FontWeight="Medium">
+                                        <DataGridTextColumn.Binding>
+                                            <Binding Path="RoomTierName" UpdateSourceTrigger="PropertyChanged">
+                                                <Binding.ValidationRules>
+                                                    <validation:RoomTierNameValidationRule/>
+                                                </Binding.ValidationRules>
+                                            </Binding>
+                                        </DataGridTextColumn.Binding>
+                                    </DataGridTextColumn>
 
                                     <DataGridTextColumn 
                                         Header="Giá tiền" 
                                         Width="*"
-                                        Binding="{Binding RoomTierPrice, StringFormat={}{0:N0}}" 
                                         FontSize="14"
-                                        FontWeight="Medium"/>
+                                        FontWeight="Medium">
+                                        <DataGridTextColumn.Binding>
+                                            <Binding Path="RoomTierPrice" StringFormat="{}{0:N0}" UpdateSourceTrigger="PropertyChanged">
+                                                <Binding.ValidationRules>
+                                                    <validation:RoomTierPriceValidationRule/>
+                                                </Binding.ValidationRules>
+                                            </Binding>
+                                        </DataGridTextColumn.Binding>
+                                    </DataGridTextColumn>
 
                                     <DataGridTemplateColumn Width="Auto">
                                         <DataGridTemplateColumn.CellTemplate>
@@ -447,6 +466,10 @@
                                         </ContextMenu>
                                     </DataGrid.Resources>
 
+                                    <DataGrid.RowValidationRules>
+                                        <validation:CustomerTierRowValidationRule ValidationStep="UpdatedValue"/>
+                                    </DataGrid.RowValidationRules>
+
                                     <DataGrid.RowStyle>
                                         <Style TargetType="{x:Type DataGridRow}">
                                             <Setter Property="ContextMenu" Value="{StaticResource RowContextMenu}"/>
@@ -510,9 +533,16 @@
                                         <DataGridTextColumn
                                             Header="Tên loại khách hàng" 
                                             Width="*"
-                                            Binding="{Binding CustomerTierName}" 
                                             FontSize="14"
-                                            FontWeight="Medium"/>
+                                            FontWeight="Medium">
+                                            <DataGridTextColumn.Binding>
+                                                <Binding Path="CustomerTierName" UpdateSourceTrigger="PropertyChanged">
+                                                    <Binding.ValidationRules>
+                                                        <validation:CustomerTierNameValidationRule/>
+                                                    </Binding.ValidationRules>
+                                                </Binding>
+                                            </DataGridTextColumn.Binding>
+                                        </DataGridTextColumn>
 
                                         <DataGridTemplateColumn Width="Auto"> 
                                             <DataGridTemplateColumn.CellTemplate>

@@ -30,8 +30,8 @@ namespace QuanLyKhachSan.Models.Core.Entities
         [Column(TypeName="smalldatetime")]
         public DateTime WorkingDate { get; set; }
 
-        [StringLength(20)]
-        [Column(TypeName="char")]
+        [StringLength(200)]
+        [Column(TypeName="varchar")]
         public string EmailAddress { get; set; }
 
         [StringLength(10)]

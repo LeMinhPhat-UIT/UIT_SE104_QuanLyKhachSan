@@ -30,71 +30,76 @@ namespace QuanLyKhachSan.UI.Views.MainViews
 
         private void DataGrid_RoomTier_RowEditEnding(object sender, DataGridRowEditEndingEventArgs e)
         {
-            var item = e.Row.Item as RoomTierViewModel;
-
-            Application.Current.Dispatcher.BeginInvoke(new Action(() =>
+            if (e.EditAction == DataGridEditAction.Commit)
             {
-                if (item != null && (string.IsNullOrEmpty(item.RoomTierName) || item.RoomTierPrice==0))
+                var dataGrid = sender as DataGrid;
+                if (dataGrid == null) return;
+
+                Application.Current.Dispatcher.BeginInvoke(new Action(() =>
                 {
-                    var vm = this.DataContext as SettingViewModel;
-                    if (vm != null)
-                    {
-                        vm.RemoveInvalidRoomTier(item);
-                    }
-                }
-                else
-                {
-                    RoomTier roomTier = new RoomTier()
-                    {
-                        RoomTierName = item.RoomTierName,
-                        RoomTierPrice = item.RoomTierPrice,
-                    };
-                    if (item.ID != 0)
-                    {
-                        roomTier.RoomTierID = item.ID;
-                        QuanLyKhachSan.Models.BLL.Service.RoomTierService.Update(roomTier);
-                    }
+                    if (Validation.GetHasError(e.Row))
+                        e.Cancel = true;
                     else
                     {
-                        QuanLyKhachSan.Models.BLL.Service.RoomTierService.Add(roomTier);
-                        item.ID = roomTier.RoomTierID;
+                        var item = e.Row.Item as RoomTierViewModel;
+                        if (item != null)
+                        {
+                            RoomTier roomTier = new RoomTier()
+                            {
+                                RoomTierName = item.RoomTierName,
+                                RoomTierPrice = item.RoomTierPrice,
+                                
+                            };
+                            if (item.ID != 0)
+                            {
+                                roomTier.RoomTierID = item.ID;
+                                QuanLyKhachSan.Models.BLL.Service.RoomTierService.Update(roomTier);
+                            }
+                            else
+                            {
+                                QuanLyKhachSan.Models.BLL.Service.RoomTierService.Add(roomTier);
+                                item.ID = roomTier.RoomTierID;
+                            }
+                        }
                     }
-                }
-            }), System.Windows.Threading.DispatcherPriority.Background);
+                }), System.Windows.Threading.DispatcherPriority.Background);
+            }
         }
 
         private void DataGrid_CustomerTier_RowEditEnding(object sender, DataGridRowEditEndingEventArgs e)
         {
-            var item = e.Row.Item as CustomerTierViewModel;
-
-            Application.Current.Dispatcher.BeginInvoke(new Action(() =>
+            if (e.EditAction == DataGridEditAction.Commit)
             {
-                if (item != null && string.IsNullOrEmpty(item.CustomerTierName))
+                var dataGrid = sender as DataGrid;
+                if (dataGrid == null) return;
+
+                Application.Current.Dispatcher.BeginInvoke(new Action(() =>
                 {
-                    var vm = this.DataContext as SettingViewModel;
-                    if (vm != null)
-                    {
-                        vm.RemoveInvalidCustomerTier(item);
-                    }
-                }
-                else
-                {
-                    CustomerTier cusTier = new CustomerTier()
-                    {
-                        CustomerTierName = item.CustomerTierName,
-                    };
-                    if (item.ID != 0)
-                    {
-                        cusTier.CustomerTierID = item.ID;
-                        QuanLyKhachSan.Models.BLL.Service.CustomerTierService.Update(cusTier);
-                    }
+                    if (Validation.GetHasError(e.Row))
+                        e.Cancel = true;
                     else
                     {
-                        QuanLyKhachSan.Models.BLL.Service.CustomerTierService.Add(cusTier);
-                        item.ID = cusTier.CustomerTierID;
+                        var item = e.Row.Item as CustomerTierViewModel;
+                        if (item != null)
+                        {
+                            CustomerTier cusTier = new CustomerTier()
+                            {
+                                CustomerTierName = item.CustomerTierName,
+                            };
+                            if (item.ID != 0) 
+                            {
+                                cusTier.CustomerTierID = item.ID;
+                                QuanLyKhachSan.Models.BLL.Service.CustomerTierService.Update(cusTier);
+                            }
+                            else 
+                            {
+                                QuanLyKhachSan.Models.BLL.Service.CustomerTierService.Add(cusTier);
+                                item.ID = cusTier.CustomerTierID;
+                            }
+                        }
                     }
-                }
-            }), System.Windows.Threading.DispatcherPriority.Background);
+                }), System.Windows.Threading.DispatcherPriority.Background);
+            }
         }
 
         private void ChangePassword_Click(object sender, RoutedEventArgs e)
