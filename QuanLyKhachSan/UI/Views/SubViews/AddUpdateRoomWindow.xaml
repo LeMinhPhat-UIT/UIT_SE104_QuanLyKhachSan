@@ -125,7 +125,7 @@
                             Margin="0, 8, 0, 0">
                             <TextBox
                                 IsReadOnly="True"
-                                Text="{Binding Room.PricePerDay, UpdateSourceTrigger=PropertyChanged}"
+                                Text="{Binding Room.PricePerDay, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:N0}}"
                                 materialDesign:TextFieldAssist.DecorationVisibility="Collapsed"
                                 BorderThickness="0"/>
                         </Border>

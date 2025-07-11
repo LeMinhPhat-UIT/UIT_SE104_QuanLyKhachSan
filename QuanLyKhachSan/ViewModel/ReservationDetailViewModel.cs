@@ -54,6 +54,7 @@ namespace QuanLyKhachSan.ViewModel
             if (Reservation.Customers.Count() < Reservation.CustomersCount)
             {
                 MessageBox.Show($"Please fill in all the customers, you are missing {Reservation.CustomersCount - Reservation.Customers.Count()} customer(s)");
+                IsSaved = false;
                 return;
             }
             var realCustomerList = QuanLyKhachSan.Models.BLL.Service.ReservationService.GetCustomers(Reservation.ReservationID);
