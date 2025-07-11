@@ -33,15 +33,14 @@ namespace QuanLyKhachSan.Models.BLL.Services
                 DeleteDialogHelper.RestrictWarning();
                 return;
             }
-            else if (DeleteDialogHelper.Warning() == System.Windows.MessageBoxResult.No)
-                return;
+            //else if (DeleteDialogHelper.Warning() == System.Windows.MessageBoxResult.No)
+            //    return;
             RepositoryHub.InvoiceRepo.Delete(Id);
         }
 
         public void Update(Invoice invoice)
         {
-            if (CheckValid.IsInvoiceValid(invoice))
-                RepositoryHub.InvoiceRepo.Update(invoice);
+            RepositoryHub.InvoiceRepo.Update(invoice);
         }
 
         public User GetUser(int invoiceID)

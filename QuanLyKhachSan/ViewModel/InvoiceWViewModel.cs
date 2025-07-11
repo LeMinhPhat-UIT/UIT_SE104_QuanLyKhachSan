@@ -37,6 +37,8 @@ namespace QuanLyKhachSan.ViewModel
 
         public InvoiceViewModel Invoice { get => _invoice; set { _invoice = value; OnPropertyChanged(nameof(Invoice)); } }
         public ReservationViewModel Reservation { get => _reservation; set { _reservation = value; OnPropertyChanged(nameof(Reservation)); } }
+        public double OldPrice { get; set; }
+        public string NewPrice { get; set; } = string.Empty;
         public int CustomersCount => Reservation.Customers.ToList().Count;
         public RoomViewModel Room { get => _room; set { _room = value; OnPropertyChanged(nameof(Room)); } }
 
@@ -47,6 +49,9 @@ namespace QuanLyKhachSan.ViewModel
             _reservation = reservation;
             _invoice = new InvoiceViewModel(QuanLyKhachSan.Models.BLL.Service.ReservationService.GetInvoice(reservation.ReservationID));
             _room = new RoomViewModel(QuanLyKhachSan.Models.BLL.Service.ReservationService.GetRoom(reservation.ReservationID));
+            OldPrice = _invoice.Total / (_reservation.Nights * (100 + _invoice.SurchargeRate) * _invoice.Coef) * 100;
+            if(OldPrice != (double) Room.PricePerDay)
+                NewPrice = $" ( {((double) Room.PricePerDay).ToString("N0")})";
 
             Pay = new InvoiceCommand(this, _ => UpdateInvoice(), _ => !string.IsNullOrEmpty(Invoice.PaymentMethod));
         }

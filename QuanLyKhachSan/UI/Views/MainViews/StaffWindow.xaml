@@ -169,7 +169,7 @@
                         <Border.ContextMenu>
                             <ContextMenu>
                                 <MenuItem Header="Đăng xuất" Click="Logout_Click"/>
-                                <MenuItem Header="Thay đổi mật khẩu" Click="ChangePassword_Click"/>
+                                <MenuItem x:Name="ChangePasswordMenuItem" Header="Thay đổi mật khẩu" Click="ChangePassword_Click"/>
                             </ContextMenu>
                         </Border.ContextMenu>
 

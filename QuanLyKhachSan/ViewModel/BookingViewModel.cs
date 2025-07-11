@@ -173,6 +173,9 @@ namespace QuanLyKhachSan.ViewModel
             _customers.Clear();
             _invoice = new InvoiceViewModel(_selectedRoom, _reservation);
             OnPropertyChanged(nameof(Invoice));
+            Adults = 0;
+            Kids = 0;
+            OnPropertyChanged(nameof(Reservation));
         }
 
         private void OpenAndAddCustomer()
