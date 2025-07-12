@@ -53,7 +53,7 @@ namespace QuanLyKhachSan.ViewModel
             IsSaved = true;
             if (Reservation.Customers.Count() < Reservation.CustomersCount)
             {
-                MessageBox.Show($"Please fill in all the customers, you are missing {Reservation.CustomersCount - Reservation.Customers.Count()} customer(s)");
+                MessageBox.Show($"hãy cung cấp đầy đủ thông tin khách hàng, bạn đang thiếu {Reservation.CustomersCount - Reservation.Customers.Count()} khách hàng");
                 IsSaved = false;
                 return;
             }
