@@ -14,7 +14,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 107,
-          "SelectedChildIndex": 12,
+          "SelectedChildIndex": 10,
           "Children": [
             {
               "$type": "Bookmark",
@@ -23,10 +23,6 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
             },
             {
               "$type": "Bookmark",
@@ -50,10 +46,6 @@
             },
             {
               "$type": "Bookmark",
-              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
-            },
-            {
-              "$type": "Bookmark",
               "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
             },
             {
@@ -72,10 +64,14 @@
               "RelativeDocumentMoniker": "ViewModel\\ReservationDetailViewModel.cs",
               "ToolTip": "D:\\LeMinhPhat\\NewPull\\SE104\\UIT_SE104_QuanLyKhachSan\\QuanLyKhachSan\\ViewModel\\ReservationDetailViewModel.cs",
               "RelativeToolTip": "ViewModel\\ReservationDetailViewModel.cs",
-              "ViewState": "AgIAACoAAAAAAAAAAAAAADcAAACiAAAAAAAAAA==",
+              "ViewState": "AgIAAC0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-12T04:42:03.858Z",
+              "WhenOpened": "2025-07-12T14:55:42.644Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
             }
           ]
         }

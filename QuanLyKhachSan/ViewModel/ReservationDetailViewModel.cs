@@ -51,10 +51,21 @@ namespace QuanLyKhachSan.ViewModel
         private void SaveAndClose()
         {
             IsSaved = true;
+            var invoiceOfThisReservation = QuanLyKhachSan.Models.BLL.Service.InvoiceService.GetAllData().FirstOrDefault(x => x.ReservationID == Reservation.ReservationID);
             if (Reservation.Customers.Count() < Reservation.CustomersCount)
             {
-                MessageBox.Show($"hãy cung cấp đầy đủ thông tin khách hàng, bạn đang thiếu {Reservation.CustomersCount - Reservation.Customers.Count()} khách hàng");
+                string message = $"hãy cung cấp đầy đủ thông tin khách hàng, bạn đang thiếu {Reservation.CustomersCount - Reservation.Customers.Count()} khách hàng";
+                if (invoiceOfThisReservation.Coef != 1)
+                    message += " (có khách nước ngoài)";
+                MessageBox.Show(message);
                 IsSaved = false;
+                return;
+            }
+            if (invoiceOfThisReservation.Coef != 1 && !Reservation.Customers.Any(x => x.CustomerTierName == "Nước ngoài"))
+            {
+                string message = "bạn cần có ít nhất một khách nước ngoài";
+                MessageBox.Show(message);
+                IsSaved = false; 
                 return;
             }
             var realCustomerList = QuanLyKhachSan.Models.BLL.Service.ReservationService.GetCustomers(Reservation.ReservationID);
