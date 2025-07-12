@@ -1,24 +1,7 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "D:\\LeMinhPhat\\NewPull\\SE104\\UIT_SE104_QuanLyKhachSan\\QuanLyKhachSan\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{0CC7568F-EA8C-4D36-AF5B-AE6AB1C2A1B6}|QuanLyKhachSan.csproj|d:\\leminhphat\\newpull\\se104\\uit_se104_quanlykhachsan\\quanlykhachsan\\validationrules\\roomtiernamevalidationrule.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0CC7568F-EA8C-4D36-AF5B-AE6AB1C2A1B6}|QuanLyKhachSan.csproj|solutionrelative:validationrules\\roomtiernamevalidationrule.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0CC7568F-EA8C-4D36-AF5B-AE6AB1C2A1B6}|QuanLyKhachSan.csproj|d:\\leminhphat\\newpull\\se104\\uit_se104_quanlykhachsan\\quanlykhachsan\\validationrules\\customertiernamevalidationrule.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0CC7568F-EA8C-4D36-AF5B-AE6AB1C2A1B6}|QuanLyKhachSan.csproj|solutionrelative:validationrules\\customertiernamevalidationrule.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0CC7568F-EA8C-4D36-AF5B-AE6AB1C2A1B6}|QuanLyKhachSan.csproj|d:\\leminhphat\\newpull\\se104\\uit_se104_quanlykhachsan\\quanlykhachsan\\ui\\views\\mainviews\\settingwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0CC7568F-EA8C-4D36-AF5B-AE6AB1C2A1B6}|QuanLyKhachSan.csproj|solutionrelative:ui\\views\\mainviews\\settingwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0CC7568F-EA8C-4D36-AF5B-AE6AB1C2A1B6}|QuanLyKhachSan.csproj|d:\\leminhphat\\newpull\\se104\\uit_se104_quanlykhachsan\\quanlykhachsan\\ui\\views\\mainviews\\settingwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{0CC7568F-EA8C-4D36-AF5B-AE6AB1C2A1B6}|QuanLyKhachSan.csproj|solutionrelative:ui\\views\\mainviews\\settingwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    }
-  ],
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -26,34 +9,8 @@
       "DocumentGroups": [
         {
           "DockedWidth": 107,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": -1,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "CustomerTierNameValidationRule.cs",
-              "DocumentMoniker": "D:\\LeMinhPhat\\NewPull\\SE104\\UIT_SE104_QuanLyKhachSan\\QuanLyKhachSan\\ValidationRules\\CustomerTierNameValidationRule.cs",
-              "RelativeDocumentMoniker": "ValidationRules\\CustomerTierNameValidationRule.cs",
-              "ToolTip": "D:\\LeMinhPhat\\NewPull\\SE104\\UIT_SE104_QuanLyKhachSan\\QuanLyKhachSan\\ValidationRules\\CustomerTierNameValidationRule.cs",
-              "RelativeToolTip": "ValidationRules\\CustomerTierNameValidationRule.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-11T10:01:28.691Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "RoomTierNameValidationRule.cs",
-              "DocumentMoniker": "D:\\LeMinhPhat\\NewPull\\SE104\\UIT_SE104_QuanLyKhachSan\\QuanLyKhachSan\\ValidationRules\\RoomTierNameValidationRule.cs",
-              "RelativeDocumentMoniker": "ValidationRules\\RoomTierNameValidationRule.cs",
-              "ToolTip": "D:\\LeMinhPhat\\NewPull\\SE104\\UIT_SE104_QuanLyKhachSan\\QuanLyKhachSan\\ValidationRules\\RoomTierNameValidationRule.cs",
-              "RelativeToolTip": "ValidationRules\\RoomTierNameValidationRule.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-11T09:59:54.123Z",
-              "EditorCaption": ""
-            },
             {
               "$type": "Bookmark",
               "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
@@ -101,31 +58,6 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{57d563b6-44a5-47df-85be-f4199ad6b651}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "SettingWindow.xaml.cs",
-              "DocumentMoniker": "D:\\LeMinhPhat\\NewPull\\SE104\\UIT_SE104_QuanLyKhachSan\\QuanLyKhachSan\\UI\\Views\\MainViews\\SettingWindow.xaml.cs",
-              "RelativeDocumentMoniker": "UI\\Views\\MainViews\\SettingWindow.xaml.cs",
-              "ToolTip": "D:\\LeMinhPhat\\NewPull\\SE104\\UIT_SE104_QuanLyKhachSan\\QuanLyKhachSan\\UI\\Views\\MainViews\\SettingWindow.xaml.cs",
-              "RelativeToolTip": "UI\\Views\\MainViews\\SettingWindow.xaml.cs",
-              "ViewState": "AgIAAEoAAAAAAAAAAAAIwFcAAAAeAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-11T09:15:32.035Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "SettingWindow.xaml",
-              "DocumentMoniker": "D:\\LeMinhPhat\\NewPull\\SE104\\UIT_SE104_QuanLyKhachSan\\QuanLyKhachSan\\UI\\Views\\MainViews\\SettingWindow.xaml",
-              "RelativeDocumentMoniker": "UI\\Views\\MainViews\\SettingWindow.xaml",
-              "ToolTip": "D:\\LeMinhPhat\\NewPull\\SE104\\UIT_SE104_QuanLyKhachSan\\QuanLyKhachSan\\UI\\Views\\MainViews\\SettingWindow.xaml",
-              "RelativeToolTip": "UI\\Views\\MainViews\\SettingWindow.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-07-11T08:31:31.996Z",
-              "EditorCaption": ""
             }
           ]
         }

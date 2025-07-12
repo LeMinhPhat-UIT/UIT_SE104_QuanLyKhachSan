@@ -772,6 +772,8 @@
                                                 FontSize="20" 
                                                 FontWeight="Medium"/>
                                             <CheckBox
+                                                IsChecked="{Binding HasForeignCustomer}"
+                                                IsEnabled="{Binding CanUncheckForeignCustomer}"
                                                 Command="{Binding Checked}"
                                                 CommandParameter="{Binding IsChecked, RelativeSource={RelativeSource Self}}"
                                                 Grid.Column="1"

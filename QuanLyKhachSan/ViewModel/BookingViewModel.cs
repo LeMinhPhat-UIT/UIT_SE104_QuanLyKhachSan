@@ -54,6 +54,8 @@ namespace QuanLyKhachSan.ViewModel
         private int _adults;
         private int _kids;
         private RuleViewModel _rule;
+        private bool _hasForeignCustomer;
+        private bool _canUncheckForeignCustomer = true;
 
 
         public UserViewModel User => _userViewModel;
@@ -66,7 +68,24 @@ namespace QuanLyKhachSan.ViewModel
         public int Adults { get => _adults; set { _adults = value; OnPropertyChanged(nameof(Adults)); OnPropertyChanged(nameof(CustomersCount)); } }
         public int Kids { get => _kids; set { _kids = value; OnPropertyChanged(nameof(Kids)); OnPropertyChanged(nameof(CustomersCount)); } }
         public int CustomersCount => Adults + Kids;
-
+        public bool HasForeignCustomer 
+        { 
+            get => _hasForeignCustomer; 
+            set 
+            { 
+                _hasForeignCustomer = value;
+                OnPropertyChanged(nameof(HasForeignCustomer)); 
+            } 
+        }
+        public bool CanUncheckForeignCustomer
+        {
+            get => _canUncheckForeignCustomer;
+            set
+            {
+                _canUncheckForeignCustomer = value;
+                OnPropertyChanged(nameof(CanUncheckForeignCustomer));
+            }
+        }
 
         public ICommand AdultsIncrease { get; }
         public ICommand AdultsDecrease { get; }
@@ -124,8 +143,16 @@ namespace QuanLyKhachSan.ViewModel
                 if(QuanLyKhachSan.Models.BLL.Service.CustomerService.GetReservations(cus.ID).Count == 0)
                     QuanLyKhachSan.Models.BLL.Service.CustomerService.Delete(cus.ID);
                 if (_customers.Any(x => x.CustomerTierName == "Nước ngoài"))
-                    _invoice.Coef = 1.5;
-                else _invoice.Coef = 1;
+                {
+                    HasForeignCustomerCheck(true);
+                    CanUncheckForeignCustomer = false;
+                }
+                else
+                {
+                    HasForeignCustomerCheck(false);
+                    CanUncheckForeignCustomer = true;
+                    HasForeignCustomer = false;
+                }
             }
         }
 
@@ -175,6 +202,8 @@ namespace QuanLyKhachSan.ViewModel
             OnPropertyChanged(nameof(Invoice));
             Adults = 0;
             Kids = 0;
+            HasForeignCustomer = false;
+            CanUncheckForeignCustomer = true;
             OnPropertyChanged(nameof(Reservation));
         }
 
@@ -191,7 +220,11 @@ namespace QuanLyKhachSan.ViewModel
             {
                 _customers?.Add(viewmodel.Customer);
                 if (viewmodel.Customer.CustomerTierName == "Nước ngoài")
-                    _invoice.Coef = 1.5;
+                {
+                    HasForeignCustomerCheck(true);
+                    HasForeignCustomer = true;
+                    CanUncheckForeignCustomer = false;
+                }
                 if (_customers?.Count >= _rule.CustomerToApplySurchargeRate)
                     _invoice.SurchargeRate = _rule.SurchargeRate;
                 UpdateTotal();

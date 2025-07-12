@@ -72,7 +72,7 @@ namespace QuanLyKhachSan.ViewModel
                 _ =>
                 {
                     return
-                        !string.IsNullOrEmpty(Room.RoomNumber) && Room.PricePerDay != 0 && !string.IsNullOrEmpty(Room.RoomState) &&
+                        !string.IsNullOrEmpty(Room.RoomNumber) && Room.PricePerDay != 0 &&
                         SelectedTier != null && SelectedAmenities != null;
                 }
             );
@@ -87,7 +87,8 @@ namespace QuanLyKhachSan.ViewModel
                 var room = QuanLyKhachSan.Models.BLL.Service.RoomService.GetById(_room.RoomID);
                 room.RoomTierID = SelectedTier.ID;
                 room.RoomNumber = _room.RoomNumber;
-                room.RoomState = _room.RoomState;
+                //room.RoomState = _room.RoomState;
+                room.RoomState = "Available";
                 var amenities = QuanLyKhachSan.Models.BLL.Service.RoomService.GetAmenities(room.RoomID);
                 amenities.ForEach(x => QuanLyKhachSan.Models.BLL.Service.RoomService.DeleteAmenity(room.RoomID, x.AmenityID));
                 SelectedAmenities.ToList().ForEach(x => QuanLyKhachSan.Models.BLL.Service.RoomService.AddAmenity(room.RoomID, x.ID));
@@ -101,7 +102,8 @@ namespace QuanLyKhachSan.ViewModel
                 var room = new Room();
                 room.RoomTierID = SelectedTier.ID;
                 room.RoomNumber = _room.RoomNumber;
-                room.RoomState = _room.RoomState;
+                //room.RoomState = _room.RoomState;
+                room.RoomState = "Available";
                 room.RoomTierID = SelectedTier.ID;
                 QuanLyKhachSan.Models.BLL.Service.RoomService.Add(room);
                 SelectedAmenities.ToList().ForEach(x => QuanLyKhachSan.Models.BLL.Service.RoomService.AddAmenity(room.RoomID, x.ID));

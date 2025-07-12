@@ -149,7 +149,9 @@
                             Margin="0, 8, 0, 0">
                             <ComboBox
                                 ItemsSource="{Binding RoomStates}"
-                                SelectedItem="{Binding Room.RoomState}"
+                                SelectedItem="Available"
+                                IsEditable="False"
+                                IsEnabled="False"
                                 materialDesign:TextFieldAssist.DecorationVisibility="Collapsed"
                                 BorderThickness="0"
                                 Height="35">
